@@ -6,6 +6,9 @@ using System;
 using System.Windows.Forms;
 using CefSharp.MinimalExample.WinForms.Controls;
 using CefSharp.WinForms;
+using System.Threading.Tasks;
+using System.Diagnostics;
+using static CefSharp.MinimalExample.WinForms.BrowserForm.BoundObject;
 
 namespace CefSharp.MinimalExample.WinForms
 {
@@ -31,11 +34,50 @@ namespace CefSharp.MinimalExample.WinForms
             browser.StatusMessage += OnBrowserStatusMessage;
             browser.TitleChanged += OnBrowserTitleChanged;
             browser.AddressChanged += OnBrowserAddressChanged;
+            browser.LoadingStateChanged += (sender, args) =>
+            {
+                //Wait for the Page to finish loading
+                if (args.IsLoading == false)
+                {
+                    browser.ExecuteScriptAsync("alert('All Resources Have Loaded');");
+                }
+            };
+            browser.RegisterAsyncJsObject("boundAsync", new AsyncBoundObject()); //Standard object rego
+                                                                                 //browser.RegisterJsObject("bound", new BoundObject()); //Standard object registration
+            browser.RegisterJsObject("bound", new BoundObject(), BindingOptions.DefaultBinder); //Use the default binder to serialize values into complex objects
+                                                                                                //browser.RegisterJsObject("bound", new BoundObject(), new BindingOptions { CamelCaseJavascriptNames = false, Binder = new MyCustomBinder() }); //No camelcase of names and specify a default binder
+
+
+
 
             var bitness = Environment.Is64BitProcess ? "x64" : "x86";
             var version = String.Format("Chromium: {0}, CEF: {1}, CefSharp: {2}, Environment: {3}", Cef.ChromiumVersion, Cef.CefVersion, Cef.CefSharpVersion, bitness);
             DisplayOutput(version);
         }
+
+
+        public class BoundObject
+        {
+            public class AsyncBoundObject
+            {
+                //We expect an exception here, so tell VS to ignore
+                // [DebuggerHidden]
+                public void Error()
+                {
+                    throw new Exception("This is an exception coming from C#");
+                }
+
+                //We expect an exception here, so tell VS to ignore
+                // [DebuggerHidden]
+                public int Div(int divident, int divisor)
+                {
+                    return divident + divisor;
+                }
+            }
+        }
+
+
+
 
         private void OnBrowserConsoleMessage(object sender, ConsoleMessageEventArgs args)
         {
