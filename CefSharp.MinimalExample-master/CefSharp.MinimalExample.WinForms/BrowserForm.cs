@@ -39,13 +39,14 @@ namespace CefSharp.MinimalExample.WinForms
                //Wait for the Page to finish loading
                if (args.IsLoading == false)
             {
-               browser.ExecuteScriptAsync("alert('All Resources Have Loaded');");
+              // browser.ExecuteScriptAsync("alert('All Resources Have Loaded');");
             }
          };
          browser.RegisterAsyncJsObject("boundAsync", new BoundObject.AsyncBoundObject()); //Standard object rego
                                                                                           //browser.RegisterJsObject("bound", new BoundObject()); //Standard object registration
          browser.RegisterJsObject("bound", new BoundObject(), BindingOptions.DefaultBinder); //Use the default binder to serialize values into complex objects
                                                                                              //browser.RegisterJsObject("bound", new BoundObject(), new BindingOptions { CamelCaseJavascriptNames = false, Binder = new MyCustomBinder() }); //No camelcase of names and specify a default binder
+         browser.RegisterJsObject("bound1", new BoundObject1(), BindingOptions.DefaultBinder); //Use the default binder to serialize values into complex objects
 
 
 
@@ -75,7 +76,32 @@ namespace CefSharp.MinimalExample.WinForms
             }
          }
       }
+      public class BoundObject1
+      {
+         public string MyProperty { get; set; }
+         public void MyMethod()
+         {
+            // Do something really cool here.
+         }
 
+         public void TestCallback(IJavascriptCallback javascriptCallback)
+         {
+            const int taskDelay = 1500;
+
+            Task.Run(async () =>
+            {
+            await Task.Delay(taskDelay);
+
+            using (javascriptCallback)
+            {
+               //NOTE: Classes are not supported, simple structs are
+               //var response = new CallbackResponseStruct("This callback from C# was delayed " + taskDelay + "ms");
+               var response = "This callback from C# was delayed " + taskDelay + "ms";
+                  await javascriptCallback.ExecuteAsync(response);
+               }
+            });
+         }
+      }
 
 
 
