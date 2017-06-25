@@ -15,7 +15,7 @@
     <DefaultHTMLPageLayout>Grid</DefaultHTMLPageLayout>
     <DefaultTargetSchema>IE50</DefaultTargetSchema>
     <DelaySign>false</DelaySign>
-    <OutputType>WinExe</OutputType>
+    <OutputType>Library</OutputType>
     <RootNamespace>RichClient</RootNamespace>
     <NoStandardLibraries>false</NoStandardLibraries>
     <RunPostBuildEvent>OnBuildSuccess</RunPostBuildEvent>
@@ -38,7 +38,6 @@
     <SignManifests>false</SignManifests>
     <ManifestCertificateThumbprint>78A5AA00434709D5501813D4B8CD1C5267C62853</ManifestCertificateThumbprint>
     <ManifestTimestampUrl>http://timestamp.verisign.com/scripts/timstamp.dll</ManifestTimestampUrl>
-    <NoWin32Manifest>true</NoWin32Manifest>
     <PublishUrl>http://localhost/MagicRIAApplications/</PublishUrl>
     <Install>true</Install>
     <InstallFrom>Web</InstallFrom>

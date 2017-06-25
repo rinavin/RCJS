@@ -23,7 +23,7 @@ namespace CefSharp.MinimalExample.WinForms
          Text = "CefSharp";
          WindowState = FormWindowState.Maximized;
 
-         browser = new ChromiumWebBrowser("www.google.com")
+         browser = new ChromiumWebBrowser("localhost:4200")//"www.google.com"
          {
             Dock = DockStyle.Fill,
          };
@@ -54,6 +54,7 @@ namespace CefSharp.MinimalExample.WinForms
          var bitness = Environment.Is64BitProcess ? "x64" : "x86";
          var version = String.Format("Chromium: {0}, CEF: {1}, CefSharp: {2}, Environment: {3}", Cef.ChromiumVersion, Cef.CefVersion, Cef.CefSharpVersion, bitness);
          DisplayOutput(version);
+            //com.magicsoftware.richclient.Runme.Start();
       }
 
 
@@ -72,7 +73,8 @@ namespace CefSharp.MinimalExample.WinForms
             // [DebuggerHidden]
             public int Div(int divident, int divisor)
             {
-               return divident + divisor;
+                    
+                    return divident + divisor;
             }
          }
       }
@@ -91,8 +93,8 @@ namespace CefSharp.MinimalExample.WinForms
             Task.Run(async () =>
             {
             await Task.Delay(taskDelay);
-
-            using (javascriptCallback)
+               
+                using (javascriptCallback)
             {
                //NOTE: Classes are not supported, simple structs are
                //var response = new CallbackResponseStruct("This callback from C# was delayed " + taskDelay + "ms");
@@ -130,7 +132,14 @@ namespace CefSharp.MinimalExample.WinForms
 
       private void OnBrowserAddressChanged(object sender, AddressChangedEventArgs args)
       {
-         this.InvokeOnUiThreadIfRequired(() => urlTextBox.Text = args.Address);
+            Task.Run(async () =>
+            {
+                await Task.Delay(1);
+
+                com.magicsoftware.richclient.Runme.Start();
+            });
+            
+            this.InvokeOnUiThreadIfRequired(() => urlTextBox.Text = args.Address);
       }
 
       private void SetCanGoBack(bool canGoBack)

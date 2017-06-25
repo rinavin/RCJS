@@ -64,6 +64,13 @@ using Monitor = com.magicsoftware.richclient.mobile.util.Monitor;
 
 namespace com.magicsoftware.richclient
 {
+    public static class Runme
+    {
+        static public void Start()
+        {
+            ClientManager.Main(new string[] { });
+        }
+    }
    /// <summary> The main class of the Rich Client</summary>
    internal class ClientManager : System.IServiceProvider
    {
@@ -1440,7 +1447,7 @@ namespace com.magicsoftware.richclient
          // In case there is proxy authentication and application is accessed through ClickOnce
          // then we create authentication dialog box before guiStartup. Hence Compatible text
          // rendering must be set before that
-         Application.SetCompatibleTextRenderingDefault(false);
+         //Application.SetCompatibleTextRenderingDefault(false);
 #endif
 
          if (args.Length > 0 && args[0].StartsWith(ENCODE, StringComparison.OrdinalIgnoreCase))
