@@ -1,0 +1,343 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProductVersion>9.0.21022</ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{A95B1C7E-66B5-4AFA-801D-8528C5689999}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>Gui</RootNamespace>
+    <AssemblyName>MgGui</AssemblyName>
+    <TargetFrameworkVersion>v4.0</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <SccProjectName>SAK</SccProjectName>
+    <SccLocalPath>SAK</SccLocalPath>
+    <SccAuxPath>SAK</SccAuxPath>
+    <SccProvider>SAK</SccProvider>
+    <FileUpgradeFlags>
+    </FileUpgradeFlags>
+    <UpgradeBackupLocation>
+    </UpgradeBackupLocation>
+    <OldToolsVersion>3.5</OldToolsVersion>
+    <TargetFrameworkProfile />
+    <PublishUrl>http://localhost/MgGui/</PublishUrl>
+    <Install>true</Install>
+    <InstallFrom>Web</InstallFrom>
+    <UpdateEnabled>true</UpdateEnabled>
+    <UpdateMode>Foreground</UpdateMode>
+    <UpdateInterval>7</UpdateInterval>
+    <UpdateIntervalUnits>Days</UpdateIntervalUnits>
+    <UpdatePeriodically>false</UpdatePeriodically>
+    <UpdateRequired>false</UpdateRequired>
+    <MapFileExtensions>true</MapFileExtensions>
+    <ApplicationRevision>0</ApplicationRevision>
+    <ApplicationVersion>1.0.0.%2a</ApplicationVersion>
+    <IsWebBootstrapper>true</IsWebBootstrapper>
+    <UseApplicationTrust>false</UseApplicationTrust>
+    <BootstrapperEnabled>true</BootstrapperEnabled>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <TreatWarningsAsErrors>true</TreatWarningsAsErrors>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <TreatWarningsAsErrors>true</TreatWarningsAsErrors>
+  </PropertyGroup>
+  <PropertyGroup>
+    <SignAssembly>true</SignAssembly>
+  </PropertyGroup>
+  <PropertyGroup>
+    <AssemblyOriginatorKeyFile>..\..\RichClientDotNet\util\Merlin.snk</AssemblyOriginatorKeyFile>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="System" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Design" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Windows.Forms" />
+    <Reference Include="System.XML" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="..\..\DotNet\MgDotNet\DotNetUtils.cs">
+      <Link>DotNetUtils.cs</Link>
+    </Compile>
+    <Compile Include="com\magicsoftware\unipaas\Commands.cs" />
+    <Compile Include="com\magicsoftware\unipaas\dotnet\DNChoiceControlDataTable.cs" />
+    <Compile Include="com\magicsoftware\unipaas\dotnet\DNControlEvents.cs" />
+    <Compile Include="com\magicsoftware\unipaas\dotnet\DNConvert.cs" />
+    <Compile Include="com\magicsoftware\unipaas\dotnet\DNDataTable.cs" />
+    <Compile Include="com\magicsoftware\unipaas\dotnet\DNException.cs" />
+    <Compile Include="com\magicsoftware\unipaas\dotnet\DNManager.cs" />
+    <Compile Include="com\magicsoftware\unipaas\dotnet\DNMemberInfo.cs" />
+    <Compile Include="com\magicsoftware\unipaas\dotnet\DNObjectEventsCollection.cs" />
+    <Compile Include="com\magicsoftware\unipaas\dotnet\DNObjectFieldTable.cs" />
+    <Compile Include="com\magicsoftware\unipaas\dotnet\DNObjectsCollection.cs" />
+    <Compile Include="com\magicsoftware\unipaas\env\ColorsTable.cs" />
+    <Compile Include="com\magicsoftware\unipaas\env\FontsTable.cs" />
+    <Compile Include="com\magicsoftware\unipaas\Events.cs" />
+    <Compile Include="com\magicsoftware\unipaas\EventsProcessor.cs" />
+    <Compile Include="com\magicsoftware\unipaas\GuiConstants.cs" />
+    <Compile Include="com\magicsoftware\unipaas\gui\GuiMenuEntry.cs" />
+    <Compile Include="com\magicsoftware\unipaas\gui\GuiMgControl.cs" />
+    <Compile Include="com\magicsoftware\unipaas\gui\GuiMgForm.cs" />
+    <Compile Include="com\magicsoftware\unipaas\gui\GuiMgMenu.cs" />
+    <Compile Include="com\magicsoftware\unipaas\gui\KeyboardItem.cs" />
+    <Compile Include="com\magicsoftware\unipaas\gui\LastFocusedVal.cs" />
+    <Compile Include="com\magicsoftware\unipaas\gui\low\BasicControlsManager.cs" />
+    <Compile Include="com\magicsoftware\unipaas\gui\low\ContextForms.cs" />
+    <Compile Include="com\magicsoftware\unipaas\gui\low\DesignerValuesSetters.cs" />
+    <Compile Include="com\magicsoftware\unipaas\gui\low\EditorSupportingCoordinator.cs" />
+    <Compile Include="com\magicsoftware\unipaas\gui\low\BrowserHandler.cs" />
+    <Compile Include="com\magicsoftware\unipaas\gui\low\BrowserWindow.cs" />
+    <Compile Include="com\magicsoftware\unipaas\gui\low\ButtonHandler.cs" />
+    <Compile Include="com\magicsoftware\unipaas\gui\low\ColumnHandler.cs" />
+    <Compile Include="com\magicsoftware\unipaas\gui\low\FillTablePlacementStrategy.cs" />
+    <Compile Include="com\magicsoftware\unipaas\gui\low\LgColumn.cs" />
+    <Compile Include="com\magicsoftware\unipaas\gui\low\ComboHandler.cs" />
+    <Compile Include="com\magicsoftware\unipaas\gui\low\ConsoleWindow.cs" />
+    <Compile Include="com\magicsoftware\unipaas\gui\low\ContainerManager.cs" />
+    <Compile Include="com\magicsoftware\unipaas\gui\low\ControlsMap.cs" />
+    <Compile Include="com\magicsoftware\unipaas\gui\low\DataViewControlHandler.cs" />
+    <Compile Include="com\magicsoftware\unipaas\gui\low\DefaultContainerHandler.cs" />
+    <Compile Include="com\magicsoftware\unipaas\gui\low\DefaultHandler.cs" />
+    <Compile Include="com\magicsoftware\unipaas\gui\low\DialogHandler.cs" />
+    <Compile Include="com\magicsoftware\unipaas\gui\low\DotNetHandler.cs" />
+    <Compile Include="com\magicsoftware\unipaas\gui\low\DraggedData.cs" />
+    <Compile Include="com\magicsoftware\unipaas\gui\low\DroppedData.cs" />
+    <Compile Include="com\magicsoftware\unipaas\gui\low\Filter.cs" />
+    <Compile Include="com\magicsoftware\unipaas\gui\low\FontsCache.cs" />
+    <Compile Include="com\magicsoftware\unipaas\gui\low\FormHandler.cs" />
+    <Compile Include="com\magicsoftware\unipaas\gui\low\GroupHandler.cs" />
+    <Compile Include="com\magicsoftware\unipaas\gui\low\GuiCommandQueue.cs" />
+    <Compile Include="com\magicsoftware\unipaas\gui\low\GuiInteractive.cs" />
+    <Compile Include="com\magicsoftware\unipaas\gui\low\GUIMain.cs" />
+    <Compile Include="com\magicsoftware\unipaas\gui\low\GuiUtils.cs" />
+    <Compile Include="com\magicsoftware\unipaas\gui\low\HandlerBase.cs" />
+    <Compile Include="com\magicsoftware\unipaas\gui\low\IconsCache.cs" />
+    <Compile Include="com\magicsoftware\unipaas\gui\low\ImageListCache.cs" />
+    <Compile Include="com\magicsoftware\unipaas\gui\low\ImageLoader.cs" />
+    <Compile Include="com\magicsoftware\unipaas\gui\low\ImagesCache.cs" />
+    <Compile Include="com\magicsoftware\unipaas\gui\low\ItemsManager.cs" />
+    <Compile Include="com\magicsoftware\unipaas\gui\low\KbdConvertor.cs" />
+    <Compile Include="com\magicsoftware\unipaas\gui\low\LabelHandler.cs" />
+    <Compile Include="com\magicsoftware\unipaas\gui\low\LgButtonBase.cs" />
+    <Compile Include="com\magicsoftware\unipaas\gui\low\LgCheckBox.cs" />
+    <Compile Include="com\magicsoftware\unipaas\gui\low\LgCombo.cs" />
+    <Compile Include="com\magicsoftware\unipaas\gui\low\LgImage.cs" />
+    <Compile Include="com\magicsoftware\unipaas\gui\low\LgLabel.cs" />
+    <Compile Include="com\magicsoftware\unipaas\gui\low\LgLinkLabel.cs" />
+    <Compile Include="com\magicsoftware\unipaas\gui\low\LgRadioContainer.cs" />
+    <Compile Include="com\magicsoftware\unipaas\gui\low\LgRich.cs" />
+    <Compile Include="com\magicsoftware\unipaas\gui\low\LgText.cs" />
+    <Compile Include="com\magicsoftware\unipaas\gui\low\Line.cs" />
+    <Compile Include="com\magicsoftware\unipaas\gui\low\ListHandler.cs" />
+    <Compile Include="com\magicsoftware\unipaas\gui\low\LogicalControl.cs" />
+    <Compile Include="com\magicsoftware\unipaas\gui\low\MapData.cs" />
+    <Compile Include="com\magicsoftware\unipaas\gui\low\MenuReference.cs" />
+    <Compile Include="com\magicsoftware\unipaas\gui\low\MgImageListCache.cs" />
+    <Compile Include="com\magicsoftware\unipaas\gui\low\MgImageListCacheKey.cs" />
+    <Compile Include="com\magicsoftware\unipaas\gui\low\MgMenuHandler.cs" />
+    <Compile Include="com\magicsoftware\unipaas\gui\low\MgSplitContainer.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="com\magicsoftware\unipaas\gui\low\MgSplitContainerData.cs" />
+    <Compile Include="com\magicsoftware\unipaas\gui\low\MgSplitContainerHandler.cs" />
+    <Compile Include="com\magicsoftware\unipaas\gui\low\MgSplitContainerLayout.cs" />
+    <Compile Include="com\magicsoftware\unipaas\gui\low\MinSizeInfo.cs" />
+    <Compile Include="com\magicsoftware\unipaas\gui\low\NativeWindowUtils.cs" />
+    <Compile Include="com\magicsoftware\unipaas\gui\low\OldZorderManager.cs" />
+    <Compile Include="com\magicsoftware\unipaas\gui\low\PictureBoxHandler.cs" />
+    <Compile Include="com\magicsoftware\unipaas\gui\low\EditorSupportingPlacementLayout.cs" />
+    <Compile Include="com\magicsoftware\unipaas\gui\low\PrintPreview.cs" />
+    <Compile Include="com\magicsoftware\unipaas\gui\low\PrintPreviewData.cs" />
+    <Compile Include="com\magicsoftware\unipaas\gui\low\PrintPreviewFocusManager.cs" />
+    <Compile Include="com\magicsoftware\unipaas\gui\low\RadioButtonHandler.cs" />
+    <Compile Include="com\magicsoftware\unipaas\gui\low\RadioPanelHandler.cs" />
+    <Compile Include="com\magicsoftware\unipaas\gui\low\RichEditHandler.cs" />
+    <Compile Include="com\magicsoftware\unipaas\gui\low\RuntimeDesignerBuilder.cs" />
+    <Compile Include="com\magicsoftware\unipaas\gui\low\SplitterHandler.cs" />
+    <Compile Include="com\magicsoftware\unipaas\gui\low\StatusHandler.cs" />
+    <Compile Include="com\magicsoftware\unipaas\gui\low\Styles.cs" />
+    <Compile Include="com\magicsoftware\unipaas\gui\low\SubformPanelHandler.cs" />
+    <Compile Include="com\magicsoftware\unipaas\gui\low\TabControlPanelHandler.cs" />
+    <Compile Include="com\magicsoftware\unipaas\gui\low\TabHandler.cs" />
+    <Compile Include="com\magicsoftware\unipaas\gui\low\TableCoordinator.cs" />
+    <Compile Include="com\magicsoftware\unipaas\gui\low\TableHandler.cs" />
+    <Compile Include="com\magicsoftware\unipaas\gui\low\TableManager.cs" />
+    <Compile Include="com\magicsoftware\unipaas\gui\low\TableManagerLimitedItems.cs" />
+    <Compile Include="com\magicsoftware\unipaas\gui\low\TableManagerUnlimitedItems.cs" />
+    <Compile Include="com\magicsoftware\unipaas\gui\low\TablePlacementManager.cs" />
+    <Compile Include="com\magicsoftware\unipaas\gui\low\TableChildRenderer.cs" />
+    <Compile Include="com\magicsoftware\unipaas\gui\low\TagData.cs" />
+    <Compile Include="com\magicsoftware\unipaas\gui\low\TextBoxHandler.cs" />
+    <Compile Include="com\magicsoftware\unipaas\gui\low\ToolImages.cs" />
+    <Compile Include="com\magicsoftware\unipaas\gui\low\TreeChild.cs" />
+    <Compile Include="com\magicsoftware\unipaas\gui\low\TreeHandler.cs" />
+    <Compile Include="com\magicsoftware\unipaas\gui\low\TreeManager.cs" />
+    <Compile Include="com\magicsoftware\unipaas\gui\MgValue.cs" />
+    <Compile Include="com\magicsoftware\unipaas\management\data\BlobType.cs" />
+    <Compile Include="com\magicsoftware\unipaas\management\data\DataModificationTypes.cs" />
+    <Compile Include="com\magicsoftware\unipaas\management\data\DataViewBase.cs" />
+    <Compile Include="com\magicsoftware\unipaas\management\data\DcValues.cs" />
+    <Compile Include="com\magicsoftware\unipaas\management\data\DcValuesBuilderBase.cs" />
+    <Compile Include="com\magicsoftware\unipaas\management\data\DVDataTable.cs" />
+    <Compile Include="com\magicsoftware\unipaas\management\data\Field.cs" />
+    <Compile Include="com\magicsoftware\unipaas\management\data\FieldDef.cs" />
+    <Compile Include="com\magicsoftware\unipaas\management\data\FieldsTable.cs" />
+    <Compile Include="com\magicsoftware\unipaas\management\data\IReferencedObject.cs" />
+    <Compile Include="com\magicsoftware\unipaas\management\data\IRecord.cs" />
+    <Compile Include="com\magicsoftware\unipaas\management\data\MGDataTable.cs" />
+    <Compile Include="com\magicsoftware\unipaas\management\data\NUM_TYPE.cs" />
+    <Compile Include="com\magicsoftware\unipaas\management\data\ObjectReferenceBase.cs" />
+    <Compile Include="com\magicsoftware\unipaas\management\data\ObjectReferencesCollection.cs" />
+    <Compile Include="com\magicsoftware\unipaas\management\data\RecordUtils.cs" />
+    <Compile Include="com\magicsoftware\unipaas\management\data\VectorType.cs" />
+    <Compile Include="com\magicsoftware\unipaas\management\env\IEnvironment.cs" />
+    <Compile Include="com\magicsoftware\unipaas\management\event\IActionManager.cs" />
+    <Compile Include="com\magicsoftware\unipaas\management\event\IEventsManager.cs" />
+    <Compile Include="com\magicsoftware\unipaas\management\exp\ExpressionInterface.cs" />
+    <Compile Include="com\magicsoftware\unipaas\management\exp\GuiExpressionEvaluator.cs" />
+    <Compile Include="com\magicsoftware\unipaas\management\gui\AlwaysRefreshRule.cs" />
+    <Compile Include="com\magicsoftware\unipaas\management\gui\ApplicationMenus.cs" />
+    <Compile Include="com\magicsoftware\unipaas\management\gui\ApplicationMenusSaxHandler.cs" />
+    <Compile Include="com\magicsoftware\unipaas\management\gui\ControlTable.cs" />
+    <Compile Include="com\magicsoftware\unipaas\management\gui\DesignerPropertiesBuilder.cs" />
+    <Compile Include="com\magicsoftware\unipaas\management\gui\DisplayConvertor.cs" />
+    <Compile Include="com\magicsoftware\unipaas\management\gui\DVControlManager.cs" />
+    <Compile Include="com\magicsoftware\unipaas\management\gui\DVDataTableCollection.cs" />
+    <Compile Include="com\magicsoftware\unipaas\management\gui\EnvControlsPersistencyPath.cs" />
+    <Compile Include="com\magicsoftware\unipaas\management\gui\FieldValidator.cs" />
+    <Compile Include="com\magicsoftware\unipaas\management\gui\HebrewDate.cs" />
+    <Compile Include="com\magicsoftware\unipaas\management\gui\RefreshOnlyAfterFormIsRefreshedRule.cs" />
+    <Compile Include="com\magicsoftware\unipaas\management\gui\FormUserState.cs" />
+    <Compile Include="com\magicsoftware\unipaas\management\gui\Helps.cs" />
+    <Compile Include="com\magicsoftware\unipaas\management\gui\IProprertyRefreshRule.cs" />
+    <Compile Include="com\magicsoftware\unipaas\management\gui\MenuEntry.cs" />
+    <Compile Include="com\magicsoftware\unipaas\management\gui\MenuEntryEvent.cs" />
+    <Compile Include="com\magicsoftware\unipaas\management\gui\MenuEntryMenu.cs" />
+    <Compile Include="com\magicsoftware\unipaas\management\gui\MenuEntryOSCommand.cs" />
+    <Compile Include="com\magicsoftware\unipaas\management\gui\MenuEntryProgram.cs" />
+    <Compile Include="com\magicsoftware\unipaas\management\gui\MenuEntryWindowMenu.cs" />
+    <Compile Include="com\magicsoftware\unipaas\management\gui\MenuValue.cs" />
+    <Compile Include="com\magicsoftware\unipaas\management\gui\MgControlBase.cs" />
+    <Compile Include="com\magicsoftware\unipaas\management\gui\MgFormBase.cs" />
+    <Compile Include="com\magicsoftware\unipaas\management\gui\MgMenu.cs" />
+    <Compile Include="com\magicsoftware\unipaas\management\gui\MgStatusBar.cs" />
+    <Compile Include="com\magicsoftware\unipaas\management\gui\MgTreeBase.cs" />
+    <Compile Include="com\magicsoftware\unipaas\management\gui\PIC.cs" />
+    <Compile Include="com\magicsoftware\unipaas\management\gui\PropDefaults.cs" />
+    <Compile Include="com\magicsoftware\unipaas\management\gui\Property.cs" />
+    <Compile Include="com\magicsoftware\unipaas\management\gui\PropInterface.cs" />
+    <Compile Include="com\magicsoftware\unipaas\management\gui\PropParentInterface.cs" />
+    <Compile Include="com\magicsoftware\unipaas\management\gui\PropTable.cs" />
+    <Compile Include="com\magicsoftware\unipaas\management\gui\TextMaskEditor.cs" />
+    <Compile Include="com\magicsoftware\unipaas\management\gui\ToolbarInfo.cs" />
+    <Compile Include="com\magicsoftware\unipaas\management\gui\ValidationDetails.cs" />
+    <Compile Include="com\magicsoftware\unipaas\management\gui\WindowList.cs" />
+    <Compile Include="com\magicsoftware\unipaas\management\gui\WrongFormatException.cs" />
+    <Compile Include="com\magicsoftware\unipaas\management\RuntimeContextBase.cs" />
+    <Compile Include="com\magicsoftware\unipaas\management\tasks\IFlowMonitorQueue.cs" />
+    <Compile Include="com\magicsoftware\unipaas\management\tasks\IMGDataTable.cs" />
+    <Compile Include="com\magicsoftware\unipaas\management\tasks\ITask.cs" />
+    <Compile Include="com\magicsoftware\unipaas\management\tasks\MgTimer.cs" />
+    <Compile Include="com\magicsoftware\unipaas\management\tasks\TaskBase.cs" />
+    <Compile Include="com\magicsoftware\unipaas\management\tasks\TaskDefinitionId.cs" />
+    <Compile Include="com\magicsoftware\unipaas\management\tasks\TaskDefinitionIdTableSaxHandler.cs" />
+    <Compile Include="com\magicsoftware\unipaas\Manager.cs" />
+    <Compile Include="com\magicsoftware\unipaas\MenuManager.cs" />
+    <Compile Include="com\magicsoftware\unipaas\util\AssembliesSaxHandler.cs" />
+    <Compile Include="com\magicsoftware\unipaas\util\AuthenticationDialogHandler.cs" />
+    <Compile Include="com\magicsoftware\unipaas\util\AuthenticationForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="com\magicsoftware\unipaas\util\AuthenticationForm.Designer.cs">
+      <DependentUpon>AuthenticationForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="com\magicsoftware\unipaas\util\GuiEnums.cs" />
+    <Compile Include="com\magicsoftware\unipaas\util\HandleFiles.cs" />
+    <Compile Include="com\magicsoftware\unipaas\util\MgPoint.cs" />
+    <Compile Include="com\magicsoftware\unipaas\util\MgRectangle.cs" />
+    <Compile Include="com\magicsoftware\unipaas\util\ObjectReference.cs" />
+    <Compile Include="com\magicsoftware\unipaas\util\ObjectReferenceSAXHandler.cs" />
+    <Compile Include="com\magicsoftware\unipaas\util\ProcessLauncher.cs" />
+    <Compile Include="com\magicsoftware\unipaas\util\ReflectionServices.cs" />
+    <Compile Include="com\magicsoftware\unipaas\util\SpashScreenManager.cs" />
+    <Compile Include="com\magicsoftware\unipaas\util\TabOrderComparer.cs" />
+    <Compile Include="com\magicsoftware\unipaas\util\UsernamePasswordCredentials.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Properties\Resources.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Resources.resx</DependentUpon>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\Controls\_uniControls 2015.csproj">
+      <Project>{5a85f808-1962-4d37-a268-d193490dc0ed}</Project>
+      <Name>_uniControls 2015</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\NativeWrapper\_uniNativeWrapper 2015.csproj">
+      <Project>{10deaab6-ec1c-405c-851f-6ef5e0b495e0}</Project>
+      <Name>_uniNativeWrapper 2015</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\RuntimeDesigner\MgRuntimeDesigner 2015.csproj">
+      <Project>{0b007b04-eaa6-419c-bda0-6c394d0dc485}</Project>
+      <Name>MgRuntimeDesigner 2015</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\util\_uniUtil 2015.csproj">
+      <Project>{2c21376f-0d2f-4d13-bf0d-b4838beb664a}</Project>
+      <Name>_uniUtil 2015</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <BootstrapperPackage Include="Microsoft.Net.Client.3.5">
+      <Visible>False</Visible>
+      <ProductName>.NET Framework 3.5 SP1 Client Profile</ProductName>
+      <Install>false</Install>
+    </BootstrapperPackage>
+    <BootstrapperPackage Include="Microsoft.Net.Framework.3.5.SP1">
+      <Visible>False</Visible>
+      <ProductName>.NET Framework 3.5 SP1</ProductName>
+      <Install>true</Install>
+    </BootstrapperPackage>
+    <BootstrapperPackage Include="Microsoft.Windows.Installer.3.1">
+      <Visible>False</Visible>
+      <ProductName>Windows Installer 3.1</ProductName>
+      <Install>true</Install>
+    </BootstrapperPackage>
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="com\magicsoftware\unipaas\util\AuthenticationForm.resx">
+      <DependentUpon>AuthenticationForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Properties\Resources.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>Resources.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="..\..\RichClientDotNet\util\Merlin.snk" />
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

@@ -1,0 +1,60 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<ClassDiagram MajorVersion="1" MinorVersion="1">
+  <Class Name="com.magicsoftware.richclient.gui.low.GuiCommandQueue" Collapsed="true">
+    <Position X="6.75" Y="1.75" Width="1.75" />
+    <TypeIdentifier>
+      <HashCode>kNFGg+1yBEkBIhM0xR4UVRX1oojiqNxCqR0eFXKEoLM=</HashCode>
+      <FileName>src\com\magicsoftware\richclient\gui\low\GuiCommandQueue.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="com.magicsoftware.richclient.gui.low.GuiCommandQueueBase" Collapsed="true">
+    <Position X="6.75" Y="0.5" Width="2" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAEAAAAQAAAAAAAAAAACAAA=</HashCode>
+      <FileName>src\com\magicsoftware\richclient\gui\low\GuiCommandQueue.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="com.magicsoftware.richclient.gui.low.GuiUtils" Collapsed="true">
+    <Position X="4.75" Y="1.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>NMTH4emCAXMB0CMWxYSG4gSYYKyG6DZRwaRKxAmFqCE=</HashCode>
+      <FileName>src\com\magicsoftware\richclient\gui\low\GuiUtils.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="com.magicsoftware.richclient.gui.low.GuiUtilsBase" Collapsed="true">
+    <Position X="4.75" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>gAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>src\com\magicsoftware\richclient\gui\low\GuiUtils.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="com.magicsoftware.richclient.gui.low.GuiInteractive" Collapsed="true">
+    <Position X="2.5" Y="1.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>C6mCCCIMCJCAhDgkDIAQa4AFCFQCBADASiRtEgFBiAI=</HashCode>
+      <FileName>src\com\magicsoftware\richclient\gui\low\GuiInteractive.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="com.magicsoftware.richclient.gui.low.GuiInteractiveBase" Collapsed="true">
+    <Position X="2.5" Y="0.5" Width="1.75" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>src\com\magicsoftware\richclient\gui\low\GuiInteractive.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="com.magicsoftware.richclient.gui.low.GUIMain" Collapsed="true">
+    <Position X="0.5" Y="1.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>BAAAAAAAABAAAAAAAAAAAAAAAABAAAYAIAEAAAAAAAA=</HashCode>
+      <FileName>src\com\magicsoftware\richclient\gui\low\GUIMain.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="com.magicsoftware.richclient.gui.low.GUIMainBase" Collapsed="true">
+    <Position X="0.5" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>gAAAUAAAABACAAAAAkAAAAAAAAAAAAIAAAAAAAAAAAA=</HashCode>
+      <FileName>src\com\magicsoftware\richclient\gui\low\GUIMain.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Font Name="Tahoma" Size="8.25" />
+</ClassDiagram>

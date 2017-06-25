@@ -1,0 +1,115 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="3.5" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProductVersion>9.0.30729</ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{0FD49B9D-2F17-47F2-B208-A2C8CEBB73D1}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>MgSqlite</RootNamespace>
+    <AssemblyName>MgSqlite</AssemblyName>
+    <TargetFrameworkVersion>v3.5</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>TRACE;DEBUG;Gateways</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="SQLite.NET, Version=0.21.1869.3794, Culture=neutral, PublicKeyToken=c273bd375e695f9c">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>.\SQLite.NET.dll</HintPath>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.Core">
+      <RequiredTargetFramework>3.5</RequiredTargetFramework>
+    </Reference>
+    <Reference Include="System.Xml.Linq">
+      <RequiredTargetFramework>3.5</RequiredTargetFramework>
+    </Reference>
+    <Reference Include="System.Data.DataSetExtensions">
+      <RequiredTargetFramework>3.5</RequiredTargetFramework>
+    </Reference>
+    <Reference Include="System.Data" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="..\..\..\..\application\Databases\DatabaseDefinition.cs">
+      <Link>src\application\data\DatabaseDefinition.cs</Link>
+    </Compile>
+    <Compile Include="..\..\..\..\application\DataSources\DataSourceDefinition.cs">
+      <Link>src\application\data\DataSourceDefinition.cs</Link>
+    </Compile>
+    <Compile Include="..\..\..\..\application\DataSources\DBField.cs">
+      <Link>src\application\data\DBField.cs</Link>
+    </Compile>
+    <Compile Include="..\..\..\..\application\DataSources\DBKey.cs">
+      <Link>src\application\data\DBKey.cs</Link>
+    </Compile>
+    <Compile Include="..\..\..\..\application\DataSources\DBSegment.cs">
+      <Link>src\application\data\DBSegment.cs</Link>
+    </Compile>
+    <Compile Include="..\..\..\..\application\DBCursor.cs">
+      <Link>src\application\DBCursor.cs</Link>
+    </Compile>
+    <Compile Include="..\..\..\..\application\DBJoinCursor.cs">
+      <Link>src\application\DBJoinCursor.cs</Link>
+    </Compile>
+    <Compile Include="..\..\..\..\application\DbPos.cs">
+      <Link>src\application\DbPos.cs</Link>
+    </Compile>
+    <Compile Include="..\..\..\..\application\JoinTblInfo.cs">
+      <Link>src\application\JoinTblInfo.cs</Link>
+    </Compile>
+    <Compile Include="..\..\..\..\application\MASK.cs">
+      <Link>src\application\MASK.cs</Link>
+    </Compile>
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="src\GatewayCursor.cs" />
+    <Compile Include="src\ISQLGateway.cs" />
+    <Compile Include="src\Sql3Connection.cs" />
+    <Compile Include="src\sql3Cursor.cs" />
+    <Compile Include="src\Sql3Dbd.cs" />
+    <Compile Include="src\Sql3Field.cs" />
+    <Compile Include="src\Sql3Sqlda.cs" />
+    <Compile Include="src\Sql3SqlVar.cs" />
+    <Compile Include="src\Sql3Stmt.cs" />
+    <Compile Include="src\SqliteConstants.cs" />
+    <Compile Include="src\SqliteEnums.cs" />
+    <Compile Include="src\SQLiteGateway.cs" />
+    <Compile Include="src\SqliteLow.cs" />
+    <Compile Include="src\SQLLogging.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\..\..\..\..\..\..\..\..\..\util\_uniUtil.csproj">
+      <Project>{2C21376F-0D2F-4D13-BF0D-B4838BEB664A}</Project>
+      <Name>_uniUtil</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+  <PropertyGroup>
+    <PostBuildEvent>xcopy $(ProjectDir)SQLite3.dll $(ProjectDir)$(OutDir)..\ /y /f /d</PostBuildEvent>
+  </PropertyGroup>
+</Project>

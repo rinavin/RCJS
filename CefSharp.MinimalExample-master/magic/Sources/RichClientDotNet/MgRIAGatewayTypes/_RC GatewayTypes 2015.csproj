@@ -1,0 +1,94 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProductVersion>8.0.30703</ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{204B0A93-35AF-40DC-8000-43973186DBCA}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>MgRIAGatewayTypes</RootNamespace>
+    <AssemblyName>MgRIAGatewayTypes</AssemblyName>
+    <TargetFrameworkVersion>v4.0</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <SccProjectName>SAK</SccProjectName>
+    <SccLocalPath>SAK</SccLocalPath>
+    <SccAuxPath>SAK</SccAuxPath>
+    <SccProvider>SAK</SccProvider>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>.\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <TreatWarningsAsErrors>true</TreatWarningsAsErrors>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <TreatWarningsAsErrors>true</TreatWarningsAsErrors>
+  </PropertyGroup>
+  <PropertyGroup>
+    <SignAssembly>true</SignAssembly>
+  </PropertyGroup>
+  <PropertyGroup>
+    <AssemblyOriginatorKeyFile>..\..\RichClientDotNet\util\Merlin.snk</AssemblyOriginatorKeyFile>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="System" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="src\data\DatabaseDefinition.cs" />
+    <Compile Include="src\data\DataSourceDefinition.cs" />
+    <Compile Include="src\data\DataSourceId.cs" />
+    <Compile Include="src\data\DBField.cs" />
+    <Compile Include="src\data\DBKey.cs" />
+    <Compile Include="src\data\DBSegment.cs" />
+    <Compile Include="src\FieldValue.cs" />
+    <Compile Include="src\FieldValues.cs" />
+    <Compile Include="src\data\GatewayBlob.cs" />
+    <Compile Include="src\BoundaryValue.cs" />
+    <Compile Include="src\CursorDefinition.cs" />
+    <Compile Include="src\CursorMode.cs" />
+    <Compile Include="src\CursorProperties.cs" />
+    <Compile Include="src\CursorType.cs" />
+    <Compile Include="src\DBJoinCursor.cs" />
+    <Compile Include="src\DbPos.cs" />
+    <Compile Include="src\DbSqlRange.cs" />
+    <Compile Include="src\GatewayAdapterCursor.cs" />
+    <Compile Include="src\GatewayErrorCode.cs" />
+    <Compile Include="src\ISQLGateway.cs" />
+    <Compile Include="src\JoinTblInfo.cs" />
+    <Compile Include="src\RangeData.cs" />
+    <Compile Include="src\RangeTypes.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="src\TransactionModes.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="..\..\RichClientDotNet\util\Merlin.snk" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\util\_uniUtil 2015.csproj">
+      <Project>{2c21376f-0d2f-4d13-bf0d-b4838beb664a}</Project>
+      <Name>_uniUtil 2015</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

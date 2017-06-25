@@ -1,0 +1,175 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProductVersion>9.0.21022</ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{2C21376F-0D2F-4D13-BF0D-B4838BEB664A}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>util</RootNamespace>
+    <AssemblyName>MgUtils</AssemblyName>
+    <TargetFrameworkVersion>v4.0</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <SccProjectName>SAK</SccProjectName>
+    <SccLocalPath>SAK</SccLocalPath>
+    <SccAuxPath>SAK</SccAuxPath>
+    <SccProvider>SAK</SccProvider>
+    <FileUpgradeFlags>
+    </FileUpgradeFlags>
+    <UpgradeBackupLocation>
+    </UpgradeBackupLocation>
+    <OldToolsVersion>3.5</OldToolsVersion>
+    <TargetFrameworkProfile />
+    <PublishUrl>http://localhost/MgUtils/</PublishUrl>
+    <Install>true</Install>
+    <InstallFrom>Web</InstallFrom>
+    <UpdateEnabled>true</UpdateEnabled>
+    <UpdateMode>Foreground</UpdateMode>
+    <UpdateInterval>7</UpdateInterval>
+    <UpdateIntervalUnits>Days</UpdateIntervalUnits>
+    <UpdatePeriodically>false</UpdatePeriodically>
+    <UpdateRequired>false</UpdateRequired>
+    <MapFileExtensions>true</MapFileExtensions>
+    <ApplicationRevision>0</ApplicationRevision>
+    <ApplicationVersion>1.0.0.%2a</ApplicationVersion>
+    <IsWebBootstrapper>true</IsWebBootstrapper>
+    <UseApplicationTrust>false</UseApplicationTrust>
+    <BootstrapperEnabled>true</BootstrapperEnabled>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <TreatWarningsAsErrors>true</TreatWarningsAsErrors>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <TreatWarningsAsErrors>true</TreatWarningsAsErrors>
+  </PropertyGroup>
+  <PropertyGroup>
+    <SignAssembly>true</SignAssembly>
+  </PropertyGroup>
+  <PropertyGroup>
+    <AssemblyOriginatorKeyFile>..\..\RichClientDotNet\util\Merlin.snk</AssemblyOriginatorKeyFile>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="System" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Windows.Forms" />
+    <Reference Include="System.XML" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="com\magicsoftware\util\Base64.cs" />
+    <Compile Include="com\magicsoftware\util\ChoiceUtils.cs" />
+    <Compile Include="com\magicsoftware\util\ClassSerializer.cs" />
+    <Compile Include="com\magicsoftware\util\Constants.cs" />
+    <Compile Include="com\magicsoftware\util\DateTimeUtils.cs" />
+    <Compile Include="com\magicsoftware\util\DateUtil.cs" />
+    <Compile Include="com\magicsoftware\util\Enums.cs" />
+    <Compile Include="com\magicsoftware\util\FontHandlesCache.cs" />
+    <Compile Include="com\magicsoftware\util\fsm\IntegrityChecker.cs" />
+    <Compile Include="com\magicsoftware\util\fsm\State.cs" />
+    <Compile Include="com\magicsoftware\util\fsm\StateMachine.cs" />
+    <Compile Include="com\magicsoftware\util\fsm\StateTransition.cs" />
+    <Compile Include="com\magicsoftware\util\fsm\StateTransitionTrigger.cs" />
+    <Compile Include="com\magicsoftware\util\fsm\StateTransitionTriggeredEventArgs.cs" />
+    <Compile Include="com\magicsoftware\util\AutoResetFlag.cs" />
+    <Compile Include="com\magicsoftware\util\fsm\EmptyState.cs" />
+    <Compile Include="com\magicsoftware\util\fsm\ManualTransitionTrigger.cs" />
+    <Compile Include="com\magicsoftware\util\HashCodeBuilder.cs" />
+    <Compile Include="com\magicsoftware\util\MgFont.cs" />
+    <Compile Include="com\magicsoftware\util\MgHashSet.cs" />
+    <Compile Include="com\magicsoftware\util\IdGenerator.cs" />
+    <Compile Include="com\magicsoftware\util\ImeParam.cs" />
+    <Compile Include="com\magicsoftware\util\InternalInterface.cs" />
+    <Compile Include="com\magicsoftware\util\IntUtil.cs" />
+    <Compile Include="com\magicsoftware\util\ISO_8859_1_Encoding.cs" />
+    <Compile Include="com\magicsoftware\util\ListComparer.cs" />
+    <Compile Include="com\magicsoftware\util\LocalizationEnumConverter.cs" />
+    <Compile Include="com\magicsoftware\util\Logger.cs" />
+    <Compile Include="com\magicsoftware\util\Logging\ConsoleLogWriter.cs" />
+    <Compile Include="com\magicsoftware\util\Logging\ILogWriter.cs" />
+    <Compile Include="com\magicsoftware\util\Logging\LogAccumulator.cs" />
+    <Compile Include="com\magicsoftware\util\Logging\LogSyncMode.cs" />
+    <Compile Include="com\magicsoftware\util\Logging\FileLogWriter.cs" />
+    <Compile Include="com\magicsoftware\util\MgArrayList.cs" />
+    <Compile Include="com\magicsoftware\util\MgColor.cs" />
+    <Compile Include="com\magicsoftware\util\MgSAXHandler.cs" />
+    <Compile Include="com\magicsoftware\util\MgSAXHandlerInterface.cs" />
+    <Compile Include="com\magicsoftware\util\MgSAXParser.cs" />
+    <Compile Include="com\magicsoftware\util\Misc.cs" />
+    <Compile Include="com\magicsoftware\util\MsgInterface.cs" />
+    <Compile Include="com\magicsoftware\util\NotifyCollection\INotifyCollectionChanged.cs" />
+    <Compile Include="com\magicsoftware\util\NotifyCollection\NotifyCollectionChangedAction.cs" />
+    <Compile Include="com\magicsoftware\util\NotifyCollection\NotifyCollectionChangedEventArgs.cs" />
+    <Compile Include="com\magicsoftware\util\NotifyCollection\ObservableCollection.cs" />
+    <Compile Include="com\magicsoftware\util\PICInterface.cs" />
+    <Compile Include="com\magicsoftware\util\PlatformUtils.cs" />
+    <Compile Include="com\magicsoftware\util\Queue.cs" />
+    <Compile Include="com\magicsoftware\util\Randomizer.cs" />
+    <Compile Include="com\magicsoftware\util\Recorder.cs" />
+    <Compile Include="com\magicsoftware\util\ResourcesCache.cs" />
+    <Compile Include="com\magicsoftware\util\Rtf.cs" />
+    <Compile Include="com\magicsoftware\util\SimulateKeyboard.cs" />
+    <Compile Include="com\magicsoftware\util\StorageAttribute.cs" />
+    <Compile Include="com\magicsoftware\util\StrUtil.cs" />
+    <Compile Include="com\magicsoftware\util\UtilDateJpn.cs" />
+    <Compile Include="com\magicsoftware\util\UtilImeJpn.cs" />
+    <Compile Include="com\magicsoftware\util\UtilStrByteMode.cs" />
+    <Compile Include="com\magicsoftware\util\XMLConstants.cs" />
+    <Compile Include="com\magicsoftware\util\XmlServices.cs" />
+    <Compile Include="com\magicsoftware\util\Xml\XmlParser.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Properties\AssemblyInfo.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <BootstrapperPackage Include="Microsoft.Net.Client.3.5">
+      <Visible>False</Visible>
+      <ProductName>.NET Framework 3.5 SP1 Client Profile</ProductName>
+      <Install>false</Install>
+    </BootstrapperPackage>
+    <BootstrapperPackage Include="Microsoft.Net.Framework.3.5.SP1">
+      <Visible>False</Visible>
+      <ProductName>.NET Framework 3.5 SP1</ProductName>
+      <Install>true</Install>
+    </BootstrapperPackage>
+    <BootstrapperPackage Include="Microsoft.Windows.Installer.3.1">
+      <Visible>False</Visible>
+      <ProductName>Windows Installer 3.1</ProductName>
+      <Install>true</Install>
+    </BootstrapperPackage>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="..\..\RichClientDotNet\util\Merlin.snk" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\NativeWrapper\_uniNativeWrapper 2015.csproj">
+      <Project>{10deaab6-ec1c-405c-851f-6ef5e0b495e0}</Project>
+      <Name>_uniNativeWrapper 2015</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <PropertyGroup>
+    <PostBuildEvent>xcopy $(TargetPath) $(ProjectDir)..\..\ /y /f /d</PostBuildEvent>
+  </PropertyGroup>
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

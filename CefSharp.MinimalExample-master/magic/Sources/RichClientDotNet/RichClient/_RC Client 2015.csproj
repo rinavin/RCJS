@@ -1,0 +1,613 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003" ToolsVersion="4.0">
+  <PropertyGroup>
+    <ProjectType>Local</ProjectType>
+    <ProductVersion>9.0.30729</ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ApplicationIcon>Resources\Mgxpa.ico</ApplicationIcon>
+    <AssemblyKeyContainerName>
+    </AssemblyKeyContainerName>
+    <AssemblyName>MgxpaRIA</AssemblyName>
+    <AssemblyOriginatorKeyFile>..\..\RichClientDotNet\util\Merlin.snk</AssemblyOriginatorKeyFile>
+    <DefaultClientScript>JScript</DefaultClientScript>
+    <DefaultHTMLPageLayout>Grid</DefaultHTMLPageLayout>
+    <DefaultTargetSchema>IE50</DefaultTargetSchema>
+    <DelaySign>false</DelaySign>
+    <OutputType>WinExe</OutputType>
+    <RootNamespace>RichClient</RootNamespace>
+    <NoStandardLibraries>false</NoStandardLibraries>
+    <RunPostBuildEvent>OnBuildSuccess</RunPostBuildEvent>
+    <StartupObject>
+    </StartupObject>
+    <FileUpgradeFlags>
+    </FileUpgradeFlags>
+    <ProjectGuid>{84417921-9911-485C-B589-87A71391FE23}</ProjectGuid>
+    <OldToolsVersion>3.5</OldToolsVersion>
+    <UpgradeBackupLocation>
+    </UpgradeBackupLocation>
+    <IsWebBootstrapper>true</IsWebBootstrapper>
+    <SccProjectName>SAK</SccProjectName>
+    <SccLocalPath>SAK</SccLocalPath>
+    <SccAuxPath>SAK</SccAuxPath>
+    <SccProvider>SAK</SccProvider>
+    <TargetFrameworkVersion>v4.0</TargetFrameworkVersion>
+    <TargetZone>LocalIntranet</TargetZone>
+    <GenerateManifests>false</GenerateManifests>
+    <SignManifests>false</SignManifests>
+    <ManifestCertificateThumbprint>78A5AA00434709D5501813D4B8CD1C5267C62853</ManifestCertificateThumbprint>
+    <ManifestTimestampUrl>http://timestamp.verisign.com/scripts/timstamp.dll</ManifestTimestampUrl>
+    <NoWin32Manifest>true</NoWin32Manifest>
+    <PublishUrl>http://localhost/MagicRIAApplications/</PublishUrl>
+    <Install>true</Install>
+    <InstallFrom>Web</InstallFrom>
+    <UpdateEnabled>true</UpdateEnabled>
+    <UpdateMode>Foreground</UpdateMode>
+    <UpdateInterval>7</UpdateInterval>
+    <UpdateIntervalUnits>Days</UpdateIntervalUnits>
+    <UpdatePeriodically>false</UpdatePeriodically>
+    <UpdateRequired>true</UpdateRequired>
+    <MinimumRequiredVersion>2.4.0.1606</MinimumRequiredVersion>
+    <MapFileExtensions>false</MapFileExtensions>
+    <SupportUrl>http://www.magicsoftware.com</SupportUrl>
+    <ProductName>Magic xpa</ProductName>
+    <PublisherName>MSE</PublisherName>
+    <CreateWebPageOnPublish>false</CreateWebPageOnPublish>
+    <OpenBrowserOnPublish>false</OpenBrowserOnPublish>
+    <TrustUrlParameters>true</TrustUrlParameters>
+    <ApplicationRevision>0</ApplicationRevision>
+    <ApplicationVersion>2.4.0.%2a</ApplicationVersion>
+    <UseApplicationTrust>false</UseApplicationTrust>
+    <BootstrapperEnabled>false</BootstrapperEnabled>
+    <SignAssembly>true</SignAssembly>
+    <TargetFrameworkProfile />
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <OutputPath>.\</OutputPath>
+    <AllowUnsafeBlocks>false</AllowUnsafeBlocks>
+    <BaseAddress>285212672</BaseAddress>
+    <CheckForOverflowUnderflow>false</CheckForOverflowUnderflow>
+    <ConfigurationOverrideFile>
+    </ConfigurationOverrideFile>
+    <DefineConstants>TRACE;DEBUG</DefineConstants>
+    <DocumentationFile>
+    </DocumentationFile>
+    <DebugSymbols>true</DebugSymbols>
+    <FileAlignment>4096</FileAlignment>
+    <NoStdLib>false</NoStdLib>
+    <NoWarn>
+    </NoWarn>
+    <RegisterForComInterop>false</RegisterForComInterop>
+    <RemoveIntegerChecks>false</RemoveIntegerChecks>
+    <TreatWarningsAsErrors>true</TreatWarningsAsErrors>
+    <WarningLevel>4</WarningLevel>
+    <DebugType>full</DebugType>
+    <ErrorReport>prompt</ErrorReport>
+    <PlatformTarget>x86</PlatformTarget>
+    <UseVSHostingProcess>false</UseVSHostingProcess>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <OutputPath>.\</OutputPath>
+    <AllowUnsafeBlocks>false</AllowUnsafeBlocks>
+    <BaseAddress>285212672</BaseAddress>
+    <CheckForOverflowUnderflow>false</CheckForOverflowUnderflow>
+    <ConfigurationOverrideFile>
+    </ConfigurationOverrideFile>
+    <DefineConstants>
+    </DefineConstants>
+    <DocumentationFile>
+    </DocumentationFile>
+    <DebugSymbols>true</DebugSymbols>
+    <FileAlignment>4096</FileAlignment>
+    <NoStdLib>false</NoStdLib>
+    <NoWarn>
+    </NoWarn>
+    <RegisterForComInterop>false</RegisterForComInterop>
+    <RemoveIntegerChecks>false</RemoveIntegerChecks>
+    <TreatWarningsAsErrors>true</TreatWarningsAsErrors>
+    <WarningLevel>4</WarningLevel>
+    <DebugType>full</DebugType>
+    <ErrorReport>prompt</ErrorReport>
+    <PlatformTarget>x86</PlatformTarget>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="mscorlib">
+      <Name>mscorlib</Name>
+    </Reference>
+    <Reference Include="System">
+      <Name>System</Name>
+    </Reference>
+    <Reference Include="System.Data" />
+    <Reference Include="System.Deployment" />
+    <Reference Include="System.Drawing">
+      <Name>System.Drawing</Name>
+    </Reference>
+    <Reference Include="System.Management" />
+    <Reference Include="System.Windows.Forms">
+      <Name>System.Windows.Forms</Name>
+    </Reference>
+    <Reference Include="System.Xml">
+      <Name>System.Xml</Name>
+    </Reference>
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Properties\Resources.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Resources.resx</DependentUpon>
+    </Compile>
+    <Compile Include="src\com\magicsoftware\richclient\ClientManager.cs" />
+    <Compile Include="src\com\magicsoftware\richclient\commands\ClientToServer\AbortNonOfflineTasksCommand.cs" />
+    <Compile Include="src\com\magicsoftware\richclient\commands\ClientToServer\AddUserLocateDataViewCommand.cs" />
+    <Compile Include="src\com\magicsoftware\richclient\commands\ClientToServer\AddUserSortDataViewCommand.cs" />
+    <Compile Include="src\com\magicsoftware\richclient\commands\ClientToServer\ClientDbDeleteCommand.cs" />
+    <Compile Include="src\com\magicsoftware\richclient\commands\ClientToServer\ClientDbDisconnectCommand.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="src\com\magicsoftware\richclient\commands\ClientToServer\ControlItemsRefreshCommand.cs" />
+    <Compile Include="src\com\magicsoftware\richclient\commands\ClientToServer\DataViewOutputCommand.cs" />
+    <Compile Include="src\com\magicsoftware\richclient\commands\ClientToServer\FetchAllDataViewCommand.cs" />
+    <Compile Include="src\com\magicsoftware\richclient\commands\ClientToServer\FetchDataControlValuesEventCommand.cs" />
+    <Compile Include="src\com\magicsoftware\richclient\commands\ClientToServer\IndexChangeEventCommand.cs" />
+    <Compile Include="src\com\magicsoftware\richclient\commands\ClientToServer\SQLExecuteCommand.cs" />
+    <Compile Include="src\com\magicsoftware\richclient\commands\ClientToServer\UpdateDataViewToDataSourceEventCommand.cs" />
+    <Compile Include="src\com\magicsoftware\richclient\commands\ClientToServer\WriteMessageToServerLogCommand.cs" />
+    <Compile Include="src\com\magicsoftware\richclient\commands\ServerToClient\AddLocateCommand.cs" />
+    <Compile Include="src\com\magicsoftware\richclient\commands\ServerToClient\AddSortCommand.cs" />
+    <Compile Include="src\com\magicsoftware\richclient\commands\ServerToClient\ResetLocateCommand.cs" />
+    <Compile Include="src\com\magicsoftware\richclient\commands\ServerToClient\ResetRangeCommand.cs" />
+    <Compile Include="src\com\magicsoftware\richclient\commands\ServerToClient\ResetSortCommand.cs" />
+    <Compile Include="src\com\magicsoftware\richclient\data\DataSourceIdKey.cs" />
+    <Compile Include="src\com\magicsoftware\richclient\data\DbhRealIdxInfo.cs" />
+    <Compile Include="src\com\magicsoftware\richclient\data\RecordForDataViewToDataSource.cs" />
+    <Compile Include="src\com\magicsoftware\richclient\commands\ClientToServer\AddUserRangeDataviewCommand.cs" />
+    <Compile Include="src\com\magicsoftware\richclient\commands\ClientToServer\BrowserEscEventCommand.cs" />
+    <Compile Include="src\com\magicsoftware\richclient\commands\ClientToServer\CachedFileQueryCommand.cs" />
+    <Compile Include="src\com\magicsoftware\richclient\commands\ClientToServer\ClientOriginatedCommand.cs" />
+    <Compile Include="src\com\magicsoftware\richclient\commands\ClientToServer\ColumnSortEventCommand.cs" />
+    <Compile Include="src\com\magicsoftware\richclient\commands\ClientToServer\CommandFactory.cs" />
+    <Compile Include="src\com\magicsoftware\richclient\commands\ClientToServer\CommandSerializationHelper.cs" />
+    <Compile Include="src\com\magicsoftware\richclient\commands\ClientToServer\ComputeEventCommand.cs" />
+    <Compile Include="src\com\magicsoftware\richclient\commands\ClientToServer\DataviewCommand.cs" />
+    <Compile Include="src\com\magicsoftware\richclient\commands\ClientToServer\EvaluateCommand.cs" />
+    <Compile Include="src\com\magicsoftware\richclient\commands\ClientToServer\EventCommand.cs" />
+    <Compile Include="src\com\magicsoftware\richclient\commands\ClientToServer\ExecOperCommand.cs" />
+    <Compile Include="src\com\magicsoftware\richclient\commands\ClientToServer\ExpandCommand.cs" />
+    <Compile Include="src\com\magicsoftware\richclient\commands\ClientToServer\GetDataViewContentEventCommand.cs" />
+    <Compile Include="src\com\magicsoftware\richclient\commands\ClientToServer\GlobalParamsQueryCommand.cs" />
+    <Compile Include="src\com\magicsoftware\richclient\commands\ClientToServer\HibernateCommand.cs" />
+    <Compile Include="src\com\magicsoftware\richclient\commands\ClientToServer\ICommandTaskTag.cs" />
+    <Compile Include="src\com\magicsoftware\richclient\commands\ClientToServer\IniputForceWriteCommand.cs" />
+    <Compile Include="src\com\magicsoftware\richclient\commands\ClientToServer\LocateQueryEventCommand.cs" />
+    <Compile Include="src\com\magicsoftware\richclient\commands\ClientToServer\MenuCommand.cs" />
+    <Compile Include="src\com\magicsoftware\richclient\commands\ClientToServer\NonReversibleExitEventCommand.cs" />
+    <Compile Include="src\com\magicsoftware\richclient\commands\ClientToServer\QueryCommand.cs" />
+    <Compile Include="src\com\magicsoftware\richclient\commands\ClientToServer\RecomputeCommand.cs" />
+    <Compile Include="src\com\magicsoftware\richclient\commands\ClientToServer\RecomputeUnitDataviewCommand.cs" />
+    <Compile Include="src\com\magicsoftware\richclient\commands\ClientToServer\RefreshEventCommand.cs" />
+    <Compile Include="src\com\magicsoftware\richclient\commands\ClientToServer\RefreshScreenEventCommand.cs" />
+    <Compile Include="src\com\magicsoftware\richclient\commands\ClientToServer\ResumeCommand.cs" />
+    <Compile Include="src\com\magicsoftware\richclient\commands\ClientToServer\RollbackEventCommand.cs" />
+    <Compile Include="src\com\magicsoftware\richclient\commands\ClientToServer\SetTransactionStateDataviewCommand.cs" />
+    <Compile Include="src\com\magicsoftware\richclient\commands\ClientToServer\SubformOpenEventCommand.cs" />
+    <Compile Include="src\com\magicsoftware\richclient\commands\ClientToServer\SubformRefreshEventCommand.cs" />
+    <Compile Include="src\com\magicsoftware\richclient\commands\ClientToServer\TransactionCommand.cs" />
+    <Compile Include="src\com\magicsoftware\richclient\commands\ClientToServer\UnloadCommand.cs" />
+    <Compile Include="src\com\magicsoftware\richclient\commands\ClientToServer\VerifyCacheCommand.cs" />
+    <Compile Include="src\com\magicsoftware\richclient\commands\IClientCommand.cs" />
+    <Compile Include="src\com\magicsoftware\richclient\commands\IClientTargetedCommand.cs" />
+    <Compile Include="src\com\magicsoftware\richclient\commands\ServerToClient\AbortCommand.cs" />
+    <Compile Include="src\com\magicsoftware\richclient\commands\ServerToClient\AddRangeCommand.cs" />
+    <Compile Include="src\com\magicsoftware\richclient\commands\ServerToClient\ClientRefreshCommand.cs" />
+    <Compile Include="src\com\magicsoftware\richclient\commands\ServerToClient\ClientTargetedCommandType.cs" />
+    <Compile Include="src\com\magicsoftware\richclient\commands\ServerToClient\ClientTargetedCommandBase.cs" />
+    <Compile Include="src\com\magicsoftware\richclient\commands\ServerToClient\EnhancedVerifyCommand.cs" />
+    <Compile Include="src\com\magicsoftware\richclient\commands\ServerToClient\OpenURLCommand.cs" />
+    <Compile Include="src\com\magicsoftware\richclient\commands\ServerToClient\ResultCommand.cs" />
+    <Compile Include="src\com\magicsoftware\richclient\commands\ServerToClient\VerifyCommand.cs" />
+    <Compile Include="src\com\magicsoftware\richclient\commands\ServerToClient\XMLBasedCommandBuilder.cs" />
+    <Compile Include="src\com\magicsoftware\richclient\communications\ConnectionStateMachineBuilder.cs" />
+    <Compile Include="src\com\magicsoftware\richclient\communications\InteractiveCommunicationsFailureHandler.cs" />
+    <Compile Include="src\com\magicsoftware\richclient\communications\SilentCommunicationsFailureHandler.cs" />
+    <Compile Include="src\com\magicsoftware\richclient\data\IRecordsTable.cs" />
+    <Compile Include="src\com\magicsoftware\richclient\gui\FormsTable.cs" />
+    <Compile Include="src\com\magicsoftware\richclient\communications\IConnectionStateManager.cs" />
+    <Compile Include="src\com\magicsoftware\richclient\http\Statistics.cs" />
+    <Compile Include="src\com\magicsoftware\richclient\local\application\DataSources\Converter\commands\DeleteCommand.cs" />
+    <Compile Include="src\com\magicsoftware\richclient\local\application\DataSources\Converter\commands\IConvertCommand.cs" />
+    <Compile Include="src\com\magicsoftware\richclient\local\application\DataSources\Converter\commands\RenameCommand.cs" />
+    <Compile Include="src\com\magicsoftware\richclient\local\application\DataSources\Converter\ConvertValueStrategies\ConvertAlphaStrategy.cs" />
+    <Compile Include="src\com\magicsoftware\richclient\local\application\DataSources\Converter\ConvertValueStrategies\ConvertBlobStrategy.cs" />
+    <Compile Include="src\com\magicsoftware\richclient\local\application\DataSources\Converter\ConvertValueStrategies\ConvertBooleanStrategy.cs" />
+    <Compile Include="src\com\magicsoftware\richclient\local\application\DataSources\Converter\ConvertValueStrategies\ConvertDateStrategy.cs" />
+    <Compile Include="src\com\magicsoftware\richclient\local\application\DataSources\Converter\ConvertValueStrategies\ConvertNumericStrategy.cs" />
+    <Compile Include="src\com\magicsoftware\richclient\local\application\DataSources\Converter\ConvertValueStrategies\ConvertTimeStrategy.cs" />
+    <Compile Include="src\com\magicsoftware\richclient\local\application\DataSources\Converter\ConvertValueStrategies\ConvertUnicodeStrategy.cs" />
+    <Compile Include="src\com\magicsoftware\richclient\local\application\DataSources\Converter\ConvertValueStrategies\IConvertValueStrategy.cs" />
+    <Compile Include="src\com\magicsoftware\richclient\local\application\DataSources\Converter\DataSourceConversionFailedException.cs" />
+    <Compile Include="src\com\magicsoftware\richclient\local\application\DataSources\Converter\DataSourceConverter.cs" />
+    <Compile Include="src\com\magicsoftware\richclient\local\application\OfflineSnippetsManager.cs" />
+    <Compile Include="src\com\magicsoftware\richclient\local\commands\LocalRunTimeCommandCallWithDestination.cs" />
+    <Compile Include="src\com\magicsoftware\richclient\local\commands\LocalRunTimeCommandRollback.cs" />
+    <Compile Include="src\com\magicsoftware\richclient\local\data\commands\AddUserLocateLocalDataCommand.cs" />
+    <Compile Include="src\com\magicsoftware\richclient\local\data\commands\AddUserRangeLocalDataCommand.cs" />
+    <Compile Include="src\com\magicsoftware\richclient\local\data\commands\AddUserSortLocalDataCommand.cs" />
+    <Compile Include="src\com\magicsoftware\richclient\local\data\commands\CloseTransactionLocalDataViewCommandBase.cs" />
+    <Compile Include="src\com\magicsoftware\richclient\local\data\commands\LocalClientDbDeleteCommand.cs" />
+    <Compile Include="src\com\magicsoftware\richclient\local\data\commands\LocalClientDbDisconnectCommand.cs" />
+    <Compile Include="src\com\magicsoftware\richclient\local\data\commands\LocalDataViewCommandControlItemsRefersh.cs" />
+    <Compile Include="src\com\magicsoftware\richclient\local\data\commands\LocalDataViewCommandIncrementalLocate.cs" />
+    <Compile Include="src\com\magicsoftware\richclient\local\data\commands\LocalDataViewCommandLocateBase.cs" />
+    <Compile Include="src\com\magicsoftware\richclient\local\data\commands\LocalDataviewCommandLocateNext.cs" />
+    <Compile Include="src\com\magicsoftware\richclient\local\data\commands\LocalDataViewCommandUpdateNonModifiable.cs" />
+    <Compile Include="src\com\magicsoftware\richclient\local\data\commands\LocalDataViewFetcherCommand.cs" />
+    <Compile Include="src\com\magicsoftware\richclient\local\data\commands\LocalDataViewOutputCommandBase.cs" />
+    <Compile Include="src\com\magicsoftware\richclient\local\data\commands\LocalDataViewToDataSourceCommand.cs" />
+    <Compile Include="src\com\magicsoftware\richclient\local\data\commands\SQLExecuteLocalDataViewCommand.cs" />
+    <Compile Include="src\com\magicsoftware\richclient\local\data\commands\LocalUpdateRemoteDataViewToDataSourceCommand.cs" />
+    <Compile Include="src\com\magicsoftware\richclient\local\data\commands\LocateNextLocalDataCommand.cs" />
+    <Compile Include="src\com\magicsoftware\richclient\local\data\commands\OpenTransactionLocalDataCommand.cs" />
+    <Compile Include="src\com\magicsoftware\richclient\local\data\commands\ResetUserLocateDataviewCommand.cs" />
+    <Compile Include="src\com\magicsoftware\richclient\local\data\commands\ResetUserRangeLocalDataviewCommand.cs" />
+    <Compile Include="src\com\magicsoftware\richclient\local\data\commands\ResetUserSortLocalDataviewCommand.cs" />
+    <Compile Include="src\com\magicsoftware\richclient\local\data\commands\RollbackTransactionLocalDataViewCommand.cs" />
+    <Compile Include="src\com\magicsoftware\richclient\local\data\gateways\commands\GatewayCommandCursorGetCurrent.cs" />
+    <Compile Include="src\com\magicsoftware\richclient\local\data\gateways\commands\GatewayCommandDbDisconnect.cs" />
+    <Compile Include="src\com\magicsoftware\richclient\local\data\gateways\commands\GatewayCommandFetchBase.cs" />
+    <Compile Include="src\com\magicsoftware\richclient\local\data\gateways\commands\GatewayCommandFileDelete.cs" />
+    <Compile Include="src\com\magicsoftware\richclient\local\data\gateways\commands\GatewayCommandFileExist.cs" />
+    <Compile Include="src\com\magicsoftware\richclient\local\data\gateways\commands\GatewayCommandFileRename.cs" />
+    <Compile Include="src\com\magicsoftware\richclient\local\data\gateways\commands\GatewayCommandsFactory.cs" />
+    <Compile Include="src\com\magicsoftware\richclient\local\data\gateways\commands\GatewayCommandSQLExecute.cs" />
+    <Compile Include="src\com\magicsoftware\richclient\local\data\TaskTransactionManager.cs" />
+    <Compile Include="src\com\magicsoftware\richclient\local\data\DataControlRangeDataCollection.cs" />
+    <Compile Include="src\com\magicsoftware\richclient\local\data\view\RecordCompute\CompositeComputeUnitStrategyBase.cs" />
+    <Compile Include="src\com\magicsoftware\richclient\local\data\view\RecordCompute\IComputeUnitStrategyContainer.cs" />
+    <Compile Include="src\com\magicsoftware\richclient\local\data\view\RecordCompute\LocateNextComputeStrategy.cs" />
+    <Compile Include="src\com\magicsoftware\richclient\local\data\view\RecordCompute\LocateNextRecordComputerBuilder.cs" />
+    <Compile Include="src\com\magicsoftware\richclient\local\ErrorHandling\ErrorHandlingInfo.cs" />
+    <Compile Include="src\com\magicsoftware\richclient\local\ErrorHandling\LocalErrorHandlerManager.cs" />
+    <Compile Include="src\com\magicsoftware\richclient\local\data\view\SortKeyBuilder.cs" />
+    <Compile Include="src\com\magicsoftware\richclient\local\OfflineRequiredMetadataCollection.cs" />
+    <Compile Include="src\com\magicsoftware\richclient\remote\AddUserLocateRemoteDataViewCommand.cs" />
+    <Compile Include="src\com\magicsoftware\richclient\remote\AddUserRangeRemoteDataViewCommand.cs" />
+    <Compile Include="src\com\magicsoftware\richclient\remote\AddUserSortRemoteDataViewCommand.cs" />
+    <Compile Include="src\com\magicsoftware\richclient\remote\RemoteControlItemsRefreshCommand.cs" />
+    <Compile Include="src\com\magicsoftware\richclient\remote\RemoteDataViewCommandUpdateNonModifiable.cs" />
+    <Compile Include="src\com\magicsoftware\richclient\local\data\view\RangeDataBuilder\DataControlRangeDataBuilder.cs" />
+    <Compile Include="src\com\magicsoftware\richclient\local\data\view\RecordCompute\UnitComputeResult.cs" />
+    <Compile Include="src\com\magicsoftware\richclient\remote\RemoteDataViewToDataSourceCommand.cs" />
+    <Compile Include="src\com\magicsoftware\richclient\remote\ResetUserLocateRemoteDataviewCommand.cs" />
+    <Compile Include="src\com\magicsoftware\richclient\remote\ResetUserRangeRemoteDataviewCommand.cs" />
+    <Compile Include="src\com\magicsoftware\richclient\remote\ResetUserSortRemoteDataviewCommand.cs" />
+    <Compile Include="src\com\magicsoftware\richclient\remote\ServerFileToClientExecutionHelper.cs" />
+    <Compile Include="src\com\magicsoftware\richclient\remote\SetTransactionStateRemoteDataViewCommand.cs" />
+    <Compile Include="src\com\magicsoftware\richclient\local\data\gateways\commands\GatewayCommandCloseTransaction.cs" />
+    <Compile Include="src\com\magicsoftware\richclient\local\data\gateways\commands\GatewayCommandOpenTransaction.cs" />
+    <Compile Include="src\com\magicsoftware\richclient\local\data\LocallyComputedDcValuesBuilder.cs" />
+    <Compile Include="src\com\magicsoftware\richclient\local\data\recording\ApplicationDefinitionsRecorder.cs" />
+    <Compile Include="src\com\magicsoftware\richclient\local\application\Databases\DatabaseDefinitionsManager.cs" />
+    <Compile Include="src\com\magicsoftware\richclient\local\application\Databases\DatabaseDefinitionsSaxParser.cs" />
+    <Compile Include="src\com\magicsoftware\richclient\local\application\DataSources\DataSourceBuilder.cs" />
+    <Compile Include="src\com\magicsoftware\richclient\local\application\DataSources\DataSourceDefinitionManager.cs" />
+    <Compile Include="src\com\magicsoftware\richclient\local\application\DataSources\DataSourceDefinitionManagerSaxHandler.cs" />
+    <Compile Include="src\com\magicsoftware\richclient\local\application\DataSources\DataSourceDefinitionSaxHandler.cs" />
+    <Compile Include="src\com\magicsoftware\richclient\cache\CacheManagerException.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="src\com\magicsoftware\richclient\cache\IEncryptor.cs" />
+    <Compile Include="src\com\magicsoftware\richclient\cache\ICacheManager.cs" />
+    <Compile Include="src\com\magicsoftware\richclient\cache\CacheUtils.cs" />
+    <Compile Include="src\com\magicsoftware\richclient\cache\PersistentOnlyCacheManager.cs" />
+    <Compile Include="src\com\magicsoftware\richclient\data\RecordOutOfDataViewException.cs" />
+    <Compile Include="src\com\magicsoftware\richclient\GuiEventsProcessor.cs" />
+    <Compile Include="src\com\magicsoftware\richclient\env\LanguageData.cs" />
+    <Compile Include="src\com\magicsoftware\richclient\exp\GlobalParamsTable.cs" />
+    <Compile Include="src\com\magicsoftware\richclient\CommandsTable.cs" />
+    <Compile Include="src\com\magicsoftware\richclient\data\DataView.cs" />
+    <Compile Include="src\com\magicsoftware\richclient\data\XMLBasedDcValuesBuilder.cs" />
+    <Compile Include="src\com\magicsoftware\richclient\data\DvCache.cs" />
+    <Compile Include="src\com\magicsoftware\richclient\data\Field.cs" />
+    <Compile Include="src\com\magicsoftware\richclient\data\FieldsTable.cs" />
+    <Compile Include="src\com\magicsoftware\richclient\data\Key.cs" />
+    <Compile Include="src\com\magicsoftware\richclient\data\Record.cs" />
+    <Compile Include="src\com\magicsoftware\richclient\data\RecordsTable.cs" />
+    <Compile Include="src\com\magicsoftware\richclient\env\Environment.cs" />
+    <Compile Include="src\com\magicsoftware\richclient\env\KeyboardMappingTable.cs" />
+    <Compile Include="src\com\magicsoftware\richclient\env\EnvVariablesTable.cs" />
+    <Compile Include="src\com\magicsoftware\richclient\event\ActionManager.cs" />
+    <Compile Include="src\com\magicsoftware\richclient\event\Event.cs" />
+    <Compile Include="src\com\magicsoftware\richclient\event\EventHandler.cs" />
+    <Compile Include="src\com\magicsoftware\richclient\event\EventHandlerPosition.cs" />
+    <Compile Include="src\com\magicsoftware\richclient\event\EventsManager.cs" />
+    <Compile Include="src\com\magicsoftware\richclient\event\RunTimeEvent.cs" />
+    <Compile Include="src\com\magicsoftware\richclient\event\UserEventsTable.cs" />
+    <Compile Include="src\com\magicsoftware\richclient\exp\Expression.cs" />
+    <Compile Include="src\com\magicsoftware\richclient\exp\ExpressionDict.cs" />
+    <Compile Include="src\com\magicsoftware\richclient\exp\ExpressionEvaluator.cs" />
+    <Compile Include="src\com\magicsoftware\richclient\exp\ExpressionLocalJpn.cs" />
+    <Compile Include="src\com\magicsoftware\richclient\exp\ExpTable.cs" />
+    <Compile Include="src\com\magicsoftware\richclient\exp\YesNoExp.cs" />
+    <Compile Include="src\com\magicsoftware\richclient\GUIManager.cs" />
+    <Compile Include="src\com\magicsoftware\richclient\gui\CreatedFormVector.cs" />
+    <Compile Include="src\com\magicsoftware\richclient\gui\MgControl.cs" />
+    <Compile Include="src\com\magicsoftware\richclient\gui\MgForm.cs" />
+    <Compile Include="src\com\magicsoftware\richclient\gui\MgTree.cs" />
+    <Compile Include="src\com\magicsoftware\richclient\gui\TreeSaxHandler.cs" />
+    <Compile Include="src\com\magicsoftware\richclient\local\application\TaskDefinitionIdsManager.cs" />
+    <Compile Include="src\com\magicsoftware\richclient\local\application\TaskInfoTableSaxHandler.cs" />
+    <Compile Include="src\com\magicsoftware\richclient\local\commands\LocalRunTimeCommandBase.cs" />
+    <Compile Include="src\com\magicsoftware\richclient\local\commands\LocalRunTimeCommandCloseTask.cs" />
+    <Compile Include="src\com\magicsoftware\richclient\local\commands\LocalRunTimeCommandFactory.cs" />
+    <Compile Include="src\com\magicsoftware\richclient\local\commands\LocalRunTimeCommandOpenTask.cs" />
+    <Compile Include="src\com\magicsoftware\richclient\local\commands\LocalRunTimeCommandSelectProgram.cs" />
+    <Compile Include="src\com\magicsoftware\richclient\local\commands\LocalRunTimeCommandUnload.cs" />
+    <Compile Include="src\com\magicsoftware\richclient\local\data\commands\LocalDataViewCommandExecuteLocalUpdates.cs" />
+    <Compile Include="src\com\magicsoftware\richclient\local\data\commands\LocalDataViewCommandCompute.cs" />
+    <Compile Include="src\com\magicsoftware\richclient\local\data\commands\InitDataControlLocalViewsCommand.cs" />
+    <Compile Include="src\com\magicsoftware\richclient\local\data\commands\LocalDataViewCommandLocate.cs" />
+    <Compile Include="src\com\magicsoftware\richclient\local\data\commands\RecomputeUnitLocalDataViewCommand.cs" />
+    <Compile Include="src\com\magicsoftware\richclient\local\data\commands\LocalDataViewCommandGoToCreateMode.cs" />
+    <Compile Include="src\com\magicsoftware\richclient\local\data\commands\LocalDataViewCommandLocateInQuery.cs" />
+    <Compile Include="src\com\magicsoftware\richclient\local\data\commands\LocalDataViewCommandSort.cs" />
+    <Compile Include="src\com\magicsoftware\richclient\local\data\commands\LocalDataViewCommandSubformRefresh.cs" />
+    <Compile Include="src\com\magicsoftware\richclient\local\data\commands\GetCurrentRecordLocalDataViewCommand.cs" />
+    <Compile Include="src\com\magicsoftware\richclient\local\data\commands\LocalDataViewCommandViewRefreshScreen.cs" />
+    <Compile Include="src\com\magicsoftware\richclient\local\data\commands\CommitTransactionLocalDataViewCommand.cs" />
+    <Compile Include="src\com\magicsoftware\richclient\local\data\commands\DataViewCommandBase.cs" />
+    <Compile Include="src\com\magicsoftware\richclient\local\data\commands\LocalClearDataViewCommand.cs" />
+    <Compile Include="src\com\magicsoftware\richclient\local\data\commands\LocalDataViewCommandFetchFirstChunk.cs" />
+    <Compile Include="src\com\magicsoftware\richclient\local\data\commands\LocalDataViewCommandPrepare.cs" />
+    <Compile Include="src\com\magicsoftware\richclient\local\data\commands\LocalDataViewCommandViewRefresh.cs" />
+    <Compile Include="src\com\magicsoftware\richclient\local\data\commands\LocalInitDataViewCommand.cs" />
+    <Compile Include="src\com\magicsoftware\richclient\local\data\commands\LocalDataViewCommandFactory.cs" />
+    <Compile Include="src\com\magicsoftware\richclient\local\data\commands\LocalDataViewCommandFetchPrevChunk.cs" />
+    <Compile Include="src\com\magicsoftware\richclient\local\data\commands\LocalDataViewCommandFetchNextChunk.cs" />
+    <Compile Include="src\com\magicsoftware\richclient\local\data\commands\LocalDataViewCommandFetchBottomChunk.cs" />
+    <Compile Include="src\com\magicsoftware\richclient\local\data\commands\LocalDataViewCommandBase.cs" />
+    <Compile Include="src\com\magicsoftware\richclient\local\data\commands\LocalDataViewFetchViewCommandBase.cs" />
+    <Compile Include="src\com\magicsoftware\richclient\local\data\commands\LocalDataViewCommandFetchTopChunk.cs" />
+    <Compile Include="src\com\magicsoftware\richclient\local\data\cursor\CursorBuilder.cs" />
+    <Compile Include="src\com\magicsoftware\richclient\local\data\cursor\MainCursorBuilder.cs" />
+    <Compile Include="src\com\magicsoftware\richclient\local\data\cursor\RuntimeCursor.cs" />
+    <Compile Include="src\com\magicsoftware\richclient\local\data\cursor\RuntimeCursorData.cs" />
+    <Compile Include="src\com\magicsoftware\richclient\local\data\gateways\commands\GatewayCommandCursorUpdateRecord.cs" />
+    <Compile Include="src\com\magicsoftware\richclient\local\data\gateways\commands\GatewayCommandCursorInsertRecord.cs" />
+    <Compile Include="src\com\magicsoftware\richclient\local\data\gateways\commands\GatewayCommandCursorDeleteRecord.cs" />
+    <Compile Include="src\com\magicsoftware\richclient\local\data\gateways\commands\GatewayCommandBase.cs" />
+    <Compile Include="src\com\magicsoftware\richclient\local\data\gateways\commands\GatewayCommandCursorClose.cs" />
+    <Compile Include="src\com\magicsoftware\richclient\local\data\gateways\commands\GatewayCommandCursorOpen.cs" />
+    <Compile Include="src\com\magicsoftware\richclient\local\data\gateways\commands\GatewayCommandFetch.cs" />
+    <Compile Include="src\com\magicsoftware\richclient\local\data\gateways\commands\GatewayCommandFileClose.cs" />
+    <Compile Include="src\com\magicsoftware\richclient\local\data\gateways\commands\GatewayCommandFileOpen.cs" />
+    <Compile Include="src\com\magicsoftware\richclient\local\data\gateways\commands\GatewayCommandPrepare.cs" />
+    <Compile Include="src\com\magicsoftware\richclient\local\data\gateways\commands\GatewayCommandRelease.cs" />
+    <Compile Include="src\com\magicsoftware\richclient\local\data\recording\GatewayCommandsRecorder.cs" />
+    <Compile Include="src\com\magicsoftware\richclient\local\data\gateways\storage\IConvertMgValueToGateway.cs" />
+    <Compile Include="src\com\magicsoftware\richclient\local\data\gateways\storage\StorageAlphaZString.cs" />
+    <Compile Include="src\com\magicsoftware\richclient\local\data\gateways\storage\StorageBlobBinary.cs" />
+    <Compile Include="src\com\magicsoftware\richclient\local\data\gateways\storage\StorageBlobAnsi.cs" />
+    <Compile Include="src\com\magicsoftware\richclient\local\data\gateways\storage\StorageBlobUnicode.cs" />
+    <Compile Include="src\com\magicsoftware\richclient\local\data\gateways\storage\StorageBooleanInteger.cs" />
+    <Compile Include="src\com\magicsoftware\richclient\local\data\gateways\storage\StorageConverter.cs" />
+    <Compile Include="src\com\magicsoftware\richclient\local\data\gateways\storage\StorageBase.cs" />
+    <Compile Include="src\com\magicsoftware\richclient\local\data\gateways\storage\StorageConverterBuilder.cs" />
+    <Compile Include="src\com\magicsoftware\richclient\local\data\gateways\storage\StorageDateInteger.cs" />
+    <Compile Include="src\com\magicsoftware\richclient\local\data\gateways\storage\StorageDateString.cs" />
+    <Compile Include="src\com\magicsoftware\richclient\local\data\gateways\storage\StorageNumericFloat.cs" />
+    <Compile Include="src\com\magicsoftware\richclient\local\data\gateways\storage\StorageNumericSigned.cs" />
+    <Compile Include="src\com\magicsoftware\richclient\local\data\gateways\storage\StorageNumericString.cs" />
+    <Compile Include="src\com\magicsoftware\richclient\local\data\gateways\storage\StorageTimeInteger.cs" />
+    <Compile Include="src\com\magicsoftware\richclient\local\data\gateways\storage\StorageUnicodeZString.cs" />
+    <Compile Include="src\com\magicsoftware\richclient\local\data\gateways\storage\StorageTimeString.cs" />
+    <Compile Include="src\com\magicsoftware\richclient\local\data\recording\GatewayDataRecorder.cs" />
+    <Compile Include="src\com\magicsoftware\richclient\local\data\recording\RecordingManager.cs" />
+    <Compile Include="src\com\magicsoftware\richclient\local\data\recording\RecordingManagerBuilder.cs" />
+    <Compile Include="src\com\magicsoftware\richclient\local\data\view\Boundaries\BoudariesFlags.cs" />
+    <Compile Include="src\com\magicsoftware\richclient\local\data\view\Boundaries\FieldBoundaries.cs" />
+    <Compile Include="src\com\magicsoftware\richclient\local\data\view\Boundaries\ViewBoundaries.cs" />
+    <Compile Include="src\com\magicsoftware\richclient\local\data\view\DataControlSourceViewDefinition.cs" />
+    <Compile Include="src\com\magicsoftware\richclient\local\data\view\DataviewSynchronizer.cs" />
+    <Compile Include="src\com\magicsoftware\richclient\local\data\gateways\GatewayResult.cs" />
+    <Compile Include="src\com\magicsoftware\richclient\local\data\gateways\IDbPosition.cs" />
+    <Compile Include="src\com\magicsoftware\richclient\local\data\gateways\RTDataSource.cs" />
+    <Compile Include="src\com\magicsoftware\richclient\local\data\view\Fields\FieldAdaptor.cs" />
+    <Compile Include="src\com\magicsoftware\richclient\local\data\view\Fields\FieldsBuilder.cs" />
+    <Compile Include="src\com\magicsoftware\richclient\local\data\view\Fields\IFieldView.cs" />
+    <Compile Include="src\com\magicsoftware\richclient\local\data\view\LinkView.cs" />
+    <Compile Include="src\com\magicsoftware\richclient\local\data\view\PositionCache.cs" />
+    <Compile Include="src\com\magicsoftware\richclient\local\data\view\PositionId.cs" />
+    <Compile Include="src\com\magicsoftware\richclient\local\data\view\RangeDataBuilder\IncrementalLocateRangeDataBuilder.cs" />
+    <Compile Include="src\com\magicsoftware\richclient\local\data\view\RangeDataBuilder\IRangeDataBuilder.cs" />
+    <Compile Include="src\com\magicsoftware\richclient\local\data\view\RangeDataBuilder\ViewRangeDataBuilder.cs" />
+    <Compile Include="src\com\magicsoftware\richclient\local\data\view\RecordCompute\DataControlValuesComputeStrategy.cs" />
+    <Compile Include="src\com\magicsoftware\richclient\local\data\view\RecordCompute\ComputeFieldStrategy.cs" />
+    <Compile Include="src\com\magicsoftware\richclient\local\data\view\RecordCompute\ComputeLinkStrategy.cs" />
+    <Compile Include="src\com\magicsoftware\richclient\local\data\view\RecordCompute\ComputeBoundaryExpressionStrategy.cs" />
+    <Compile Include="src\com\magicsoftware\richclient\local\data\view\RecordCompute\ComputeUnitStrategyBase.cs" />
+    <Compile Include="src\com\magicsoftware\richclient\local\data\view\RecordCompute\IncrementalLocateComputeStrategy.cs" />
+    <Compile Include="src\com\magicsoftware\richclient\local\data\view\RecordCompute\IncrementalLocateRecordComputerBuilder.cs" />
+    <Compile Include="src\com\magicsoftware\richclient\local\data\view\RecordCompute\LinkConditionCalculator.cs" />
+    <Compile Include="src\com\magicsoftware\richclient\local\data\view\RecordCompute\LocateExpressionRecordComputerBuilder.cs" />
+    <Compile Include="src\com\magicsoftware\richclient\local\data\view\RecordCompute\RecordComputer.cs" />
+    <Compile Include="src\com\magicsoftware\richclient\local\data\view\RecordCompute\RecordComputerBuilder.cs" />
+    <Compile Include="src\com\magicsoftware\richclient\local\data\view\RuntimeReadOnlyView.cs" />
+    <Compile Include="src\com\magicsoftware\richclient\local\data\view\RuntimeRealView.cs" />
+    <Compile Include="src\com\magicsoftware\richclient\local\data\view\RuntimeViewBase.cs" />
+    <Compile Include="src\com\magicsoftware\richclient\local\data\view\TaskViewsCollectionBuilder.cs" />
+    <Compile Include="src\com\magicsoftware\richclient\local\data\view\TaskViewsCollection.cs" />
+    <Compile Include="src\com\magicsoftware\richclient\local\data\DataViewCommand.cs" />
+    <Compile Include="src\com\magicsoftware\richclient\local\data\DataviewManager.cs" />
+    <Compile Include="src\com\magicsoftware\richclient\local\data\DataviewManagerBase.cs" />
+    <Compile Include="src\com\magicsoftware\richclient\local\data\gateways\GatewayAdapter.cs" />
+    <Compile Include="src\com\magicsoftware\richclient\local\data\gateways\GatewaysManager.cs" />
+    <Compile Include="src\com\magicsoftware\richclient\local\data\LocalDataviewManager.cs" />
+    <Compile Include="src\com\magicsoftware\richclient\local\data\view\VirtualsView.cs" />
+    <Compile Include="src\com\magicsoftware\richclient\local\LocalManager.cs" />
+    <Compile Include="src\com\magicsoftware\richclient\local\LocalCommandsProcessor.cs" />
+    <Compile Include="src\com\magicsoftware\richclient\remote\RemoteInitDataViewCommand.cs" />
+    <Compile Include="src\com\magicsoftware\richclient\remote\RemoteDataViewCommandFactory.cs" />
+    <Compile Include="src\com\magicsoftware\richclient\remote\RemoteDataViewCommandBase.cs" />
+    <Compile Include="src\com\magicsoftware\richclient\remote\RemoteDataviewManager.cs" />
+    <Compile Include="src\com\magicsoftware\richclient\local\data\DataSourceReference.cs" />
+    <Compile Include="src\com\magicsoftware\richclient\local\data\TaskTablesSaxHandler.cs" />
+    <Compile Include="src\com\magicsoftware\richclient\local\ApplicationDefinitions.cs" />
+    <Compile Include="src\com\magicsoftware\richclient\MenuManager.cs" />
+    <Compile Include="src\com\magicsoftware\richclient\http\HttpManager.cs" />
+    <Compile Include="src\com\magicsoftware\richclient\http\RecentNetworkActivities.cs" />
+    <Compile Include="src\com\magicsoftware\richclient\http\SessionStatisticsForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="src\com\magicsoftware\richclient\http\SessionStatisticsForm.Designer.cs">
+      <DependentUpon>SessionStatisticsForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="src\com\magicsoftware\richclient\rt\BoundaryFactory.cs" />
+    <Compile Include="src\com\magicsoftware\richclient\rt\BoundarySaxHandler.cs" />
+    <Compile Include="src\com\magicsoftware\richclient\rt\DCValuesRecomputeSaxHandler.cs" />
+    <Compile Include="src\com\magicsoftware\richclient\rt\IResultValue.cs" />
+    <Compile Include="src\com\magicsoftware\richclient\rt\ResultValue.cs" />
+    <Compile Include="src\com\magicsoftware\richclient\sources\ApplicationSourcesManager.cs" />
+    <Compile Include="src\com\magicsoftware\richclient\sources\InvalidSourcesException.cs" />
+    <Compile Include="src\com\magicsoftware\richclient\sources\SourcesSyncStatus.cs" />
+    <Compile Include="src\com\magicsoftware\richclient\tasks\sort\Sort.cs" />
+    <Compile Include="src\com\magicsoftware\richclient\tasks\sort\SortCollection.cs" />
+    <Compile Include="src\com\magicsoftware\richclient\rt\DataviewHeadersSaxHandler.cs" />
+    <Compile Include="src\com\magicsoftware\richclient\rt\DCValuesRecompute.cs" />
+    <Compile Include="src\com\magicsoftware\richclient\rt\IDataSourceViewDefintion.cs" />
+    <Compile Include="src\com\magicsoftware\richclient\rt\IDataviewHeader.cs" />
+    <Compile Include="src\com\magicsoftware\richclient\rt\LocalDataviewHeader.cs" />
+    <Compile Include="src\com\magicsoftware\richclient\rt\RemoteDataviewHeader.cs" />
+    <Compile Include="src\com\magicsoftware\richclient\rt\DataviewHeaderFactory.cs" />
+    <Compile Include="src\com\magicsoftware\richclient\ServicesManager.cs" />
+    <Compile Include="src\com\magicsoftware\richclient\tasks\CommandsProcessing\CommonCommandProcessorStrategy.cs" />
+    <Compile Include="src\com\magicsoftware\richclient\tasks\CommandsProcessing\CommonTaskServiceStrategy.cs" />
+    <Compile Include="src\com\magicsoftware\richclient\tasks\CommandsProcessing\ICommandsProcessorStrategy.cs" />
+    <Compile Include="src\com\magicsoftware\richclient\tasks\CommandsProcessing\ITaskServiceStrategy.cs" />
+    <Compile Include="src\com\magicsoftware\richclient\tasks\CommandsProcessing\MainProgCommandProcessorStrategy.cs" />
+    <Compile Include="src\com\magicsoftware\richclient\tasks\CommandsProcessing\MainProgTaskServiceStrategy.cs" />
+    <Compile Include="src\com\magicsoftware\richclient\tasks\DataSourceDefinitionsBuilder.cs" />
+    <Compile Include="src\com\magicsoftware\richclient\tasks\LocalTaskService.cs" />
+    <Compile Include="src\com\magicsoftware\richclient\tasks\MGData.cs" />
+    <Compile Include="src\com\magicsoftware\richclient\tasks\MGDataCollection.cs" />
+    <Compile Include="src\com\magicsoftware\richclient\StudioLauncher.cs" />
+    <Compile Include="src\com\magicsoftware\richclient\rt\Argument.cs" />
+    <Compile Include="src\com\magicsoftware\richclient\rt\ArgumentsList.cs" />
+    <Compile Include="src\com\magicsoftware\richclient\rt\CompMainPrgTable.cs" />
+    <Compile Include="src\com\magicsoftware\richclient\rt\ExecutionStack.cs" />
+    <Compile Include="src\com\magicsoftware\richclient\rt\ExecutionStackEntry.cs" />
+    <Compile Include="src\com\magicsoftware\richclient\rt\HandlersTable.cs" />
+    <Compile Include="src\com\magicsoftware\richclient\rt\DataviewHeaderBase.cs" />
+    <Compile Include="src\com\magicsoftware\richclient\rt\DataviewHeaders.cs" />
+    <Compile Include="src\com\magicsoftware\richclient\rt\Operation.cs" />
+    <Compile Include="src\com\magicsoftware\richclient\rt\OperationTable.cs" />
+    <Compile Include="src\com\magicsoftware\richclient\rt\Boundary.cs" />
+    <Compile Include="src\com\magicsoftware\richclient\rt\Recompute.cs" />
+    <Compile Include="src\com\magicsoftware\richclient\rt\RecomputeTable.cs" />
+    <Compile Include="src\com\magicsoftware\richclient\rt\TableCache.cs" />
+    <Compile Include="src\com\magicsoftware\richclient\rt\TableCacheManager.cs" />
+    <Compile Include="src\com\magicsoftware\richclient\tasks\RCTimer.cs" />
+    <Compile Include="src\com\magicsoftware\richclient\tasks\RemoteTaskService.cs" />
+    <Compile Include="src\com\magicsoftware\richclient\tasks\Task.cs" />
+    <Compile Include="src\com\magicsoftware\richclient\tasks\TaskServiceBase.cs" />
+    <Compile Include="src\com\magicsoftware\richclient\tasks\TasksTable.cs" />
+    <Compile Include="src\com\magicsoftware\richclient\rt\Transaction.cs" />
+    <Compile Include="src\com\magicsoftware\richclient\security\UserDetails.cs" />
+    <Compile Include="src\com\magicsoftware\richclient\CommandsProcessorManager.cs" />
+    <Compile Include="src\com\magicsoftware\richclient\CommandsProcessorBase.cs" />
+    <Compile Include="src\com\magicsoftware\richclient\remote\RemoteCommandsProcessor.cs" />
+    <Compile Include="src\com\magicsoftware\richclient\remote\ServerError.cs" />
+    <Compile Include="src\com\magicsoftware\richclient\security\UserRights.cs" />
+    <Compile Include="src\com\magicsoftware\richclient\util\ConstInterface.cs" />
+    <Compile Include="src\com\magicsoftware\richclient\util\ConstUtils.cs" />
+    <Compile Include="src\com\magicsoftware\richclient\util\Enums.cs" />
+    <Compile Include="src\com\magicsoftware\richclient\util\FlowMonitorInterface.cs" />
+    <Compile Include="src\com\magicsoftware\richclient\util\FlowMonitorQueue.cs" />
+    <Compile Include="src\com\magicsoftware\richclient\util\HeapSort.cs" />
+    <Compile Include="src\com\magicsoftware\richclient\util\MgBlockingQueue.cs" />
+    <Compile Include="src\com\magicsoftware\richclient\util\MgPriorityBlockingQueue.cs" />
+    <Compile Include="src\com\magicsoftware\richclient\util\MgPriorityQueue.cs" />
+    <Compile Include="src\com\magicsoftware\richclient\util\MgProperties.cs" />
+    <Compile Include="src\com\magicsoftware\richclient\util\NumUtil.cs" />
+    <Compile Include="src\com\magicsoftware\richclient\util\PrmMap.cs" />
+    <Compile Include="src\com\magicsoftware\richclient\util\Process.cs" />
+    <Compile Include="src\com\magicsoftware\richclient\util\RecomputeId.cs" />
+    <Compile Include="src\com\magicsoftware\richclient\util\RecomputeIdFactory.cs" />
+    <Compile Include="src\com\magicsoftware\richclient\util\ReturnResult.cs" />
+    <Compile Include="src\com\magicsoftware\richclient\util\ReturnResultBase.cs" />
+    <Compile Include="src\com\magicsoftware\richclient\util\UniqueIDUtils.cs" />
+    <Compile Include="src\com\magicsoftware\richclient\util\Vis2Log.cs" />
+    <Compile Include="src\com\magicsoftware\richclient\util\Scrambler.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <BootstrapperPackage Include="Microsoft.Net.Framework.2.0">
+      <Visible>False</Visible>
+      <ProductName>.NET Framework 2.0 %28x86%29</ProductName>
+      <Install>true</Install>
+    </BootstrapperPackage>
+    <BootstrapperPackage Include="Microsoft.Net.Framework.3.0">
+      <Visible>False</Visible>
+      <ProductName>.NET Framework 3.0 %28x86%29</ProductName>
+      <Install>false</Install>
+    </BootstrapperPackage>
+    <BootstrapperPackage Include="Microsoft.Net.Framework.3.5">
+      <Visible>False</Visible>
+      <ProductName>.NET Framework 3.5</ProductName>
+      <Install>false</Install>
+    </BootstrapperPackage>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="App.config" />
+    <None Include="Properties\app.manifest" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Properties\Resources.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>Resources.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="src\com\magicsoftware\richclient\http\SessionStatisticsForm.resx">
+      <DependentUpon>SessionStatisticsForm.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="..\..\RichClientDotNet\util\Merlin.snk" />
+    <None Include="Resources\Rich-client-server-access.gif" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Resources\Mgxpa.ico" />
+    <Content Include="..\..\WCFClientModules\system.servicemodel.bindings.config" />
+    <Content Include="..\..\WCFClientModules\system.servicemodel.client.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\Gui\_uniGui 2015.csproj">
+      <Project>{a95b1c7e-66b5-4afa-801d-8528c5689999}</Project>
+      <Name>_uniGui 2015</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Http\_uniHttpClient 2015.csproj">
+      <Project>{bfa63975-e3fb-44cf-be90-63207b2376d5}</Project>
+      <Name>_uniHttpClient 2015</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\MgRIAGatewayTypes\_RC GatewayTypes 2015.csproj">
+      <Project>{204b0a93-35af-40dc-8000-43973186dbca}</Project>
+      <Name>_RC GatewayTypes 2015</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\NativeWrapper\_uniNativeWrapper 2015.csproj">
+      <Project>{10deaab6-ec1c-405c-851f-6ef5e0b495e0}</Project>
+      <Name>_uniNativeWrapper 2015</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\util\_uniUtil 2015.csproj">
+      <Project>{2c21376f-0d2f-4d13-bf0d-b4838beb664a}</Project>
+      <Name>_uniUtil 2015</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
+  <PropertyGroup>
+    <PreBuildEvent>
+    </PreBuildEvent>
+    <PostBuildEvent>
+    </PostBuildEvent>
+  </PropertyGroup>
+</Project>

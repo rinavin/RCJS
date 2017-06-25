@@ -1,0 +1,426 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProductVersion>9.0.30729</ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{5A85F808-1962-4D37-A268-D193490DC0ED}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>Controls</RootNamespace>
+    <AssemblyName>MgControls</AssemblyName>
+    <TargetFrameworkVersion>v4.0</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <StartupObject>
+    </StartupObject>
+    <SccProjectName>SAK</SccProjectName>
+    <SccLocalPath>SAK</SccLocalPath>
+    <SccAuxPath>SAK</SccAuxPath>
+    <SccProvider>SAK</SccProvider>
+    <FileUpgradeFlags>
+    </FileUpgradeFlags>
+    <OldToolsVersion>4.0</OldToolsVersion>
+    <UpgradeBackupLocation>
+    </UpgradeBackupLocation>
+    <TargetFrameworkProfile />
+    <PublishUrl>http://localhost/Controls/</PublishUrl>
+    <Install>true</Install>
+    <InstallFrom>Web</InstallFrom>
+    <UpdateEnabled>true</UpdateEnabled>
+    <UpdateMode>Foreground</UpdateMode>
+    <UpdateInterval>7</UpdateInterval>
+    <UpdateIntervalUnits>Days</UpdateIntervalUnits>
+    <UpdatePeriodically>false</UpdatePeriodically>
+    <UpdateRequired>false</UpdateRequired>
+    <MapFileExtensions>true</MapFileExtensions>
+    <ApplicationRevision>0</ApplicationRevision>
+    <ApplicationVersion>1.0.0.%2a</ApplicationVersion>
+    <IsWebBootstrapper>true</IsWebBootstrapper>
+    <UseApplicationTrust>false</UseApplicationTrust>
+    <BootstrapperEnabled>true</BootstrapperEnabled>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <PlatformTarget>x86</PlatformTarget>
+    <TreatWarningsAsErrors>true</TreatWarningsAsErrors>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <PlatformTarget>x86</PlatformTarget>
+  </PropertyGroup>
+  <PropertyGroup>
+    <SignAssembly>true</SignAssembly>
+  </PropertyGroup>
+  <PropertyGroup>
+    <AssemblyOriginatorKeyFile>..\..\RichClientDotNet\util\Merlin.snk</AssemblyOriginatorKeyFile>
+  </PropertyGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+  <ItemGroup>
+    <Compile Include="com\magicsoftware\BasicCoordinator.cs" />
+    <Compile Include="com\magicsoftware\ColumnsManager.cs" />
+    <Compile Include="com\magicsoftware\controls\Designers\CanParentArgs.cs" />
+    <Compile Include="com\magicsoftware\controls\Designers\CanParentProvider.cs" />
+    <Compile Include="com\magicsoftware\controls\Buttons\MgButton.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="com\magicsoftware\controls\Buttons\MgCheckBox.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="com\magicsoftware\controls\Buttons\MgRadioButton.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="com\magicsoftware\controls\Buttons\MgRadioPanel.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="com\magicsoftware\controls\ControlUtils.cs" />
+    <Compile Include="com\magicsoftware\controls\Designers\CanResizeArgs.cs" />
+    <Compile Include="com\magicsoftware\controls\Designers\ContainerControlDesigner.cs" />
+    <Compile Include="com\magicsoftware\controls\Designers\MgPanelRuntimeDesignerDesigner.cs" />
+    <Compile Include="com\magicsoftware\controls\Designers\MgWebBrowserRuntimeDesignerDesigner.cs" />
+    <Compile Include="com\magicsoftware\controls\Designers\MgTextBoxRuntimeDesignerDesigner.cs" />
+    <Compile Include="com\magicsoftware\controls\Designers\DragDropHandler.cs" />
+    <Compile Include="com\magicsoftware\controls\Designers\GroupBoxDesigner.cs" />
+    <Compile Include="com\magicsoftware\controls\Designers\ICanParent.cs" />
+    <Compile Include="com\magicsoftware\controls\Designers\ICanResize.cs" />
+    <Compile Include="com\magicsoftware\controls\Designers\IMgContainer.cs" />
+    <Compile Include="com\magicsoftware\controls\Designers\ICanParentArgsProvider.cs" />
+    <Compile Include="com\magicsoftware\controls\Designers\ListControlDesigner.cs" />
+    <Compile Include="com\magicsoftware\controls\Designers\MgPanelDesigner.cs" />
+    <Compile Include="com\magicsoftware\controls\Designers\MgPictureBoxDesigner.cs" />
+    <Compile Include="com\magicsoftware\controls\Designers\MgTabControlDesigner.cs" />
+    <Compile Include="com\magicsoftware\controls\Designers\MgTabControlRuntimeDesigner.cs" />
+    <Compile Include="com\magicsoftware\controls\Designers\PanelControlDesigner.cs" />
+    <Compile Include="com\magicsoftware\controls\Designers\RadioControlDesigner.cs" />
+    <Compile Include="com\magicsoftware\controls\Designers\ReflectionHelper.cs" />
+    <Compile Include="com\magicsoftware\controls\Designers\TabPageDesigner.cs" />
+    <Compile Include="com\magicsoftware\controls\Designers\TreeViewDesigner.cs" />
+    <Compile Include="com\magicsoftware\controls\EnhancedSplitContainer\EnhancedSplitContainer.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="com\magicsoftware\controls\EnhancedSplitContainer\EnhancedSplitContainerDesigner.cs" />
+    <Compile Include="com\magicsoftware\controls\EnhancedSplitContainer\IOFormSplitContainer.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="com\magicsoftware\controls\EnhancedSplitContainer\IOFormWidthResizeBehavior.cs" />
+    <Compile Include="com\magicsoftware\controls\EnhancedSplitContainer\IOFormSplitContainerDesigner.cs" />
+    <Compile Include="com\magicsoftware\controls\EnhancedSplitContainer\SplitterResizeBehavior.cs" />
+    <Compile Include="com\magicsoftware\controls\EnhancedSplitContainer\SplitterWithExpander.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="com\magicsoftware\controls\EnhancedSplitContainer\SplitterWithExpanderDesigner.cs" />
+    <Compile Include="com\magicsoftware\controls\ExpanderButton\ExpanderButton.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="com\magicsoftware\controls\GraphicsExtension.cs" />
+    <Compile Include="com\magicsoftware\controls\IChoiceControl.cs" />
+    <Compile Include="com\magicsoftware\controls\ILine.cs" />
+    <Compile Include="com\magicsoftware\controls\ILogicalColumn.cs" />
+    <Compile Include="com\magicsoftware\controls\IOwnerDrawnControl.cs" />
+    <Compile Include="com\magicsoftware\controls\ISupportsTransparentChildRendering.cs" />
+    <Compile Include="com\magicsoftware\controls\LineHelper.cs" />
+    <Compile Include="com\magicsoftware\controls\LogicalColumnHelper.cs" />
+    <Compile Include="com\magicsoftware\controls\MgComboBox\MgComboBox.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="com\magicsoftware\controls\Designers\FormDocumentDesigner.cs" />
+    <Compile Include="com\magicsoftware\controls\MgComboBox\MgFlexiHeightComboBox.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="com\magicsoftware\controls\MgDummy\MgDummyImage.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="com\magicsoftware\controls\MgDummy\MgDummyBase.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="com\magicsoftware\controls\MgFolderBrowserDialog\MgFolderBrowserDialog.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="com\magicsoftware\controls\MgGroupBox\MgGroupBox.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="com\magicsoftware\controls\MgLabel\MgLabel.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="com\magicsoftware\controls\MgLabel\MgLinkLabel.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="com\magicsoftware\controls\Designers\LineDesigner.cs" />
+    <Compile Include="com\magicsoftware\controls\MgLine\MgLine.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="com\magicsoftware\controls\MgListBox\MgListBox.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="com\magicsoftware\controls\MgPanel\MgPanel.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="com\magicsoftware\controls\MgPanel\MgPanelRuntimeDesigner.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="com\magicsoftware\controls\MgPictureBox\MgPictureBox.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="com\magicsoftware\controls\MgRich\MgRichEditBoxRuntimeDesigner.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="com\magicsoftware\controls\MgRich\MgRichTextBoxRuntimeDesigner.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="com\magicsoftware\controls\MgRich\MgRichTextBox.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="com\magicsoftware\controls\MgShape\EllipseRenderer.cs" />
+    <Compile Include="com\magicsoftware\controls\MgGroupBox\GroupRenderer.cs" />
+    <Compile Include="com\magicsoftware\controls\MgShape\LineRenderer.cs" />
+    <Compile Include="com\magicsoftware\controls\MgShape\MgShape.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="com\magicsoftware\controls\MgShape\RectangleRenderer.cs" />
+    <Compile Include="com\magicsoftware\controls\MgShape\ShapeDesigner.cs" />
+    <Compile Include="com\magicsoftware\controls\MgShape\ShapeTypes.cs" />
+    <Compile Include="com\magicsoftware\controls\MgStatusStrip\MgStatusStrip.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="com\magicsoftware\controls\MgTabControl\MgTabControl.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="com\magicsoftware\controls\MgTabControl\MgTabControlRenderer.cs" />
+    <Compile Include="com\magicsoftware\controls\MgTabControl\StyleProviders\TabStyleDefaultProvider.cs" />
+    <Compile Include="com\magicsoftware\controls\MgTabControl\TabStyle.cs" />
+    <Compile Include="com\magicsoftware\controls\MgTabControl\TabStyleProvider.cs" />
+    <Compile Include="com\magicsoftware\controls\MgTextBox\MgTextBoxRuntimeDesigner.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="com\magicsoftware\controls\MgTextBox\TextBoxHintStrategyBase.cs" />
+    <Compile Include="com\magicsoftware\controls\MgTextBox\TextBoxNoHintStrategy.cs" />
+    <Compile Include="com\magicsoftware\controls\MgTextBox\TextBoxWithHintStrategy.cs" />
+    <Compile Include="com\magicsoftware\controls\MgToolStripMenuItem\MgToolStripMenuItem.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="com\magicsoftware\controls\PropertyInterfaces\IBorderTypeProperty.cs" />
+    <Compile Include="com\magicsoftware\controls\SPHeader\ThreeDRaisedStyleHeaderRenderer.cs" />
+    <Compile Include="com\magicsoftware\controls\SPHeader\ThreeDStyleHeaderRenderer.cs" />
+    <Compile Include="com\magicsoftware\controls\SPHeader\WindowsThreeDStyleHeaderRenderer.cs" />
+    <Compile Include="com\magicsoftware\controls\TableControl\Renderer\IBorderRenderer.cs" />
+    <Compile Include="com\magicsoftware\controls\TableControl\Renderer\ThreeDRaisedBorderRenderer.cs" />
+    <Compile Include="com\magicsoftware\controls\TableControl\Renderer\TwoDStyleBorderRenderer.cs" />
+    <Compile Include="com\magicsoftware\controls\TableControl\Renderer\WindowsThreeDBorderRenderer.cs" />
+    <Compile Include="com\magicsoftware\support\MnemonicHelper.cs" />
+    <Compile Include="com\magicsoftware\controls\MgToolStrip\MgToolStrip.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="com\magicsoftware\controls\MgTreeView\MgTreeView.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="com\magicsoftware\controls\MgWebBrowser\IHostMethods.cs" />
+    <Compile Include="com\magicsoftware\controls\MgWebBrowser\MgWebBrowserRuntimeDesigner.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="com\magicsoftware\controls\MgWebBrowser\MgWebBrowser.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="com\magicsoftware\controls\MgTextBox\MgTextBox.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="com\magicsoftware\controls\MgForms\GuiForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="com\magicsoftware\controls\PropertyInterfaces\IBorderStyleProperty.cs" />
+    <Compile Include="com\magicsoftware\controls\PropertyInterfaces\IContentAlignmentProperty.cs" />
+    <Compile Include="com\magicsoftware\controls\PropertyInterfaces\IFontDescriptionProperty.cs" />
+    <Compile Include="com\magicsoftware\controls\PropertyInterfaces\IFontOrientation.cs" />
+    <Compile Include="com\magicsoftware\controls\PropertyInterfaces\IFontProperty.cs" />
+    <Compile Include="com\magicsoftware\controls\PropertyInterfaces\IGradientColorProperty.cs" />
+    <Compile Include="com\magicsoftware\controls\PropertyInterfaces\IImageProperty.cs" />
+    <Compile Include="com\magicsoftware\controls\PropertyInterfaces\IItemsCollection.cs" />
+    <Compile Include="com\magicsoftware\controls\PropertyInterfaces\IMultilineProperty.cs" />
+    <Compile Include="com\magicsoftware\controls\PropertyInterfaces\IRightToLeftProperty.cs" />
+    <Compile Include="com\magicsoftware\controls\PropertyInterfaces\ISetSpecificControlPropertiesForFormDesigner.cs" />
+    <Compile Include="com\magicsoftware\controls\PropertyInterfaces\IShowGridProperty.cs" />
+    <Compile Include="com\magicsoftware\controls\PropertyInterfaces\ITextProperty.cs" />
+    <Compile Include="com\magicsoftware\controls\Renderer\BorderRenderer.cs" />
+    <Compile Include="com\magicsoftware\controls\Renderer\ButtonRenderer.cs" />
+    <Compile Include="com\magicsoftware\controls\Renderer\CheckBoxAndRadioButtonRenderer.cs" />
+    <Compile Include="com\magicsoftware\controls\Renderer\ControlRenderer.cs" />
+    <Compile Include="com\magicsoftware\controls\Renderer\ExpanderRenderer.cs" />
+    <Compile Include="com\magicsoftware\controls\SPHeader\HeaderRenderer.cs" />
+    <Compile Include="com\magicsoftware\controls\SPHeader\HeaderRendererFactory.cs" />
+    <Compile Include="com\magicsoftware\controls\SPHeader\HeaderSection.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="com\magicsoftware\controls\SPHeader\HeaderSectionCollection.cs" />
+    <Compile Include="com\magicsoftware\controls\SPHeader\TwoDStyleHeaderRenderer.cs" />
+    <Compile Include="com\magicsoftware\controls\SPHeader\WindowsStyleHeaderRenderer.cs" />
+    <Compile Include="com\magicsoftware\controls\TableControl\Renderer\IColumnDividerRenderer.cs" />
+    <Compile Include="com\magicsoftware\controls\TableControl\Renderer\IRowDividerRenderer.cs" />
+    <Compile Include="com\magicsoftware\controls\TableControl\Renderer\TableRendererFactory.cs" />
+    <Compile Include="com\magicsoftware\controls\TableControl\Renderer\ThreeDRaisedStyleColumnDividerRenderer.cs" />
+    <Compile Include="com\magicsoftware\controls\TableControl\Renderer\ThreeDRaisedStyleRenderer.cs" />
+    <Compile Include="com\magicsoftware\controls\TableControl\Renderer\ThreeDRaiseStyleRowDividerRenderer.cs" />
+    <Compile Include="com\magicsoftware\controls\TableControl\Renderer\TwoDStyleColumnDividerRenderer.cs" />
+    <Compile Include="com\magicsoftware\controls\TableControl\Renderer\TwoDStyleRowDividerRenderer.cs" />
+    <Compile Include="com\magicsoftware\controls\TableControl\Renderer\TwoDTableStyleRenderer.cs" />
+    <Compile Include="com\magicsoftware\controls\TableControl\Renderer\WindowsStyleColumnDividerRenderer.cs" />
+    <Compile Include="com\magicsoftware\controls\TableControl\Renderer\WindowsStyleRowDividerRenderer.cs" />
+    <Compile Include="com\magicsoftware\controls\TableControl\Renderer\WindowsTableStyleRenderer.cs" />
+    <Compile Include="com\magicsoftware\controls\TableControl\Renderer\WindowsThreeDColumnDividerRenderer.cs" />
+    <Compile Include="com\magicsoftware\controls\TableControl\Renderer\WindowsThreeDStyleRenderer.cs" />
+    <Compile Include="com\magicsoftware\controls\TableControl\TableChildRendererBase.cs" />
+    <Compile Include="com\magicsoftware\controls\TableControl\TableControlUnlimitedItemsRuntimeDesigner.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="com\magicsoftware\controls\TableControl\TableColumns.cs" />
+    <Compile Include="com\magicsoftware\controls\TableControl\TableControlDesigner.cs" />
+    <Compile Include="com\magicsoftware\controls\TableControl\TableControlDragDropHandler.cs" />
+    <Compile Include="com\magicsoftware\controls\TableControl\TableControlLimitedItems.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="com\magicsoftware\controls\TableControl\TableControlUnlimitedItems.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="com\magicsoftware\controls\TableControl\TableHitTest.cs" />
+    <Compile Include="com\magicsoftware\controls\TableControl\TableMultiColumnDisabledStrategy.cs" />
+    <Compile Include="com\magicsoftware\controls\TableControl\TableMultiColumnEnabledStrategy.cs" />
+    <Compile Include="com\magicsoftware\controls\TableControl\TableMultiColumnStrategyBase.cs" />
+    <Compile Include="com\magicsoftware\controls\TableControl\TablePanelDesigner.cs" />
+    <Compile Include="com\magicsoftware\controls\TableControl\TablePanelDragDropHandler.cs" />
+    <Compile Include="com\magicsoftware\controls\TableControl\Renderer\TableStyleRendererBase.cs" />
+    <Compile Include="com\magicsoftware\Editors\Editor.cs" />
+    <Compile Include="com\magicsoftware\Editors\StaticControlEditor.cs" />
+    <Compile Include="com\magicsoftware\Editors\TreeEditor.cs" />
+    <Compile Include="com\magicsoftware\controls\SPHeader\Designers.cs" />
+    <Compile Include="com\magicsoftware\controls\SPHeader\Header.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="com\magicsoftware\Editors\BoundsComputer.cs" />
+    <Compile Include="com\magicsoftware\controls\TableControl\TableColumn.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="com\magicsoftware\controls\TableControl\TableContol.Scroll.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="com\magicsoftware\controls\TableControl\TableControl.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="com\magicsoftware\controls\TableControl\TableControl.Designer.cs">
+      <DependentUpon>TableControl.cs</DependentUpon>
+    </Compile>
+    <Compile Include="com\magicsoftware\Editors\TableEditor.cs" />
+    <Compile Include="com\magicsoftware\controls\TableControl\TableEventArgs.cs">
+    </Compile>
+    <Compile Include="com\magicsoftware\controls\TableControl\TableItem.cs" />
+    <Compile Include="com\magicsoftware\Glyphs\ResizeBehavior.cs" />
+    <Compile Include="com\magicsoftware\Glyphs\ResizeGlyph.cs" />
+    <Compile Include="com\magicsoftware\Glyphs\RowHeightResizeBehavior.cs" />
+    <Compile Include="com\magicsoftware\Glyphs\TableTitleHeightResizeBehavior.cs" />
+    <Compile Include="com\magicsoftware\ICoordinator.cs" />
+    <Compile Include="com\magicsoftware\IEditorProvider.cs" />
+    <Compile Include="com\magicsoftware\IRefreshable.cs" />
+    <Compile Include="com\magicsoftware\ITableManager.cs" />
+    <Compile Include="com\magicsoftware\ITablePlacementStrategy.cs" />
+    <Compile Include="com\magicsoftware\PlacementDrivenLogicalControl.cs" />
+    <Compile Include="com\magicsoftware\LogicalControlsContainer.cs" />
+    <Compile Include="com\magicsoftware\PlacementData.cs" />
+    <Compile Include="com\magicsoftware\PlacementLayoutBase.cs" />
+    <Compile Include="com\magicsoftware\support\ControlDesignerInfo.cs" />
+    <Compile Include="com\magicsoftware\support\FontDescription.cs" />
+    <Compile Include="com\magicsoftware\support\GradientColor.cs" />
+    <Compile Include="com\magicsoftware\support\IDisplayInfo.cs" />
+    <Compile Include="com\magicsoftware\support\IGetClassInfo.cs" />
+    <Compile Include="com\magicsoftware\support\IImageLoader.cs" />
+    <Compile Include="com\magicsoftware\support\ImageUtils.cs" />
+    <Compile Include="com\magicsoftware\support\MgImageList.cs" />
+    <Compile Include="com\magicsoftware\support\NCMouseEventsArgs.cs" />
+    <Compile Include="com\magicsoftware\support\PaintHelper.cs" />
+    <Compile Include="com\magicsoftware\support\PensCache.cs" />
+    <Compile Include="com\magicsoftware\support\SolidBrushCache.cs" />
+    <Compile Include="com\magicsoftware\support\Utils.cs" />
+    <Compile Include="com\magicsoftware\TableCoordinatorBase.cs" />
+    <Compile Include="com\magicsoftware\TablePlacementManagerBase.cs" />
+    <Compile Include="com\magicsoftware\TablePlacementStrategy.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Properties\Resources.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Resources.resx</DependentUpon>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <Reference Include="PresentationFramework" />
+    <Reference Include="System" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Design" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Windows.Forms" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="com\magicsoftware\controls\SPHeader\Header.bmp" />
+    <Content Include="com\magicsoftware\controls\SPHeader\table 2.ico" />
+    <EmbeddedResource Include="Resources\RichText16x16.ico" />
+    <EmbeddedResource Include="Resources\Subform16x16.bmp" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="..\..\RichClientDotNet\util\Merlin.snk" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="com\magicsoftware\controls\TableControl\TableControl.resx">
+      <DependentUpon>TableControl.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Properties\Resources.resx">
+      <Generator>PublicResXFileCodeGenerator</Generator>
+      <LastGenOutput>Resources.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+  </ItemGroup>
+  <ItemGroup>
+    <BootstrapperPackage Include="Microsoft.Net.Client.3.5">
+      <Visible>False</Visible>
+      <ProductName>.NET Framework 3.5 SP1 Client Profile</ProductName>
+      <Install>false</Install>
+    </BootstrapperPackage>
+    <BootstrapperPackage Include="Microsoft.Net.Framework.3.5.SP1">
+      <Visible>False</Visible>
+      <ProductName>.NET Framework 3.5 SP1</ProductName>
+      <Install>true</Install>
+    </BootstrapperPackage>
+    <BootstrapperPackage Include="Microsoft.Windows.Installer.3.1">
+      <Visible>False</Visible>
+      <ProductName>Windows Installer 3.1</ProductName>
+      <Install>true</Install>
+    </BootstrapperPackage>
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\NativeWrapper\_uniNativeWrapper 2015.csproj">
+      <Project>{10deaab6-ec1c-405c-851f-6ef5e0b495e0}</Project>
+      <Name>_uniNativeWrapper 2015</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\util\_uniUtil 2015.csproj">
+      <Project>{2c21376f-0d2f-4d13-bf0d-b4838beb664a}</Project>
+      <Name>_uniUtil 2015</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <PropertyGroup>
+    <PostBuildEvent>xcopy $(TargetPath) $(ProjectDir)..\..\ /y /f /d</PostBuildEvent>
+  </PropertyGroup>
+</Project>

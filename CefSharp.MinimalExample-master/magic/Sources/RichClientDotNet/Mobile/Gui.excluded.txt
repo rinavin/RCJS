@@ -1,0 +1,27 @@
+Properties\\.
+util\\AuthenticationForm
+\([0-9]*\)
+ConsoleWindow\.cs
+DataViewControlHandler\.cs
+DraggedData\.cs
+DroppedData\.cs
+Filter\.cs
+GroupHandler\.cs
+IconsCache\.cs
+MgMenuHandler\.cs
+MgSplitContainerHandler\.cs
+NativeWindowUtils\.cs
+PrintPreview\.cs
+PrintPreviewData\.cs
+RichEditHandler\.cs
+StatusHandler\.cs
+ToolImages\.cs
+low\\Tree.*\.cs
+gui\\HelpTable
+gui\\DVControlManager
+gui\\DVDataTableCollection
+management\\data\\MgDataTable.cs
+management\\data\\DVDataTable.cs
+gui\\low\\RuntimeDesignerBuilder.cs
+gui\\low\\DesignerValuesSetters.cs
+Renamed by Vault Standard

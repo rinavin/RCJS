@@ -1,0 +1,3 @@
+AssemblyInfo
+\([0-9]*\)
+Renamed by Vault Standard

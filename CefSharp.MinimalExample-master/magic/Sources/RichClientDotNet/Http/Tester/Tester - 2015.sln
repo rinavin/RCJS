@@ -1,0 +1,56 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 14
+VisualStudioVersion = 14.0.25420.1
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Tester 2015", "Tester 2015.csproj", "{C2DBEA0C-E977-4B06-8717-0577CFFF73C7}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "_uniHttpClient 2015", "..\_uniHttpClient 2015.csproj", "{BFA63975-E3FB-44CF-BE90-63207B2376D5}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Debug|Mixed Platforms = Debug|Mixed Platforms
+		Debug|x86 = Debug|x86
+		Release|Any CPU = Release|Any CPU
+		Release|Mixed Platforms = Release|Mixed Platforms
+		Release|x86 = Release|x86
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{C2DBEA0C-E977-4B06-8717-0577CFFF73C7}.Debug|Any CPU.ActiveCfg = Debug|x86
+		{C2DBEA0C-E977-4B06-8717-0577CFFF73C7}.Debug|Mixed Platforms.ActiveCfg = Debug|x86
+		{C2DBEA0C-E977-4B06-8717-0577CFFF73C7}.Debug|Mixed Platforms.Build.0 = Debug|x86
+		{C2DBEA0C-E977-4B06-8717-0577CFFF73C7}.Debug|x86.ActiveCfg = Debug|x86
+		{C2DBEA0C-E977-4B06-8717-0577CFFF73C7}.Debug|x86.Build.0 = Debug|x86
+		{C2DBEA0C-E977-4B06-8717-0577CFFF73C7}.Release|Any CPU.ActiveCfg = Release|x86
+		{C2DBEA0C-E977-4B06-8717-0577CFFF73C7}.Release|Mixed Platforms.ActiveCfg = Release|x86
+		{C2DBEA0C-E977-4B06-8717-0577CFFF73C7}.Release|Mixed Platforms.Build.0 = Release|x86
+		{C2DBEA0C-E977-4B06-8717-0577CFFF73C7}.Release|x86.ActiveCfg = Release|x86
+		{C2DBEA0C-E977-4B06-8717-0577CFFF73C7}.Release|x86.Build.0 = Release|x86
+		{BFA63975-E3FB-44CF-BE90-63207B2376D5}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{BFA63975-E3FB-44CF-BE90-63207B2376D5}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{BFA63975-E3FB-44CF-BE90-63207B2376D5}.Debug|Mixed Platforms.ActiveCfg = Debug|Any CPU
+		{BFA63975-E3FB-44CF-BE90-63207B2376D5}.Debug|Mixed Platforms.Build.0 = Debug|Any CPU
+		{BFA63975-E3FB-44CF-BE90-63207B2376D5}.Debug|x86.ActiveCfg = Debug|Any CPU
+		{BFA63975-E3FB-44CF-BE90-63207B2376D5}.Debug|x86.Build.0 = Debug|Any CPU
+		{BFA63975-E3FB-44CF-BE90-63207B2376D5}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{BFA63975-E3FB-44CF-BE90-63207B2376D5}.Release|Any CPU.Build.0 = Release|Any CPU
+		{BFA63975-E3FB-44CF-BE90-63207B2376D5}.Release|Mixed Platforms.ActiveCfg = Release|Any CPU
+		{BFA63975-E3FB-44CF-BE90-63207B2376D5}.Release|Mixed Platforms.Build.0 = Release|Any CPU
+		{BFA63975-E3FB-44CF-BE90-63207B2376D5}.Release|x86.ActiveCfg = Release|Any CPU
+		{BFA63975-E3FB-44CF-BE90-63207B2376D5}.Release|x86.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(TeamFoundationVersionControl) = preSolution
+		SccNumberOfProjects = 1
+		SccEnterpriseProvider = {4CA58AB2-18FA-4F8D-95D4-32DDF27D184C}
+		SccTeamFoundationServer = http://tfs15db.mse.corp:8080/tfs/xpa_tfs
+		SccProjectUniqueName0 = ..\\_uniHttpClient\u00202015.csproj
+		SccProjectName0 = ../
+		SccAuxPath0 = http://tfs15db.mse.corp:8080/tfs/xpa_tfs
+		SccLocalPath0 = ..
+		SccProvider0 = {4CA58AB2-18FA-4F8D-95D4-32DDF27D184C}
+	EndGlobalSection
+EndGlobal

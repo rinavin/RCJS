@@ -1,0 +1,6 @@
+Properties\\AssemblyInfo.cs
+LocalizationEnumConverter.cs
+PlatformUtils.cs
+SimulateKeyboard.cs
+\\fsm\\loader
+Renamed by Vault Standard

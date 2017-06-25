@@ -1,0 +1,182 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003" ToolsVersion="4.0">
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProductVersion>8.0.50727</ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{0B007B04-EAA6-419C-BDA0-6C394D0DC485}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <StartupObject>
+    </StartupObject>
+    <RootNamespace>RuntimeDesigner</RootNamespace>
+    <NoStandardLibraries>false</NoStandardLibraries>
+    <AssemblyName>MgRuntimeDesigner</AssemblyName>
+    <FileUpgradeFlags>
+    </FileUpgradeFlags>
+    <UpgradeBackupLocation>
+    </UpgradeBackupLocation>
+    <OldToolsVersion>3.5</OldToolsVersion>
+    <TargetFrameworkVersion>v4.0</TargetFrameworkVersion>
+    <TargetFrameworkProfile />
+    <PublishUrl>publish\</PublishUrl>
+    <Install>true</Install>
+    <InstallFrom>Disk</InstallFrom>
+    <UpdateEnabled>false</UpdateEnabled>
+    <UpdateMode>Foreground</UpdateMode>
+    <UpdateInterval>7</UpdateInterval>
+    <UpdateIntervalUnits>Days</UpdateIntervalUnits>
+    <UpdatePeriodically>false</UpdatePeriodically>
+    <UpdateRequired>false</UpdateRequired>
+    <MapFileExtensions>true</MapFileExtensions>
+    <ApplicationRevision>0</ApplicationRevision>
+    <ApplicationVersion>1.0.0.%2a</ApplicationVersion>
+    <IsWebBootstrapper>false</IsWebBootstrapper>
+    <UseApplicationTrust>false</UseApplicationTrust>
+    <BootstrapperEnabled>true</BootstrapperEnabled>
+    <SccProjectName>SAK</SccProjectName>
+    <SccLocalPath>SAK</SccLocalPath>
+    <SccAuxPath>SAK</SccAuxPath>
+    <SccProvider>SAK</SccProvider>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <Optimize>false</Optimize>
+    <OutputPath>.\bin\Debug\</OutputPath>
+    <EnableUnmanagedDebugging>false</EnableUnmanagedDebugging>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <WarningLevel>4</WarningLevel>
+    <IncrementalBuild>false</IncrementalBuild>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <Optimize>true</Optimize>
+    <OutputPath>.\bin\Release\</OutputPath>
+    <EnableUnmanagedDebugging>false</EnableUnmanagedDebugging>
+    <DefineConstants>TRACE</DefineConstants>
+    <WarningLevel>4</WarningLevel>
+    <IncrementalBuild>false</IncrementalBuild>
+    <ErrorReport>prompt</ErrorReport>
+    <DebugType>pdbonly</DebugType>
+  </PropertyGroup>
+  <PropertyGroup>
+    <SignAssembly>true</SignAssembly>
+  </PropertyGroup>
+  <PropertyGroup>
+    <AssemblyOriginatorKeyFile>Merlin.snk</AssemblyOriginatorKeyFile>
+  </PropertyGroup>
+  <Import Project="$(MSBuildBinPath)\Microsoft.CSHARP.Targets" />
+  <PropertyGroup>
+    <PreBuildEvent>
+    </PreBuildEvent>
+    <PostBuildEvent>
+    </PostBuildEvent>
+  </PropertyGroup>
+  <ItemGroup>
+    <Compile Include="AssemblyInfo.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="ComponentWrapper.cs" />
+    <Compile Include="ComponentWrapperPropertyFactory.cs" />
+    <Compile Include="DotNetComponentWrapper.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="HiddenControlsPane.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="ITranslate.cs" />
+    <Compile Include="LocationTranslator.cs" />
+    <Compile Include="MgDesignerOptionService.cs" />
+    <Compile Include="MgPropertyDescriptor.cs" />
+    <Compile Include="PropertyGridManager.cs" />
+    <Compile Include="RTDesignerPropertyDescriptor.cs" />
+    <Compile Include="RTDesignerMessageFilter.cs" />
+    <Compile Include="RuntimeDesignerStrategies\BackgroundColorStrategy.cs" />
+    <Compile Include="RuntimeDesignerStrategies\CanResetFontStrategy.cs" />
+    <Compile Include="RuntimeDesignerStrategies\CanResetListBoxHeightStrategy.cs" />
+    <Compile Include="RuntimeDesignerStrategies\FontStrategy.cs" />
+    <Compile Include="RuntimeDesignerStrategies\ForegroundColorStrategy.cs" />
+    <Compile Include="RuntimeDesignerStrategies\ICanResetStrategy.cs" />
+    <Compile Include="RuntimeDesignerStrategies\ISetPropertyData.cs" />
+    <Compile Include="RuntimeDesignerStrategies\RuntimeControlCoordinateStrategy.cs" />
+    <Compile Include="Serialization\RuntimeDesignerHandleState.cs" />
+    <Compile Include="Serialization\ControlItem.cs" />
+    <Compile Include="Serialization\PropertyItem.cs" />
+    <Compile Include="Serialization\RuntimeDesignerSerializer.cs" />
+    <Compile Include="RuntimeHostLoader.cs" />
+    <Compile Include="ControlsFactory.cs" />
+    <Compile Include="RuntimeMenuService.cs" />
+    <Compile Include="Serialization\TabOrderOffsetPropertyItem.cs" />
+    <Compile Include="SerializedControlData.cs" />
+    <Compile Include="RuntimeHostControl.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="RuntimeHostSurface.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="RuntimeHostSurfaceManager.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="MainShell.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="MainShell.Designer.cs">
+      <DependentUpon>MainShell.cs</DependentUpon>
+    </Compile>
+    <Compile Include="NameCreationService.cs">
+      <SubType>Code</SubType>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="RuntimeHostControl.resx">
+      <DependentUpon>RuntimeHostControl.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="MainShell.resx">
+      <DependentUpon>MainShell.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+  </ItemGroup>
+  <ItemGroup>
+    <Reference Include="System" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Design" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Windows.Forms" />
+    <Reference Include="System.XML" />
+  </ItemGroup>
+  <ItemGroup>
+    <BootstrapperPackage Include="Microsoft.Net.Client.3.5">
+      <Visible>False</Visible>
+      <ProductName>.NET Framework 3.5 SP1 Client Profile</ProductName>
+      <Install>false</Install>
+    </BootstrapperPackage>
+    <BootstrapperPackage Include="Microsoft.Net.Framework.3.5.SP1">
+      <Visible>False</Visible>
+      <ProductName>.NET Framework 3.5 SP1</ProductName>
+      <Install>true</Install>
+    </BootstrapperPackage>
+    <BootstrapperPackage Include="Microsoft.Windows.Installer.3.1">
+      <Visible>False</Visible>
+      <ProductName>Windows Installer 3.1</ProductName>
+      <Install>true</Install>
+    </BootstrapperPackage>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Merlin.snk" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\Controls\_uniControls 2015.csproj">
+      <Project>{5a85f808-1962-4d37-a268-d193490dc0ed}</Project>
+      <Name>_uniControls 2015</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\NativeWrapper\_uniNativeWrapper 2015.csproj">
+      <Project>{10deaab6-ec1c-405c-851f-6ef5e0b495e0}</Project>
+      <Name>_uniNativeWrapper 2015</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\util\_uniUtil 2015.csproj">
+      <Project>{2c21376f-0d2f-4d13-bf0d-b4838beb664a}</Project>
+      <Name>_uniUtil 2015</Name>
+    </ProjectReference>
+  </ItemGroup>
+</Project>

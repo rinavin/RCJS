@@ -1,0 +1,340 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProductVersion>
+    </ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{00E7E500-BC2D-44A1-B26C-0A282F18EAC1}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>Tests.RichClientDotNet</RootNamespace>
+    <AssemblyName>Tests.RichClientDotNet</AssemblyName>
+    <TargetFrameworkVersion>v4.0</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <ProjectTypeGuids>{3AC096D0-A1C2-E12C-1390-A8335801FDAB};{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}</ProjectTypeGuids>
+    <SccProjectName>SAK</SccProjectName>
+    <SccLocalPath>SAK</SccLocalPath>
+    <SccAuxPath>SAK</SccAuxPath>
+    <SccProvider>SAK</SccProvider>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup>
+    <SignAssembly>true</SignAssembly>
+  </PropertyGroup>
+  <PropertyGroup>
+    <AssemblyOriginatorKeyFile>key.snk</AssemblyOriginatorKeyFile>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="Microsoft.VisualStudio.QualityTools.UnitTestFramework, Version=10.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL" />
+    <Reference Include="System" />
+    <Reference Include="System.Core">
+      <RequiredTargetFramework>3.5</RequiredTargetFramework>
+    </Reference>
+    <Reference Include="System.Data" />
+    <Reference Include="System.Deployment" />
+    <Reference Include="System.Design" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Management" />
+    <Reference Include="System.Windows.Forms" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <CodeAnalysisDependentAssemblyPaths Condition=" '$(VS100COMNTOOLS)' != '' " Include="$(VS100COMNTOOLS)..\IDE\PrivateAssemblies">
+      <Visible>False</Visible>
+    </CodeAnalysisDependentAssemblyPaths>
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="BoundarySaxHandlerTest.cs" />
+    <Compile Include="CommandXMLTest.cs" />
+    <Compile Include="ConvertFieldTest.cs" />
+    <Compile Include="FieldBoundariesTest.cs" />
+    <Compile Include="GatewayHelperUtils.cs" />
+    <Compile Include="GatewaysManagerTest.cs" />
+    <Compile Include="PositionCacheTest.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Properties\Resources.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Resources.resx</DependentUpon>
+    </Compile>
+    <Compile Include="RangeDataListComparerTest.cs" />
+    <Compile Include="RecomputeIdFactoryTest.cs" />
+    <Compile Include="RecomputeIdTest.cs" />
+    <Compile Include="RuntimeDesignerTests\ButtonVisualStyle\ButtonVisualStyleForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="RuntimeDesignerTests\ButtonVisualStyle\ButtonVisualStyleForm.Designer.cs">
+      <DependentUpon>ButtonVisualStyleForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="RuntimeDesignerTests\ButtonVisualStyle\ButtonVisualStyleTest.cs" />
+    <Compile Include="RuntimeDesignerTests\CloneControlTests\CloneControlTest2Form.cs.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="RuntimeDesignerTests\CloneControlTests\CloneControlTest2Form.cs.Designer.cs">
+      <DependentUpon>CloneControlTest2Form.cs.cs</DependentUpon>
+    </Compile>
+    <Compile Include="RuntimeDesignerTests\PropertiesTest\PropertiesTestForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="RuntimeDesignerTests\PropertiesTest\PropertiesTestForm.Designer.cs">
+      <DependentUpon>PropertiesTestForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="RuntimeDesignerTests\PropertiesTest\PropertiesTestTest.cs" />
+    <Compile Include="RuntimeDesignerTests\DesignerTestRunner.cs" />
+    <Compile Include="RuntimeDesignerTests\CloneControlTests\CloneControlTest1Form.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="RuntimeDesignerTests\CloneControlTests\CloneControlTest1Form.Designer.cs">
+      <DependentUpon>CloneControlTest1Form.cs</DependentUpon>
+    </Compile>
+    <Compile Include="RuntimeDesignerTests\CloneControlTests\CloneControlTest.cs" />
+    <Compile Include="RuntimeDesignerTests\HideDeletedControls\HideDeletedForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="RuntimeDesignerTests\HideDeletedControls\HideDeletedForm.Designer.cs">
+      <DependentUpon>HideDeletedForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="RuntimeDesignerTests\HideDeletedControls\HideDeletedControlsTest.cs" />
+    <Compile Include="RuntimeDesignerTests\LinkedControls\LinkedControlsForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="RuntimeDesignerTests\LinkedControls\LinkedControlsForm.Designer.cs" />
+    <Compile Include="RuntimeDesignerTests\LinkedControls\LinkedControlsTest.cs" />
+    <Compile Include="RuntimeDesignerTests\ResetProperties\ResetForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="RuntimeDesignerTests\ResetProperties\ResetForm.Designer.cs">
+      <DependentUpon>ResetForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="RuntimeDesignerTests\ResetProperties\ResetTest.cs" />
+    <Compile Include="RuntimeDesignerTests\SerializationTests\SerializationTest.cs" />
+    <Compile Include="RuntimeDesignerTests\SerializationTests\SerializationTestForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="RuntimeDesignerTests\SerializationTests\SerializationTestForm.Designer.cs">
+      <DependentUpon>SerializationTestForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="RuntimeDesignerTests\LoadVisible\LoadVisibleTest.cs" />
+    <Compile Include="RuntimeDesignerTests\LoadVisible\LoadVisibleTestForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="RuntimeDesignerTests\LoadVisible\LoadVisibleTestForm.Designer.cs">
+      <DependentUpon>LoadVisibleTestForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="RuntimeDesignerTests\Utils.cs" />
+    <Compile Include="StorageBlobAnsiTest.cs" />
+    <Compile Include="StorageBlobBinaryTest.cs" />
+    <Compile Include="StorageBlobUnicodeTest.cs" />
+    <Compile Include="TaskDefinitionIdTableSaxHandlerTest.cs" />
+    <Compile Include="Utils.cs" />
+    <Compile Include="ViewsCompositeTest.cs" />
+    <Compile Include="XMLBasedDcValuesBuilderTest.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="key.snk" />
+    <None Include="Resources\SqliteDb" />
+    <None Include="Resources\testRange\sqlite1.SQLite" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Properties\Resources.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>Resources.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="RuntimeDesignerTests\ButtonVisualStyle\ButtonVisualStyleForm.resx">
+      <DependentUpon>ButtonVisualStyleForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="RuntimeDesignerTests\CloneControlTests\CloneControlTest1Form.resx">
+      <DependentUpon>CloneControlTest1Form.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="RuntimeDesignerTests\CloneControlTests\CloneControlTest2Form.cs.resx">
+      <DependentUpon>CloneControlTest2Form.cs.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="RuntimeDesignerTests\PropertiesTest\PropertiesTestForm.resx">
+      <DependentUpon>PropertiesTestForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="RuntimeDesignerTests\HideDeletedControls\HideDeletedForm.resx">
+      <DependentUpon>HideDeletedForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="RuntimeDesignerTests\LinkedControls\LinkedControlsForm.resx">
+      <DependentUpon>LinkedControlsForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="RuntimeDesignerTests\ResetProperties\ResetForm.resx">
+      <DependentUpon>ResetForm.cs</DependentUpon>
+    </EmbeddedResource>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\testRange\appData1.xml">
+      <SubType>Designer</SubType>
+    </None>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\testRange\records1.xml">
+      <SubType>Designer</SubType>
+    </None>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\testRange\magicProject1.xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\RichClientDotNet\Controls\_uniControls 2015.csproj">
+      <Project>{5a85f808-1962-4d37-a268-d193490dc0ed}</Project>
+      <Name>_uniControls 2015</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\RichClientDotNet\Gui\_uniGui 2015.csproj">
+      <Project>{a95b1c7e-66b5-4afa-801d-8528c5689999}</Project>
+      <Name>_uniGui 2015</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\RichClientDotNet\MgRIAGatewayTypes\_RC GatewayTypes 2015.csproj">
+      <Project>{204b0a93-35af-40dc-8000-43973186dbca}</Project>
+      <Name>_RC GatewayTypes 2015</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\RichClientDotNet\MgRIASQLiteGateway\_RC GatewaySQLite 2015.csproj">
+      <Project>{0fd49b9d-2f17-47f2-b208-a2c8cebb73d1}</Project>
+      <Name>_RC GatewaySQLite 2015</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\RichClientDotNet\NativeWrapper\_uniNativeWrapper 2015.csproj">
+      <Project>{10deaab6-ec1c-405c-851f-6ef5e0b495e0}</Project>
+      <Name>_uniNativeWrapper 2015</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\RichClientDotNet\RichClient\_RC Client 2015.csproj">
+      <Project>{84417921-9911-485c-b589-87a71391fe23}</Project>
+      <Name>_RC Client 2015</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\RichClientDotNet\RuntimeDesigner\MgRuntimeDesigner 2015.csproj">
+      <Project>{0b007b04-eaa6-419c-bda0-6c394d0dc485}</Project>
+      <Name>MgRuntimeDesigner 2015</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\RichClientDotNet\Tests.Gui\Tests.Gui 2015.csproj">
+      <Project>{2a554921-c493-4663-a077-9ae453e46c3f}</Project>
+      <Name>Tests.Gui 2015</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\RichClientDotNet\util\_uniUtil 2015.csproj">
+      <Project>{2c21376f-0d2f-4d13-bf0d-b4838beb664a}</Project>
+      <Name>_uniUtil 2015</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Resources\libeay32.dll">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Resources\SQLite.Interop.dll">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Resources\sqlite3.dll">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Resources\System.Data.SQLite.dll">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Resources\TestInsertValues\TestDuplicateIndex\AppDataForInsertDuplicateIndex.xml" />
+    <Content Include="Resources\TestInsertValues\TestDuplicateIndex\CommandsForInsertDuplicateIndex.xml" />
+    <Content Include="Resources\TestInsertValues\TestDuplicateIndex\DataForInsertDuplicateIndex.xml" />
+    <Content Include="Resources\TestInsertValues\TestNullConstraints\AppDataForConstraintFailure.xml" />
+    <Content Include="Resources\TestInsertValues\TestNullConstraints\CommandsForConstraintFailure.xml" />
+    <Content Include="Resources\TestInsertValues\TestNullConstraints\DataForConstraintFailure.xml" />
+    <Content Include="Resources\TestLocate\AppDataForLocate.xml" />
+    <Content Include="Resources\TestLocate\CommandsForLocate.xml" />
+    <Content Include="Resources\TestLocate\DataForLocate.xml" />
+    <Content Include="Resources\TestViewRefresh\WithDefaultPosition\AppDataForViewRefresh.xml" />
+    <Content Include="Resources\TestViewRefresh\WithDefaultPosition\CommandsForViewRefresh.xml" />
+    <Content Include="Resources\TestViewRefresh\WithDefaultPosition\DataForViewRefresh.xml" />
+    <Content Include="Resources\TestViewRefresh\WithStartPosition\AppDataForViewRefreshWithStartPos.xml" />
+    <Content Include="Resources\TestViewRefresh\WithStartPosition\CommandsForViewRefreshWithStartPos.xml" />
+    <Content Include="Resources\TestViewRefresh\WithStartPosition\DataForViewRefreshWithStartPos.xml" />
+    <Content Include="Resources\TestWithoutRange\TestFetchNonNullValues\TestFetchAllDataTypes\AppDataForNonNullValuesWithoutRange.xml" />
+    <Content Include="Resources\TestWithoutRange\TestFetchNonNullValues\TestFetchAllDataTypes\CommandsForNonNullValuesWithoutRange.xml" />
+    <Content Include="Resources\TestWithoutRange\TestFetchNonNullValues\TestFetchAllDataTypes\DataForNonNullValuesWithoutRange.xml" />
+    <Content Include="Resources\TestWithoutRange\TestFetchNonNullValues\TestChunkOfRecords\AppDataForFetchChunkOfRecords.xml" />
+    <Content Include="Resources\TestWithoutRange\TestFetchNonNullValues\TestChunkOfRecords\CommandsForFetchChunkOfRecords.xml" />
+    <Content Include="Resources\TestWithoutRange\TestFetchNonNullValues\TestChunkOfRecords\DataForFetchChunkOfRecords.xml" />
+    <Content Include="Resources\TestWithoutRange\TestFetchNullValues\AppDataForNullValuesWithoutRange.xml" />
+    <Content Include="Resources\TestWithoutRange\TestFetchNullValues\CommandsForNullValuesWithoutRange.xml" />
+    <Content Include="Resources\TestWithoutRange\TestFetchNullValues\DataForNullValuesWithoutRange.xml" />
+    <Content Include="Resources\TestWithRange\RangeWithNoRecords\AppDataForRangeWithNoRecords.xml" />
+    <Content Include="Resources\TestWithRange\RangeWithNoRecords\CommandsForRangeWithNoRecords.xml" />
+    <Content Include="Resources\TestWithRange\RangeWithNoRecords\DataForRangeWithNoRecords.xml" />
+    <Content Include="Resources\TestWithRange\TestRangeAlpha\TestNonNullValue\AppDataForRangeAlphaNonNullValue.xml" />
+    <Content Include="Resources\TestWithRange\TestRangeAlpha\TestNonNullValue\CommandsForRangeAlphaNonNullValue.xml" />
+    <Content Include="Resources\TestWithRange\TestRangeAlpha\TestNonNullValue\DataForRangeAlphaNonNullValue.xml" />
+    <Content Include="Resources\TestWithRange\TestRangeAlpha\TestNullValue\AppDataForRangeAlphaNullValue.xml" />
+    <Content Include="Resources\TestWithRange\TestRangeAlpha\TestNullValue\CommandsForRangeAlphaNullValue.xml" />
+    <Content Include="Resources\TestWithRange\TestRangeAlpha\TestNullValue\DataForRangeAlphaNullValue.xml" />
+    <Content Include="Resources\TestWithRange\TestRangeDateInteger\TestNonNullValue\AppDataForRangeDateIntegerNonNullValue.xml" />
+    <Content Include="Resources\TestWithRange\TestRangeDateInteger\TestNonNullValue\CommandsForRangeDateIntegerNonNullValue.xml" />
+    <Content Include="Resources\TestWithRange\TestRangeDateInteger\TestNonNullValue\DataForRangeDateIntegerNonNullValue.xml" />
+    <Content Include="Resources\TestWithRange\TestRangeDateInteger\TestNullValue\AppDataForRangeDateIntegerNullValue.xml" />
+    <Content Include="Resources\TestWithRange\TestRangeDateInteger\TestNullValue\CommandsForRangeDateIntegerNullValue.xml" />
+    <Content Include="Resources\TestWithRange\TestRangeDateInteger\TestNullValue\DataForRangeDateIntegerNullValue.xml" />
+    <Content Include="Resources\TestWithRange\TestRangeDateString\TestNonNullValue\AppDataForRangeDateStringNonNullValue.xml" />
+    <Content Include="Resources\TestWithRange\TestRangeDateString\TestNonNullValue\CommandsForRangeDateStringNonNullValue.xml" />
+    <Content Include="Resources\TestWithRange\TestRangeDateString\TestNonNullValue\DataForRangeDateStringNonNullValue.xml" />
+    <Content Include="Resources\TestWithRange\TestRangeDateString\TestNullValue\AppDataForRangeDateStringNullValue.xml" />
+    <Content Include="Resources\TestWithRange\TestRangeDateString\TestNullValue\CommandsForRangeDateStringNullValue.xml" />
+    <Content Include="Resources\TestWithRange\TestRangeDateString\TestNullValue\DataForRangeDateStringNullValue.xml" />
+    <Content Include="Resources\TestWithRange\TestRangeLogical\TestNonNullValue\AppDataForRangeLogicalNonNullValue.xml" />
+    <Content Include="Resources\TestWithRange\TestRangeLogical\TestNonNullValue\CommandsForRangeLogicalNonNullValue.xml" />
+    <Content Include="Resources\TestWithRange\TestRangeLogical\TestNonNullValue\DataForRangeLogicalNonNullValue.xml" />
+    <Content Include="Resources\TestWithRange\TestRangeLogical\TestNullValue\AppDataForRangeLogicalNullValue.xml" />
+    <Content Include="Resources\TestWithRange\TestRangeLogical\TestNullValue\CommandsForRangeLogicalNullValue.xml" />
+    <Content Include="Resources\TestWithRange\TestRangeLogical\TestNullValue\DataForRangeLogicalNullValue.xml" />
+    <Content Include="Resources\TestWithRange\TestRangeNumericFloat\TestNonNullValue\AppDataForRangeNumericFloatNonNullValue.xml" />
+    <Content Include="Resources\TestWithRange\TestRangeNumericFloat\TestNonNullValue\CommandsForRangeNumericFloatNonNullValue.xml" />
+    <Content Include="Resources\TestWithRange\TestRangeNumericFloat\TestNonNullValue\DataForRangeNumericFloatNonNullValue.xml" />
+    <Content Include="Resources\TestWithRange\TestRangeNumericFloat\TestNullValue\AppDataForRangeNumericFloatNullValue.xml" />
+    <Content Include="Resources\TestWithRange\TestRangeNumericFloat\TestNullValue\CommandsForRangeNumericFloatNullValue.xml" />
+    <Content Include="Resources\TestWithRange\TestRangeNumericFloat\TestNullValue\DataForRangeNumericFloatNullValue.xml" />
+    <Content Include="Resources\TestWithRange\TestRangeNumericString\TestNonNullValue\AppDataForRangeNumericStringNonNullValue.xml" />
+    <Content Include="Resources\TestWithRange\TestRangeNumericString\TestNonNullValue\CommandsForRangeNumericStringNonNullValue.xml" />
+    <Content Include="Resources\TestWithRange\TestRangeNumericString\TestNonNullValue\DataForRangeNumericStringNonNullValue.xml" />
+    <Content Include="Resources\TestWithRange\TestRangeNumericString\TestNullValue\AppDataForRangeNumericStringNullValue.xml" />
+    <Content Include="Resources\TestWithRange\TestRangeNumericString\TestNullValue\CommandsForRangeNumericStringNullValue.xml" />
+    <Content Include="Resources\TestWithRange\TestRangeNumericString\TestNullValue\DataForRangeNumericStringNullValue.xml" />
+    <Content Include="Resources\TestWithRange\TestRangeTimeInteger\TestNonNullValue\AppDataForRangeTimeIntegerNonNullValue.xml" />
+    <Content Include="Resources\TestWithRange\TestRangeTimeInteger\TestNonNullValue\CommandsForRangeTimeIntegerNonNullValue.xml" />
+    <Content Include="Resources\TestWithRange\TestRangeTimeInteger\TestNonNullValue\DataForRangeTimeIntegerNonNullValue.xml" />
+    <Content Include="Resources\TestWithRange\TestRangeTimeInteger\TestNullValue\AppDataForRangeTimeIntegerNullValue.xml" />
+    <Content Include="Resources\TestWithRange\TestRangeTimeInteger\TestNullValue\CommandsForRangeTimeIntegerNullValue.xml" />
+    <Content Include="Resources\TestWithRange\TestRangeTimeInteger\TestNullValue\DataForRangeTimeIntegerNullValue.xml" />
+    <Content Include="Resources\TestWithRange\TestRangeTimeString\TestNonNullValue\AppDataForRangeTimeStringNonNullValue.xml" />
+    <Content Include="Resources\TestWithRange\TestRangeTimeString\TestNonNullValue\CommandsForRangeTimeStringNonNullValue.xml" />
+    <Content Include="Resources\TestWithRange\TestRangeTimeString\TestNonNullValue\DataForRangeTimeStringNonNullValue.xml" />
+    <Content Include="Resources\TestWithRange\TestRangeTimeString\TestNullValue\AppDataForRangeTimeStringNullValue.xml" />
+    <Content Include="Resources\TestWithRange\TestRangeTimeString\TestNullValue\CommandsForRangeTimeStringNullValue.xml" />
+    <Content Include="Resources\TestWithRange\TestRangeTimeString\TestNullValue\DataForRangeTimeStringNullValue.xml" />
+    <Content Include="Resources\TestWithRange\TestRangeUnicode\TestNonNullValue\AppDataForRangeUnicodeNonNullValue.xml" />
+    <Content Include="Resources\TestWithRange\TestRangeUnicode\TestNonNullValue\CommandsForRangeUnicodeNonNullValue.xml" />
+    <Content Include="Resources\TestWithRange\TestRangeUnicode\TestNonNullValue\DataForRangeUnicodeNonNullValue.xml" />
+    <Content Include="Resources\TestWithRange\TestRangeUnicode\TestNullValue\AppDataForRangeUnicodeNullValue.xml" />
+    <Content Include="Resources\TestWithRange\TestRangeUnicode\TestNullValue\CommandsForRangeUnicodeNullValue.xml" />
+    <Content Include="Resources\TestWithRange\TestRangeUnicode\TestNullValue\DataForRangeUnicodeNullValue.xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="Test References\" />
+  </ItemGroup>
+  <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

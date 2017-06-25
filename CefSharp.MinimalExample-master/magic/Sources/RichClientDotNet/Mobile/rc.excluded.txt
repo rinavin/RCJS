@@ -1,0 +1,12 @@
+Properties\\AssemblyInfo.cs
+client\\ApplicationUpdateForm
+\\MgRIASQLiteGateway\\.*
+\([0-9]*\)
+http\\SessionStatisticsForm.Designer.cs
+http\\client\\ChangePassword
+StudioLauncher.cs
+util\\HashSet.cs
+util\\DateTimeUtils.cs
+util\\Vis2Log.cs
+\\Command.cs
+Renamed by Vault Standard

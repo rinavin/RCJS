@@ -1,0 +1,15 @@
+<project outputDir="obj\Release" baseDir="." xmlns="http://confuser.codeplex.com">
+  <rule pattern="true" preset="aggressive">
+    <protection id="anti tamper" action="remove" />
+  </rule>
+  <module path="MgxpaRIA.exe" snKey="..\util\Merlin.snk">
+    <rule pattern="true" preset="aggressive">
+      <protection id="rename">
+        <argument name="mode" value="decodable" />
+      </protection>
+      <protection id="anti tamper" action="remove" />
+      <protection id="anti ildasm" action="remove" />
+      <protection id="ctrl flow" action="remove" />
+    </rule>
+  </module>
+</project>

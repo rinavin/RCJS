@@ -1,0 +1,124 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProductVersion>8.0.30703</ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{BFA63975-E3FB-44CF-BE90-63207B2376D5}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>MgHttpClient</RootNamespace>
+    <AssemblyName>MgHttpClient</AssemblyName>
+    <TargetFrameworkVersion>v4.0</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <TargetFrameworkProfile />
+    <SccProjectName>SAK</SccProjectName>
+    <SccLocalPath>SAK</SccLocalPath>
+    <SccAuxPath>SAK</SccAuxPath>
+    <SccProvider>SAK</SccProvider>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup>
+    <SignAssembly>true</SignAssembly>
+  </PropertyGroup>
+  <PropertyGroup>
+    <AssemblyOriginatorKeyFile>..\util\Merlin.snk</AssemblyOriginatorKeyFile>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="System" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Windows.Forms" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="..\..\..\addon for vc\compression\lzma\c#\CRC.cs">
+      <Link>com\magicsoftware\httpclient\compression\CRC.cs</Link>
+    </Compile>
+    <Compile Include="..\..\..\addon for vc\compression\lzma\c#\ICoder.cs">
+      <Link>com\magicsoftware\httpclient\compression\ICoder.cs</Link>
+    </Compile>
+    <Compile Include="..\..\..\addon for vc\compression\lzma\c#\lzma\LzmaBase.cs">
+      <Link>com\magicsoftware\httpclient\compression\LZMA\LzmaBase.cs</Link>
+    </Compile>
+    <Compile Include="..\..\..\addon for vc\compression\lzma\c#\lzma\LzmaDecoder.cs">
+      <Link>com\magicsoftware\httpclient\compression\LZMA\LzmaDecoder.cs</Link>
+    </Compile>
+    <Compile Include="..\..\..\addon for vc\compression\lzma\c#\lzma\LzmaEncoder.cs">
+      <Link>com\magicsoftware\httpclient\compression\LZMA\LzmaEncoder.cs</Link>
+    </Compile>
+    <Compile Include="..\..\..\addon for vc\compression\lzma\c#\lz\IMatchFinder.cs">
+      <Link>com\magicsoftware\httpclient\compression\LZ\IMatchFinder.cs</Link>
+    </Compile>
+    <Compile Include="..\..\..\addon for vc\compression\lzma\c#\lz\LzBinTree.cs">
+      <Link>com\magicsoftware\httpclient\compression\LZ\LzBinTree.cs</Link>
+    </Compile>
+    <Compile Include="..\..\..\addon for vc\compression\lzma\c#\lz\LzInWindow.cs">
+      <Link>com\magicsoftware\httpclient\compression\LZ\LzInWindow.cs</Link>
+    </Compile>
+    <Compile Include="..\..\..\addon for vc\compression\lzma\c#\lz\LzOutWindow.cs">
+      <Link>com\magicsoftware\httpclient\compression\LZ\LzOutWindow.cs</Link>
+    </Compile>
+    <Compile Include="..\..\..\addon for vc\compression\lzma\c#\rangecoder\RangeCoder.cs">
+      <Link>com\magicsoftware\httpclient\compression\RangeCoder\RangeCoder.cs</Link>
+    </Compile>
+    <Compile Include="..\..\..\addon for vc\compression\lzma\c#\rangecoder\RangeCoderBit.cs">
+      <Link>com\magicsoftware\httpclient\compression\RangeCoder\RangeCoderBit.cs</Link>
+    </Compile>
+    <Compile Include="..\..\..\addon for vc\compression\lzma\c#\rangecoder\RangeCoderBitTree.cs">
+      <Link>com\magicsoftware\httpclient\compression\RangeCoder\RangeCoderBitTree.cs</Link>
+    </Compile>
+    <Compile Include="com\magicsoftware\httpclient\AuthenticationBrowserWindow.cs" />
+    <Compile Include="com\magicsoftware\httpclient\utils\compression\Compression.cs" />
+    <Compile Include="com\magicsoftware\httpclient\HttpClient.cs" />
+    <Compile Include="com\magicsoftware\httpclient\HttpClientEvents.cs" />
+    <Compile Include="com\magicsoftware\httpclient\HttpUtility.cs" />
+    <Compile Include="com\magicsoftware\httpclient\ICommunicationsFailureHandler.cs" />
+    <Compile Include="com\magicsoftware\httpclient\ISpecialAuthenticationHandler.cs" />
+    <Compile Include="com\magicsoftware\httpclient\ProxyServers.cs" />
+    <Compile Include="com\magicsoftware\httpclient\RSAAuthenticationHandler.cs" />
+    <Compile Include="com\magicsoftware\httpclient\HttpClientConsts.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Merlin.snk" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\Gui\_uniGui 2015.csproj">
+      <Project>{a95b1c7e-66b5-4afa-801d-8528c5689999}</Project>
+      <Name>_uniGui 2015</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\util\_uniUtil 2015.csproj">
+      <Project>{2c21376f-0d2f-4d13-bf0d-b4838beb664a}</Project>
+      <Name>_uniUtil 2015</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <PropertyGroup>
+    <PostBuildEvent>xcopy $(TargetPath) $(ProjectDir)..\..\ /y /f /d</PostBuildEvent>
+  </PropertyGroup>
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>
