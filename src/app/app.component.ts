@@ -1,4 +1,4 @@
-import { Component,  OnInit , ChangeDetectorRef } from '@angular/core';
+import { Component, OnInit, ChangeDetectorRef } from '@angular/core';
 
 
 declare var myExtObject: any;
@@ -6,31 +6,27 @@ declare var myExtObject: any;
   selector: 'app-root',
   templateUrl: './app.component.html',
   styleUrls: ['./app.component.css'],
-  
+
 })
 
-export class AppComponent implements OnInit  {
- 
-  id :string;
-  name : string;
- 
+export class AppComponent implements OnInit {
 
-  constructor( private ref: ChangeDetectorRef) { }
+  id: string;
+  name: string;
 
- ngOnInit() {
-   this.initializeMagic();
+
+  constructor(private ref: ChangeDetectorRef) { }
+
+  ngOnInit() {
+    this.initializeMagic();
   }
-  profile = '';
-
-  
 
   initializeMagic() {
 
     var self = this;
-    myExtObject.func4(data => 
-    {
-      var obj = JSON.parse(data);  
-     // alert(data);
+    myExtObject.startMagic(data => {
+      var obj = JSON.parse(data);
+      //alert(data);
       self.id = obj[1].Value;
       self.name = obj[3].Value;
       self.ref.detectChanges();
@@ -38,9 +34,9 @@ export class AppComponent implements OnInit  {
     );
   }
 
-  buttonClick(index: number) { 
-     myExtObject.buttonClick(index);
+  buttonClick(index: number) {
+    myExtObject.buttonClick(index);
   }
- 
+
 
 }
