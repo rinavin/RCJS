@@ -40,7 +40,7 @@ namespace CefSharp.MinimalExample.WinForms
       }
       IJavascriptCallback jsc;
 
-      public void TestCallback(IJavascriptCallback javascriptCallback)
+      public void Start(IJavascriptCallback javascriptCallback)
       {
          const int taskDelay = 1;
          jsc = javascriptCallback;
