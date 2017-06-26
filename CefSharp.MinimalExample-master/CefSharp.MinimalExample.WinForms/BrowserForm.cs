@@ -8,7 +8,6 @@ using CefSharp.MinimalExample.WinForms.Controls;
 using CefSharp.WinForms;
 using System.Threading.Tasks;
 using System.Diagnostics;
-//using static CefSharp.MinimalExample.WinForms.BrowserForm.BoundObject;
 
 namespace CefSharp.MinimalExample.WinForms
 {
@@ -36,125 +35,23 @@ namespace CefSharp.MinimalExample.WinForms
          browser.AddressChanged += OnBrowserAddressChanged;
          browser.LoadingStateChanged += (sender, args) =>
          {
-               //Wait for the Page to finish loading
-               if (args.IsLoading == false)
+            //Wait for the Page to finish loading
+            if (args.IsLoading == false)
             {
-              // browser.ExecuteScriptAsync("alert('All Resources Have Loaded');");
+               // browser.ExecuteScriptAsync("alert('All Resources Have Loaded');");
             }
+
          };
          browser.RegisterAsyncJsObject("boundAsync", new BoundObject.AsyncBoundObject()); //Standard object rego
                                                                                           //browser.RegisterJsObject("bound", new BoundObject()); //Standard object registration
          browser.RegisterJsObject("bound", new BoundObject(), BindingOptions.DefaultBinder); //Use the default binder to serialize values into complex objects
                                                                                              //browser.RegisterJsObject("bound", new BoundObject(), new BindingOptions { CamelCaseJavascriptNames = false, Binder = new MyCustomBinder() }); //No camelcase of names and specify a default binder
          browser.RegisterJsObject("bound1", new BoundObject1(), BindingOptions.DefaultBinder); //Use the default binder to serialize values into complex objects
-         browser.RegisterJsObject("magic1", new MagicBoundObject(browser), BindingOptions.DefaultBinder); //Use the default binder to serialize values into complex objects
-
-
-
-
+         browser.RegisterJsObject("magic1", new MagicBoundObject(), BindingOptions.DefaultBinder); //Use the default binder to serialize values into complex objects
          var bitness = Environment.Is64BitProcess ? "x64" : "x86";
          var version = String.Format("Chromium: {0}, CEF: {1}, CefSharp: {2}, Environment: {3}", Cef.ChromiumVersion, Cef.CefVersion, Cef.CefSharpVersion, bitness);
          DisplayOutput(version);
-            //com.magicsoftware.richclient.Runme.Start();
-      }
-
-
-      public class BoundObject
-      {
-         public class AsyncBoundObject
-         {
-            //We expect an exception here, so tell VS to ignore
-            // [DebuggerHidden]
-            public void Error()
-            {
-               throw new Exception("This is an exception coming from C#");
-            }
-
-            //We expect an exception here, so tell VS to ignore
-            // [DebuggerHidden]
-            public int Div(int divident, int divisor)
-            {
-                    
-                    return divident + divisor;
-            }
-         }
-      }
-
-      public class MagicBoundObject
-      {
-         Control c;
-         public MagicBoundObject(Control c)
-         {
-            this.c = c;
-         }
-         IJavascriptCallback jsc;
-
-         public void TestCallback(IJavascriptCallback javascriptCallback)
-         {
-            const int taskDelay = 1;
-            jsc = javascriptCallback;
-            Task.Run(async () =>
-            {
-               await Task.Delay(taskDelay);
-
-               using (javascriptCallback)
-               {
-                  com.magicsoftware.richclient.Runme.Start(RefreshCallback);
-                  //NOTE: Classes are not supported, simple structs are
-                  //var response = new CallbackResponseStruct("This callback from C# was delayed " + taskDelay + "ms");
-                  //var response = "This callback from C# was delayed " + taskDelay + "ms";
-                 // await javascriptCallback.ExecuteAsync(response);
-               }
-            });
-         }
-
-         public void InsertEvent(IJavascriptCallback javascriptCallback)
-         {
-            com.magicsoftware.richclient.Runme.AddClickEvent(4);
-         }
-
-         private void RefreshCallback(string UIDesctiption)
-         {
-            c.InvokeOnUiThreadIfRequired(() => jsc.ExecuteAsync(UIDesctiption));
-            ;
-         }
-      }
-      public class BoundObject1
-      {
-         public string MyProperty { get; set; }
-         public void MyMethod()
-         {
-            // Do something really cool here.
-         }
-         IJavascriptCallback jsc;
-
-         public void TestCallback(IJavascriptCallback javascriptCallback)
-         {
-            const int taskDelay = 1500;
-            jsc = javascriptCallback;
-            Task.Run(async () =>
-            {
-               await Task.Delay(taskDelay);
-
-               using (javascriptCallback)
-               {
-
-                  //NOTE: Classes are not supported, simple structs are
-                  //var response = new CallbackResponseStruct("This callback from C# was delayed " + taskDelay + "ms");
-                  var response = "This callback from C# was delayed " + taskDelay + "ms";
-                  await javascriptCallback.ExecuteAsync(response);
-               }
-            });
-         }
-
-
-
-      }
-
-
-      
-
-
+       }
 
       private void OnBrowserConsoleMessage(object sender, ConsoleMessageEventArgs args)
       {
@@ -181,14 +78,7 @@ namespace CefSharp.MinimalExample.WinForms
 
       private void OnBrowserAddressChanged(object sender, AddressChangedEventArgs args)
       {
-            Task.Run(async () =>
-            {
-                await Task.Delay(1);
-
-               // com.magicsoftware.richclient.Runme.Start(RefreshCallback);
-            });
-            
-            this.InvokeOnUiThreadIfRequired(() => urlTextBox.Text = args.Address);
+         this.InvokeOnUiThreadIfRequired(() => urlTextBox.Text = args.Address);
       }
 
       private  void RefreshCallback(string UIDesctiption)
