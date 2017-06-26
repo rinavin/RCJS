@@ -1,4 +1,21 @@
 <br>
+
+<form novalidate [formGroup]="user">
+  <label>
+    <span>Id:</span>
+    <input
+      type="text"
+      formControlName="id">
+  </label>
+  <br>
+    <label>
+      <span>Name:</span>
+      <input
+        type="text"
+        formControlName="name">
+    </label>
+</form>
+<!--<br>
 <br>
 <div style="display: in-line">
   id:
@@ -9,7 +26,7 @@
   <input type="text" [(ngModel)]="name" />
 </div>
 <br>
-<br>
+<br>-->
 <div>
   <div style="display: in-line">
     <button class="btn btn-default" (click)="buttonClick(4)">Next </button>
