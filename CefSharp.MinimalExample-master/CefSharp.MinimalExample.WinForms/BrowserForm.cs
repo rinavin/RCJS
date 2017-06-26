@@ -19,7 +19,7 @@ namespace CefSharp.MinimalExample.WinForms
       public BrowserForm()
       {
          InitializeComponent();
-
+        
          Text = "CefSharp";
          WindowState = FormWindowState.Maximized;
 
@@ -47,6 +47,7 @@ namespace CefSharp.MinimalExample.WinForms
          browser.RegisterJsObject("bound", new BoundObject(), BindingOptions.DefaultBinder); //Use the default binder to serialize values into complex objects
                                                                                              //browser.RegisterJsObject("bound", new BoundObject(), new BindingOptions { CamelCaseJavascriptNames = false, Binder = new MyCustomBinder() }); //No camelcase of names and specify a default binder
          browser.RegisterJsObject("bound1", new BoundObject1(), BindingOptions.DefaultBinder); //Use the default binder to serialize values into complex objects
+         browser.RegisterJsObject("magic1", new MagicBoundObject(browser), BindingOptions.DefaultBinder); //Use the default binder to serialize values into complex objects
 
 
 
@@ -78,6 +79,46 @@ namespace CefSharp.MinimalExample.WinForms
             }
          }
       }
+
+      public class MagicBoundObject
+      {
+         Control c;
+         public MagicBoundObject(Control c)
+         {
+            this.c = c;
+         }
+         IJavascriptCallback jsc;
+
+         public void TestCallback(IJavascriptCallback javascriptCallback)
+         {
+            const int taskDelay = 1;
+            jsc = javascriptCallback;
+            Task.Run(async () =>
+            {
+               await Task.Delay(taskDelay);
+
+               using (javascriptCallback)
+               {
+                  com.magicsoftware.richclient.Runme.Start(RefreshCallback);
+                  //NOTE: Classes are not supported, simple structs are
+                  //var response = new CallbackResponseStruct("This callback from C# was delayed " + taskDelay + "ms");
+                  //var response = "This callback from C# was delayed " + taskDelay + "ms";
+                 // await javascriptCallback.ExecuteAsync(response);
+               }
+            });
+         }
+
+         public void InsertEvent(IJavascriptCallback javascriptCallback)
+         {
+            com.magicsoftware.richclient.Runme.AddClickEvent(4);
+         }
+
+         private void RefreshCallback(string UIDesctiption)
+         {
+            c.InvokeOnUiThreadIfRequired(() => jsc.ExecuteAsync(UIDesctiption));
+            ;
+         }
+      }
       public class BoundObject1
       {
          public string MyProperty { get; set; }
@@ -85,25 +126,33 @@ namespace CefSharp.MinimalExample.WinForms
          {
             // Do something really cool here.
          }
+         IJavascriptCallback jsc;
 
          public void TestCallback(IJavascriptCallback javascriptCallback)
          {
             const int taskDelay = 1500;
-
+            jsc = javascriptCallback;
             Task.Run(async () =>
             {
-            await Task.Delay(taskDelay);
-               
-                using (javascriptCallback)
-            {
-               //NOTE: Classes are not supported, simple structs are
-               //var response = new CallbackResponseStruct("This callback from C# was delayed " + taskDelay + "ms");
-               var response = "This callback from C# was delayed " + taskDelay + "ms";
+               await Task.Delay(taskDelay);
+
+               using (javascriptCallback)
+               {
+
+                  //NOTE: Classes are not supported, simple structs are
+                  //var response = new CallbackResponseStruct("This callback from C# was delayed " + taskDelay + "ms");
+                  var response = "This callback from C# was delayed " + taskDelay + "ms";
                   await javascriptCallback.ExecuteAsync(response);
                }
             });
          }
+
+
+
       }
+
+
+      
 
 
 
@@ -136,10 +185,15 @@ namespace CefSharp.MinimalExample.WinForms
             {
                 await Task.Delay(1);
 
-                com.magicsoftware.richclient.Runme.Start();
+               // com.magicsoftware.richclient.Runme.Start(RefreshCallback);
             });
             
             this.InvokeOnUiThreadIfRequired(() => urlTextBox.Text = args.Address);
+      }
+
+      private  void RefreshCallback(string UIDesctiption)
+      {
+         this.InvokeOnUiThreadIfRequired(() => MessageBox.Show(UIDesctiption));
       }
 
       private void SetCanGoBack(bool canGoBack)

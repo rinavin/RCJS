@@ -52,6 +52,7 @@ using com.magicsoftware.richclient.sources;
 using com.magicsoftware.richclient.local.application.datasources.converter;
 using com.magicsoftware.richclient.data;
 using com.magicsoftware.gatewaytypes.data;
+using static com.magicsoftware.unipaas.Events;
 
 #if !PocketPC
 using System.Windows.Forms;
@@ -66,15 +67,35 @@ namespace com.magicsoftware.richclient
 {
     public static class Runme
     {
-        static public void Start()
+        static public void Start(RefreshUIDelegate refreshUIDelegate)
         {
-            ClientManager.Main(new string[] { });
+            ClientManager.Main(new string[] { },  refreshUIDelegate);
         }
-    }
+
+      static public void AddClickEvent(int controlIdx)
+      {
+
+         ClientManager.Instance.AddClickEvent(controlIdx);
+      }
+   }
+   public delegate void RefreshUIDelegate(string UIDesctiption);
    /// <summary> The main class of the Rich Client</summary>
    internal class ClientManager : System.IServiceProvider
    {
+      RefreshUIDelegate refreshUIDelegate;
+      public void RefreshUI(string UIDesctiption)
+      {
+         if (refreshUIDelegate != null)
+            refreshUIDelegate(UIDesctiption);
+      }
       readonly GuiEventsProcessor _guiEventsProcessor;
+
+      public void AddClickEvent(int controlIdx)
+      {
+         Task task = getLastFocusedTask();
+         MgControlBase control = task.getForm().getCtrl(controlIdx);
+         Events.OnSelection("", control, 0, true);
+      }
 
       // KEYBOARD EVENTS CONSTANTS
       internal readonly KeyboardItem KBI_DOWN;
@@ -678,7 +699,7 @@ namespace com.magicsoftware.richclient
          try
          {
             // in addition to the tasks' forms, the forms user state controls authentication dialogs, therefore it must be loaded first.
-            LoadInitialFormsUserState();
+           LoadInitialFormsUserState();
 
             if (CommandsProcessorManager.StartSession())
             {
@@ -697,7 +718,7 @@ namespace com.magicsoftware.richclient
 
                /// write and re-read the forms user state file - this time from the project's folder 
                ///  (for backwards compatibility - prior to the RSA authentication dialog changes, for which the forms user state is loaded above).
-               LoadProjectFormsUserState();
+             //  LoadProjectFormsUserState();
 
                MGDataCollection mgDataTab = MGDataCollection.Instance;
                MGData startupMgData = mgDataTab.StartupMgData;
@@ -765,12 +786,12 @@ namespace com.magicsoftware.richclient
       /// </summary>
       private void LoadInitialFormsUserState()
       {
-         if (StartedFromStudio)
+         //if (StartedFromStudio)
             // set isDisabled if started app started from studio (why??)
             FormUserState.GetInstance().IsDisabled = true;
-         else
+         //else
             // read the forms user state file
-            FormUserState.GetInstance().Read(ConstInterface.FORMS_USER_STATE_FILE_NAME);
+         //   FormUserState.GetInstance().Read(ConstInterface.FORMS_USER_STATE_FILE_NAME);
       }
 
       /// <summary>
@@ -1439,9 +1460,10 @@ namespace com.magicsoftware.richclient
 #else
       [STAThread]
 #endif
-      internal static void Main(String[] args)
+      internal static void Main(String[] args, RefreshUIDelegate refreshUIDelegate)
       {
          Misc.MarkGuiThread();
+         ClientManager.Instance.refreshUIDelegate = refreshUIDelegate;
 
 #if !PocketPC
          // In case there is proxy authentication and application is accessed through ClickOnce

@@ -300,10 +300,10 @@ namespace com.magicsoftware.unipaas
       /// <param name="ctrl"></param>
       /// <param name="line"></param>
       /// <param name="produceClick"></param>
-      internal static void OnSelection(String val, GuiMgControl ctrl, int line, bool produceClick)
+      public static void OnSelection(String val, GuiMgControl ctrl, int line, bool produceClick)
       {
-         Debug.Assert(Misc.IsGuiThread());
-         Debug.Assert(SelectionEvent != null);
+        // Debug.Assert(Misc.IsGuiThread());
+       //  Debug.Assert(SelectionEvent != null);
          SelectionEvent(val, ctrl, line, produceClick);
       }
       public delegate void SelectionDelegate(String val, GuiMgControl ctrl, int line, bool produceClick);

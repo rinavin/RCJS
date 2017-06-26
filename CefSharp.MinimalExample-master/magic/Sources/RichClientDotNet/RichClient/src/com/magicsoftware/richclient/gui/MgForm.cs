@@ -18,6 +18,7 @@ using util.com.magicsoftware.util;
 using DataView = com.magicsoftware.richclient.data.DataView;
 using Field = com.magicsoftware.richclient.data.Field;
 using Record = com.magicsoftware.richclient.data.Record;
+using System.Web.Script.Serialization;
 
 namespace com.magicsoftware.richclient.gui
 {
@@ -2637,6 +2638,8 @@ namespace com.magicsoftware.richclient.gui
          {
             _inRefreshDisp = false;
          }
+         if (!getTask().isMainProg())
+            ClientManager.Instance.RefreshUI(SerializeControls());
 
          if (task.getRefreshType() == Constants.TASK_REFRESH_TREE_AND_FORM)
             task.resetRefreshType();
@@ -2645,6 +2648,25 @@ namespace com.magicsoftware.richclient.gui
          if (refreshType == Constants.TASK_REFRESH_CURR_REC && (!isLineMode() || _tableRefreshed))
             FormRefreshed = true;
          return true;
+      }
+
+      public String SerializeControls()
+      {
+         List<AnControl> list = new List<AnControl>();
+         for (int i = 0; i < CtrlTab.getSize(); i++)
+         {
+            MgControlBase ctrl = CtrlTab.getCtrl(i);
+            AnControl anControl = new AnControl() { Value = ctrl.Value, ControlIsn = ctrl.ControlIsn };
+            list.Add(anControl);
+
+         }
+         JavaScriptSerializer serializer = new JavaScriptSerializer();
+         return serializer.Serialize(list);
+      }
+      public class AnControl
+      {
+         public string Value { get; set; }
+         public int ControlIsn { get; set; }
       }
 
       /// <summary>
