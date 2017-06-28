@@ -1646,60 +1646,60 @@ namespace com.magicsoftware.unipaas.gui.low
       /// </summary>
       private void Invoke()
       {
-         if (invokeRequired())
-         {
-            // Allow only one worker thread to enter GuiInteractive
-            lock (lockObject)
-            {
-               if (!GuiCommandQueue.getInstance().GuiThreadIsAvailableToProcessCommands && GuiCommandQueue.getInstance().QueueSize > 0)
-               {
-                  try
-                  {
-                     // If Gui thread execution started here, we will have to recheck if Gui thread is processing commands after entering monitor.
-                     // It may happen that the control will return back to worker thread only after gui thread has processed all the commands.
-                     // In such situations, worker thread should not wait for command processing to start (it will wait forever since it will
-                     // never be able to invoke gui thread again).
+         //if (invokeRequired())
+         //{
+         //   // Allow only one worker thread to enter GuiInteractive
+         //   lock (lockObject)
+         //   {
+         //      if (!GuiCommandQueue.getInstance().GuiThreadIsAvailableToProcessCommands && GuiCommandQueue.getInstance().QueueSize > 0)
+         //      {
+         //         try
+         //         {
+         //            // If Gui thread execution started here, we will have to recheck if Gui thread is processing commands after entering monitor.
+         //            // It may happen that the control will return back to worker thread only after gui thread has processed all the commands.
+         //            // In such situations, worker thread should not wait for command processing to start (it will wait forever since it will
+         //            // never be able to invoke gui thread again).
 
-                     Monitor.Enter(GuiCommandQueue.GuiThreadCommandProcessingStart);
+         //            Monitor.Enter(GuiCommandQueue.GuiThreadCommandProcessingStart);
 
-                     // Request gui thread to process existing commands in the queue
-                     GuiCommandQueue.getInstance().beginInvoke();
+         //            // Request gui thread to process existing commands in the queue
+         //            GuiCommandQueue.getInstance().beginInvoke();
 
-                     // If gui thread execution starts after Monitor.Enter but before Monitor.Wait, following will be the flow:
-                     // 1. gui thread will not enter the monitor while setting the value of GuiThreadIsAvailableToProcessCommands to true (because 
-                     //    worker thread has already entered). 
-                     // 2. Worker thread will eventually get back the control and it will call Monitor.Wait allowing Gui thread to resume. Gui thread 
-                     //    will then pulse the monitor indicating that it has started commands execution.
-                     // 3. Due to Pulse, worker thread will come out of Wait (for start).
+         //            // If gui thread execution starts after Monitor.Enter but before Monitor.Wait, following will be the flow:
+         //            // 1. gui thread will not enter the monitor while setting the value of GuiThreadIsAvailableToProcessCommands to true (because 
+         //            //    worker thread has already entered). 
+         //            // 2. Worker thread will eventually get back the control and it will call Monitor.Wait allowing Gui thread to resume. Gui thread 
+         //            //    will then pulse the monitor indicating that it has started commands execution.
+         //            // 3. Due to Pulse, worker thread will come out of Wait (for start).
 
-                     // As mentioned in the comment above Monitor.Enter, re-check the condition 
-                     if (!GuiCommandQueue.getInstance().GuiThreadIsAvailableToProcessCommands && GuiCommandQueue.getInstance().QueueSize > 0)
-                        Monitor.Wait(GuiCommandQueue.GuiThreadCommandProcessingStart);
-                  }
-                  finally
-                  {
-                     Monitor.Exit(GuiCommandQueue.GuiThreadCommandProcessingStart);
-                  }
-               }
+         //            // As mentioned in the comment above Monitor.Enter, re-check the condition 
+         //            if (!GuiCommandQueue.getInstance().GuiThreadIsAvailableToProcessCommands && GuiCommandQueue.getInstance().QueueSize > 0)
+         //               Monitor.Wait(GuiCommandQueue.GuiThreadCommandProcessingStart);
+         //         }
+         //         finally
+         //         {
+         //            Monitor.Exit(GuiCommandQueue.GuiThreadCommandProcessingStart);
+         //         }
+         //      }
 
-               // and then wait for the gui thread to finish processing the command
-               try
-               {
-                  Monitor.Enter(GuiCommandQueue.GuiThreadCommandProcessingEnd);
-                  if (GuiCommandQueue.getInstance().GuiThreadIsAvailableToProcessCommands)
-                     Monitor.Wait(GuiCommandQueue.GuiThreadCommandProcessingEnd);
-               }
-               finally
-               {
-                  Monitor.Exit(GuiCommandQueue.GuiThreadCommandProcessingEnd);
-               }
+         //      // and then wait for the gui thread to finish processing the command
+         //      try
+         //      {
+         //         Monitor.Enter(GuiCommandQueue.GuiThreadCommandProcessingEnd);
+         //         if (GuiCommandQueue.getInstance().GuiThreadIsAvailableToProcessCommands)
+         //            Monitor.Wait(GuiCommandQueue.GuiThreadCommandProcessingEnd);
+         //      }
+         //      finally
+         //      {
+         //         Monitor.Exit(GuiCommandQueue.GuiThreadCommandProcessingEnd);
+         //      }
 
-               // Finally, Gui thread is ready to handle GuiInteractive command
-               GUIMain.getInstance().invoke(new GuiInteractiveDelegate(Run));
-            }
-         }
-         else
-            Run();
+         //      // Finally, Gui thread is ready to handle GuiInteractive command
+         //      GUIMain.getInstance().invoke(new GuiInteractiveDelegate(Run));
+         //   }
+         //}
+         //else
+         //   Run();
       }
 
       /// <summary> implements the Runnable run method for calling Display.syncExec()</summary>

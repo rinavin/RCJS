@@ -2061,9 +2061,10 @@ namespace com.magicsoftware.richclient.events
                   // we should not validate & set value, as there is nothing to validate(i.e. we don't have a picture for it).
                   if (!prevCtrl.IsDotNetControl())
                   {
-                     String newVal = Manager.GetCtrlVal(prevCtrl);
-                     if (!prevCtrl.validateAndSetValue(newVal, true))
-                        setStopExecution(true);
+                     //TODO : restore it - Rinajs
+                     //String newVal = Manager.GetCtrlVal(prevCtrl);
+                     //if (!prevCtrl.validateAndSetValue(newVal, true))
+                     //   setStopExecution(true);
                   }
                }
                ClientManager.Instance.ReturnToCtrl = prevCtrl;

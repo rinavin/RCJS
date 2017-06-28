@@ -231,7 +231,7 @@ namespace com.magicsoftware.richclient
       /// </summary>
       internal void messageLoop()
       {
-         Manager.MessageLoop();
+        // Manager.MessageLoop();
       }
 
       /// <summary>

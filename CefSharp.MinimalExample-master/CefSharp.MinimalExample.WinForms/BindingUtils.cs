@@ -42,21 +42,21 @@ namespace CefSharp.MinimalExample.WinForms
 
       public void Start(IJavascriptCallback javascriptCallback)
       {
-         const int taskDelay = 1;
+         //const int taskDelay = 1;
          jsc = javascriptCallback;
-         Task.Run(async () =>
-         {
-            await Task.Delay(taskDelay);
+         //Task.Run(async () =>
+         //{
+          //  await Task.Delay(taskDelay);
 
-            using (javascriptCallback)
-            {
+           // using (javascriptCallback)
+           // {
                Runme.Start(RefreshCallback);
                //NOTE: Classes are not supported, simple structs are
                //var response = new CallbackResponseStruct("This callback from C# was delayed " + taskDelay + "ms");
                //var response = "This callback from C# was delayed " + taskDelay + "ms";
                // await javascriptCallback.ExecuteAsync(response);
-            }
-         });
+           // }
+         //});
       }
 
       public void InsertEvent(int controlIdx)

@@ -4061,8 +4061,8 @@ namespace com.magicsoftware.unipaas.gui.low
       {
          // If Gui thread is already processing commands, then no need to invoke Run() once again.
          // Existing instance of Run() handles all commands in the queue.
-         if (!GuiThreadIsAvailableToProcessCommands)
-            GUIMain.getInstance().beginInvoke(new GuiCommandsDelegate(Run));
+         //if (!GuiThreadIsAvailableToProcessCommands)
+         //   GUIMain.getInstance().beginInvoke(new GuiCommandsDelegate(Run));
       }
 
       /// <summary>
@@ -4070,7 +4070,7 @@ namespace com.magicsoftware.unipaas.gui.low
       /// </summary>
       internal void invoke()
       {
-         GUIMain.getInstance().invoke(new GuiCommandsDelegate(Run));
+         //GUIMain.getInstance().invoke(new GuiCommandsDelegate(Run));
       }
 
       /// <summary>
