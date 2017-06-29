@@ -96,15 +96,12 @@ namespace CefSharp.MinimalExample.WinForms
 
       public void Start()
       {
-         //JSBridge.Instance.refreshUIDelegate = RefreshDisplay;
-         //refreshDataCallback = javascriptCallback;       
-         Runme.Start();
-      
+         Runme.Start();     
       }
 
-      public void InsertEvent(int controlIdx)
+      public void InsertEvent(string eventName, int controlIdx, int line)
       {
-         Runme.AddClickEvent(controlIdx);
+         Runme.AddEvent(eventName, controlIdx, line);
       }
 
       private void RefreshDisplay(string UIDesctiption)

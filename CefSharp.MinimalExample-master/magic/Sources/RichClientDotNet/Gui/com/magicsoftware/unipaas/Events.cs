@@ -45,7 +45,7 @@ namespace com.magicsoftware.unipaas
       /// <param name="ctrl"></param>
       /// <param name="line"></param>
       /// <param name="isProduceClick"></param>
-      internal static void OnFocus(GuiMgControl ctrl, int line, bool isProduceClick, bool onMultiMark)
+      public static void OnFocus(GuiMgControl ctrl, int line, bool isProduceClick, bool onMultiMark)
       {
          Debug.Assert(FocusEvent != null);
          FocusEvent(ctrl, line, isProduceClick, onMultiMark);

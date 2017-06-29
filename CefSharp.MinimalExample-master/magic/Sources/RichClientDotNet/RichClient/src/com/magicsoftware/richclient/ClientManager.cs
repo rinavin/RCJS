@@ -72,10 +72,9 @@ namespace com.magicsoftware.richclient
             ClientManager.Main(new string[] { });
         }
 
-      static public void AddClickEvent(int controlIdx)
+      static public void AddEvent(string eventName, int controlIdx, int line)
       {
-
-         ClientManager.Instance.AddClickEvent(controlIdx);
+         ClientManager.Instance.AddEvent(eventName, controlIdx, line);
       }
    }
   
@@ -85,11 +84,20 @@ namespace com.magicsoftware.richclient
  
       readonly GuiEventsProcessor _guiEventsProcessor;
 
-      public void AddClickEvent(int controlIdx)
+      public void AddEvent(string eventName, int controlIdx, int line)
       {
          Task task = getLastFocusedTask();
          MgControlBase control = task.getForm().getCtrl(controlIdx);
-         Events.OnSelection("", control, 0, true);
+         switch (eventName)
+         {
+            case "Click":
+               Events.OnSelection("", control, line, true);
+               break;
+            case "Focus":
+               Events.OnFocus(control, line, true, false);
+               break;
+         }
+         
       }
 
       // KEYBOARD EVENTS CONSTANTS
