@@ -189,6 +189,7 @@
     <Compile Include="com\magicsoftware\unipaas\gui\low\TreeHandler.cs" />
     <Compile Include="com\magicsoftware\unipaas\gui\low\TreeManager.cs" />
     <Compile Include="com\magicsoftware\unipaas\gui\MgValue.cs" />
+    <Compile Include="com\magicsoftware\unipaas\JsBridge.cs" />
     <Compile Include="com\magicsoftware\unipaas\management\data\BlobType.cs" />
     <Compile Include="com\magicsoftware\unipaas\management\data\DataModificationTypes.cs" />
     <Compile Include="com\magicsoftware\unipaas\management\data\DataViewBase.cs" />

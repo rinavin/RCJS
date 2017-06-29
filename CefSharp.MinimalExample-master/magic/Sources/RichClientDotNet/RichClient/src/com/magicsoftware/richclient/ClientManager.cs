@@ -67,9 +67,9 @@ namespace com.magicsoftware.richclient
 {
     public static class Runme
     {
-        static public void Start(RefreshUIDelegate refreshUIDelegate)
+        static public void Start()
         {
-            ClientManager.Main(new string[] { },  refreshUIDelegate);
+            ClientManager.Main(new string[] { });
         }
 
       static public void AddClickEvent(int controlIdx)
@@ -78,16 +78,11 @@ namespace com.magicsoftware.richclient
          ClientManager.Instance.AddClickEvent(controlIdx);
       }
    }
-   public delegate void RefreshUIDelegate(string UIDesctiption);
+  
    /// <summary> The main class of the Rich Client</summary>
    internal class ClientManager : System.IServiceProvider
    {
-      RefreshUIDelegate refreshUIDelegate;
-      public void RefreshUI(string UIDesctiption)
-      {
-         if (refreshUIDelegate != null)
-            refreshUIDelegate(UIDesctiption);
-      }
+ 
       readonly GuiEventsProcessor _guiEventsProcessor;
 
       public void AddClickEvent(int controlIdx)
@@ -1460,10 +1455,10 @@ namespace com.magicsoftware.richclient
 #else
       [STAThread]
 #endif
-      internal static void Main(String[] args, RefreshUIDelegate refreshUIDelegate)
+      internal static void Main(String[] args)
       {
          Misc.MarkGuiThread();
-         ClientManager.Instance.refreshUIDelegate = refreshUIDelegate;
+         
 
 #if !PocketPC
          // In case there is proxy authentication and application is accessed through ClickOnce

@@ -2639,7 +2639,7 @@ namespace com.magicsoftware.richclient.gui
             _inRefreshDisp = false;
          }
          if (!getTask().isMainProg())
-            ClientManager.Instance.RefreshUI(SerializeControls());
+            JSBridge.Instance.RefreshUI(SerializeControls());
 
          if (task.getRefreshType() == Constants.TASK_REFRESH_TREE_AND_FORM)
             task.resetRefreshType();

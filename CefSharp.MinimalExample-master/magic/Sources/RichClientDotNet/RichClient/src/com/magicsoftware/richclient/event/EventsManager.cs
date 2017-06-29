@@ -2062,9 +2062,9 @@ namespace com.magicsoftware.richclient.events
                   if (!prevCtrl.IsDotNetControl())
                   {
                      //TODO : restore it - Rinajs
-                     //String newVal = Manager.GetCtrlVal(prevCtrl);
-                     //if (!prevCtrl.validateAndSetValue(newVal, true))
-                     //   setStopExecution(true);
+                     String newVal = Manager.GetCtrlVal(prevCtrl);
+                     if (!prevCtrl.validateAndSetValue(newVal, true))
+                        setStopExecution(true);
                   }
                }
                ClientManager.Instance.ReturnToCtrl = prevCtrl;

@@ -223,9 +223,10 @@ namespace com.magicsoftware.unipaas
       /// <param name = "line"></param>
       public static String getValue(Object obj, int line)
       {
-         GuiInteractive guiInteractive = new GuiInteractive();
-         return guiInteractive.getValue(obj, line);
-      }
+         MgControlBase control = ((MgControlBase)obj);
+         return JSBridge.Instance.GetControlValue(control.Name);
+         
+       }
 
       /// <summary>
       ///   Sync call to set the text(html) on the browser control

@@ -108,6 +108,10 @@
     <None Include="Resources\chromium-256.png" />
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="..\magic\Sources\RichClientDotNet\Gui\_uniGui 2015.csproj">
+      <Project>{a95b1c7e-66b5-4afa-801d-8528c5689999}</Project>
+      <Name>_uniGui 2015</Name>
+    </ProjectReference>
     <ProjectReference Include="..\magic\Sources\RichClientDotNet\RichClient\_RC Client 2015.csproj">
       <Project>{84417921-9911-485c-b589-87a71391fe23}</Project>
       <Name>_RC Client 2015</Name>

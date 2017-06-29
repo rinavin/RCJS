@@ -1,9 +1,13 @@
-﻿using com.magicsoftware.richclient;
+﻿using CefSharp.MinimalExample.WinForms.Controls;
+using com.magicsoftware.richclient;
+using com.magicsoftware.unipaas;
 using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
+using System.Threading;
 using System.Threading.Tasks;
+using System.Windows.Forms;
 
 namespace CefSharp.MinimalExample.WinForms
 {
@@ -33,40 +37,79 @@ namespace CefSharp.MinimalExample.WinForms
 
    public class MagicBoundObject
    {
-
+      IJavascriptCallback refreshDataCallback;
+      IJavascriptCallback getValueCallback;
+      private Control controlToInvoke;
+      public Control ControlToInvoke
+      {
+         get { return controlToInvoke; }
+         set { controlToInvoke = value; }
+      }
       public MagicBoundObject()
       {
 
-      }
-      IJavascriptCallback jsc;
+      }      
 
-      public void Start(IJavascriptCallback javascriptCallback)
+      /// <summary>
+      /// register callback for getting value from angular control
+      /// </summary>
+      /// <param name="javascriptCallback"></param>
+      public void registerGetValueCallback(IJavascriptCallback javascriptCallback)
       {
-         //const int taskDelay = 1;
-         jsc = javascriptCallback;
-         //Task.Run(async () =>
-         //{
-          //  await Task.Delay(taskDelay);
+         getValueCallback = javascriptCallback;
+         JSBridge.Instance.getControlValueDelegate = GetValue;
+      }
 
-           // using (javascriptCallback)
-           // {
-               Runme.Start(RefreshCallback);
-               //NOTE: Classes are not supported, simple structs are
-               //var response = new CallbackResponseStruct("This callback from C# was delayed " + taskDelay + "ms");
-               //var response = "This callback from C# was delayed " + taskDelay + "ms";
-               // await javascriptCallback.ExecuteAsync(response);
-           // }
-         //});
+      /// <summary>
+      /// register callback for refreshing UI
+      /// </summary>
+      /// <param name="javascriptCallback"></param>
+      public void registerRefreshUI(IJavascriptCallback javascriptCallback)
+      {
+         JSBridge.Instance.refreshUIDelegate = RefreshDisplay;
+         refreshDataCallback = javascriptCallback;
+      }
+
+      public String GetValue(string controlName)
+      {
+         object result = "null";
+         AutoResetEvent JSSyncAutoResetEvent = new AutoResetEvent(false);
+         ControlToInvoke.InvokeOnUiThreadIfRequired( () =>
+         {
+            var task = getValueCallback.ExecuteAsync(controlName);
+           
+            task.ContinueWith(t =>
+            {
+               if (!t.IsFaulted)
+               {
+                  var response = t.Result;
+                  result = response.Success ? (response.Result ?? "null") : response.Message;
+                  JSSyncAutoResetEvent.Set();
+               }
+            }, TaskScheduler.FromCurrentSynchronizationContext());
+         });
+         JSSyncAutoResetEvent.WaitOne();
+
+         return result.ToString();
+      }
+      
+
+      public void Start()
+      {
+         //JSBridge.Instance.refreshUIDelegate = RefreshDisplay;
+         //refreshDataCallback = javascriptCallback;       
+         Runme.Start();
+      
       }
 
       public void InsertEvent(int controlIdx)
       {
-         com.magicsoftware.richclient.Runme.AddClickEvent(controlIdx);
+         Runme.AddClickEvent(controlIdx);
       }
 
-      private void RefreshCallback(string UIDesctiption)
+      private void RefreshDisplay(string UIDesctiption)
       {
-         jsc.ExecuteAsync(UIDesctiption);      
+         refreshDataCallback.ExecuteAsync(UIDesctiption);      
       }
    }
    public class BoundObject1
