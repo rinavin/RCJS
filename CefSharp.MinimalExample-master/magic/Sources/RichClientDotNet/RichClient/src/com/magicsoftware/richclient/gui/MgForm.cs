@@ -2,6 +2,7 @@ using System;
 using System.Collections.Generic;
 using System.Diagnostics;
 using System.Text;
+using System.Linq;
 using com.magicsoftware.richclient.data;
 using com.magicsoftware.richclient.remote;
 using com.magicsoftware.richclient.tasks;
@@ -1934,6 +1935,8 @@ namespace com.magicsoftware.richclient.gui
          {
             Logger.Instance.WriteWarningToLog(ex);
          }
+      
+        RefreshTableUI();
          _transferingData = false;
          checkAndCreateRowsEvent();
       }
@@ -2639,7 +2642,11 @@ namespace com.magicsoftware.richclient.gui
             _inRefreshDisp = false;
          }
          if (!getTask().isMainProg())
+         {
             JSBridge.Instance.RefreshUI(SerializeControls());
+           
+
+         }
 
          if (task.getRefreshType() == Constants.TASK_REFRESH_TREE_AND_FORM)
             task.resetRefreshType();
@@ -2663,10 +2670,39 @@ namespace com.magicsoftware.richclient.gui
          JavaScriptSerializer serializer = new JavaScriptSerializer();
          return serializer.Serialize(list);
       }
-      public class AnControl
+      
+
+      public class TableControls
+
       {
-         public string Value { get; set; }
-         public int ControlIsn { get; set; }
+         List<AnRow> rows = new List<AnRow>();
+         void AddRow(AnRow row)
+         {
+            rows.Add(row);
+         }
+
+      }
+
+      private void RefreshTableUI()
+      {
+         string result = "";
+         if (HasTable())
+         {
+            //var query = from Row row in Rows
+            //            select row.Controls;
+            List<AnRow> list = new List<AnRow>();
+            foreach (var item in Rows)
+            {
+               if (item != null)
+                  if (((Row)item).Controls != null)
+                     list.Add(((Row)item).Controls);
+            }
+            JavaScriptSerializer serializer = new JavaScriptSerializer();
+            
+             result = serializer.Serialize(list);
+            JSBridge.Instance.RefreshTableUI(result);
+         }
+        
       }
 
       /// <summary>
@@ -2675,7 +2711,6 @@ namespace com.magicsoftware.richclient.gui
       private void refreshTable()
       {
          int i, oldCurrRow, currRecIdx;
-
          Logger.Instance.WriteGuiToLog("Start form.refreshTable()");
 
          // save the old current row
@@ -2748,6 +2783,7 @@ namespace com.magicsoftware.richclient.gui
                {
                   setCurrRowByDisplayLine(idx, false, true);
                   refreshControls(true);
+                  
                }
             }
             catch (RecordOutOfDataViewException)
@@ -2762,6 +2798,8 @@ namespace com.magicsoftware.richclient.gui
          restoreBackup(oldCurrRow + GetDataview().getTopRecIdx(), bkpRecord);
          refreshControls(true);
          Logger.Instance.WriteGuiToLog("End form.refreshTable()");
+         RefreshTableUI ();
+
       }
 
       /// <summary>

@@ -38,6 +38,7 @@ namespace CefSharp.MinimalExample.WinForms
    public class MagicBoundObject
    {
       IJavascriptCallback refreshDataCallback;
+      IJavascriptCallback refreshTableUICallback;
       IJavascriptCallback getValueCallback;
       private Control controlToInvoke;
       public Control ControlToInvoke
@@ -68,6 +69,12 @@ namespace CefSharp.MinimalExample.WinForms
       {
          JSBridge.Instance.refreshUIDelegate = RefreshDisplay;
          refreshDataCallback = javascriptCallback;
+      }
+
+      public void registerRefreshTableUI(IJavascriptCallback javascriptCallback)
+      {
+         JSBridge.Instance.refreshTableUIDelegate = RefreshTableDisplay;
+         refreshTableUICallback = javascriptCallback;
       }
 
       public String GetValue(string controlName)
@@ -107,6 +114,11 @@ namespace CefSharp.MinimalExample.WinForms
       private void RefreshDisplay(string UIDesctiption)
       {
          refreshDataCallback.ExecuteAsync(UIDesctiption);      
+      }
+
+      private void RefreshTableDisplay(string UIDesctiption)
+      {
+         refreshTableUICallback.ExecuteAsync(UIDesctiption);
       }
    }
    public class BoundObject1

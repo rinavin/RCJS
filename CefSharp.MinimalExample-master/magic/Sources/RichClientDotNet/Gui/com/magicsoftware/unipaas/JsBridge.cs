@@ -20,11 +20,18 @@ namespace com.magicsoftware.unipaas
       public delegate string GetControlValueDelegate(string controlName);
 
       public RefreshUIDelegate refreshUIDelegate;
+      public RefreshUIDelegate refreshTableUIDelegate;
       public GetControlValueDelegate getControlValueDelegate;
       public void RefreshUI(string UIDesctiption)
       {
          if (refreshUIDelegate != null)
             refreshUIDelegate(UIDesctiption);
+      }
+
+      public void RefreshTableUI(string UIDesctiption)
+      {
+         if (refreshTableUIDelegate != null)
+            refreshTableUIDelegate(UIDesctiption);
       }
 
       public string GetControlValue(string controlName)
