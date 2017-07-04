@@ -84,21 +84,23 @@ namespace com.magicsoftware.richclient
  
       readonly GuiEventsProcessor _guiEventsProcessor;
 
-      public void AddEvent(string eventName, int controlIdx, int line)
-      {
-         Task task = getLastFocusedTask();
-         MgControlBase control = task.getForm().getCtrl(controlIdx);
-         switch (eventName)
-         {
-            case "Click":
-               Events.OnSelection("", control, line, true);
-               break;
-            case "Focus":
-               Events.OnFocus(control, line, true, false);
-               break;
-         }
-         
-      }
+        public void AddEvent(string eventName, int controlIdx, int line)
+        {
+            Task task = getLastFocusedTask();
+            if (task != null)
+            {
+                MgControlBase control = task.getForm().getCtrl(controlIdx);
+                switch (eventName)
+                {
+                    case "Click":
+                        Events.OnSelection("", control, line, true);
+                        break;
+                    case "Focus":
+                        Events.OnFocus(control, line, true, false);
+                        break;
+                }
+            }
+        }
 
       // KEYBOARD EVENTS CONSTANTS
       internal readonly KeyboardItem KBI_DOWN;
