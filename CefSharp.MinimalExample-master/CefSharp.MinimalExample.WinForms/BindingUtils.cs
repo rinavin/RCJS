@@ -73,6 +73,10 @@ namespace CefSharp.MinimalExample.WinForms
 			refreshDataCallback = javascriptCallback;
 		}
 
+		/// <summary>
+		/// register callback for showing message box
+		/// </summary>
+		/// <param name="javascriptsCallback"></param>
 		public void registerShowMessageBox(IJavascriptCallback javascriptsCallback)
 		{
 			JSBridge.Instance.showMessageBoxDelegate = ShowMessageBox;
@@ -92,6 +96,10 @@ namespace CefSharp.MinimalExample.WinForms
 			return result.ToString();
 		}
 
+		/// <summary>
+		/// Execute Show MessageBox
+		/// </summary>
+		/// <param name="msg"></param>
 		private void ShowMessageBox(string msg)
 		{
 			SyncExecutor syncExecutor = new SyncExecutor();
