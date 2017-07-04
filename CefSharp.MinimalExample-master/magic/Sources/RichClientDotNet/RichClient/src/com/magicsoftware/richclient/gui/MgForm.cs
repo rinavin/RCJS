@@ -1929,6 +1929,7 @@ namespace com.magicsoftware.richclient.gui
                restoreBackup(saveRowIdx, bkpRecord);
                refreshControls(true);
                getTask().CurrentEditingControl = currentEditingControl;//set the flag to the original value
+               RefreshTableUI();
             }
          }
          catch (RecordOutOfDataViewException ex)
@@ -1936,7 +1937,7 @@ namespace com.magicsoftware.richclient.gui
             Logger.Instance.WriteWarningToLog(ex);
          }
       
-        RefreshTableUI();
+       
          _transferingData = false;
          checkAndCreateRowsEvent();
       }
@@ -2694,8 +2695,8 @@ namespace com.magicsoftware.richclient.gui
             foreach (var item in Rows)
             {
                if (item != null)
-                  if (((Row)item).Controls != null)
-                     list.Add(((Row)item).Controls);
+                  if (((Row)item).Anrow != null)
+                     list.Add(((Row)item).Anrow);
             }
             JavaScriptSerializer serializer = new JavaScriptSerializer();
             
