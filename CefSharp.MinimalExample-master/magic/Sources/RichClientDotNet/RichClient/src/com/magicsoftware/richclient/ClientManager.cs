@@ -92,10 +92,10 @@ namespace com.magicsoftware.richclient
                 MgControlBase control = task.getForm().getCtrl(controlIdx);
                 switch (eventName)
                 {
-                    case "Click":
+                    case "click":
                         Events.OnSelection("", control, line, true);
                         break;
-                    case "Focus":
+                    case "focus":
                         Events.OnFocus(control, line, true, false);
                         break;
                 }

@@ -111,9 +111,11 @@ namespace CefSharp.MinimalExample.WinForms
 			Runme.Start();
 		}
 
-		public void InsertEvent(string eventName, int controlIdx, int line)
+		public void InsertEvent(string eventName, string controlIdx, int line)
 		{
-			Runme.AddEvent(eventName, controlIdx, line);
+         int idx;
+         int.TryParse(controlIdx, out idx);
+			Runme.AddEvent(eventName, idx, line);
 		}
 
 		private void RefreshDisplay(string UIDesctiption)
