@@ -1,5 +1,6 @@
 using System;
 using com.magicsoftware.util;
+using System.Collections.Generic;
 
 namespace com.magicsoftware.unipaas.management.gui
 {
@@ -51,5 +52,8 @@ namespace com.magicsoftware.unipaas.management.gui
       /// <returns></returns>
       String EvaluateExpression(int expId, StorageAttribute resType, int length, bool contentTypeUnicode, StorageAttribute resCellType,
                                 bool alwaysEvaluate, out bool wasEvaluated);
+
+
+      Dictionary<string, string> PropertiesForSerialization { get; }
    }
 }

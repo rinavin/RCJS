@@ -115,6 +115,7 @@ namespace com.magicsoftware.unipaas.management.gui
       private bool valueFromDesigner = false;
       protected int parent;
       protected int veeIndx;
+      Dictionary<string, string> propertiesForSerialization = new Dictionary<string, string>();
 
       /// <summary>
       ///   CTOR
@@ -179,9 +180,18 @@ namespace com.magicsoftware.unipaas.management.gui
       public bool TmpEditorIsShow { get; set; } //for tree control, is temporary editor is show ?
       public bool InControl { get; set; }
       public string PromptHelp { get; private set; } //the prompt help text assigned to control
-
-
       #region PropParentInterface Members
+      public Dictionary<string, string> PropertiesForSerialization
+      {
+         get
+         {
+            return propertiesForSerialization;
+         }
+           
+      }
+
+
+     
 
       /// <summary>
       /// 

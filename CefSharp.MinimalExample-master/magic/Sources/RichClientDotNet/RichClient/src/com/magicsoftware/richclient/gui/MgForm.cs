@@ -2658,22 +2658,36 @@ namespace com.magicsoftware.richclient.gui
          return true;
       }
 
+      public class ControlsData
+      {
+         public Dictionary<string, string> ControlsValues { get;  private set; } = new Dictionary<string, string>();
+         public Dictionary<string, Dictionary<string, string>> ControlsProperties { get; private set; } = new Dictionary<string, Dictionary<string, string>>();
+
+      }
       public String SerializeControls()
       {
-         
-         Dictionary<string, string> controls = new Dictionary<string, string>();
+         //PropertiesForSerialization
+         //Dictionary<string, string> controlsValues = new Dictionary<string, string>();
+         //Dictionary<string, Dictionary<int, string>> controlsProperties = new Dictionary<string, Dictionary<int, string>>();
+         ControlsData controlsData = new ControlsData();
+
          //List<AnControl> list = new List<AnControl>();
          for (int i = 0; i < CtrlTab.getSize(); i++)
          {
             MgControlBase ctrl = CtrlTab.getCtrl(i);
-           // AnControl anControl = new AnControl() { Value = ctrl.Value, ControlIsn = ctrl.ControlIsn };
-           if (ctrl.Name != null)
-               controls[ctrl.Name] = ctrl.Value;
+            // AnControl anControl = new AnControl() { Value = ctrl.Value, ControlIsn = ctrl.ControlIsn };
+            if (ctrl.Name != null)
+            {
+               controlsData.ControlsValues[ctrl.Name] = ctrl.Value;
+               controlsData.ControlsProperties[ctrl.Name] = ctrl.PropertiesForSerialization;
+            }
            // list.Add(anControl);
 
          }
          JavaScriptSerializer serializer = new JavaScriptSerializer();
-         return serializer.Serialize(controls);
+         string result = serializer.Serialize(controlsData);
+        // result = serializer.Serialize(controlsData.ControlsValues);
+         return result;
       }
       
 
