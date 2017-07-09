@@ -110,8 +110,13 @@ namespace CefSharp.MinimalExample.WinForms
 		{
 			Runme.Start();
 		}
+     
+      public string getTaskId(string parentId, string subformName)
+      {
+         return Runme.GetTaskId(parentId, subformName);
+      }
 
-		public void InsertEvent(string eventName, string controlName, int line)
+      public void InsertEvent(string eventName, string controlName, int line)
 		{
         
 			Runme.AddEvent(eventName, controlName, line);

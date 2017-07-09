@@ -65,12 +65,17 @@ using Monitor = com.magicsoftware.richclient.mobile.util.Monitor;
 
 namespace com.magicsoftware.richclient
 {
-    public static class Runme
-    {
-        static public void Start()
-        {
-            ClientManager.Main(new string[] { });
-        }
+   public static class Runme
+   {
+      static public void Start()
+      {
+         ClientManager.Main(new string[] { });
+      }
+
+      static public string GetTaskId(string parentId, string subformName)
+      {
+         return ClientManager.Instance.getTaskId(parentId, subformName);
+      }
 
       static public void AddEvent(string eventName, string controlName, int line)
       {
@@ -84,24 +89,50 @@ namespace com.magicsoftware.richclient
  
       readonly GuiEventsProcessor _guiEventsProcessor;
 
-        public void AddEvent(string eventName, string controlName, int line)
-        {
-            Task task = getLastFocusedTask();
-            if (task != null)
+      public void AddEvent(string eventName, string controlName, int line)
+      {
+         Task task = getLastFocusedTask();
+         if (task != null)
+         {
+            //TODO : use dictionary and real Id to return controls
+            MgControlBase control = task.getForm().GetCtrl(controlName);
+            switch (eventName)
             {
-                //TODO : use dictionary and real Id to return controls
-                MgControlBase control = task.getForm().GetCtrl(controlName);
-                switch (eventName)
-                {
-                    case "click":
-                        Events.OnSelection("", control, line, true);
-                        break;
-                    case "focus":
-                        Events.OnFocus(control, line, true, false);
-                        break;
-                }
+               case "click":
+                  Events.OnSelection("", control, line, true);
+                  break;
+               case "focus":
+                  Events.OnFocus(control, line, true, false);
+                  break;
             }
-        }
+         }
+      }
+
+      public string getTaskId(string parentId, string subformName)
+      {
+         //TODO: shell we move it to the workes tread?
+         //what about multiple windows ?
+         MGDataCollection mgDataTab = MGDataCollection.Instance;
+         MGData mgd = mgDataTab.getMGData(0);
+         if ( String.IsNullOrEmpty(parentId))
+         {
+            return mgd.getFirstTask().getTaskTag();
+         }
+         else
+         {
+            Task task = mgd.getTask(parentId);
+            for (int i = 0; i < task.SubTasks.getSize(); i++)
+            {
+               Task subTask = task.SubTasks.getTask(i);
+               MgFormBase form = subTask.getForm();
+               if (form != null && form.getSubFormCtrl() != null  &&
+                 form.getSubFormCtrl().getName() == subformName)
+                  return subTask.getTaskTag();
+            }
+         }
+         return "notfound";
+            
+      }
 
       // KEYBOARD EVENTS CONSTANTS
       internal readonly KeyboardItem KBI_DOWN;
@@ -745,6 +776,8 @@ namespace com.magicsoftware.richclient
                      // therefore, it's called initially here (as well as later after each subsequent request).
                      if (server is RemoteCommandsProcessor)
                         ((RemoteCommandsProcessor)server).UpdateRecentNetworkActivitiesTooltip();
+
+                     InitializationMonitor.Set();
 
                      EventsManager.EventsLoop(startupMgData);
                   }
@@ -1459,6 +1492,9 @@ namespace com.magicsoftware.richclient
          SetService(typeof(TaskServiceBase), new RemoteTaskService());
       }
 
+      AutoResetEvent InitializationMonitor  = new AutoResetEvent(false);
+
+
       /// <summary> Entry point to the Web Client </summary>
       /// <param name="args">array of command line arguments</param>
 #if PocketPC
@@ -1506,6 +1542,7 @@ namespace com.magicsoftware.richclient
             Instance.spawnHidden();
 #endif
          Logger.Instance.Flush();
+         Instance.InitializationMonitor.WaitOne();
       }
 
       /// <summary>Start the execution - load execution properties, initialize the session, execute the requested program, ..</summary>
