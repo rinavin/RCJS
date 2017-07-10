@@ -34,13 +34,38 @@ namespace CefSharp.MinimalExample.WinForms
 			}
 		}
 	}
+   internal class TaskCallbacks
+   {
+      IJavascriptCallback refreshDataCallback;
+      internal IJavascriptCallback RefreshDataCallback
+      {
+         get { return refreshDataCallback; }
+         set { refreshDataCallback = value; }
+      }
+      // IJavascriptCallback refreshTableUICallback;
+      IJavascriptCallback getValueCallback;
+      internal IJavascriptCallback GetValueCallback
+      {
+         get { return getValueCallback; }
+         set { getValueCallback = value; }
+      }
+      IJavascriptCallback showMessageBoxCallback;
+      internal IJavascriptCallback ShowMessageBoxCallback
+      {
+         get { return showMessageBoxCallback; }
+         set { showMessageBoxCallback = value; }
+      }
+   }
 
-	public class MagicBoundObject
+
+   public class MagicBoundObject
 	{
-		IJavascriptCallback refreshDataCallback;
-		IJavascriptCallback refreshTableUICallback;
-		IJavascriptCallback getValueCallback;
-		IJavascriptCallback showMessageBoxCallback;
+      Dictionary<string, TaskCallbacks> taskCallbackDictionary = new Dictionary<string, TaskCallbacks>();
+
+		//IJavascriptCallback refreshDataCallback;
+		//IJavascriptCallback refreshTableUICallback;
+		//IJavascriptCallback getValueCallback;
+		//IJavascriptCallback showMessageBoxCallback;
 
 		private Control controlToInvoke;
 		public Control ControlToInvoke
@@ -50,49 +75,61 @@ namespace CefSharp.MinimalExample.WinForms
 		}
 		public MagicBoundObject()
 		{
-
-		}
+         JSBridge.Instance.getControlValueDelegate = GetValue;
+         JSBridge.Instance.refreshUIDelegate = RefreshDisplay;
+         JSBridge.Instance.showMessageBoxDelegate = ShowMessageBox;
+      }
 
 		/// <summary>
 		/// register callback for getting value from angular control
 		/// </summary>
 		/// <param name="javascriptCallback"></param>
-		public void registerGetValueCallback(IJavascriptCallback javascriptCallback)
+		public void registerGetValueCallback(string taskId, IJavascriptCallback javascriptCallback)
 		{
-			getValueCallback = javascriptCallback;
-			JSBridge.Instance.getControlValueDelegate = GetValue;
+         getTaskCallbacks(taskId).GetValueCallback = javascriptCallback;
+			
 		}
 
 		/// <summary>
 		/// register callback for refreshing UI
 		/// </summary>
 		/// <param name="javascriptCallback"></param>
-		public void registerRefreshUI(IJavascriptCallback javascriptCallback)
+		public void registerRefreshUI(string taskId, IJavascriptCallback javascriptCallback)
 		{
-			JSBridge.Instance.refreshUIDelegate = RefreshDisplay;
-			refreshDataCallback = javascriptCallback;
+			
+         getTaskCallbacks(taskId).RefreshDataCallback = javascriptCallback;
 		}
 
 		/// <summary>
 		/// register callback for showing message box
 		/// </summary>
 		/// <param name="javascriptsCallback"></param>
-		public void registerShowMessageBox(IJavascriptCallback javascriptsCallback)
+		public void registerShowMessageBox(string taskId, IJavascriptCallback javascriptsCallback)
 		{
-			JSBridge.Instance.showMessageBoxDelegate = ShowMessageBox;
-			showMessageBoxCallback = javascriptsCallback;
+			
+         getTaskCallbacks(taskId).ShowMessageBoxCallback = javascriptsCallback;
 		}
 
-		public void registerRefreshTableUI(IJavascriptCallback javascriptCallback)
-		{
-			JSBridge.Instance.refreshTableUIDelegate = RefreshTableDisplay;
-			refreshTableUICallback = javascriptCallback;
-		}
+      TaskCallbacks getTaskCallbacks(string taskId)
+      {
+         TaskCallbacks result;
+         if (!taskCallbackDictionary.TryGetValue(taskId, out result))
+            taskCallbackDictionary[taskId] = result = new TaskCallbacks();
+         return result;
+      }
+      //public void registerRefreshTableUI(string taskId, IJavascriptCallback javascriptCallback)
+      //{
+      //	JSBridge.Instance.refreshTableUIDelegate = RefreshTableDisplay;
+      //	refreshTableUICallback = javascriptCallback;
+      //}
 
-		public String GetValue(string controlName)
+      public String GetValue(string taskId, string controlName)
 		{
 			SyncExecutor syncExecutor = new SyncExecutor();
-			object result = syncExecutor.ExecuteSync(ControlToInvoke, getValueCallback, controlName);
+         TaskCallbacks callbacks = getTaskCallbacks(taskId);
+         object result = "";
+         if (callbacks != null && callbacks.GetValueCallback != null)
+            result = syncExecutor.ExecuteSync(ControlToInvoke, callbacks.GetValueCallback, controlName);
 			return result.ToString();
 		}
 
@@ -100,10 +137,12 @@ namespace CefSharp.MinimalExample.WinForms
 		/// Execute Show MessageBox
 		/// </summary>
 		/// <param name="msg"></param>
-		private void ShowMessageBox(string msg)
+		private void ShowMessageBox(string taskId, string msg)
 		{
 			SyncExecutor syncExecutor = new SyncExecutor();
-			syncExecutor.ExecuteSync(ControlToInvoke, showMessageBoxCallback, msg);
+         TaskCallbacks callbacks = getTaskCallbacks(taskId);
+         if (callbacks != null && callbacks.ShowMessageBoxCallback!= null)
+			   syncExecutor.ExecuteSync(ControlToInvoke, callbacks.ShowMessageBoxCallback, msg);
 		}
 
 		public void Start()
@@ -116,22 +155,24 @@ namespace CefSharp.MinimalExample.WinForms
          return Runme.GetTaskId(parentId, subformName);
       }
 
-      public void InsertEvent(string eventName, string controlName, int line)
+      public void InsertEvent(string taskId, string eventName, string controlName, int line)
 		{
         
-			Runme.AddEvent(eventName, controlName, line);
+			Runme.AddEvent(taskId, eventName, controlName, line);
 		}
 
-		private void RefreshDisplay(string UIDesctiption)
+		private void RefreshDisplay(string taskId, string UIDesctiption)
 		{
-			refreshDataCallback.ExecuteAsync(UIDesctiption);
+         TaskCallbacks callbacks = getTaskCallbacks(taskId);
+         if (callbacks != null && callbacks.RefreshDataCallback != null)
+            callbacks.RefreshDataCallback.ExecuteAsync(UIDesctiption);
 		}
 
 
-		private void RefreshTableDisplay(string UIDesctiption)
-		{
-			refreshTableUICallback.ExecuteAsync(UIDesctiption);
-		}
+		//private void RefreshTableDisplay(string UIDesctiption)
+		//{
+		//	refreshTableUICallback.ExecuteAsync(UIDesctiption);
+		//}
 	}
 	public class BoundObject1
 	{

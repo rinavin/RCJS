@@ -2644,7 +2644,7 @@ namespace com.magicsoftware.richclient.gui
          }
          if (!getTask().isMainProg())
          {
-            JSBridge.Instance.RefreshUI(SerializeControls());
+            JSBridge.Instance.RefreshUI(getTask().getTaskTag(), SerializeControls());
            
 
          }
@@ -2704,23 +2704,23 @@ namespace com.magicsoftware.richclient.gui
 
       private void RefreshTableUI()
       {
-         string result = "";
-         if (HasTable())
-         {
-            //var query = from Row row in Rows
-            //            select row.Controls;
-            List<AnRow> list = new List<AnRow>();
-            foreach (var item in Rows)
-            {
-               if (item != null)
-                  if (((Row)item).Anrow != null)
-                     list.Add(((Row)item).Anrow);
-            }
-            JavaScriptSerializer serializer = new JavaScriptSerializer();
+         //string result = "";
+         //if (HasTable())
+         //{
+         //   //var query = from Row row in Rows
+         //   //            select row.Controls;
+         //   List<AnRow> list = new List<AnRow>();
+         //   foreach (var item in Rows)
+         //   {
+         //      if (item != null)
+         //         if (((Row)item).Anrow != null)
+         //            list.Add(((Row)item).Anrow);
+         //   }
+         //   //JavaScriptSerializer serializer = new JavaScriptSerializer();
             
-             result = serializer.Serialize(list);
-            JSBridge.Instance.RefreshTableUI(result);
-         }
+         //    //result = serializer.Serialize(list);
+         //   JSBridge.Instance.RefreshTableUI(result);
+         //}
         
       }
 

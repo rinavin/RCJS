@@ -16,39 +16,39 @@ namespace com.magicsoftware.unipaas
         {
 
         }
-        public delegate void RefreshUIDelegate(string UIDesctiption);
-        public delegate string GetControlValueDelegate(string controlName);
-        public delegate void ShowMessageBoxDelegate(string msg);
+        public delegate void RefreshUIDelegate(string taskId, string UIDesctiption);
+        public delegate string GetControlValueDelegate(string taskId, string controlName);
+        public delegate void ShowMessageBoxDelegate(string taskId, string msg);
 
 
         public RefreshUIDelegate refreshUIDelegate;
-        public RefreshUIDelegate refreshTableUIDelegate;
+        //public RefreshUIDelegate refreshTableUIDelegate;
         public GetControlValueDelegate getControlValueDelegate;
         public ShowMessageBoxDelegate showMessageBoxDelegate;
 
-        public void RefreshUI(string UIDesctiption)
+        public void RefreshUI(string taskId, string UIDesctiption)
         {
             if (refreshUIDelegate != null)
-                refreshUIDelegate(UIDesctiption);
+                refreshUIDelegate(taskId, UIDesctiption);
         }
 
-        public void RefreshTableUI(string UIDesctiption)
-        {
-            if (refreshTableUIDelegate != null)
-                refreshTableUIDelegate(UIDesctiption);
-        }
+        //public void RefreshTableUI(string taskId, string UIDesctiption)
+        //{
+        //    if (refreshTableUIDelegate != null)
+        //        refreshTableUIDelegate(UIDesctiption);
+        //}
 
-        public string GetControlValue(string controlName)
+        public string GetControlValue(string taskId, string controlName)
         {
             if (getControlValueDelegate != null)
-                return getControlValueDelegate(controlName);
+                return getControlValueDelegate(taskId, controlName);
             return "";
         }
 
-      public void ShowMessageBox(string msg)
+      public void ShowMessageBox(string taskId, string msg)
       {
          if (showMessageBoxDelegate != null)
-            showMessageBoxDelegate(msg);
+            showMessageBoxDelegate(taskId, msg);
       }
 
         private static JSBridge instance;

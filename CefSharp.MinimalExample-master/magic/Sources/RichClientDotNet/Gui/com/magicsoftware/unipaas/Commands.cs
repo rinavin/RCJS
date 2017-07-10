@@ -36,7 +36,7 @@ namespace com.magicsoftware.unipaas
       /// <returns></returns>
       public static int messageBox(GuiMgForm topMostForm, String title, String msg, int style)
       {
-         JSBridge.Instance.ShowMessageBox(msg);
+         JSBridge.Instance.ShowMessageBox(((MgFormBase)topMostForm).getTask().getTaskTag(), msg);
          return 1;
       }
 
@@ -224,7 +224,7 @@ namespace com.magicsoftware.unipaas
       public static String getValue(Object obj, int line)
       {
          MgControlBase control = ((MgControlBase)obj);
-         return JSBridge.Instance.GetControlValue(control.Name);
+         return JSBridge.Instance.GetControlValue(control.getForm().getTask().getTaskTag(), control.Name);
          
        }
 
