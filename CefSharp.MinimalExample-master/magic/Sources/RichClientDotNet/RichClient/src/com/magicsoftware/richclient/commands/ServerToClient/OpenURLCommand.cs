@@ -187,7 +187,7 @@ namespace com.magicsoftware.richclient.commands.ServerToClient
             guiParentMgData.changeTimers(oldTimers, newTimers);
          }
 
-         Task nonInteractiveTask = ClientManager.Instance.StartProgram(destinationSubformSucceeded, moveToFirstControl, _varList, _returnVal);
+         Task nonInteractiveTask = ClientManager.Instance.StartProgram(destinationSubformSucceeded, moveToFirstControl, _varList, _returnVal,null);
 
          if (destinationSubformSucceeded || !refreshWhenHidden)
             guiParentTask.resetRcmpTabOrder();

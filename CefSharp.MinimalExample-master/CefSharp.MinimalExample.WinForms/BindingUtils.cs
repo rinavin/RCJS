@@ -98,6 +98,7 @@ namespace CefSharp.MinimalExample.WinForms
 		{
 			
          getTaskCallbacks(taskId).RefreshDataCallback = javascriptCallback;
+         Runme.TaskFinishedInitialization(taskId);
 		}
 
 		/// <summary>

@@ -1573,7 +1573,7 @@ namespace com.magicsoftware.unipaas.management.gui
             setPrevArraySize();
 
          ComputeValue();
-         _parentObj.PropertiesForSerialization[_id.ToString()] = _val;
+        
 
          // before update the property need to prepare data
          switch (_parentType)
@@ -1663,9 +1663,9 @@ namespace com.magicsoftware.unipaas.management.gui
                   string.Format("Property.RefreshDisplay(): parentType unknown, property {0} wasn't handled", _id));
                return;
          }
-        
-        
-        
+         if (_expId != 0) //properties without expression should be generated in the studio and not updated
+            _parentObj.PropertiesForSerialization[_id.ToString()] = _val;
+
 
          // Rinat RefreshDisplay for SWT
          switch (_id)

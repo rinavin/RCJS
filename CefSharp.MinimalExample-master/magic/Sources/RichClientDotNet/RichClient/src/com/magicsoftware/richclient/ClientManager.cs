@@ -81,6 +81,11 @@ namespace com.magicsoftware.richclient
       {
          ClientManager.Instance.AddEvent(taskId, eventName, controlName, line);
       }
+
+      static public void TaskFinishedInitialization(string taskId )
+      {
+         ClientManager.Instance.TaskFinishedAngularInitialization(taskId);
+      }
    }
   
    /// <summary> The main class of the Rich Client</summary>
@@ -113,6 +118,7 @@ namespace com.magicsoftware.richclient
          //TODO: shell we move it to the workes tread?
          //what about multiple windows ?
          MGDataCollection mgDataTab = MGDataCollection.Instance;
+         //TODO: not always 0
          MGData mgd = mgDataTab.getMGData(0);
          if ( String.IsNullOrEmpty(parentId))
          {
@@ -133,6 +139,23 @@ namespace com.magicsoftware.richclient
          return "notfound";
             
       }
+
+
+      public void TaskFinishedAngularInitialization(string taskId)
+      {
+         MGDataCollection mgDataTab = MGDataCollection.Instance;
+         //TODO: not always 0
+         MGData mgd = mgDataTab.getMGData(0);
+         List<Task> tasks = mgDataTab.GetTasks(t => t.getTaskTag().Equals(taskId));
+         if (tasks.Count > 0)
+         {
+            MgForm form = (MgForm)tasks[0].getForm();
+            //TODO: need to move this tho another thread with event
+            form.InitializationFinished = true;
+            form.RefreshUI();
+         }
+      }
+
 
       // KEYBOARD EVENTS CONSTANTS
       internal readonly KeyboardItem KBI_DOWN;
@@ -481,15 +504,12 @@ namespace com.magicsoftware.richclient
             Debug.Assert(false, "more than 1 non interactive tasks in startProg");
       }
 
-      /// <summary>
-      /// start the execution of the program and set focus to the first control.
-      /// </summary>
-      protected internal Task StartProgram(bool callByDestSubForm, bool moveToFirstControl, ArgumentsList argList, Field returnValField)
+      private void InitializeTasks(bool callByDestSubForm, bool moveToFirstControl, ArgumentsList argList, Field returnValField, ref Task nonInteractiveTaskAlreadyExecuted)
       {
-         bool orgStopExecution = EventsManager.GetStopExecutionFlag();
-         Task nonInteractiveTaskAlreadyExecuted = null;
+        
+         
          Task currentNonInteractiveTask = null;
-         EventsManager.EventsAllowedType savedAllowEvents = EventsManager.getAllowEvents();
+         
          EventsManager.setAllowEvents(EventsManager.EventsAllowedType.ALL);
          // just to allow any action to happen in the start prog (changed for 'open subform').
 
@@ -503,7 +523,7 @@ namespace com.magicsoftware.richclient
 
          MGDataCollection mgDataTab = MGDataCollection.Instance;
          // execute internal main programs
-         ClientManager.ExecuteMainProgram(0, callByDestSubForm, moveToFirstControl, argList, returnValField, ref currentNonInteractiveTask, ref nonInteractiveTaskAlreadyExecuted);                
+         ClientManager.ExecuteMainProgram(0, callByDestSubForm, moveToFirstControl, argList, returnValField, ref currentNonInteractiveTask, ref nonInteractiveTaskAlreadyExecuted);
 
          if (!_idleTimerStarted)
          {
@@ -512,16 +532,31 @@ namespace com.magicsoftware.richclient
          }
 
 #if PocketPC
-         // Topic #13 (MAGIC version 1.8\SP1 for WIN) RC mobile - improve performance: 
-         if (IsHidden)
-         {
-            RemoteCommandsProcessor.GetInstance().Hibernate();
-            Monitor.Enter(getWaitHiddenObject());
-            RemoteCommandsProcessor.GetInstance().Resume();
-         }
+	         // Topic #13 (MAGIC version 1.8\SP1 for WIN) RC mobile - improve performance: 
+	         if (IsHidden)
+	         {
+	            RemoteCommandsProcessor.GetInstance().Hibernate();
+	            Monitor.Enter(getWaitHiddenObject());
+	            RemoteCommandsProcessor.GetInstance().Resume();
+	         }
 #endif
 
          OpenForms(callByDestSubForm);
+      }
+
+      /// <summary>
+      /// start the execution of the program and set focus to the first control.
+      /// </summary>
+      protected internal Task StartProgram(bool callByDestSubForm, bool moveToFirstControl, ArgumentsList argList, Field returnValField, AutoResetEvent initializationMonitor)
+      {
+         Task nonInteractiveTaskAlreadyExecuted = null;
+         MGDataCollection mgDataTab = MGDataCollection.Instance;
+         bool orgStopExecution = EventsManager.GetStopExecutionFlag();
+         EventsManager.EventsAllowedType savedAllowEvents = EventsManager.getAllowEvents();
+         InitializeTasks(callByDestSubForm, moveToFirstControl, argList, returnValField, ref nonInteractiveTaskAlreadyExecuted);
+         initializationMonitor.Set();
+         //TODO: will we have enough time to register from second thread ?
+
          DoFirstRecordCycle();
          MoveToFirstControls(callByDestSubForm);
 
@@ -767,7 +802,7 @@ namespace com.magicsoftware.richclient
                {
                   Task nonInteractiveTask = null;
                   if (!startupMgData.IsAborting)
-                     nonInteractiveTask = StartProgram(false, false, server.BuildArgList(), null);
+                     nonInteractiveTask = StartProgram(false, false, server.BuildArgList(), null , InitializationMonitor);
 
                   if (nonInteractiveTask == null)
                   {
@@ -777,7 +812,7 @@ namespace com.magicsoftware.richclient
                      if (server is RemoteCommandsProcessor)
                         ((RemoteCommandsProcessor)server).UpdateRecentNetworkActivitiesTooltip();
 
-                     InitializationMonitor.Set();
+                     
 
                      EventsManager.EventsLoop(startupMgData);
                   }

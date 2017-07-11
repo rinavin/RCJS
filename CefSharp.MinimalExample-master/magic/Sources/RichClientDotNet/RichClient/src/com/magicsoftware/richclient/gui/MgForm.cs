@@ -45,6 +45,8 @@ namespace com.magicsoftware.richclient.gui
       private bool _suffixDone;
 
       private List<int> hiddenControlsIsnsList = null;
+      public bool InitializationFinished { get; set; }
+
 
       internal bool InRestore
       {
@@ -2642,12 +2644,7 @@ namespace com.magicsoftware.richclient.gui
          {
             _inRefreshDisp = false;
          }
-         if (!getTask().isMainProg())
-         {
-            JSBridge.Instance.RefreshUI(getTask().getTaskTag(), SerializeControls());
-           
-
-         }
+         RefreshUI();
 
          if (task.getRefreshType() == Constants.TASK_REFRESH_TREE_AND_FORM)
             task.resetRefreshType();
@@ -2658,6 +2655,17 @@ namespace com.magicsoftware.richclient.gui
          return true;
       }
 
+      public void RefreshUI()
+      {
+         if (!getTask().isMainProg() && InitializationFinished)
+         {
+            JSBridge.Instance.RefreshUI(getTask().getTaskTag(), SerializeControls());
+
+
+         }
+      }
+
+
       public class ControlsData
       {
          public Dictionary<string, string> ControlsValues { get;  private set; } = new Dictionary<string, string>();
@@ -2666,29 +2674,30 @@ namespace com.magicsoftware.richclient.gui
       }
       public String SerializeControls()
       {
-         //PropertiesForSerialization
-         //Dictionary<string, string> controlsValues = new Dictionary<string, string>();
-         //Dictionary<string, Dictionary<int, string>> controlsProperties = new Dictionary<string, Dictionary<int, string>>();
+
          ControlsData controlsData = new ControlsData();
 
-         //List<AnControl> list = new List<AnControl>();
          for (int i = 0; i < CtrlTab.getSize(); i++)
          {
             MgControlBase ctrl = CtrlTab.getCtrl(i);
-            // AnControl anControl = new AnControl() { Value = ctrl.Value, ControlIsn = ctrl.ControlIsn };
             if (ctrl.Name != null)
             {
                controlsData.ControlsValues[ctrl.Name] = ctrl.Value;
-               controlsData.ControlsProperties[ctrl.Name] = ctrl.PropertiesForSerialization;
+               if (ctrl.PropertiesForSerialization.Count > 0)
+               {
+                  var newDictionary = ctrl.PropertiesForSerialization.ToDictionary(entry => entry.Key,
+                                               entry => entry.Value);
+                  controlsData.ControlsProperties[ctrl.Name] = newDictionary;
+                  ctrl.PropertiesForSerialization.Clear();
+               }
             }
-           // list.Add(anControl);
-
          }
          JavaScriptSerializer serializer = new JavaScriptSerializer();
          string result = serializer.Serialize(controlsData);
-        // result = serializer.Serialize(controlsData.ControlsValues);
+         // result = serializer.Serialize(controlsData.ControlsValues);
          return result;
       }
+      
       
 
       public class TableControls
