@@ -89,7 +89,6 @@ namespace com.magicsoftware.unipaas.management.tasks
       /// </summary>
       public bool TaskPrefixExecuted { get; set; }
 
-      Dictionary<string, string> propertiesForSerialization = new Dictionary<string, string>();
 
       #endregion
 
@@ -1231,13 +1230,7 @@ namespace com.magicsoftware.unipaas.management.tasks
          }
       }
 
-      public Dictionary<string, string> PropertiesForSerialization
-      {
-         get
-         {
-            return propertiesForSerialization;
-         }
-      }
+     
 
       /// <summary>
       ///   set task id

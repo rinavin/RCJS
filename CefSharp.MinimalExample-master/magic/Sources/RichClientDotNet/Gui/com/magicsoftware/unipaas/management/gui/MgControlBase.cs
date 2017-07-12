@@ -115,7 +115,7 @@ namespace com.magicsoftware.unipaas.management.gui
       private bool valueFromDesigner = false;
       protected int parent;
       protected int veeIndx;
-      Dictionary<string, string> propertiesForSerialization = new Dictionary<string, string>();
+      
 
       /// <summary>
       ///   CTOR
@@ -181,17 +181,8 @@ namespace com.magicsoftware.unipaas.management.gui
       public bool InControl { get; set; }
       public string PromptHelp { get; private set; } //the prompt help text assigned to control
       #region PropParentInterface Members
-      public Dictionary<string, string> PropertiesForSerialization
-      {
-         get
-         {
-            return propertiesForSerialization;
-         }
-           
-      }
-
-
      
+
 
       /// <summary>
       /// 
@@ -3194,7 +3185,12 @@ namespace com.magicsoftware.unipaas.management.gui
                                                      checkProp(PropInterface.PROP_TYPE_VISIBLE, true), false);
 
                }
+               if (valueChanged)
+               {
+                  GetControlsData(line).ControlsValues[UniqueWebId] = Value;                
+               }
             }
+            
             catch (Exception)
             {
                Events.WriteExceptionToLog(string.Format("in Control.RefreshDisplayValue() for control: {0}", Name));
@@ -3203,6 +3199,28 @@ namespace com.magicsoftware.unipaas.management.gui
          finally
          {
          }
+      }
+
+      public ControlsData GetControlsData(int line)
+      {
+         if (IsRepeatable)
+         {
+            MgFormBase.Row row = (MgFormBase.Row)getForm().Rows[line];
+            return row.ControlsData;
+         }
+         else
+            return getForm().ScreenControlsData;
+      }
+
+      public string UniqueWebId
+      {
+         get
+         {
+            if (String.IsNullOrEmpty(Name))
+               return _controlIsn.ToString();
+            else
+               return Name;
+               }
       }
 
       /// <summary></summary>

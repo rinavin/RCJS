@@ -2666,35 +2666,12 @@ namespace com.magicsoftware.richclient.gui
       }
 
 
-      public class ControlsData
-      {
-         public Dictionary<string, string> ControlsValues { get;  private set; } = new Dictionary<string, string>();
-         public Dictionary<string, Dictionary<string, string>> ControlsProperties { get; private set; } = new Dictionary<string, Dictionary<string, string>>();
 
-      }
       public String SerializeControls()
       {
-
-         ControlsData controlsData = new ControlsData();
-
-         for (int i = 0; i < CtrlTab.getSize(); i++)
-         {
-            MgControlBase ctrl = CtrlTab.getCtrl(i);
-            if (ctrl.Name != null)
-            {
-               controlsData.ControlsValues[ctrl.Name] = ctrl.Value;
-               if (ctrl.PropertiesForSerialization.Count > 0)
-               {
-                  var newDictionary = ctrl.PropertiesForSerialization.ToDictionary(entry => entry.Key,
-                                               entry => entry.Value);
-                  controlsData.ControlsProperties[ctrl.Name] = newDictionary;
-                  ctrl.PropertiesForSerialization.Clear();
-               }
-            }
-         }
          JavaScriptSerializer serializer = new JavaScriptSerializer();
-         string result = serializer.Serialize(controlsData);
-         // result = serializer.Serialize(controlsData.ControlsValues);
+         string result = serializer.Serialize(ScreenControlsData);
+         ScreenControlsData = new ControlsData();
          return result;
       }
       
@@ -2716,8 +2693,8 @@ namespace com.magicsoftware.richclient.gui
          //string result = "";
          //if (HasTable())
          //{
-         //   //var query = from Row row in Rows
-         //   //            select row.Controls;
+         //   var query = from Row row in Rows
+         //               select row.Controls;
          //   List<AnRow> list = new List<AnRow>();
          //   foreach (var item in Rows)
          //   {
@@ -2725,12 +2702,12 @@ namespace com.magicsoftware.richclient.gui
          //         if (((Row)item).Anrow != null)
          //            list.Add(((Row)item).Anrow);
          //   }
-         //   //JavaScriptSerializer serializer = new JavaScriptSerializer();
-            
-         //    //result = serializer.Serialize(list);
+         //   JavaScriptSerializer serializer = new JavaScriptSerializer();
+
+         //   result = serializer.Serialize(list);
          //   JSBridge.Instance.RefreshTableUI(result);
          //}
-        
+
       }
 
       /// <summary>

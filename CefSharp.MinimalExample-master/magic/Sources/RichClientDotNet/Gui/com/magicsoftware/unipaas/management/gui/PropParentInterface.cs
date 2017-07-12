@@ -54,6 +54,5 @@ namespace com.magicsoftware.unipaas.management.gui
                                 bool alwaysEvaluate, out bool wasEvaluated);
 
 
-      Dictionary<string, string> PropertiesForSerialization { get; }
    }
 }

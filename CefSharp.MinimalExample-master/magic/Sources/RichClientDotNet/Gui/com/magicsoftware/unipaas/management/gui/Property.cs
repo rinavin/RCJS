@@ -1642,6 +1642,18 @@ namespace com.magicsoftware.unipaas.management.gui
                _prevValues[line] = _val;
                if (IsGeneric && _dataType == StorageAttribute.DOTNET)
                   _prevDotNetValue = newDotNetObj;
+               if (_expId != 0) //properties without expression should be generated in the studio and not updated
+               {
+                  ctrl = _parentObj as MgControlBase;
+                  ControlsData controlsData = ctrl.GetControlsData(line);
+
+                  if (!controlsData.ControlsProperties.ContainsKey(ctrl.UniqueWebId))
+                     controlsData.ControlsProperties[ctrl.UniqueWebId] = new Dictionary<string, string>();
+                  controlsData.ControlsProperties[ctrl.UniqueWebId][_id.ToString()] = _val;
+                 
+
+               }
+
                break;
 
             case GuiConstants.PARENT_TYPE_FORM:
@@ -1663,8 +1675,7 @@ namespace com.magicsoftware.unipaas.management.gui
                   string.Format("Property.RefreshDisplay(): parentType unknown, property {0} wasn't handled", _id));
                return;
          }
-         if (_expId != 0) //properties without expression should be generated in the studio and not updated
-            _parentObj.PropertiesForSerialization[_id.ToString()] = _val;
+        
 
 
          // Rinat RefreshDisplay for SWT
