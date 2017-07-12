@@ -22,7 +22,7 @@ namespace com.magicsoftware.unipaas
 
 
         public RefreshUIDelegate refreshUIDelegate;
-        //public RefreshUIDelegate refreshTableUIDelegate;
+        public RefreshUIDelegate refreshTableUIDelegate;
         public GetControlValueDelegate getControlValueDelegate;
         public ShowMessageBoxDelegate showMessageBoxDelegate;
 
@@ -32,13 +32,13 @@ namespace com.magicsoftware.unipaas
                 refreshUIDelegate(taskId, UIDesctiption);
         }
 
-        //public void RefreshTableUI(string taskId, string UIDesctiption)
-        //{
-        //    if (refreshTableUIDelegate != null)
-        //        refreshTableUIDelegate(UIDesctiption);
-        //}
+      public void RefreshTableUI(string taskId, string UIDesctiption)
+      {
+         if (refreshTableUIDelegate != null)
+            refreshTableUIDelegate(taskId, UIDesctiption);
+      }
 
-        public string GetControlValue(string taskId, string controlName)
+      public string GetControlValue(string taskId, string controlName)
         {
             if (getControlValueDelegate != null)
                 return getControlValueDelegate(taskId, controlName);
