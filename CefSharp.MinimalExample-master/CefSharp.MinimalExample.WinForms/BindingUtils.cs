@@ -55,9 +55,18 @@ namespace CefSharp.MinimalExample.WinForms
          get { return showMessageBoxCallback; }
          set { showMessageBoxCallback = value; }
       }
+
+      IJavascriptCallback refreshTableDataCallback;
+      internal IJavascriptCallback RefreshTableDataCallback
+      {
+         get { return refreshTableDataCallback; }
+         set { refreshTableDataCallback = value; }
+      }
    }
 
-
+   /// <summary>
+   /// main interface to angular
+   /// </summary>
    public class MagicBoundObject
 	{
       Dictionary<string, TaskCallbacks> taskCallbackDictionary = new Dictionary<string, TaskCallbacks>();
@@ -78,6 +87,7 @@ namespace CefSharp.MinimalExample.WinForms
          JSBridge.Instance.getControlValueDelegate = GetValue;
          JSBridge.Instance.refreshUIDelegate = RefreshDisplay;
          JSBridge.Instance.showMessageBoxDelegate = ShowMessageBox;
+         JSBridge.Instance.refreshTableUIDelegate = RefreshTableDisplay;
       }
 
 		/// <summary>
@@ -98,7 +108,7 @@ namespace CefSharp.MinimalExample.WinForms
 		{
 			
          getTaskCallbacks(taskId).RefreshDataCallback = javascriptCallback;
-         Runme.TaskFinishedInitialization(taskId);
+         ClientManagerProxy.TaskFinishedInitialization(taskId);
 		}
 
 		/// <summary>
@@ -118,11 +128,10 @@ namespace CefSharp.MinimalExample.WinForms
             taskCallbackDictionary[taskId] = result = new TaskCallbacks();
          return result;
       }
-      //public void registerRefreshTableUI(string taskId, IJavascriptCallback javascriptCallback)
-      //{
-      //	JSBridge.Instance.refreshTableUIDelegate = RefreshTableDisplay;
-      //	refreshTableUICallback = javascriptCallback;
-      //}
+      public void registerRefreshTableUI(string taskId, IJavascriptCallback javascriptCallback)
+      {
+         getTaskCallbacks(taskId).RefreshTableDataCallback = javascriptCallback;
+      }
 
       public String GetValue(string taskId, string controlName)
 		{
@@ -148,18 +157,18 @@ namespace CefSharp.MinimalExample.WinForms
 
 		public void Start()
 		{
-			Runme.Start();
+			ClientManagerProxy.Start();
 		}
      
       public string getTaskId(string parentId, string subformName)
       {
-         return Runme.GetTaskId(parentId, subformName);
+         return ClientManagerProxy.GetTaskId(parentId, subformName);
       }
 
       public void InsertEvent(string taskId, string eventName, string controlName, int line)
 		{
         
-			Runme.AddEvent(taskId, eventName, controlName, line);
+			ClientManagerProxy.AddEvent(taskId, eventName, controlName, line);
 		}
 
 		private void RefreshDisplay(string taskId, string UIDesctiption)
@@ -170,11 +179,13 @@ namespace CefSharp.MinimalExample.WinForms
 		}
 
 
-		//private void RefreshTableDisplay(string UIDesctiption)
-		//{
-		//	refreshTableUICallback.ExecuteAsync(UIDesctiption);
-		//}
-	}
+      private void RefreshTableDisplay(string taskId, string UIDesctiption)
+      {
+         TaskCallbacks callbacks = getTaskCallbacks(taskId);
+         if (callbacks != null && callbacks.RefreshDataCallback != null)
+            callbacks.RefreshTableDataCallback.ExecuteAsync(UIDesctiption);        
+      }
+   }
 	public class BoundObject1
 	{
 		public string MyProperty { get; set; }

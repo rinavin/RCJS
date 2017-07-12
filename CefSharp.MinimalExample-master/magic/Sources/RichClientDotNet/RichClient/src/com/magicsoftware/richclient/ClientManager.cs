@@ -65,7 +65,7 @@ using Monitor = com.magicsoftware.richclient.mobile.util.Monitor;
 
 namespace com.magicsoftware.richclient
 {
-   public static class Runme
+   public static class ClientManagerProxy
    {
       static public void Start()
       {

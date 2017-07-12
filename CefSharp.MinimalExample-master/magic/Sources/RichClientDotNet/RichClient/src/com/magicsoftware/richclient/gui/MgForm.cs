@@ -2674,40 +2674,29 @@ namespace com.magicsoftware.richclient.gui
          ScreenControlsData = new ControlsData();
          return result;
       }
-      
-      
-
-      public class TableControls
-
-      {
-         List<AnRow> rows = new List<AnRow>();
-         void AddRow(AnRow row)
-         {
-            rows.Add(row);
-         }
-
-      }
+           
 
       private void RefreshTableUI()
       {
-         //string result = "";
-         //if (HasTable())
-         //{
-         //   var query = from Row row in Rows
-         //               select row.Controls;
-         //   List<AnRow> list = new List<AnRow>();
-         //   foreach (var item in Rows)
-         //   {
-         //      if (item != null)
-         //         if (((Row)item).Anrow != null)
-         //            list.Add(((Row)item).Anrow);
-         //   }
-         //   JavaScriptSerializer serializer = new JavaScriptSerializer();
+         string result = "";
+         if (HasTable())
+         {
+            JavaScriptSerializer serializer = new JavaScriptSerializer();
+            Dictionary<int, ControlsData> dictionary = new Dictionary<int, ControlsData>();
+            for (int i = 0; i < Rows.Count; i++)
+            {
+               Row row = (Row)Rows[i];
+               if (row.ControlsData != null && !row.ControlsData.IsEmpty)
+                  dictionary[i] = row.ControlsData;
+            }           
 
-         //   result = serializer.Serialize(list);
-         //   JSBridge.Instance.RefreshTableUI(result);
-         //}
-
+            result = serializer.Serialize(dictionary);
+            JSBridge.Instance.RefreshTableUI(getTask().getTaskTag(), result);
+            foreach (Row item in Rows)
+            {
+               item.ControlsData = new ControlsData();
+            }
+         }
       }
 
       /// <summary>
