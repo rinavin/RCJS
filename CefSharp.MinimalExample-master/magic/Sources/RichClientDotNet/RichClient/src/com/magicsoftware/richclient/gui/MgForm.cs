@@ -2657,7 +2657,7 @@ namespace com.magicsoftware.richclient.gui
 
       public void RefreshUI()
       {
-         if (!getTask().isMainProg() && InitializationFinished)
+         if (!getTask().isMainProg() /*&& InitializationFinished*/)
          {
             JSBridge.Instance.RefreshUI(getTask().getTaskTag(), SerializeControls());
 

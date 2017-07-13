@@ -19,12 +19,14 @@ namespace com.magicsoftware.unipaas
         public delegate void RefreshUIDelegate(string taskId, string UIDesctiption);
         public delegate string GetControlValueDelegate(string taskId, string controlName);
         public delegate void ShowMessageBoxDelegate(string taskId, string msg);
+        public delegate void OpenFormDelegate(string formName);
 
 
         public RefreshUIDelegate refreshUIDelegate;
         public RefreshUIDelegate refreshTableUIDelegate;
         public GetControlValueDelegate getControlValueDelegate;
         public ShowMessageBoxDelegate showMessageBoxDelegate;
+        public OpenFormDelegate openFormDelegate;
 
         public void RefreshUI(string taskId, string UIDesctiption)
         {
@@ -49,6 +51,12 @@ namespace com.magicsoftware.unipaas
       {
          if (showMessageBoxDelegate != null)
             showMessageBoxDelegate(taskId, msg);
+      }
+
+      public void OpenForm()
+      {
+         if (openFormDelegate != null)
+            openFormDelegate("Demo1");
       }
 
         private static JSBridge instance;

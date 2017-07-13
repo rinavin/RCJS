@@ -554,7 +554,7 @@ namespace com.magicsoftware.richclient
          bool orgStopExecution = EventsManager.GetStopExecutionFlag();
          EventsManager.EventsAllowedType savedAllowEvents = EventsManager.getAllowEvents();
          InitializeTasks(callByDestSubForm, moveToFirstControl, argList, returnValField, ref nonInteractiveTaskAlreadyExecuted);
-         initializationMonitor.Set();
+         //initializationMonitor.Set();
          //TODO: will we have enough time to register from second thread ?
 
          DoFirstRecordCycle();
@@ -1577,7 +1577,7 @@ namespace com.magicsoftware.richclient
             Instance.spawnHidden();
 #endif
          Logger.Instance.Flush();
-         Instance.InitializationMonitor.WaitOne();
+         //Instance.InitializationMonitor.WaitOne();
       }
 
       /// <summary>Start the execution - load execution properties, initialize the session, execute the requested program, ..</summary>

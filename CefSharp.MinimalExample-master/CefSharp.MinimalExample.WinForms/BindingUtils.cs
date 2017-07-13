@@ -75,6 +75,7 @@ namespace CefSharp.MinimalExample.WinForms
 		//IJavascriptCallback refreshTableUICallback;
 		//IJavascriptCallback getValueCallback;
 		//IJavascriptCallback showMessageBoxCallback;
+      IJavascriptCallback openFormCallback;
 
 		private Control controlToInvoke;
 		public Control ControlToInvoke
@@ -88,6 +89,16 @@ namespace CefSharp.MinimalExample.WinForms
          JSBridge.Instance.refreshUIDelegate = RefreshDisplay;
          JSBridge.Instance.showMessageBoxDelegate = ShowMessageBox;
          JSBridge.Instance.refreshTableUIDelegate = RefreshTableDisplay;
+         JSBridge.Instance.openFormDelegate = OpenForm;
+      }
+
+		/// <summary>
+		/// register callback for opening form
+		/// </summary>
+		/// <param name="javascriptCallback"></param>
+		public void registerOpenFormCallback(IJavascriptCallback javascriptCallback)
+		{
+         openFormCallback = javascriptCallback;
       }
 
 		/// <summary>
@@ -108,7 +119,7 @@ namespace CefSharp.MinimalExample.WinForms
 		{
 			
          getTaskCallbacks(taskId).RefreshDataCallback = javascriptCallback;
-         ClientManagerProxy.TaskFinishedInitialization(taskId);
+         //ClientManagerProxy.TaskFinishedInitialization(taskId);
 		}
 
 		/// <summary>
@@ -184,6 +195,18 @@ namespace CefSharp.MinimalExample.WinForms
          TaskCallbacks callbacks = getTaskCallbacks(taskId);
          if (callbacks != null && callbacks.RefreshDataCallback != null)
             callbacks.RefreshTableDataCallback.ExecuteAsync(UIDesctiption);        
+      }
+
+      /// <summary>
+      /// Execute open Form
+      /// </summary>
+      /// <param name="msg"></param>
+      private void OpenForm(string formName)
+      {
+         SyncExecutor syncExecutor = new SyncExecutor();
+         if (openFormCallback != null)
+            syncExecutor.ExecuteSync(ControlToInvoke, openFormCallback, formName);
+         //openFormCallback.ExecuteAsync(formName);
       }
    }
 	public class BoundObject1
