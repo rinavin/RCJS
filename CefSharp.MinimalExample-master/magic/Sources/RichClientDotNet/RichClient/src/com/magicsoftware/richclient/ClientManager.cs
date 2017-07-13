@@ -77,7 +77,7 @@ namespace com.magicsoftware.richclient
          return ClientManager.Instance.getTaskId(parentId, subformName);
       }
 
-      static public void AddEvent(string taskId, string eventName, string controlName, int line)
+      static public void AddEvent(string taskId, string eventName, string controlName, string line)
       {
          ClientManager.Instance.AddEvent(taskId, eventName, controlName, line);
       }
@@ -94,9 +94,12 @@ namespace com.magicsoftware.richclient
  
       readonly GuiEventsProcessor _guiEventsProcessor;
 
-      public void AddEvent(string taskId, string eventName, string controlName, int line)
+      public void AddEvent(string taskId, string eventName, string controlName, string line)
       {
-         Task task = MGDataCollection.Instance.getCurrMGData().getTask(taskId);   //;getLastFocusedTask();
+         Task task = MGDataCollection.Instance.getCurrMGData().getTask(taskId);
+         int lineIdx;
+         int.TryParse(line, out lineIdx);
+
          if (task != null)
          {
             //TODO : use dictionary and real Id to return controls
@@ -104,10 +107,10 @@ namespace com.magicsoftware.richclient
             switch (eventName)
             {
                case "click":
-                  Events.OnSelection("", control, line, true);
+                  Events.OnSelection("", control, lineIdx, true);
                   break;
                case "focus":
-                  Events.OnFocus(control, line, true, false);
+                  Events.OnFocus(control, lineIdx, true, false);
                   break;
             }
          }

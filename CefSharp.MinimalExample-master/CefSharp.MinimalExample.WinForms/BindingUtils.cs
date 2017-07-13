@@ -165,7 +165,7 @@ namespace CefSharp.MinimalExample.WinForms
          return ClientManagerProxy.GetTaskId(parentId, subformName);
       }
 
-      public void InsertEvent(string taskId, string eventName, string controlName, int line)
+      public void InsertEvent(string taskId, string eventName, string controlName, string line)
 		{
         
 			ClientManagerProxy.AddEvent(taskId, eventName, controlName, line);
