@@ -2226,797 +2226,797 @@ namespace com.magicsoftware.unipaas.gui.low
             _modalShowFormCommandPresentInQueue = true;
       }
 
-      /// <summary>
-      ///   BEEP,
-      /// </summary>
-      internal void add(CommandType commandType)
-      {
-         GuiCommand guiCommand = new GuiCommand(commandType);
-         put(guiCommand);
-      }
+//      /// <summary>
+//      ///   BEEP,
+//      /// </summary>
+//      internal void add(CommandType commandType)
+//      {
+//         GuiCommand guiCommand = new GuiCommand(commandType);
+//         put(guiCommand);
+//      }
 
-      /// <summary>
-      ///   DISPOSE_OBJECT REMOVE_CONTROLS EXECUTE_LAYOUT CLOSE_SHELL, REMOVE_ALL_TABLE_ITEMS,
-      ///   REMOVE_CONTROLS, INVALIDATE_TABLE, SET_SB_LAYOUT_DATA, SET_WINDOW_ACTIVE
-      ///   SET_FRAMESET_LAYOUT_DATA, RESUME_LAYOUT, UPDATE_MENU_VISIBILITY
-      ///   ORDER_MG_SPLITTER_CONTAINER_CHILDREN, CLEAR_TABLE_COLUMNS_SORT_MARK, MOVE_ABOVE, START_TIMER
-      /// </summary>
-      internal void add(CommandType commandType, Object obj)
-      {
-         checkObject(obj);
+//      /// <summary>
+//      ///   DISPOSE_OBJECT REMOVE_CONTROLS EXECUTE_LAYOUT CLOSE_SHELL, REMOVE_ALL_TABLE_ITEMS,
+//      ///   REMOVE_CONTROLS, INVALIDATE_TABLE, SET_SB_LAYOUT_DATA, SET_WINDOW_ACTIVE
+//      ///   SET_FRAMESET_LAYOUT_DATA, RESUME_LAYOUT, UPDATE_MENU_VISIBILITY
+//      ///   ORDER_MG_SPLITTER_CONTAINER_CHILDREN, CLEAR_TABLE_COLUMNS_SORT_MARK, MOVE_ABOVE, START_TIMER
+//      /// </summary>
+//      internal void add(CommandType commandType, Object obj)
+//      {
+//         checkObject(obj);
 
-         GuiCommand guiCommand = new GuiCommand(obj, commandType);
-         put(guiCommand);
-      }
+//         GuiCommand guiCommand = new GuiCommand(obj, commandType);
+//         put(guiCommand);
+//      }
 
-#if PocketPC
-      /// <summary>
-      ///   RESUME_SHOW_FORMS
-      /// </summary>
-      internal void add(CommandType commandType, List<GuiMgForm> obj)
-      {
-         GuiCommand guiCommand = new GuiCommand(obj, commandType);
-         put(guiCommand);
-      }
-#endif
+//#if PocketPC
+//      /// <summary>
+//      ///   RESUME_SHOW_FORMS
+//      /// </summary>
+//      internal void add(CommandType commandType, List<GuiMgForm> obj)
+//      {
+//         GuiCommand guiCommand = new GuiCommand(obj, commandType);
+//         put(guiCommand);
+//      }
+//#endif
 
-      /// <summary>
-      ///   OPEN_FORM, OPEN HELP FORM.
-      /// </summary>
-      internal void add(CommandType commandType, Object obj, bool boolVal, String formName)
-      {
-         checkObject(obj);
+//      /// <summary>
+//      ///   OPEN_FORM, OPEN HELP FORM.
+//      /// </summary>
+//      internal void add(CommandType commandType, Object obj, bool boolVal, String formName)
+//      {
+//         checkObject(obj);
 
-         GuiCommand guiCommand = new GuiCommand(obj, commandType);
-         guiCommand.Bool3 = boolVal;
-         guiCommand.str = formName;
-         put(guiCommand);
-      }
+//         GuiCommand guiCommand = new GuiCommand(obj, commandType);
+//         guiCommand.Bool3 = boolVal;
+//         guiCommand.str = formName;
+//         put(guiCommand);
+//      }
 
-      /// <summary>
-      /// SHOW_FORM
-      /// </summary>
-      /// <param name="commandType"></param>
-      /// <param name="obj"></param>
-      /// <param name="boolVal"></param>
-      /// <param name="isHelpWindow"></param>
-      /// <param name="formName"></param>
-      internal void add(CommandType commandType, Object obj, bool boolVal, bool isHelpWindow, String formName)
-      {
-         checkObject(obj);
+//      /// <summary>
+//      /// SHOW_FORM
+//      /// </summary>
+//      /// <param name="commandType"></param>
+//      /// <param name="obj"></param>
+//      /// <param name="boolVal"></param>
+//      /// <param name="isHelpWindow"></param>
+//      /// <param name="formName"></param>
+//      internal void add(CommandType commandType, Object obj, bool boolVal, bool isHelpWindow, String formName)
+//      {
+//         checkObject(obj);
 
-         GuiCommand guiCommand = new GuiCommand(obj, commandType);
-         guiCommand.Bool3 = boolVal;
-         guiCommand.Bool1 = isHelpWindow;
-         guiCommand.str = formName;
-         put(guiCommand);
-      }
+//         GuiCommand guiCommand = new GuiCommand(obj, commandType);
+//         guiCommand.Bool3 = boolVal;
+//         guiCommand.Bool1 = isHelpWindow;
+//         guiCommand.str = formName;
+//         put(guiCommand);
+//      }
 
-      /// <summary>
-      ///   EXECUTE_LAYOUT, REORDER_FRAME, PROP_SET_SHOW_ICON, SET_FORMSTATE_APPLIED, PROP_SET_FILL_WIDTH
-      /// </summary>
-      internal void add(CommandType commandType, Object obj, bool boolVal)
-      {
-         checkObject(obj);
+//      /// <summary>
+//      ///   EXECUTE_LAYOUT, REORDER_FRAME, PROP_SET_SHOW_ICON, SET_FORMSTATE_APPLIED, PROP_SET_FILL_WIDTH
+//      /// </summary>
+//      internal void add(CommandType commandType, Object obj, bool boolVal)
+//      {
+//         checkObject(obj);
 
-         GuiCommand guiCommand = new GuiCommand(obj, commandType);
-         guiCommand.Bool3 = boolVal;
-         put(guiCommand);
-      }
+//         GuiCommand guiCommand = new GuiCommand(obj, commandType);
+//         guiCommand.Bool3 = boolVal;
+//         put(guiCommand);
+//      }
 
-      /// <summary>
-      ///   ADD_DVCONTROL_HANDLER, REMOVE_DVCONTROL_HANDLER
-      /// </summary>
-      internal void add(CommandType commandType, Object obj, Object obj1)
-      {
-         checkObject(obj);
+//      /// <summary>
+//      ///   ADD_DVCONTROL_HANDLER, REMOVE_DVCONTROL_HANDLER
+//      /// </summary>
+//      internal void add(CommandType commandType, Object obj, Object obj1)
+//      {
+//         checkObject(obj);
 
-         GuiCommand guiCommand = new GuiCommand(obj, commandType);
-         guiCommand.obj1 = obj1;
-         put(guiCommand);
-      }
+//         GuiCommand guiCommand = new GuiCommand(obj, commandType);
+//         guiCommand.obj1 = obj1;
+//         put(guiCommand);
+//      }
 
-      /// <summary>
-      ///   PROP_SET_DEFAULT_BUTTON style : not relevant PROP_SET_SORT_COLUMN
-      /// </summary>
-      /// <param name = "line">TODO CREATE_RADIO_BUTTON PROP_SET_SORT_COLUMN layer, line,style isn't relevant parentObject:
-      ///   must to be the table control object: must to be the Column control
-      /// </param>
-      internal void add(CommandType commandType, Object parentObject, Object obj, int layer, int line, int style)
-      {
-         checkObject(obj);
+//      /// <summary>
+//      ///   PROP_SET_DEFAULT_BUTTON style : not relevant PROP_SET_SORT_COLUMN
+//      /// </summary>
+//      /// <param name = "line">TODO CREATE_RADIO_BUTTON PROP_SET_SORT_COLUMN layer, line,style isn't relevant parentObject:
+//      ///   must to be the table control object: must to be the Column control
+//      /// </param>
+//      internal void add(CommandType commandType, Object parentObject, Object obj, int layer, int line, int style)
+//      {
+//         checkObject(obj);
 
-         if (!((parentObject is GuiMgForm) || (parentObject is GuiMgControl)))
-            throw new ApplicationException("in GuiCommandQueue.add(): parent object is not GuiMgForm or GuiMgControl");
+//         if (!((parentObject is GuiMgForm) || (parentObject is GuiMgControl)))
+//            throw new ApplicationException("in GuiCommandQueue.add(): parent object is not GuiMgForm or GuiMgControl");
 
-         GuiCommand guiCommand = new GuiCommand(parentObject, obj, commandType);
-         guiCommand.line = line;
-         switch (commandType)
-         {
-            case CommandType.PROP_SET_DEFAULT_BUTTON:
-               guiCommand.parentObject = parentObject;
-               guiCommand.obj = obj;
-               break;
+//         GuiCommand guiCommand = new GuiCommand(parentObject, obj, commandType);
+//         guiCommand.line = line;
+//         switch (commandType)
+//         {
+//            case CommandType.PROP_SET_DEFAULT_BUTTON:
+//               guiCommand.parentObject = parentObject;
+//               guiCommand.obj = obj;
+//               break;
 
-            default:
-               guiCommand.layer = layer;
-               guiCommand.style = style;
-               break;
-         }
-         put(guiCommand);
-      }
+//            default:
+//               guiCommand.layer = layer;
+//               guiCommand.style = style;
+//               break;
+//         }
+//         put(guiCommand);
+//      }
 
-      /// <summary>
-      ///   SELECT_TEXT
-      /// </summary>
-      internal void add(CommandType commandType, Object obj, int line, int num1, int num2, int num3)
-      {
-         checkObject(obj);
+//      /// <summary>
+//      ///   SELECT_TEXT
+//      /// </summary>
+//      internal void add(CommandType commandType, Object obj, int line, int num1, int num2, int num3)
+//      {
+//         checkObject(obj);
 
-         GuiCommand guiCommand = new GuiCommand(obj, commandType);
-         guiCommand.line = line;
-         switch (commandType)
-         {
-            case CommandType.SELECT_TEXT:
-            case CommandType.CREATE_TREE_NODE:
-            case CommandType.MOVE_TREE_NODE:
-               guiCommand.number = num1; // (0) -unmark all text, (1)- mark all text, (-1)-mark from pos until pos
-               // for unmark\mark(0,1) all text, num1 & num 2 are not relevants
-               guiCommand.layer = num2; // mark from text pos
-               guiCommand.number1 = num3; // mark until text pos
-               break;
+//         GuiCommand guiCommand = new GuiCommand(obj, commandType);
+//         guiCommand.line = line;
+//         switch (commandType)
+//         {
+//            case CommandType.SELECT_TEXT:
+//            case CommandType.CREATE_TREE_NODE:
+//            case CommandType.MOVE_TREE_NODE:
+//               guiCommand.number = num1; // (0) -unmark all text, (1)- mark all text, (-1)-mark from pos until pos
+//               // for unmark\mark(0,1) all text, num1 & num 2 are not relevants
+//               guiCommand.layer = num2; // mark from text pos
+//               guiCommand.number1 = num3; // mark until text pos
+//               break;
 
-            default:
-               Debug.Assert(false);
-               break;
-         }
-         put(guiCommand);
-      }
+//            default:
+//               Debug.Assert(false);
+//               break;
+//         }
+//         put(guiCommand);
+//      }
 
-      /// <summary>
-      ///   CREATE_FORM, CREATE_HELP_FORM
-      /// </summary>
-      /// <param name = "commandType"></param>
-      /// <param name = "parentObject"></param>
-      /// <param name = "obj"></param>
-      /// <param name = "windowType"></param>
-      /// <param name = "formName"></param>
-      /// <param name = "isHelpWindow"></param>
-      internal void add(CommandType commandType, Object parentObject, Object obj, WindowType windowType, String formName, bool isHelpWindow, bool createInternalFormForMDI, bool shouldBlock)
-      {
-         checkObject(obj);
+//      /// <summary>
+//      ///   CREATE_FORM, CREATE_HELP_FORM
+//      /// </summary>
+//      /// <param name = "commandType"></param>
+//      /// <param name = "parentObject"></param>
+//      /// <param name = "obj"></param>
+//      /// <param name = "windowType"></param>
+//      /// <param name = "formName"></param>
+//      /// <param name = "isHelpWindow"></param>
+//      internal void add(CommandType commandType, Object parentObject, Object obj, WindowType windowType, String formName, bool isHelpWindow, bool createInternalFormForMDI, bool shouldBlock)
+//      {
+//         checkObject(obj);
 
-         GuiCommand guiCommand = new GuiCommand(parentObject, obj, commandType);
+//         GuiCommand guiCommand = new GuiCommand(parentObject, obj, commandType);
 
-         guiCommand.windowType = windowType;
-         guiCommand.str = formName;
-         guiCommand.isHelpWindow = isHelpWindow;
-         guiCommand.createInternalFormForMDI = createInternalFormForMDI;
-         guiCommand.Bool1 = shouldBlock;
-         put(guiCommand);
-      }
+//         guiCommand.windowType = windowType;
+//         guiCommand.str = formName;
+//         guiCommand.isHelpWindow = isHelpWindow;
+//         guiCommand.createInternalFormForMDI = createInternalFormForMDI;
+//         guiCommand.Bool1 = shouldBlock;
+//         put(guiCommand);
+//      }
 
-      /// <summary>
-      ///   CREATE_LABEL, CREATE_EDIT, CREATE_BUTTON, CREATE_COMBO_BOX, CREATE_LIST_BOX,
-      ///   CREATE_RADIO_BOX, CREATE_IMAGE, CREATE_CHECK_BOX, CREATE_TAB, CREATE_TABLE, CREATE_SUB_FORM,
-      ///   CREATE_BROWSER, CREATE_GROUP, CREATE_STATUS_BAR, CREATE_TREE, CREATE_FRAME,
-      /// </summary>
-      /// <param name = "line">TODO
-      ///   PROP_SET_SORT_COLUMN layer, line,style isn't relevant parentObject: must to be the table control object:
-      ///   must to be the Column control- not support.
-      /// </param>
-      /// <param name = "bool">TODO</param>
-      internal void add(CommandType commandType, Object parentObject, Object obj, int line, int style,
-                        List<String> stringList, List<GuiMgControl> ctrlList, int columnCount, bool boolVal,
-                        bool boolVal1,
-                        int number1, Type type, int number2, Object obj1, bool isParentHelpWindow, DockingStyle dockingStyle)
-      {
-         checkObject(obj);
+//      /// <summary>
+//      ///   CREATE_LABEL, CREATE_EDIT, CREATE_BUTTON, CREATE_COMBO_BOX, CREATE_LIST_BOX,
+//      ///   CREATE_RADIO_BOX, CREATE_IMAGE, CREATE_CHECK_BOX, CREATE_TAB, CREATE_TABLE, CREATE_SUB_FORM,
+//      ///   CREATE_BROWSER, CREATE_GROUP, CREATE_STATUS_BAR, CREATE_TREE, CREATE_FRAME,
+//      /// </summary>
+//      /// <param name = "line">TODO
+//      ///   PROP_SET_SORT_COLUMN layer, line,style isn't relevant parentObject: must to be the table control object:
+//      ///   must to be the Column control- not support.
+//      /// </param>
+//      /// <param name = "bool">TODO</param>
+//      internal void add(CommandType commandType, Object parentObject, Object obj, int line, int style,
+//                        List<String> stringList, List<GuiMgControl> ctrlList, int columnCount, bool boolVal,
+//                        bool boolVal1,
+//                        int number1, Type type, int number2, Object obj1, bool isParentHelpWindow, DockingStyle dockingStyle)
+//      {
+//         checkObject(obj);
 
-         if (!((parentObject is GuiMgForm) || (parentObject is GuiMgControl)))
-            throw new ApplicationException("in GuiCommandQueue.add(): parent object is not GuiMgForm or GuiMgControl");
+//         if (!((parentObject is GuiMgForm) || (parentObject is GuiMgControl)))
+//            throw new ApplicationException("in GuiCommandQueue.add(): parent object is not GuiMgForm or GuiMgControl");
 
-         GuiCommand guiCommand = new GuiCommand(parentObject, obj, commandType);
-         guiCommand.line = line;
-         guiCommand.style = style;
-         guiCommand.stringList = stringList;
-         guiCommand.CtrlsList = ctrlList;
-         guiCommand.number = columnCount;
-         guiCommand.Bool3 = boolVal;
-         guiCommand.Bool1 = boolVal1;
-         guiCommand.type = type;
-         guiCommand.number1 = number1;
-         guiCommand.number2 = number2;
-         guiCommand.obj1 = obj1;
-         guiCommand.isParentHelpWindow = isParentHelpWindow;
-         guiCommand.dockingStyle = dockingStyle;
+//         GuiCommand guiCommand = new GuiCommand(parentObject, obj, commandType);
+//         guiCommand.line = line;
+//         guiCommand.style = style;
+//         guiCommand.stringList = stringList;
+//         guiCommand.CtrlsList = ctrlList;
+//         guiCommand.number = columnCount;
+//         guiCommand.Bool3 = boolVal;
+//         guiCommand.Bool1 = boolVal1;
+//         guiCommand.type = type;
+//         guiCommand.number1 = number1;
+//         guiCommand.number2 = number2;
+//         guiCommand.obj1 = obj1;
+//         guiCommand.isParentHelpWindow = isParentHelpWindow;
+//         guiCommand.dockingStyle = dockingStyle;
 
-         put(guiCommand);
-      }
+//         put(guiCommand);
+//      }
 
-      /// <summary>
-      ///   CREATE_LABEL, CREATE_EDIT, CREATE_BUTTON, CREATE_COMBO_BOX, CREATE_LIST_BOX,
-      ///   CREATE_RADIO_BOX, CREATE_IMAGE, CREATE_CHECK_BOX, CREATE_TAB, CREATE_TABLE, CREATE_SUB_FORM,
-      ///   CREATE_BROWSER, CREATE_GROUP, CREATE_STATUS_BAR, CREATE_TREE, CREATE_FRAME,
-      /// </summary>
-      /// <param name = "line">TODO
-      ///   PROP_SET_SORT_COLUMN layer, line,style isn't relevant parentObject: must to be the table control object:
-      ///   must to be the Column control- not support.
-      /// </param>
-      /// <param name = "bool">TODO</param>
-      internal void add(CommandType commandType, Object parentObject, Object obj, int line, int style,
-                        List<String> stringList, List<GuiMgControl> ctrlList, int columnCount, bool boolVal,
-                        bool boolVal1, int number1, Type type, int number2, Object obj1)
-      {
-         checkObject(obj);
+//      /// <summary>
+//      ///   CREATE_LABEL, CREATE_EDIT, CREATE_BUTTON, CREATE_COMBO_BOX, CREATE_LIST_BOX,
+//      ///   CREATE_RADIO_BOX, CREATE_IMAGE, CREATE_CHECK_BOX, CREATE_TAB, CREATE_TABLE, CREATE_SUB_FORM,
+//      ///   CREATE_BROWSER, CREATE_GROUP, CREATE_STATUS_BAR, CREATE_TREE, CREATE_FRAME,
+//      /// </summary>
+//      /// <param name = "line">TODO
+//      ///   PROP_SET_SORT_COLUMN layer, line,style isn't relevant parentObject: must to be the table control object:
+//      ///   must to be the Column control- not support.
+//      /// </param>
+//      /// <param name = "bool">TODO</param>
+//      internal void add(CommandType commandType, Object parentObject, Object obj, int line, int style,
+//                        List<String> stringList, List<GuiMgControl> ctrlList, int columnCount, bool boolVal,
+//                        bool boolVal1, int number1, Type type, int number2, Object obj1)
+//      {
+//         checkObject(obj);
 
-         if (!((parentObject is GuiMgForm) || (parentObject is GuiMgControl)))
-            throw new ApplicationException("in GuiCommandQueue.add(): parent object is not GuiMgForm or GuiMgControl");
+//         if (!((parentObject is GuiMgForm) || (parentObject is GuiMgControl)))
+//            throw new ApplicationException("in GuiCommandQueue.add(): parent object is not GuiMgForm or GuiMgControl");
 
-         GuiCommand guiCommand = new GuiCommand(parentObject, obj, commandType);
-         guiCommand.line = line;
-         guiCommand.style = style;
-         guiCommand.stringList = stringList;
-         guiCommand.CtrlsList = ctrlList;
-         guiCommand.number = columnCount;
-         guiCommand.Bool3 = boolVal;
-         guiCommand.Bool1 = boolVal1;
-         guiCommand.type = type;
-         guiCommand.number1 = number1;
-         guiCommand.number2 = number2;
-         guiCommand.obj1 = obj1;
+//         GuiCommand guiCommand = new GuiCommand(parentObject, obj, commandType);
+//         guiCommand.line = line;
+//         guiCommand.style = style;
+//         guiCommand.stringList = stringList;
+//         guiCommand.CtrlsList = ctrlList;
+//         guiCommand.number = columnCount;
+//         guiCommand.Bool3 = boolVal;
+//         guiCommand.Bool1 = boolVal1;
+//         guiCommand.type = type;
+//         guiCommand.number1 = number1;
+//         guiCommand.number2 = number2;
+//         guiCommand.obj1 = obj1;
 
-         put(guiCommand);
-      }
+//         put(guiCommand);
+//      }
 
-      /// <summary>
-      ///   Applies for: REFRESH_TABLE, SELECT_TEXT, PROP_SET_READ_ONLY, PROP_SET_MODIFIABLE, PROP_SET_ENABLE,
-      ///   PROP_SET_CHECKED (Table): PROP_SET_LINE_VISIBLE, PROP_SET_RESIZABLE, SET_FOCUS, PROP_SET_MOVEABLE
-      ///   SET_VERIFY_IGNORE_AUTO_WIDE, PROP_SET_AUTO_WIDE, PROP_SET_SORTABLE_COLUMN 
-      ///   PROP_SET_MENU_DISPLAY, PROP_SET_TOOLBAR_DISPLAY PROP_HORIZONTAL_PLACEMENT, PROP_VERTICAL_PLACEMENT
-      ///   PROP_SET_MULTILINE, PROP_SET_PASSWORD_EDIT, PROP_SET_MULTILINE_VERTICAL_SCROLL, PROP_SET_BORDER, 
-      ///   CHANGE_COLUMN_SORT_MARK.
-      /// </summary>
-      /// <param name = "commandType"></param>
-      /// <param name = "obj"></param>
-      /// <param name = "number"> 
-      ///   If command type is <code>CHANGE_COLUMN_SORT_MARK</code> then number means direction.
-      ///   Otherwise it means line.
-      /// </param>
-      /// <param name = "boolVal">
-      ///   If command type is <code>CHANGE_COLUMN_SORT_MARK</code> this value is ignored.
-      /// </param>
-      internal void add(CommandType commandType, Object obj, int number, bool boolVal)
-      {
-         add(commandType, obj, number, boolVal, false);
-      }
+//      /// <summary>
+//      ///   Applies for: REFRESH_TABLE, SELECT_TEXT, PROP_SET_READ_ONLY, PROP_SET_MODIFIABLE, PROP_SET_ENABLE,
+//      ///   PROP_SET_CHECKED (Table): PROP_SET_LINE_VISIBLE, PROP_SET_RESIZABLE, SET_FOCUS, PROP_SET_MOVEABLE
+//      ///   SET_VERIFY_IGNORE_AUTO_WIDE, PROP_SET_AUTO_WIDE, PROP_SET_SORTABLE_COLUMN 
+//      ///   PROP_SET_MENU_DISPLAY, PROP_SET_TOOLBAR_DISPLAY PROP_HORIZONTAL_PLACEMENT, PROP_VERTICAL_PLACEMENT
+//      ///   PROP_SET_MULTILINE, PROP_SET_PASSWORD_EDIT, PROP_SET_MULTILINE_VERTICAL_SCROLL, PROP_SET_BORDER, 
+//      ///   CHANGE_COLUMN_SORT_MARK.
+//      /// </summary>
+//      /// <param name = "commandType"></param>
+//      /// <param name = "obj"></param>
+//      /// <param name = "number"> 
+//      ///   If command type is <code>CHANGE_COLUMN_SORT_MARK</code> then number means direction.
+//      ///   Otherwise it means line.
+//      /// </param>
+//      /// <param name = "boolVal">
+//      ///   If command type is <code>CHANGE_COLUMN_SORT_MARK</code> this value is ignored.
+//      /// </param>
+//      internal void add(CommandType commandType, Object obj, int number, bool boolVal)
+//      {
+//         add(commandType, obj, number, boolVal, false);
+//      }
 
-      /// <summary>
-      ///   PROP_SET_VISIBLE, SET_ACTIVETE_KEYBOARD_LAYOUT
-      /// </summary>
-      internal void add(CommandType commandType, Object obj, int number, bool boolVal, bool executeParentLayout)
-      {
-         checkObject(obj);
+//      /// <summary>
+//      ///   PROP_SET_VISIBLE, SET_ACTIVETE_KEYBOARD_LAYOUT
+//      /// </summary>
+//      internal void add(CommandType commandType, Object obj, int number, bool boolVal, bool executeParentLayout)
+//      {
+//         checkObject(obj);
 
-         GuiCommand guiCommand = new GuiCommand(obj, commandType);
-         guiCommand.Bool3 = boolVal;
-         guiCommand.Bool1 = executeParentLayout;
-         // //for SET_ACTIVETE_KEYBOARD_LAYOUT guiCommand.bool1 is define if it restore or not
+//         GuiCommand guiCommand = new GuiCommand(obj, commandType);
+//         guiCommand.Bool3 = boolVal;
+//         guiCommand.Bool1 = executeParentLayout;
+//         // //for SET_ACTIVETE_KEYBOARD_LAYOUT guiCommand.bool1 is define if it restore or not
 
-         switch (commandType)
-         {
-            case CommandType.CHANGE_COLUMN_SORT_MARK:
-            case CommandType.START_TIMER:
-            case CommandType.STOP_TIMER:
-               guiCommand.number = number;
-               break;
-            default:
-               guiCommand.line = number;
-               break;
-         }
-         put(guiCommand);
-      }
+//         switch (commandType)
+//         {
+//            case CommandType.CHANGE_COLUMN_SORT_MARK:
+//            case CommandType.START_TIMER:
+//            case CommandType.STOP_TIMER:
+//               guiCommand.number = number;
+//               break;
+//            default:
+//               guiCommand.line = number;
+//               break;
+//         }
+//         put(guiCommand);
+//      }
 
-      /// <summary>
-      ///   PROP_SET_BOUNDS, PROP_SET_COLUMN_WIDTH, PROP_SET_SB_PANE_WIDTH, PROP_SET_PLACEMENT
-      ///   subformAsControl isn't relevant, need to be false
-      /// </summary>
-      /// <param name = "line">TODO CREATE_LAYOUT</param>
-      /// <param name = "bool">TODO</param>
-      internal void add(CommandType commandType, Object obj, int line, int x, int y, int width, int height, bool boolVal,
-                        bool bool1)
-      {
-         checkObject(obj);
+//      /// <summary>
+//      ///   PROP_SET_BOUNDS, PROP_SET_COLUMN_WIDTH, PROP_SET_SB_PANE_WIDTH, PROP_SET_PLACEMENT
+//      ///   subformAsControl isn't relevant, need to be false
+//      /// </summary>
+//      /// <param name = "line">TODO CREATE_LAYOUT</param>
+//      /// <param name = "bool">TODO</param>
+//      internal void add(CommandType commandType, Object obj, int line, int x, int y, int width, int height, bool boolVal,
+//                        bool bool1)
+//      {
+//         checkObject(obj);
 
-         GuiCommand guiCommand = new GuiCommand(obj, commandType);
-         guiCommand.line = line;
-         guiCommand.Bool3 = boolVal;
-         guiCommand.Bool1 = bool1;
-         guiCommand.x = x;
-         guiCommand.y = y;
-         guiCommand.width = width;
-         guiCommand.height = height;
+//         GuiCommand guiCommand = new GuiCommand(obj, commandType);
+//         guiCommand.line = line;
+//         guiCommand.Bool3 = boolVal;
+//         guiCommand.Bool1 = bool1;
+//         guiCommand.x = x;
+//         guiCommand.y = y;
+//         guiCommand.width = width;
+//         guiCommand.height = height;
         
 
-         put(guiCommand);
-      }
+//         put(guiCommand);
+//      }
 
       
 
-      internal void add(CommandType commandType, Object obj, int line, int x, int y, int width, int height, bool boolVal,
-                        bool bool1, int? number1, int? number2)
-      {
-         checkObject(obj);
+//      internal void add(CommandType commandType, Object obj, int line, int x, int y, int width, int height, bool boolVal,
+//                        bool bool1, int? number1, int? number2)
+//      {
+//         checkObject(obj);
 
-         GuiCommand guiCommand = new GuiCommand(obj, commandType);
-         guiCommand.line = line;
-         guiCommand.Bool3 = boolVal;
-         guiCommand.Bool1 = bool1;
-         guiCommand.x = x;
-         guiCommand.y = y;
-         guiCommand.width = width;
-         guiCommand.height = height;
-         guiCommand.runtimeDesignerXDiff = number1;
-         guiCommand.runtimeDesignerYDiff = number2;
+//         GuiCommand guiCommand = new GuiCommand(obj, commandType);
+//         guiCommand.line = line;
+//         guiCommand.Bool3 = boolVal;
+//         guiCommand.Bool1 = bool1;
+//         guiCommand.x = x;
+//         guiCommand.y = y;
+//         guiCommand.width = width;
+//         guiCommand.height = height;
+//         guiCommand.runtimeDesignerXDiff = number1;
+//         guiCommand.runtimeDesignerYDiff = number2;
 
-         put(guiCommand);
-      }
-      /// <summary>
-      /// REGISTER_DN_CTRL_VALUE_CHANGED_EVENT
-      /// </summary>
-      /// <param name="commandType"></param>
-      /// <param name="obj"></param>
-      /// <param name="eventName"></param>
-      internal void add(CommandType commandType, Object obj, string eventName)
-      {
-         checkObject(obj);
+//         put(guiCommand);
+//      }
+//      /// <summary>
+//      /// REGISTER_DN_CTRL_VALUE_CHANGED_EVENT
+//      /// </summary>
+//      /// <param name="commandType"></param>
+//      /// <param name="obj"></param>
+//      /// <param name="eventName"></param>
+//      internal void add(CommandType commandType, Object obj, string eventName)
+//      {
+//         checkObject(obj);
 
-         GuiCommand guiCommand = new GuiCommand(obj, commandType);
-         guiCommand.str = eventName;
+//         GuiCommand guiCommand = new GuiCommand(obj, commandType);
+//         guiCommand.str = eventName;
 
-         put(guiCommand);
-      }
+//         put(guiCommand);
+//      }
 
-      /// <summary>
-      /// PROP_SET_SELECTION
-      /// </summary>
-      /// <param name="commandType"></param>
-      /// <param name="obj"></param>
-      /// <param name="line"></param>
-      /// <param name="number"></param>
-      /// <param name="prevNumber"></param>
-      internal void add(CommandType commandType, Object obj, int line, int number, int prevNumber)
-      {
-         GuiCommand guiCommand = add(commandType, obj, line, number);
-         guiCommand.number1 = prevNumber;
-      }
+//      /// <summary>
+//      /// PROP_SET_SELECTION
+//      /// </summary>
+//      /// <param name="commandType"></param>
+//      /// <param name="obj"></param>
+//      /// <param name="line"></param>
+//      /// <param name="number"></param>
+//      /// <param name="prevNumber"></param>
+//      internal void add(CommandType commandType, Object obj, int line, int number, int prevNumber)
+//      {
+//         GuiCommand guiCommand = add(commandType, obj, line, number);
+//         guiCommand.number1 = prevNumber;
+//      }
 
-      /// <summary>
-      ///   PROP_SET_TEXT_SIZE_LIMIT, PROP_SET_VISIBLE_LINES, PROP_SET_MIN_WIDTH, PROP_SET_MIN_HEIGHT,
-      ///   SET_WINDOW_STATE, VALIDATE_TABLE_ROW, SET_ORG_COLUMN_WIDTH, PROP_SET_COLOR_BY,
-      ///   PROP_SET_TRANSLATOR, PROP_SET_HORIZANTAL_ALIGNMENT, PROP_SET_MULTILINE_WORDWRAP_SCROLL
-      /// </summary>
-      /// <param name = "line">TODO</param>
-      internal GuiCommand add(CommandType commandType, Object obj, int line, int number)
-      {
-         checkObject(obj);
+//      /// <summary>
+//      ///   PROP_SET_TEXT_SIZE_LIMIT, PROP_SET_VISIBLE_LINES, PROP_SET_MIN_WIDTH, PROP_SET_MIN_HEIGHT,
+//      ///   SET_WINDOW_STATE, VALIDATE_TABLE_ROW, SET_ORG_COLUMN_WIDTH, PROP_SET_COLOR_BY,
+//      ///   PROP_SET_TRANSLATOR, PROP_SET_HORIZANTAL_ALIGNMENT, PROP_SET_MULTILINE_WORDWRAP_SCROLL
+//      /// </summary>
+//      /// <param name = "line">TODO</param>
+//      internal GuiCommand add(CommandType commandType, Object obj, int line, int number)
+//      {
+//         checkObject(obj);
 
-         GuiCommand guiCommand = new GuiCommand(obj, commandType);
-         guiCommand.line = line;
+//         GuiCommand guiCommand = new GuiCommand(obj, commandType);
+//         guiCommand.line = line;
 
-         switch (commandType)
-         {
-            case CommandType.PROP_SET_GRADIENT_STYLE:
+//         switch (commandType)
+//         {
+//            case CommandType.PROP_SET_GRADIENT_STYLE:
 
-            case CommandType.SET_WINDOW_STATE:
-               guiCommand.style = number;
-               break;
+//            case CommandType.SET_WINDOW_STATE:
+//               guiCommand.style = number;
+//               break;
 
-            case CommandType.PROP_SET_MIN_WIDTH:
-               guiCommand.width = number;
-               break;
+//            case CommandType.PROP_SET_MIN_WIDTH:
+//               guiCommand.width = number;
+//               break;
 
-            case CommandType.PROP_SET_MIN_HEIGHT:
-               guiCommand.height = number;
-               break;
+//            case CommandType.PROP_SET_MIN_HEIGHT:
+//               guiCommand.height = number;
+//               break;
 
-            case CommandType.PROP_SET_SELECTION_MODE:
-               guiCommand.listboxSelectionMode = (ListboxSelectionMode)number;
-               break;
+//            case CommandType.PROP_SET_SELECTION_MODE:
+//               guiCommand.listboxSelectionMode = (ListboxSelectionMode)number;
+//               break;
 
-            default:
-               guiCommand.number = number;
-               break;
-         }
-         put(guiCommand);
-         return guiCommand;
-      }
+//            default:
+//               guiCommand.number = number;
+//               break;
+//         }
+//         put(guiCommand);
+//         return guiCommand;
+//      }
 
-      /// <summary>
-      /// 
-      /// </summary>
-      /// <param name="commandType"></param>
-      /// <param name="obj"></param>
-      /// <param name="line"></param>
-      /// <param name="objectValue1"></param>
-      /// <param name="objectValue2"></param>
-      internal void add(CommandType commandType, Object obj, int line, Object objectValue1, Object objectValue2)
-      {
-         add(commandType, obj, line, objectValue1, objectValue2, false);
-      }
-      /// <summary>
-      ///   PROP_SET_GRADIENT_COLOR, SET_DVCONTROL_DATASOURCE, PROP_SET_BACKGOUND_COLOR, PROP_SET_FONT
-      /// </summary>
-      /// <param name = "commandType"></param>
-      /// <param name = "obj"></param>
-      /// <param name = "line"></param>
-      /// <param name = "objectValue1"></param>
-      /// <param name = "objectValue2"></param>
-      internal void add(CommandType commandType, Object obj, int line, Object objectValue1, Object objectValue2, bool bool1)
-      {
-         checkObject(obj);
+//      /// <summary>
+//      /// 
+//      /// </summary>
+//      /// <param name="commandType"></param>
+//      /// <param name="obj"></param>
+//      /// <param name="line"></param>
+//      /// <param name="objectValue1"></param>
+//      /// <param name="objectValue2"></param>
+//      internal void add(CommandType commandType, Object obj, int line, Object objectValue1, Object objectValue2)
+//      {
+//         add(commandType, obj, line, objectValue1, objectValue2, false);
+//      }
+//      /// <summary>
+//      ///   PROP_SET_GRADIENT_COLOR, SET_DVCONTROL_DATASOURCE, PROP_SET_BACKGOUND_COLOR, PROP_SET_FONT
+//      /// </summary>
+//      /// <param name = "commandType"></param>
+//      /// <param name = "obj"></param>
+//      /// <param name = "line"></param>
+//      /// <param name = "objectValue1"></param>
+//      /// <param name = "objectValue2"></param>
+//      internal void add(CommandType commandType, Object obj, int line, Object objectValue1, Object objectValue2, bool bool1)
+//      {
+//         checkObject(obj);
 
-         GuiCommand guiCommand = new GuiCommand(obj, commandType);
-         guiCommand.line = line;
+//         GuiCommand guiCommand = new GuiCommand(obj, commandType);
+//         guiCommand.line = line;
 
-         switch (commandType)
-         {
-            case CommandType.PROP_SET_GRADIENT_COLOR:
-               guiCommand.mgColor = (MgColor)objectValue1;
-               guiCommand.mgColor1 = (MgColor)objectValue2;
-               break;
+//         switch (commandType)
+//         {
+//            case CommandType.PROP_SET_GRADIENT_COLOR:
+//               guiCommand.mgColor = (MgColor)objectValue1;
+//               guiCommand.mgColor1 = (MgColor)objectValue2;
+//               break;
 
-            case CommandType.INSERT_ROWS:
-            case CommandType.REMOVE_ROWS:
-               guiCommand.number = (int)objectValue1;
-               guiCommand.number1 = (int)objectValue2;
-               guiCommand.Bool1 = bool1;
-               break;
+//            case CommandType.INSERT_ROWS:
+//            case CommandType.REMOVE_ROWS:
+//               guiCommand.number = (int)objectValue1;
+//               guiCommand.number1 = (int)objectValue2;
+//               guiCommand.Bool1 = bool1;
+//               break;
 
-            case CommandType.PROP_SET_CHECKED:
-               guiCommand.line = line;
-               guiCommand.number = (int)objectValue1;
-               guiCommand.Bool3 = (bool)objectValue2;
-               break;
+//            case CommandType.PROP_SET_CHECKED:
+//               guiCommand.line = line;
+//               guiCommand.number = (int)objectValue1;
+//               guiCommand.Bool3 = (bool)objectValue2;
+//               break;
 
-            case CommandType.PROP_SET_SELECTION:
-               guiCommand.str = objectValue1.ToString();
-               guiCommand.intArray = (int[])objectValue2;
-               guiCommand.Bool1 = bool1;
-               break;
+//            case CommandType.PROP_SET_SELECTION:
+//               guiCommand.str = objectValue1.ToString();
+//               guiCommand.intArray = (int[])objectValue2;
+//               guiCommand.Bool1 = bool1;
+//               break;
 
-            case CommandType.APPLY_CHILD_WINDOW_PLACEMENT:
-               guiCommand.width = (int)objectValue1;
-               guiCommand.height = (int)objectValue2;
-               break;
+//            case CommandType.APPLY_CHILD_WINDOW_PLACEMENT:
+//               guiCommand.width = (int)objectValue1;
+//               guiCommand.height = (int)objectValue2;
+//               break;
 
-            case CommandType.UPDATE_DVCONTROL_COLUMN:
-            case CommandType.REJECT_DVCONTROL_COLUMN_CHANGES:
-               guiCommand.line = (int)line;
-               guiCommand.number = (int)objectValue1;
-               guiCommand.obj1 = objectValue2;
-               break;
+//            case CommandType.UPDATE_DVCONTROL_COLUMN:
+//            case CommandType.REJECT_DVCONTROL_COLUMN_CHANGES:
+//               guiCommand.line = (int)line;
+//               guiCommand.number = (int)objectValue1;
+//               guiCommand.obj1 = objectValue2;
+//               break;
 
-            case CommandType.PROP_SET_BACKGOUND_COLOR:
-               guiCommand.mgColor = (MgColor)objectValue1;
-               guiCommand.number = (int)objectValue2;
-               break;
+//            case CommandType.PROP_SET_BACKGOUND_COLOR:
+//               guiCommand.mgColor = (MgColor)objectValue1;
+//               guiCommand.number = (int)objectValue2;
+//               break;
 
-            case CommandType.PROP_SET_FONT:
-               guiCommand.mgFont = (MgFont)objectValue1;
-               guiCommand.number = (int)objectValue2;
-               break;
+//            case CommandType.PROP_SET_FONT:
+//               guiCommand.mgFont = (MgFont)objectValue1;
+//               guiCommand.number = (int)objectValue2;
+//               break;
 
-            default:
-               throw new ApplicationException("in GuiCommandQueue.add(): command type not handled: " + commandType);
-         }
-         put(guiCommand);
-      }
+//            default:
+//               throw new ApplicationException("in GuiCommandQueue.add(): command type not handled: " + commandType);
+//         }
+//         put(guiCommand);
+//      }
 
-      /// <summary>
-      /// PROP_SET_FOCUS_COLOR, PROP_SET_HOVERING_COLOR, PROP_SET_VISITED_COLOR
-      /// </summary>
-      /// <param name="commandType"></param>
-      /// <param name="obj"></param>
-      /// <param name="line"></param>
-      /// <param name="objectValue1"></param>
-      /// <param name="objectValue2"></param>
-      /// <param name="number"></param>
-      internal void add(CommandType commandType, Object obj, int line, Object objectValue1, Object objectValue2, int number)
-      {
-         checkObject(obj);
+//      /// <summary>
+//      /// PROP_SET_FOCUS_COLOR, PROP_SET_HOVERING_COLOR, PROP_SET_VISITED_COLOR
+//      /// </summary>
+//      /// <param name="commandType"></param>
+//      /// <param name="obj"></param>
+//      /// <param name="line"></param>
+//      /// <param name="objectValue1"></param>
+//      /// <param name="objectValue2"></param>
+//      /// <param name="number"></param>
+//      internal void add(CommandType commandType, Object obj, int line, Object objectValue1, Object objectValue2, int number)
+//      {
+//         checkObject(obj);
 
-         GuiCommand guiCommand = new GuiCommand(obj, commandType);
-         guiCommand.line = line;
-         guiCommand.mgColor = (MgColor)objectValue1;
-         guiCommand.mgColor1 = (MgColor)objectValue2;
-         guiCommand.number = number;
+//         GuiCommand guiCommand = new GuiCommand(obj, commandType);
+//         guiCommand.line = line;
+//         guiCommand.mgColor = (MgColor)objectValue1;
+//         guiCommand.mgColor1 = (MgColor)objectValue2;
+//         guiCommand.number = number;
  
-         put(guiCommand);
-      }
+//         put(guiCommand);
+//      }
 
-      /// <summary>
-      ///   PROP_SET_BACKGOUND_COLOR, PROP_SET_FOREGROUND_COLOR, PROP_SET_ALTENATING_COLOR
-      ///   PROP_SET_STARTUP_POSITION
-      /// </summary>
-      /// <param name = "line">TODO PROP_SET_ROW_HIGHLIGHT_COLOR, PROP_SET_ROW_HIGHLIGHT_FGCOLOR : line not relevant
-      ///   PROP_SET_FORM_BORDER_STYLE,SET_ALIGNMENT, SET_FRAMES_WIDTH, SET_FRAMES_HEIGHT, REORDER_COLUMNS
-      /// </param>
-      internal void add(CommandType commandType, Object obj, int line, Object objectValue)
-      {
-         checkObject(obj);
+//      /// <summary>
+//      ///   PROP_SET_BACKGOUND_COLOR, PROP_SET_FOREGROUND_COLOR, PROP_SET_ALTENATING_COLOR
+//      ///   PROP_SET_STARTUP_POSITION
+//      /// </summary>
+//      /// <param name = "line">TODO PROP_SET_ROW_HIGHLIGHT_COLOR, PROP_SET_ROW_HIGHLIGHT_FGCOLOR : line not relevant
+//      ///   PROP_SET_FORM_BORDER_STYLE,SET_ALIGNMENT, SET_FRAMES_WIDTH, SET_FRAMES_HEIGHT, REORDER_COLUMNS
+//      /// </param>
+//      internal void add(CommandType commandType, Object obj, int line, Object objectValue)
+//      {
+//         checkObject(obj);
 
-         GuiCommand guiCommand = new GuiCommand(obj, commandType);
-         guiCommand.line = line;
+//         GuiCommand guiCommand = new GuiCommand(obj, commandType);
+//         guiCommand.line = line;
 
-         switch (commandType)
-         {
-            case CommandType.SET_ALIGNMENT:
-            case CommandType.PROP_SET_CHECK_BOX_CHECKED:
-            case CommandType.PROP_SET_STARTUP_POSITION:
-               guiCommand.number = (int)objectValue;
-               break;
+//         switch (commandType)
+//         {
+//            case CommandType.SET_ALIGNMENT:
+//            case CommandType.PROP_SET_CHECK_BOX_CHECKED:
+//            case CommandType.PROP_SET_STARTUP_POSITION:
+//               guiCommand.number = (int)objectValue;
+//               break;
 
-            case CommandType.PROP_SET_FORM_BORDER_STYLE:
-               guiCommand.style = (int)objectValue;
-               break;
+//            case CommandType.PROP_SET_FORM_BORDER_STYLE:
+//               guiCommand.style = (int)objectValue;
+//               break;
 
-            case CommandType.PROP_SET_ROW_HIGHLIGHT_FGCOLOR:
-            case CommandType.PROP_SET_ROW_HIGHLIGHT_BGCOLOR:
-            case CommandType.PROP_SET_INACTIVE_ROW_HIGHLIGHT_BGCOLOR:
-            case CommandType.PROP_SET_INACTIVE_ROW_HIGHLIGHT_FGCOLOR:
-            case CommandType.PROP_SET_FOREGROUND_COLOR:
-            case CommandType.PROP_SET_BORDER_COLOR:
-            case CommandType.PROP_SET_ALTENATING_COLOR:
-            case CommandType.PROP_SET_TITLE_COLOR:
-            case CommandType.PROP_SET_DIVIDER_COLOR:
-            case CommandType.PROP_SET_TITLE_FGCOLOR:
-            case CommandType.PROP_SET_HOT_TRACK_COLOR:
-            case CommandType.PROP_SET_HOT_TRACK_FGCOLOR:
-            case CommandType.PROP_SET_SELECTED_TAB_COLOR:
-            case CommandType.PROP_SET_SELECTED_TAB_FGCOLOR:
-            case CommandType.PROP_SET_EDIT_HINT_COLOR:
-            case CommandType.PROP_SET_ROW_BG_COLOR:
-               guiCommand.mgColor = (MgColor)objectValue;
-               break;
+//            case CommandType.PROP_SET_ROW_HIGHLIGHT_FGCOLOR:
+//            case CommandType.PROP_SET_ROW_HIGHLIGHT_BGCOLOR:
+//            case CommandType.PROP_SET_INACTIVE_ROW_HIGHLIGHT_BGCOLOR:
+//            case CommandType.PROP_SET_INACTIVE_ROW_HIGHLIGHT_FGCOLOR:
+//            case CommandType.PROP_SET_FOREGROUND_COLOR:
+//            case CommandType.PROP_SET_BORDER_COLOR:
+//            case CommandType.PROP_SET_ALTENATING_COLOR:
+//            case CommandType.PROP_SET_TITLE_COLOR:
+//            case CommandType.PROP_SET_DIVIDER_COLOR:
+//            case CommandType.PROP_SET_TITLE_FGCOLOR:
+//            case CommandType.PROP_SET_HOT_TRACK_COLOR:
+//            case CommandType.PROP_SET_HOT_TRACK_FGCOLOR:
+//            case CommandType.PROP_SET_SELECTED_TAB_COLOR:
+//            case CommandType.PROP_SET_SELECTED_TAB_FGCOLOR:
+//            case CommandType.PROP_SET_EDIT_HINT_COLOR:
+//            case CommandType.PROP_SET_ROW_BG_COLOR:
+//               guiCommand.mgColor = (MgColor)objectValue;
+//               break;
 
-            case CommandType.PROP_SET_IMAGE_LIST_INDEXES:
-               guiCommand.intArray = (int[])objectValue;
-               break;
+//            case CommandType.PROP_SET_IMAGE_LIST_INDEXES:
+//               guiCommand.intArray = (int[])objectValue;
+//               break;
 
-            case CommandType.SET_FRAMES_WIDTH:
-            case CommandType.SET_FRAMES_HEIGHT:
-            case CommandType.RESTORE_COLUMNS:
-               guiCommand.intList = (List<int>)objectValue;
-               break;
+//            case CommandType.SET_FRAMES_WIDTH:
+//            case CommandType.SET_FRAMES_HEIGHT:
+//            case CommandType.RESTORE_COLUMNS:
+//               guiCommand.intList = (List<int>)objectValue;
+//               break;
 
-            case CommandType.REORDER_COLUMNS:
-               guiCommand.intArrayList = (List<int[]>)objectValue;
-               break;
+//            case CommandType.REORDER_COLUMNS:
+//               guiCommand.intArrayList = (List<int[]>)objectValue;
+//               break;
 
-            case CommandType.CREATE_ENTRY_IN_CONTROLS_MAP:
-               guiCommand.obj1 = objectValue;
-               break;
+//            case CommandType.CREATE_ENTRY_IN_CONTROLS_MAP:
+//               guiCommand.obj1 = objectValue;
+//               break;
 
-            case CommandType.PERFORM_DRAGDROP:
-            case CommandType.UPDATE_DVCONTROL_ROW:
-            case CommandType.ADD_DVCONTROL_HANDLER:
-            case CommandType.CREATE_ROW_IN_DVCONTROL:
-            case CommandType.DELETE_DVCONTROL_ROW:
-            case CommandType.SET_DVCONTROL_ROW_POSITION:
-               guiCommand.obj1 = objectValue;
-               break;
+//            case CommandType.PERFORM_DRAGDROP:
+//            case CommandType.UPDATE_DVCONTROL_ROW:
+//            case CommandType.ADD_DVCONTROL_HANDLER:
+//            case CommandType.CREATE_ROW_IN_DVCONTROL:
+//            case CommandType.DELETE_DVCONTROL_ROW:
+//            case CommandType.SET_DVCONTROL_ROW_POSITION:
+//               guiCommand.obj1 = objectValue;
+//               break;
 
-            case CommandType.PROP_SET_EDIT_HINT:
-               guiCommand.str = (string)objectValue;
-               break;
+//            case CommandType.PROP_SET_EDIT_HINT:
+//               guiCommand.str = (string)objectValue;
+//               break;
 
-            default:
-               throw new ApplicationException("in GuiCommandQueue.add(): command type not handled: " + commandType);
-         }
-         put(guiCommand);
-      }
+//            default:
+//               throw new ApplicationException("in GuiCommandQueue.add(): command type not handled: " + commandType);
+//         }
+//         put(guiCommand);
+//      }
 
-      /// <summary>
-      ///   PROP_SET_TOOLTIP, PROP_SET_TEXT style: not relevant PROP_SET_WALLPAPER PROP_SET_IMAGE_FILE_NAME
-      ///   PROP_SET_URL, PROP_SET_ICON_FILE_NAME : style isn't relevant
-      ///   PROP_SET_CONTROL_NAME : style isn't relevant
-      /// </summary>
-      /// <param name = "line">TODO</param>
-      internal void add(CommandType commandType, Object obj, int line, String str, int style)
-      {
-         checkObject(obj);
+//      /// <summary>
+//      ///   PROP_SET_TOOLTIP, PROP_SET_TEXT style: not relevant PROP_SET_WALLPAPER PROP_SET_IMAGE_FILE_NAME
+//      ///   PROP_SET_URL, PROP_SET_ICON_FILE_NAME : style isn't relevant
+//      ///   PROP_SET_CONTROL_NAME : style isn't relevant
+//      /// </summary>
+//      /// <param name = "line">TODO</param>
+//      internal void add(CommandType commandType, Object obj, int line, String str, int style)
+//      {
+//         checkObject(obj);
 
-         GuiCommand guiCommand = new GuiCommand(obj, commandType);
+//         GuiCommand guiCommand = new GuiCommand(obj, commandType);
 
-         guiCommand.line = line;
+//         guiCommand.line = line;
 
-         switch (commandType)
-         {
-            case CommandType.PROP_SET_ICON_FILE_NAME:
-            case CommandType.PROP_SET_WALLPAPER:
-            case CommandType.PROP_SET_IMAGE_FILE_NAME:
-            case CommandType.PROP_SET_IMAGE_LIST:
-               guiCommand.fileName = str;
-               guiCommand.style = style;
-               break;
+//         switch (commandType)
+//         {
+//            case CommandType.PROP_SET_ICON_FILE_NAME:
+//            case CommandType.PROP_SET_WALLPAPER:
+//            case CommandType.PROP_SET_IMAGE_FILE_NAME:
+//            case CommandType.PROP_SET_IMAGE_LIST:
+//               guiCommand.fileName = str;
+//               guiCommand.style = style;
+//               break;
 
-            case CommandType.SETDATA_FOR_DRAG:
-            case CommandType.PROP_SET_IMAGE_DATA:
-               guiCommand.str = str;
-               guiCommand.style = style;
-               break;
+//            case CommandType.SETDATA_FOR_DRAG:
+//            case CommandType.PROP_SET_IMAGE_DATA:
+//               guiCommand.str = str;
+//               guiCommand.style = style;
+//               break;
 
-            default:
-               guiCommand.str = str;
-               break;
-         }
-         put(guiCommand);
-      }
+//            default:
+//               guiCommand.str = str;
+//               break;
+//         }
+//         put(guiCommand);
+//      }
 
-      /// <summary>
-      /// SETDATA_FOR_DRAG
-      /// </summary>
-      /// <param name="commandType"></param>
-      /// <param name="obj"></param>
-      /// <param name="line">line no</param>
-      /// <param name="str">string</param>
-      /// <param name="userDropFormat">user defined format, if any.</param>
-      /// <param name="style"></param>
-      internal void add(CommandType commandType, Object obj, int line, String str, String userDropFormat, int style)
-      {
-         GuiCommand guiCommand = new GuiCommand(obj, commandType);
-         guiCommand.line = line;
-         guiCommand.str = str;
-         guiCommand.userDropFormat = userDropFormat;
-         guiCommand.style = style;
+//      /// <summary>
+//      /// SETDATA_FOR_DRAG
+//      /// </summary>
+//      /// <param name="commandType"></param>
+//      /// <param name="obj"></param>
+//      /// <param name="line">line no</param>
+//      /// <param name="str">string</param>
+//      /// <param name="userDropFormat">user defined format, if any.</param>
+//      /// <param name="style"></param>
+//      internal void add(CommandType commandType, Object obj, int line, String str, String userDropFormat, int style)
+//      {
+//         GuiCommand guiCommand = new GuiCommand(obj, commandType);
+//         guiCommand.line = line;
+//         guiCommand.str = str;
+//         guiCommand.userDropFormat = userDropFormat;
+//         guiCommand.style = style;
 
-         put(guiCommand);
-      }
+//         put(guiCommand);
+//      }
 
-      /// <summary>
-      ///   PROP_SET_IMAGE_DATA
-      /// </summary>
-      /// <param name = "line">TODO</param>
-      internal void add(CommandType commandType, Object obj, int line, byte[] byteArray, int style)
-      {
-         checkObject(obj);
+//      /// <summary>
+//      ///   PROP_SET_IMAGE_DATA
+//      /// </summary>
+//      /// <param name = "line">TODO</param>
+//      internal void add(CommandType commandType, Object obj, int line, byte[] byteArray, int style)
+//      {
+//         checkObject(obj);
 
-         GuiCommand guiCommand = new GuiCommand(obj, commandType);
+//         GuiCommand guiCommand = new GuiCommand(obj, commandType);
 
-         guiCommand.line = line;
-         guiCommand.ByteArray = byteArray;
-         guiCommand.style = style;
-         put(guiCommand);
-      }
+//         guiCommand.line = line;
+//         guiCommand.ByteArray = byteArray;
+//         guiCommand.style = style;
+//         put(guiCommand);
+//      }
 
-      /// <summary>
-      ///   PROP_SET_ITEMS_LIST,
-      /// </summary>
-      /// <param name = "line">TODO
-      /// </param>
-      internal void add(CommandType commandType, Object obj, int line, String[] displayList, bool bool1)
-      {
-         checkObject(obj);
+//      /// <summary>
+//      ///   PROP_SET_ITEMS_LIST,
+//      /// </summary>
+//      /// <param name = "line">TODO
+//      /// </param>
+//      internal void add(CommandType commandType, Object obj, int line, String[] displayList, bool bool1)
+//      {
+//         checkObject(obj);
 
-         GuiCommand guiCommand = new GuiCommand(obj, commandType);
-         guiCommand.itemsList = displayList;
-         guiCommand.line = line;
-         guiCommand.Bool1 = bool1;
-         put(guiCommand);
-      }
+//         GuiCommand guiCommand = new GuiCommand(obj, commandType);
+//         guiCommand.itemsList = displayList;
+//         guiCommand.line = line;
+//         guiCommand.Bool1 = bool1;
+//         put(guiCommand);
+//      }
 
-      /// <summary>
-      ///   PROP_SET_MENU, REFRESH_MENU_ACTIONS
-      /// </summary>
-      internal void add(CommandType commandType, Object parentObj, GuiMgForm containerForm, MenuStyle menuStyle,
-                        GuiMgMenu guiMgMenu, bool parentTypeForm)
-      {
-         GuiCommand guiCommand = new GuiCommand(parentObj, containerForm, commandType);
-         guiCommand.menu = guiMgMenu;
-         guiCommand.menuStyle = menuStyle;
-         guiCommand.Bool3 = parentTypeForm;
-         guiCommand.line = GuiConstants.ALL_LINES;
-         put(guiCommand);
-      }
+//      /// <summary>
+//      ///   PROP_SET_MENU, REFRESH_MENU_ACTIONS
+//      /// </summary>
+//      internal void add(CommandType commandType, Object parentObj, GuiMgForm containerForm, MenuStyle menuStyle,
+//                        GuiMgMenu guiMgMenu, bool parentTypeForm)
+//      {
+//         GuiCommand guiCommand = new GuiCommand(parentObj, containerForm, commandType);
+//         guiCommand.menu = guiMgMenu;
+//         guiCommand.menuStyle = menuStyle;
+//         guiCommand.Bool3 = parentTypeForm;
+//         guiCommand.line = GuiConstants.ALL_LINES;
+//         put(guiCommand);
+//      }
 
-      /// <summary>
-      ///   CREATE_MENU
-      /// </summary>
-      internal void add(CommandType commandType, Object parentObj, GuiMgForm containerForm, MenuStyle menuStyle,
-                        GuiMgMenu guiMgMenu, bool parentTypeForm, bool shouldShowPulldownMenu)
-      {
-         GuiCommand guiCommand = new GuiCommand(parentObj, containerForm, commandType);
-         guiCommand.menu = guiMgMenu;
-         guiCommand.menuStyle = menuStyle;
-         guiCommand.Bool3 = parentTypeForm;
-         guiCommand.line = GuiConstants.ALL_LINES;
-         guiCommand.Bool1 = shouldShowPulldownMenu;
-         put(guiCommand);
-      }
+//      /// <summary>
+//      ///   CREATE_MENU
+//      /// </summary>
+//      internal void add(CommandType commandType, Object parentObj, GuiMgForm containerForm, MenuStyle menuStyle,
+//                        GuiMgMenu guiMgMenu, bool parentTypeForm, bool shouldShowPulldownMenu)
+//      {
+//         GuiCommand guiCommand = new GuiCommand(parentObj, containerForm, commandType);
+//         guiCommand.menu = guiMgMenu;
+//         guiCommand.menuStyle = menuStyle;
+//         guiCommand.Bool3 = parentTypeForm;
+//         guiCommand.line = GuiConstants.ALL_LINES;
+//         guiCommand.Bool1 = shouldShowPulldownMenu;
+//         put(guiCommand);
+//      }
 
-      /// <summary>
-      ///   CREATE_MENU_ITEM
-      /// </summary>
-      /// <param name = "commandType"></param>
-      /// <param name = "parentObj"></param>
-      /// <param name = "menuStyle"></param>
-      /// <param name = "menuEntry"></param>
-      /// <param name = "form"></param>
-      /// <param name = "index"></param>
-      internal void add(CommandType commandType, Object parentObj, MenuStyle menuStyle, GuiMenuEntry menuEntry,
-                        GuiMgForm guiMgForm, int index)
-      {
-         GuiCommand guiCommand = new GuiCommand(parentObj, guiMgForm, commandType);
-         guiCommand.menuEntry = menuEntry;
-         guiCommand.menuStyle = menuStyle;
-         guiCommand.line = index;
-         put(guiCommand);
-      }
+//      /// <summary>
+//      ///   CREATE_MENU_ITEM
+//      /// </summary>
+//      /// <param name = "commandType"></param>
+//      /// <param name = "parentObj"></param>
+//      /// <param name = "menuStyle"></param>
+//      /// <param name = "menuEntry"></param>
+//      /// <param name = "form"></param>
+//      /// <param name = "index"></param>
+//      internal void add(CommandType commandType, Object parentObj, MenuStyle menuStyle, GuiMenuEntry menuEntry,
+//                        GuiMgForm guiMgForm, int index)
+//      {
+//         GuiCommand guiCommand = new GuiCommand(parentObj, guiMgForm, commandType);
+//         guiCommand.menuEntry = menuEntry;
+//         guiCommand.menuStyle = menuStyle;
+//         guiCommand.line = index;
+//         put(guiCommand);
+//      }
 
-      /// <summary>
-      ///   DELETE_MENU_ITEM
-      /// </summary>
-      /// <param name = "commandType"></param>
-      /// <param name = "parentObj"></param>
-      /// <param name = "menuStyle"></param>
-      /// <param name = "menuEntry"></param>
-      /// <param name = "menuItemReference"></param>
-      internal void add(CommandType commandType, Object parentObj, MenuStyle menuStyle, GuiMenuEntry menuEntry)
-      {
-         GuiCommand guiCommand = new GuiCommand(parentObj, commandType);
-         guiCommand.menuEntry = menuEntry;
-         guiCommand.menuStyle = menuStyle;
-         put(guiCommand);
-      }
+//      /// <summary>
+//      ///   DELETE_MENU_ITEM
+//      /// </summary>
+//      /// <param name = "commandType"></param>
+//      /// <param name = "parentObj"></param>
+//      /// <param name = "menuStyle"></param>
+//      /// <param name = "menuEntry"></param>
+//      /// <param name = "menuItemReference"></param>
+//      internal void add(CommandType commandType, Object parentObj, MenuStyle menuStyle, GuiMenuEntry menuEntry)
+//      {
+//         GuiCommand guiCommand = new GuiCommand(parentObj, commandType);
+//         guiCommand.menuEntry = menuEntry;
+//         guiCommand.menuStyle = menuStyle;
+//         put(guiCommand);
+//      }
 
-      /// <summary>
-      ///   PROP_SET_CHECKED PROP_SET_ENABLE PROP_SET_VISIBLE PROP_SET_MENU_ENABLE PROP_SET_MENU_VISIBLE Above
-      ///   properties for menu entry
-      /// </summary>
-      /// <param name = "commandType"></param>
-      /// <param name = "menuEntry">TODO</param>
-      /// <param name = "menuEntry"></param>
-      /// <param name = "value"></param>
-      internal void add(CommandType commandType, MenuReference mnuRef, GuiMenuEntry menuEntry, Object val)
-      {
-         GuiCommand guiCommand = new GuiCommand(mnuRef, commandType);
+//      /// <summary>
+//      ///   PROP_SET_CHECKED PROP_SET_ENABLE PROP_SET_VISIBLE PROP_SET_MENU_ENABLE PROP_SET_MENU_VISIBLE Above
+//      ///   properties for menu entry
+//      /// </summary>
+//      /// <param name = "commandType"></param>
+//      /// <param name = "menuEntry">TODO</param>
+//      /// <param name = "menuEntry"></param>
+//      /// <param name = "value"></param>
+//      internal void add(CommandType commandType, MenuReference mnuRef, GuiMenuEntry menuEntry, Object val)
+//      {
+//         GuiCommand guiCommand = new GuiCommand(mnuRef, commandType);
 
-         guiCommand.menuEntry = menuEntry;
+//         guiCommand.menuEntry = menuEntry;
 
-         if (val is Boolean)
-            guiCommand.Bool3 = ((Boolean)val);
-         else
-            guiCommand.str = ((String)val);
-         put(guiCommand);
-      }
+//         if (val is Boolean)
+//            guiCommand.Bool3 = ((Boolean)val);
+//         else
+//            guiCommand.str = ((String)val);
+//         put(guiCommand);
+//      }
 
-      /// <summary>
-      ///   CREATE_TOOLBAR
-      /// </summary>
-      /// <param name = "commandType"></param>
-      /// <param name = "form"></param>
-      /// <param name = "newToolbar"></param>
-      internal void add(CommandType commandType, GuiMgForm form, Object newToolbar)
-      {
-         GuiCommand guiCommand = new GuiCommand(form, newToolbar, commandType);
-         put(guiCommand);
-      }
+//      /// <summary>
+//      ///   CREATE_TOOLBAR
+//      /// </summary>
+//      /// <param name = "commandType"></param>
+//      /// <param name = "form"></param>
+//      /// <param name = "newToolbar"></param>
+//      internal void add(CommandType commandType, GuiMgForm form, Object newToolbar)
+//      {
+//         GuiCommand guiCommand = new GuiCommand(form, newToolbar, commandType);
+//         put(guiCommand);
+//      }
 
-      /// <summary>
-      ///   CREATE_TOOLBAR_ITEM, DELETE_TOOLBAR_ITEM
-      /// </summary>
-      /// <param name = "commandType"></param>
-      /// <param name = "toolbar">is the ToolBar to which we add a new item (placed in parentObject)</param>
-      /// <param name = "menuEntry">is the menuEntry for which we create this toolitem</param>
-      /// <param name = "index">is the index of the new object in the toolbar (placed in line)</param>
-      internal void add(CommandType commandType, Object toolbar, GuiMgForm form, GuiMenuEntry menuEntry, int index)
-      {
-         GuiCommand guiCommand = new GuiCommand(toolbar, form, commandType);
-         guiCommand.menuEntry = menuEntry;
-         guiCommand.line = index;
-         put(guiCommand);
-      }
+//      /// <summary>
+//      ///   CREATE_TOOLBAR_ITEM, DELETE_TOOLBAR_ITEM
+//      /// </summary>
+//      /// <param name = "commandType"></param>
+//      /// <param name = "toolbar">is the ToolBar to which we add a new item (placed in parentObject)</param>
+//      /// <param name = "menuEntry">is the menuEntry for which we create this toolitem</param>
+//      /// <param name = "index">is the index of the new object in the toolbar (placed in line)</param>
+//      internal void add(CommandType commandType, Object toolbar, GuiMgForm form, GuiMenuEntry menuEntry, int index)
+//      {
+//         GuiCommand guiCommand = new GuiCommand(toolbar, form, commandType);
+//         guiCommand.menuEntry = menuEntry;
+//         guiCommand.line = index;
+//         put(guiCommand);
+//      }
 
       /// <summary>
       ///   Verifies that the object is either MgForm or MgControl and throws Error if not.
