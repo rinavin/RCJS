@@ -60,7 +60,7 @@ namespace com.magicsoftware.unipaas
       /// <param name="leftClickWasPressed"></param>
       /// <param name="line"></param>
       /// <param name="onMultiMark">indicates that Multi Mark continues</param>
-      internal static void OnMouseDown(GuiMgForm guiMgForm, GuiMgControl guiMgCtrl, Object[] dotNetArgs,
+      public static void OnMouseDown(GuiMgForm guiMgForm, GuiMgControl guiMgCtrl, Object[] dotNetArgs,
                                        bool leftClickWasPressed, int line, bool onMultiMark, bool canProduceClick)
       {
          Debug.Assert(MouseDownEvent != null);

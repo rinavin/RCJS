@@ -107,7 +107,18 @@ namespace com.magicsoftware.richclient
             switch (eventName)
             {
                case "click":
-                  Events.OnSelection("", control, lineIdx, true);
+                  if (control.isButton())
+                     Events.OnSelection("", control, lineIdx, true);
+                  else
+                  {
+                     //for text - temporary 
+                     if (control.Type == MgControlType.CTRL_TYPE_TEXT ||    control.Type == MgControlType.CTRL_TYPE_LABEL ||
+                         control.Type == MgControlType.CTRL_TYPE_IMAGE)
+                        Events.OnFocus(control, lineIdx, true, false);
+
+                     Events.OnMouseDown(control.getForm(), control, null, true, lineIdx, false, true);
+
+                  }
                   break;
                case "focus":
                   Events.OnFocus(control, lineIdx, true, false);
