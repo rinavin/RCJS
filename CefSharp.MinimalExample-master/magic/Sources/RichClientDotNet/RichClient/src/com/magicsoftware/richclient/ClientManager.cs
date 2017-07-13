@@ -153,6 +153,7 @@ namespace com.magicsoftware.richclient
             //TODO: need to move this tho another thread with event
             form.InitializationFinished = true;
             form.RefreshUI();
+            form.RefreshTableUI();
          }
       }
 

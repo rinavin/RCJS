@@ -2046,13 +2046,13 @@ namespace com.magicsoftware.richclient.gui
                // previous chunk was brought, table items were distroyed and recteated,
                // update index of tmp editor
                Commands.addAsync(CommandType.UPDATE_TMP_EDITOR_INDEX, _tableMgControl);
-               RefreshTableUI();
-               //Commands.addAsync(CommandType.REFRESH_TABLE, _tableMgControl, 0, true);
+               //RefreshTableUI();
+               Commands.addAsync(CommandType.REFRESH_TABLE, _tableMgControl, 0, true);
             }
          }
          else if (updated)
-            RefreshTableUI();
-            //Commands.addAsync(CommandType.REFRESH_TABLE, _tableMgControl, 0, true);
+            //RefreshTableUI();
+            Commands.addAsync(CommandType.REFRESH_TABLE, _tableMgControl, 0, true);
       }
 
       /// <summary>
@@ -2677,27 +2677,35 @@ namespace com.magicsoftware.richclient.gui
          ScreenControlsData = new ControlsData();
          return result;
       }
-           
+
+      public class TableUpdate
+      {
+         public bool fullRefresh;
+         public Dictionary<string, ControlsData> rows = new Dictionary<string, ControlsData>();
+      }     
 
       public override void RefreshTableUI()
       {
          string result = "";
+         TableUpdate tableUpdate = new TableUpdate();
          if (HasTable() && InitializationFinished)
          {
             JavaScriptSerializer serializer = new JavaScriptSerializer();
-            Dictionary<string, ControlsData> dictionary = new Dictionary<string, ControlsData>();
+           
             for (int i = 0; i < Rows.Count; i++)
             {
                Row row = (Row)Rows[i];
                if (row != null && row.ControlsData != null && !row.ControlsData.IsEmpty())
                {
                   row.ControlsData.ClearForSerialization();
-                  dictionary[i.ToString()] = row.ControlsData;
+                  tableUpdate.rows[i.ToString()] = row.ControlsData;
                }
             }
-            if (dictionary.Count > 0)
+            tableUpdate.fullRefresh = rowsWereChanged;
+            rowsWereChanged = false;
+            if (tableUpdate.rows.Count > 0)
             {
-               result = serializer.Serialize(dictionary);
+               result = serializer.Serialize(tableUpdate);
                JSBridge.Instance.RefreshTableUI(getTask().getTaskTag(), result);
                foreach (Row item in Rows)
                {
@@ -2713,6 +2721,8 @@ namespace com.magicsoftware.richclient.gui
       /// </summary>
       private void refreshTable()
       {
+         //for now - always show all records
+         setRowsInPage(GetDataview().getSize());
          int i, oldCurrRow, currRecIdx;
          Logger.Instance.WriteGuiToLog("Start form.refreshTable()");
 
@@ -3186,6 +3196,7 @@ namespace com.magicsoftware.richclient.gui
          SetTableTopIndex();
       }
 
+      bool rowsWereChanged;
       /// <summary>
       /// inits table control's rows to 'size' count
       /// </summary>
@@ -3199,6 +3210,7 @@ namespace com.magicsoftware.richclient.gui
             {
                Commands.addAsync(CommandType.SET_TABLE_INCLUDES_FIRST, _tableMgControl, 0, true);
                Commands.addAsync(CommandType.SET_TABLE_INCLUDES_LAST, _tableMgControl, 0, true);
+               rowsWereChanged = true;
             }
             else
             {
