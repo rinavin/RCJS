@@ -1892,7 +1892,7 @@ namespace com.magicsoftware.richclient.gui
          Debug.Assert(!Misc.IsGuiThread());
 
          int saveRowIdx = GetDataview().getCurrRecIdx();
-         long maxTime = Misc.getSystemMilliseconds() + TIME_LIMIT;
+         long maxTime = Misc.getSystemMilliseconds() + 500;// TIME_LIMIT;
          bool updated = false;
          MgControlBase currentEditingControl = getTask().CurrentEditingControl;
 
@@ -2046,11 +2046,13 @@ namespace com.magicsoftware.richclient.gui
                // previous chunk was brought, table items were distroyed and recteated,
                // update index of tmp editor
                Commands.addAsync(CommandType.UPDATE_TMP_EDITOR_INDEX, _tableMgControl);
-               Commands.addAsync(CommandType.REFRESH_TABLE, _tableMgControl, 0, true);
+               RefreshTableUI();
+               //Commands.addAsync(CommandType.REFRESH_TABLE, _tableMgControl, 0, true);
             }
          }
          else if (updated)
-            Commands.addAsync(CommandType.REFRESH_TABLE, _tableMgControl, 0, true);
+            RefreshTableUI();
+            //Commands.addAsync(CommandType.REFRESH_TABLE, _tableMgControl, 0, true);
       }
 
       /// <summary>
@@ -2670,31 +2672,38 @@ namespace com.magicsoftware.richclient.gui
       public String SerializeControls()
       {
          JavaScriptSerializer serializer = new JavaScriptSerializer();
+         ScreenControlsData.ClearForSerialization();
          string result = serializer.Serialize(ScreenControlsData);
          ScreenControlsData = new ControlsData();
          return result;
       }
            
 
-      private void RefreshTableUI()
+      public override void RefreshTableUI()
       {
          string result = "";
-         if (HasTable())
+         if (HasTable() && InitializationFinished)
          {
             JavaScriptSerializer serializer = new JavaScriptSerializer();
-            Dictionary<int, ControlsData> dictionary = new Dictionary<int, ControlsData>();
+            Dictionary<string, ControlsData> dictionary = new Dictionary<string, ControlsData>();
             for (int i = 0; i < Rows.Count; i++)
             {
                Row row = (Row)Rows[i];
-               if (row.ControlsData != null && !row.ControlsData.IsEmpty)
-                  dictionary[i] = row.ControlsData;
-            }           
-
-            result = serializer.Serialize(dictionary);
-            JSBridge.Instance.RefreshTableUI(getTask().getTaskTag(), result);
-            foreach (Row item in Rows)
+               if (row != null && row.ControlsData != null && !row.ControlsData.IsEmpty())
+               {
+                  row.ControlsData.ClearForSerialization();
+                  dictionary[i.ToString()] = row.ControlsData;
+               }
+            }
+            if (dictionary.Count > 0)
             {
-               item.ControlsData = new ControlsData();
+               result = serializer.Serialize(dictionary);
+               JSBridge.Instance.RefreshTableUI(getTask().getTaskTag(), result);
+               foreach (Row item in Rows)
+               {
+                  if (item != null)
+                     item.ControlsData = new ControlsData();
+               }
             }
          }
       }
@@ -2792,6 +2801,7 @@ namespace com.magicsoftware.richclient.gui
          restoreBackup(oldCurrRow + GetDataview().getTopRecIdx(), bkpRecord);
          refreshControls(true);
          Logger.Instance.WriteGuiToLog("End form.refreshTable()");
+         //???!!!
          RefreshTableUI ();
 
       }

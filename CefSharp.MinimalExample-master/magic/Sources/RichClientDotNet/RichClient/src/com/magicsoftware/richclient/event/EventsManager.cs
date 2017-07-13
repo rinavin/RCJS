@@ -1407,6 +1407,7 @@ namespace com.magicsoftware.richclient.events
                      // in the end of gui triggered event, we must refresh all table child properties
                      // for the rows that were update
                      Commands.addAsync(CommandType.REFRESH_TABLE, table, 0, false);
+                     table.getForm().RefreshTableUI();
                   }
                }
             }
@@ -3901,7 +3902,10 @@ namespace com.magicsoftware.richclient.events
                         // handling, the value on the control is still the previous value
                         var table = (MgControl)form.getTableCtrl();
                         if (table != null)
+                        {
                            Commands.addAsync(CommandType.REFRESH_TABLE, table, 0, false);
+                           table.getForm().RefreshTableUI();
+                        }
                      }
                      handleInternalEvent(task, InternalInterface.MG_ACT_TBL_NXTFLD);
                      break;
