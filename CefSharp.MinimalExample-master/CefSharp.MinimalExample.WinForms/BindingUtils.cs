@@ -62,6 +62,13 @@ namespace CefSharp.MinimalExample.WinForms
          get { return refreshTableDataCallback; }
          set { refreshTableDataCallback = value; }
       }
+
+      IJavascriptCallback openSubformCallback;
+      internal IJavascriptCallback OpenSubformCallback
+      {
+         get { return openSubformCallback; }
+         set { openSubformCallback = value; }
+      }
    }
 
    /// <summary>
@@ -90,6 +97,7 @@ namespace CefSharp.MinimalExample.WinForms
          JSBridge.Instance.showMessageBoxDelegate = ShowMessageBox;
          JSBridge.Instance.refreshTableUIDelegate = RefreshTableDisplay;
          JSBridge.Instance.openFormDelegate = OpenForm;
+         JSBridge.Instance.openSubformDelegate = OpenSubform;
       }
 
 		/// <summary>
@@ -131,6 +139,16 @@ namespace CefSharp.MinimalExample.WinForms
 			
          getTaskCallbacks(taskId).ShowMessageBoxCallback = javascriptsCallback;
 		}
+
+      /// <summary>
+      /// register callback for opening a subform
+      /// </summary>
+      /// <param name="javascriptsCallback"></param>
+      public void registerOpenSubformCallback(string taskId, IJavascriptCallback javascriptsCallback)
+      {
+
+         getTaskCallbacks(taskId).OpenSubformCallback = javascriptsCallback;
+      }
 
       TaskCallbacks getTaskCallbacks(string taskId)
       {
@@ -207,6 +225,17 @@ namespace CefSharp.MinimalExample.WinForms
          if (openFormCallback != null)
             syncExecutor.ExecuteSync(ControlToInvoke, openFormCallback, formName);
          //openFormCallback.ExecuteAsync(formName);
+      }
+
+      /// <summary>
+      /// Execute open subform
+      /// </summary>
+      private void OpenSubform(string subformName, string parenttaskId, string formName, string taskId)
+      {
+         SyncExecutor syncExecutor = new SyncExecutor();
+         TaskCallbacks callbacks = getTaskCallbacks(parenttaskId);
+         if (callbacks != null && callbacks.OpenSubformCallback != null)
+            syncExecutor.ExecuteSync(ControlToInvoke, callbacks.OpenSubformCallback, subformName, formName, taskId);
       }
    }
 	public class BoundObject1
