@@ -1642,17 +1642,25 @@ namespace com.magicsoftware.unipaas.management.gui
                _prevValues[line] = _val;
                if (IsGeneric && _dataType == StorageAttribute.DOTNET)
                   _prevDotNetValue = newDotNetObj;
-               if (_expId != 0) //properties without expression should be generated in the studio and not updated
-               {
-                  ctrl = _parentObj as MgControlBase;
-                  ControlsData controlsData = ctrl.GetControlsData(line);
+               //if (_expId != 0) //properties without expression should be generated in the studio and not updated
 
-                  if (!controlsData.ControlsProperties.ContainsKey(ctrl.UniqueWebId))
-                     controlsData.ControlsProperties[ctrl.UniqueWebId] = new Dictionary<string, string>();
-                  controlsData.ControlsProperties[ctrl.UniqueWebId][_id.ToString()] = _val;
-                 
+               switch (_id)
+               {
+                  case PropInterface.PROP_TYPE_TEXT:
+                  case PropInterface.PROP_TYPE_VISIBLE:
+                  case PropInterface.PROP_TYPE_ENABLED:
+                     ctrl = _parentObj as MgControlBase;
+                     ControlsData controlsData = ctrl.GetControlsData(line);
+
+                     if (!controlsData.ControlsMetaData.ContainsKey(ctrl.UniqueWebId))
+                        controlsData.ControlsMetaData[ctrl.UniqueWebId] = new ControlMetaData();
+                     controlsData.ControlsMetaData[ctrl.UniqueWebId].Properties[_id.ToString()] = _val;
+                     //TODO : move to builder
+                     controlsData.ControlsMetaData[ctrl.UniqueWebId].Type = ((char)ctrl.Type).ToString();
+                     break;
 
                }
+              
 
                break;
 
