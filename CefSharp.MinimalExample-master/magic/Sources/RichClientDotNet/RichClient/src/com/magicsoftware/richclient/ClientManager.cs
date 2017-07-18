@@ -53,6 +53,7 @@ using com.magicsoftware.richclient.local.application.datasources.converter;
 using com.magicsoftware.richclient.data;
 using com.magicsoftware.gatewaytypes.data;
 using static com.magicsoftware.unipaas.Events;
+using System.Web.Script.Serialization;
 
 #if !PocketPC
 using System.Windows.Forms;
@@ -126,6 +127,11 @@ namespace com.magicsoftware.richclient
             }
          }
       }
+      public class TaskDescription
+      {
+         public string TaskId { get; set; }
+         public List<string> Names { get; set; }
+      }
 
       public string getTaskId(string parentId, string subformName)
       {
@@ -134,9 +140,11 @@ namespace com.magicsoftware.richclient
          MGDataCollection mgDataTab = MGDataCollection.Instance;
          //TODO: not always 0
          MGData mgd = mgDataTab.getMGData(0);
+         Task foundtask = null;
+         string result = "notfound";
          if ( String.IsNullOrEmpty(parentId))
          {
-            return mgd.getFirstTask().getTaskTag();
+            foundtask = mgd.getFirstTask();//.getTaskTag();
          }
          else
          {
@@ -145,13 +153,42 @@ namespace com.magicsoftware.richclient
             {
                Task subTask = task.SubTasks.getTask(i);
                MgFormBase form = subTask.getForm();
-               if (form != null && form.getSubFormCtrl() != null  &&
+               if (form != null && form.getSubFormCtrl() != null &&
                  form.getSubFormCtrl().getName() == subformName)
-                  return subTask.getTaskTag();
+               {
+                  foundtask = subTask;
+               }
             }
          }
-         return "notfound";
+         if (foundtask != null)
+         {
+            TaskDescription t = new TaskDescription() { TaskId = foundtask.getTaskTag() };
+            t.Names = new List<string>();
+            foreach (var control in foundtask.getForm().CtrlTab.GetControls(c => IsInputType(c.Type)))
+            {
+               t.Names.Add(control.UniqueWebId);
+            }
+            JavaScriptSerializer serializer = new JavaScriptSerializer();            
+            result = serializer.Serialize(t);
+         }
+         return result;
             
+      }
+
+      bool IsInputType(MgControlType type)
+      {
+         switch (type)
+         {
+            case MgControlType.CTRL_TYPE_CHECKBOX:
+            case MgControlType.CTRL_TYPE_TEXT:
+            case MgControlType.CTRL_TYPE_COMBO:
+            case MgControlType.CTRL_TYPE_LIST:
+            case MgControlType.CTRL_TYPE_RADIO:
+            case MgControlType.CTRL_TYPE_RICH_EDIT:
+               return true;
+            default:
+               return false;
+         }
       }
 
 
