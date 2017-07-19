@@ -163,11 +163,7 @@ namespace com.magicsoftware.richclient
          if (foundtask != null)
          {
             TaskDescription t = new TaskDescription() { TaskId = foundtask.getTaskTag() };
-            t.Names = new List<string>();
-            foreach (var control in foundtask.getForm().CtrlTab.GetControls(c => IsInputType(c.Type)))
-            {
-               t.Names.Add(control.UniqueWebId);
-            }
+            t.Names = foundtask.getForm().GetListOfInputControls();            
             JavaScriptSerializer serializer = new JavaScriptSerializer();            
             result = serializer.Serialize(t);
          }
@@ -175,21 +171,6 @@ namespace com.magicsoftware.richclient
             
       }
 
-      bool IsInputType(MgControlType type)
-      {
-         switch (type)
-         {
-            case MgControlType.CTRL_TYPE_CHECKBOX:
-            case MgControlType.CTRL_TYPE_TEXT:
-            case MgControlType.CTRL_TYPE_COMBO:
-            case MgControlType.CTRL_TYPE_LIST:
-            case MgControlType.CTRL_TYPE_RADIO:
-            case MgControlType.CTRL_TYPE_RICH_EDIT:
-               return true;
-            default:
-               return false;
-         }
-      }
 
 
       public void TaskFinishedAngularInitialization(string taskId)
@@ -606,7 +587,7 @@ namespace com.magicsoftware.richclient
          bool orgStopExecution = EventsManager.GetStopExecutionFlag();
          EventsManager.EventsAllowedType savedAllowEvents = EventsManager.getAllowEvents();
          InitializeTasks(callByDestSubForm, moveToFirstControl, argList, returnValField, ref nonInteractiveTaskAlreadyExecuted);
-         initializationMonitor.Set();
+         //initializationMonitor.Set();
          //TODO: will we have enough time to register from second thread ?
 
          DoFirstRecordCycle();
@@ -1629,7 +1610,7 @@ namespace com.magicsoftware.richclient
             Instance.spawnHidden();
 #endif
          Logger.Instance.Flush();
-         Instance.InitializationMonitor.WaitOne();
+         //Instance.InitializationMonitor.WaitOne();
       }
 
       /// <summary>Start the execution - load execution properties, initialize the session, execute the requested program, ..</summary>

@@ -2659,7 +2659,7 @@ namespace com.magicsoftware.richclient.gui
 
       public void RefreshUI()
       {
-         if (!getTask().isMainProg() && InitializationFinished)
+         if (!getTask().isMainProg() /*&& InitializationFinished*/)
          {
             JSBridge.Instance.RefreshUI(getTask().getTaskTag(), SerializeControls());
 
@@ -2688,7 +2688,7 @@ namespace com.magicsoftware.richclient.gui
       {
          string result = "";
          TableUpdate tableUpdate = new TableUpdate();
-         if (HasTable() && InitializationFinished)
+         if (HasTable())// && InitializationFinished)
          {
             JavaScriptSerializer serializer = new JavaScriptSerializer();
            
