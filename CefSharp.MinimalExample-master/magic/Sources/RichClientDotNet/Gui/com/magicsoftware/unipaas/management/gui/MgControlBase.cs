@@ -3185,10 +3185,7 @@ namespace com.magicsoftware.unipaas.management.gui
                                                      checkProp(PropInterface.PROP_TYPE_VISIBLE, true), false);
 
                }
-               if (valueChanged)
-               {
-                  GetControlsData(line).ControlsValues[UniqueWebId] = Value;                
-               }
+              
             }
             
             catch (Exception)
@@ -3198,6 +3195,10 @@ namespace com.magicsoftware.unipaas.management.gui
          }
          finally
          {
+            if (valueChanged)
+            {
+               GetControlsData(line).ControlsValues[UniqueWebId] = Value;
+            }
          }
       }
 
