@@ -1040,7 +1040,7 @@ namespace com.magicsoftware.unipaas
       /// </summary>
       public static void addAsync(CommandType commandType)
       {
-         GuiCommandQueue.getInstance().add(commandType);
+         //GuiCommandQueue.getInstance().add(commandType);
       }
 
       /// <summary>
@@ -1051,7 +1051,7 @@ namespace com.magicsoftware.unipaas
       /// </summary>
       public static void addAsync(CommandType commandType, Object obj)
       {
-         GuiCommandQueue.getInstance().add(commandType, obj);
+         //GuiCommandQueue.getInstance().add(commandType, obj);
       }
 
       /// <summary>
@@ -1059,7 +1059,7 @@ namespace com.magicsoftware.unipaas
       /// </summary>
       public static void addAsync(CommandType commandType, Object obj, bool boolVal, String formName)
       {
-         GuiCommandQueue.getInstance().add(commandType, obj, boolVal, formName);
+         //GuiCommandQueue.getInstance().add(commandType, obj, boolVal, formName);
       }
 
       /// <summary>
@@ -1067,7 +1067,7 @@ namespace com.magicsoftware.unipaas
       /// </summary>
       public static void addAsync(CommandType commandType, Object obj, bool boolVal, bool isHelpWindow, String formName)
       {
-         GuiCommandQueue.getInstance().add(commandType, obj, boolVal, isHelpWindow, formName);
+         //GuiCommandQueue.getInstance().add(commandType, obj, boolVal, isHelpWindow, formName);
       }
 
       /// <summary>
@@ -1075,7 +1075,7 @@ namespace com.magicsoftware.unipaas
       /// </summary>
       public static void addAsync(CommandType commandType, Object obj, bool boolVal)
       {
-         GuiCommandQueue.getInstance().add(commandType, obj, boolVal);
+         //GuiCommandQueue.getInstance().add(commandType, obj, boolVal);
       }
 
       /// <summary>
@@ -1083,7 +1083,7 @@ namespace com.magicsoftware.unipaas
       /// </summary>
       public static void addAsync(CommandType commandType, Object obj, Object obj1)
       {
-         GuiCommandQueue.getInstance().add(commandType, obj, obj1);
+         //GuiCommandQueue.getInstance().add(commandType, obj, obj1);
       }
 
 
@@ -1096,7 +1096,7 @@ namespace com.magicsoftware.unipaas
       public static void addAsync(CommandType commandType, Object parentObject, Object obj, int layer, int line,
                                   int style)
       {
-         GuiCommandQueue.getInstance().add(commandType, parentObject, obj, layer, line, style);
+         //GuiCommandQueue.getInstance().add(commandType, parentObject, obj, layer, line, style);
       }
 
       /// <summary>
@@ -1104,7 +1104,7 @@ namespace com.magicsoftware.unipaas
       /// </summary>
       public static void addAsync(CommandType commandType, Object obj, int line, int num1, int num2, int num3)
       {
-         GuiCommandQueue.getInstance().add(commandType, obj, line, num1, num2, num3);
+         //GuiCommandQueue.getInstance().add(commandType, obj, line, num1, num2, num3);
       }
 
       /// <summary>
@@ -1119,7 +1119,7 @@ namespace com.magicsoftware.unipaas
       public static void addAsync(CommandType commandType, Object parentObject, Object obj, WindowType windowType,
                                   String formName, bool isHelpWindow, bool createInternalFormForMDI, bool shouldBlock)
       {
-         GuiCommandQueue.getInstance().add(commandType, parentObject, obj, windowType, formName, isHelpWindow, createInternalFormForMDI, shouldBlock);
+         //GuiCommandQueue.getInstance().add(commandType, parentObject, obj, windowType, formName, isHelpWindow, createInternalFormForMDI, shouldBlock);
       }
 
       /// <summary>
@@ -1137,9 +1137,9 @@ namespace com.magicsoftware.unipaas
                                   List<String> stringList, List<GuiMgControl> ctrlList, int columnCount, bool boolVal,
                                   bool boolVal1, int number1, Type type, int number2, Object obj1)
       {
-         GuiCommandQueue.getInstance().add(commandType, parentObject, obj, line, style, stringList, ctrlList,
-                                           columnCount,
-                                           boolVal, boolVal1, number1, type, number2, obj1);
+         //GuiCommandQueue.getInstance().add(commandType, parentObject, obj, line, style, stringList, ctrlList,
+         //                                  columnCount,
+         //                                  boolVal, boolVal1, number1, type, number2, obj1);
       }
 
       /// <summary>
@@ -1151,9 +1151,9 @@ namespace com.magicsoftware.unipaas
                                   int number1, Type type, int number2, Object obj1, bool isParentHelpWindow, DockingStyle dockingStyle)
       {
 
-         GuiCommandQueue.getInstance().add(commandType, parentObject, obj, line, style, stringList, ctrlList,
-                                           columnCount,
-                                           boolVal, boolVal1, number1, type, number2, obj1, isParentHelpWindow, dockingStyle);
+         //GuiCommandQueue.getInstance().add(commandType, parentObject, obj, line, style, stringList, ctrlList,
+         //                                  columnCount,
+         //                                  boolVal, boolVal1, number1, type, number2, obj1, isParentHelpWindow, dockingStyle);
       }
 
       /// <summary>
@@ -1175,7 +1175,7 @@ namespace com.magicsoftware.unipaas
       /// </param>
       public static void addAsync(CommandType commandType, Object obj, int number, bool boolVal)
       {
-         GuiCommandQueue.getInstance().add(commandType, obj, number, boolVal);
+         //GuiCommandQueue.getInstance().add(commandType, obj, number, boolVal);
       }
 
       /// <summary>
@@ -1184,7 +1184,7 @@ namespace com.magicsoftware.unipaas
       public static void addAsync(CommandType commandType, Object obj, int number, bool boolVal,
                                   bool executeParentLayout)
       {
-         GuiCommandQueue.getInstance().add(commandType, obj, number, boolVal, executeParentLayout);
+         //GuiCommandQueue.getInstance().add(commandType, obj, number, boolVal, executeParentLayout);
       }
 
       /// <summary>
@@ -1200,7 +1200,7 @@ namespace com.magicsoftware.unipaas
       public static void addAsync(CommandType commandType, Object obj, int line, int x, int y, int width, int height,
                                   bool boolVal, bool bool1, int? runtimeDesignerXDiff, int? runtimeDesignerYDiff)
       {
-         GuiCommandQueue.getInstance().add(commandType, obj, line, x, y, width, height, boolVal, bool1, runtimeDesignerXDiff, runtimeDesignerYDiff);
+         //GuiCommandQueue.getInstance().add(commandType, obj, line, x, y, width, height, boolVal, bool1, runtimeDesignerXDiff, runtimeDesignerYDiff);
       }
 
       /// <summary>
@@ -1216,7 +1216,7 @@ namespace com.magicsoftware.unipaas
       public static void addAsync(CommandType commandType, Object obj, int line, int x, int y, int width, int height,
                                   bool boolVal, bool bool1)
       {
-         GuiCommandQueue.getInstance().add(commandType, obj, line, x, y, width, height, boolVal, bool1, 0, 0);
+         //GuiCommandQueue.getInstance().add(commandType, obj, line, x, y, width, height, boolVal, bool1, 0, 0);
       }
 
       /// <summary>
@@ -1227,7 +1227,7 @@ namespace com.magicsoftware.unipaas
       /// <param name="eventName"></param>
       public static void addAsync(CommandType commandType, Object obj, string eventName)
       {
-         GuiCommandQueue.getInstance().add(commandType, obj, eventName);
+         //GuiCommandQueue.getInstance().add(commandType, obj, eventName);
       }
 
       /// <summary>
@@ -1240,7 +1240,7 @@ namespace com.magicsoftware.unipaas
       /// <param name="number"></param>
       public static void addAsync(CommandType commandType, Object obj, int line, int number)
       {
-         GuiCommandQueue.getInstance().add(commandType, obj, line, number);
+         //GuiCommandQueue.getInstance().add(commandType, obj, line, number);
       }
 
       /// <summary>
@@ -1255,7 +1255,7 @@ namespace com.magicsoftware.unipaas
       public static void addAsync(CommandType commandType, Object obj, int line, Object objectValue1,
                                   Object objectValue2, bool boolVal)
       {
-         GuiCommandQueue.getInstance().add(commandType, obj, line, objectValue1, objectValue2, boolVal);
+         //GuiCommandQueue.getInstance().add(commandType, obj, line, objectValue1, objectValue2, boolVal);
       }
 
       /// <summary>
@@ -1270,7 +1270,7 @@ namespace com.magicsoftware.unipaas
       public static void addAsync(CommandType commandType, Object obj, int line, Object objectValue1,
                                   Object objectValue2, int intVal)
       {
-         GuiCommandQueue.getInstance().add(commandType, obj, line, objectValue1, objectValue2, intVal);
+         //GuiCommandQueue.getInstance().add(commandType, obj, line, objectValue1, objectValue2, intVal);
       }
 
       /// <summary>
@@ -1284,7 +1284,7 @@ namespace com.magicsoftware.unipaas
       public static void addAsync(CommandType commandType, Object obj, int line, Object objectValue1,
                                   Object objectValue2)
       {
-         GuiCommandQueue.getInstance().add(commandType, obj, line, objectValue1, objectValue2);
+         //GuiCommandQueue.getInstance().add(commandType, obj, line, objectValue1, objectValue2);
       }
 
       /// <summary>
@@ -1296,7 +1296,7 @@ namespace com.magicsoftware.unipaas
       /// </param>
       public static void addAsync(CommandType commandType, Object obj, int line, Object objectValue)
       {
-         GuiCommandQueue.getInstance().add(commandType, obj, line, objectValue);
+         //GuiCommandQueue.getInstance().add(commandType, obj, line, objectValue);
       }
 
       /// <summary>
@@ -1306,7 +1306,7 @@ namespace com.magicsoftware.unipaas
       /// <param name = "line">TODO </param>
       public static void addAsync(CommandType commandType, Object obj, int line, String str, int style)
       {
-         GuiCommandQueue.getInstance().add(commandType, obj, line, str, style);
+         //GuiCommandQueue.getInstance().add(commandType, obj, line, str, style);
       }
 
       /// <summary>
@@ -1314,7 +1314,7 @@ namespace com.magicsoftware.unipaas
       /// </summary>
       public static void addAsync(CommandType commandType, Object obj, int line, String str, String userDropFormat, int style)
       {
-         GuiCommandQueue.getInstance().add(commandType, obj, line, str, userDropFormat, style);
+         //GuiCommandQueue.getInstance().add(commandType, obj, line, str, userDropFormat, style);
       }
 
       /// <summary>
@@ -1323,7 +1323,7 @@ namespace com.magicsoftware.unipaas
       /// <param name = "line">TODO </param>
       public static void addAsync(CommandType commandType, Object obj, int line, byte[] byteArray, int style)
       {
-         GuiCommandQueue.getInstance().add(commandType, obj, line, byteArray, style);
+         //GuiCommandQueue.getInstance().add(commandType, obj, line, byteArray, style);
       }
 
       /// <summary>
@@ -1332,7 +1332,7 @@ namespace com.magicsoftware.unipaas
       /// <param name = "line">TODO </param>
       public static void addAsync(CommandType commandType, Object obj, int line, String[] displayList, bool bool1)
       {
-         GuiCommandQueue.getInstance().add(commandType, obj, line, displayList, bool1);
+         //GuiCommandQueue.getInstance().add(commandType, obj, line, displayList, bool1);
       }
 
       /// <summary>
@@ -1341,7 +1341,7 @@ namespace com.magicsoftware.unipaas
       public static void addAsync(CommandType commandType, Object parentObj, GuiMgForm containerForm,
                                   MenuStyle menuStyle, GuiMgMenu guiMgMenu, bool parentTypeForm)
       {
-         GuiCommandQueue.getInstance().add(commandType, parentObj, containerForm, menuStyle, guiMgMenu, parentTypeForm);
+         //GuiCommandQueue.getInstance().add(commandType, parentObj, containerForm, menuStyle, guiMgMenu, parentTypeForm);
       }
 
       /// <summary>
@@ -1351,8 +1351,8 @@ namespace com.magicsoftware.unipaas
                                   MenuStyle menuStyle, GuiMgMenu guiMgMenu, bool parentTypeForm,
                                   bool shouldShowPulldownMenu)
       {
-         GuiCommandQueue.getInstance().add(commandType, parentObj, containerForm, menuStyle, guiMgMenu, parentTypeForm,
-                                           shouldShowPulldownMenu);
+         //GuiCommandQueue.getInstance().add(commandType, parentObj, containerForm, menuStyle, guiMgMenu, parentTypeForm,
+         //                                  shouldShowPulldownMenu);
       }
 
       /// <summary>
@@ -1367,7 +1367,7 @@ namespace com.magicsoftware.unipaas
       public static void addAsync(CommandType commandType, Object parentObj, MenuStyle menuStyle,
                                   GuiMenuEntry menuEntry, GuiMgForm guiMgForm, int index)
       {
-         GuiCommandQueue.getInstance().add(commandType, parentObj, menuStyle, menuEntry, guiMgForm, index);
+         //GuiCommandQueue.getInstance().add(commandType, parentObj, menuStyle, menuEntry, guiMgForm, index);
       }
 
       /// <summary>
@@ -1380,7 +1380,7 @@ namespace com.magicsoftware.unipaas
       /// <param name = "val"> </param>
       public static void addAsync(CommandType commandType, MenuReference mnuRef, GuiMenuEntry menuEntry, Object val)
       {
-         GuiCommandQueue.getInstance().add(commandType, mnuRef, menuEntry, val);
+         //GuiCommandQueue.getInstance().add(commandType, mnuRef, menuEntry, val);
       }
 
       /// <summary>
@@ -1393,7 +1393,7 @@ namespace com.magicsoftware.unipaas
       public static void addAsync(CommandType commandType, Object parentObj, MenuStyle menuStyle,
                                   GuiMenuEntry menuEntry)
       {
-         GuiCommandQueue.getInstance().add(commandType, parentObj, menuStyle, menuEntry);
+         //GuiCommandQueue.getInstance().add(commandType, parentObj, menuStyle, menuEntry);
       }
 
       /// <summary>
@@ -1404,7 +1404,7 @@ namespace com.magicsoftware.unipaas
       /// <param name = "newToolbar"> </param>
       public static void addAsync(CommandType commandType, GuiMgForm form, Object newToolbar)
       {
-         GuiCommandQueue.getInstance().add(commandType, form, newToolbar);
+         //GuiCommandQueue.getInstance().add(commandType, form, newToolbar);
       }
 
       /// <summary>
@@ -1417,7 +1417,7 @@ namespace com.magicsoftware.unipaas
       public static void addAsync(CommandType commandType, Object toolbar, GuiMgForm form, GuiMenuEntry menuEntry,
                                   int index)
       {
-         GuiCommandQueue.getInstance().add(commandType, toolbar, form, menuEntry, index);
+         //GuiCommandQueue.getInstance().add(commandType, toolbar, form, menuEntry, index);
       }
 
       /// <summary>
