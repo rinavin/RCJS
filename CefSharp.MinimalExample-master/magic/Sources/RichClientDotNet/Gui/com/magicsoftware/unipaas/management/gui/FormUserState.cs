@@ -502,7 +502,7 @@ namespace com.magicsoftware.unipaas.management.gui
                Commands.addAsync(splitterstyle == MgSplitContainer.SPLITTER_STYLE_HORIZONTAL
                                     ? CommandType.SET_FRAMES_WIDTH
                                     : CommandType.SET_FRAMES_HEIGHT, framesetCtrls[index], 0, arrayList);
-               Commands.addAsync(CommandType.EXECUTE_LAYOUT, framesetCtrls[index], true);
+               GuiCommandQueue.getInstance().add(CommandType.EXECUTE_LAYOUT, framesetCtrls[index], true);
             }
          }
       }
