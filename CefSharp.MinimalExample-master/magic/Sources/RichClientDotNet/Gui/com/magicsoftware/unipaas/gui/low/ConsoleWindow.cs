@@ -355,8 +355,7 @@ namespace com.magicsoftware.unipaas.gui.low
             // Don't update form if window is hidden
             if (Visible && !Disposing)
             {
-               GuiCommandQueue cmdQueue = GuiCommandQueue.getInstance();
-               cmdQueue.add(CommandType.PROP_SET_TEXT, this, 0, s, 0);
+               Commands.addAsync(CommandType.PROP_SET_TEXT, this, 0, s, 0);
             }
          }
 
@@ -370,13 +369,12 @@ namespace com.magicsoftware.unipaas.gui.low
             // Don't update form if window is hidden
             if (Visible && !Disposing)
             {
-               GuiCommandQueue cmdQueue = GuiCommandQueue.getInstance();
                // Add the 'red' tag before the text, and the 'unred' tag at the end of it. 
                StringBuilder sb = new StringBuilder(RTF_RED);
                sb.Append(s);
                sb.Append(RTF_BLACK);
 
-               cmdQueue.add(CommandType.PROP_SET_TEXT, this, 0, sb.ToString(), 0);
+               Commands.addAsync(CommandType.PROP_SET_TEXT, this, 0, sb.ToString(), 0);
             }
          }
       }
