@@ -3126,7 +3126,7 @@ namespace com.magicsoftware.unipaas.management.gui
                            }
                         }
 
-                        GuiCommandQueue.getInstance().add(CommandType.PROP_SET_SELECTION, this, line, Value,
+                        Commands.addAsync(CommandType.PROP_SET_SELECTION, this, line, Value,
                                                           prevDisplayValue, InSetToDefaultValue);
                      }
                      break;
