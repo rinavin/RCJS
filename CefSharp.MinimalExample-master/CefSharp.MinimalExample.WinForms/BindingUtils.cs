@@ -69,6 +69,13 @@ namespace CefSharp.MinimalExample.WinForms
          get { return openSubformCallback; }
          set { openSubformCallback = value; }
       }
+
+      IJavascriptCallback setFocusCallback;
+      internal IJavascriptCallback SetFocusCallback
+      {
+         get { return setFocusCallback; }
+         set { setFocusCallback = value; }
+      }
    }
 
    /// <summary>
@@ -98,6 +105,7 @@ namespace CefSharp.MinimalExample.WinForms
          JSBridge.Instance.refreshTableUIDelegate = RefreshTableDisplay;
          JSBridge.Instance.openFormDelegate = OpenForm;
          JSBridge.Instance.openSubformDelegate = OpenSubform;
+         JSBridge.Instance.setFocusDelegate = SetFocus;
       }
 
       /// <summary>
@@ -160,6 +168,11 @@ namespace CefSharp.MinimalExample.WinForms
       public void registerRefreshTableUI(string taskId, IJavascriptCallback javascriptCallback)
       {
          getTaskCallbacks(taskId).RefreshTableDataCallback = javascriptCallback;
+      }
+
+      public void registerSetFocusCallback(string taskId, IJavascriptCallback javascriptCallback)
+      {
+         getTaskCallbacks(taskId).SetFocusCallback = javascriptCallback;
       }
 
       public String GetValue(string taskId, string controlName)
@@ -236,6 +249,13 @@ namespace CefSharp.MinimalExample.WinForms
          TaskCallbacks callbacks = getTaskCallbacks(parenttaskId);
          if (callbacks != null && callbacks.OpenSubformCallback != null)
             syncExecutor.ExecuteSync(ControlToInvoke, callbacks.OpenSubformCallback, subformName, formName, taskId, taskDescription);
+      }
+
+      private void SetFocus(string taskId, string controlId)
+      {
+         TaskCallbacks callbacks = getTaskCallbacks(taskId);
+         if (callbacks != null && callbacks.SetFocusCallback != null)
+            callbacks.SetFocusCallback.ExecuteAsync(controlId);
       }
    }
    public class BoundObject1

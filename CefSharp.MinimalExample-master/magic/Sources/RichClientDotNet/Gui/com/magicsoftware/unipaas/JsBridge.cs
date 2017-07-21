@@ -21,6 +21,7 @@ namespace com.magicsoftware.unipaas
         public delegate void ShowMessageBoxDelegate(string taskId, string msg);
         public delegate void OpenFormDelegate(string formName);
         public delegate void OpenSubformDelegate(string subformName, string parenttaskId, string formName, string taskId, string taskDesciption);
+        public delegate void SetFocusDelegate(string taskId, string controlId);
 
 
         public RefreshUIDelegate refreshUIDelegate;
@@ -29,6 +30,7 @@ namespace com.magicsoftware.unipaas
         public ShowMessageBoxDelegate showMessageBoxDelegate;
         public OpenFormDelegate openFormDelegate;
         public OpenSubformDelegate openSubformDelegate;
+        public SetFocusDelegate setFocusDelegate;
 
         public void RefreshUI(string taskId, string UIDesctiption)
         {
@@ -65,6 +67,12 @@ namespace com.magicsoftware.unipaas
       {
          if (openSubformDelegate != null)
             openSubformDelegate(subformName, parenttaskId, formName, taskId, taskDesciption);
+      }
+
+      public void SetFocus(string taskId, string controlId)
+      {
+         if (setFocusDelegate != null)
+            setFocusDelegate(taskId, controlId);
       }
 
         private static JSBridge instance;

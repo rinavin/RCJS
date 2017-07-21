@@ -677,6 +677,7 @@ namespace com.magicsoftware.unipaas
             Commands.addAsync(CommandType.SET_FOCUS, ctrl, (line >= 0
                                                                ? line
                                                                : ctrl.getDisplayLine(false)), activateForm);
+            JSBridge.Instance.SetFocus(task.getTaskTag(), ctrl.UniqueWebId);
          }
          else
          {
