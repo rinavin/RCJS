@@ -68,12 +68,15 @@ namespace com.magicsoftware.richclient
 {
    public static class ClientManagerProxy
    {
-      static public void Start()
-      {
-         ClientManager.Main(new string[] { });
-      }
+        static public void Start(string[] args)
+        {
 
-      static public string GetTaskId(string parentId, string subformName)
+            //string path = @"C:\Program Files (x86)\MSE\Magic xpa 3.3\projects\POS_RIA\execution.properties";
+            //ClientManager.Main(new string[] { "/ini=" + path });
+            ClientManager.Main(args);
+        }
+
+        static public string GetTaskId(string parentId, string subformName)
       {
          return ClientManager.Instance.getTaskId(parentId, subformName);
       }

@@ -186,7 +186,11 @@ namespace CefSharp.MinimalExample.WinForms
 
       public void Start()
       {
-         ClientManagerProxy.Start();
+         string[] args = Environment.GetCommandLineArgs();
+       //  if (args != null && args.Length > 1)
+       //     args = new string[] { args[1]};
+
+         ClientManagerProxy.Start(args);
       }
 
       public string getTaskId(string parentId, string subformName)
