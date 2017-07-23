@@ -133,7 +133,7 @@ namespace com.magicsoftware.richclient
       public class TaskDescription
       {
          public string TaskId { get; set; }
-         public List<string> Names { get; set; }
+         public Dictionary<string, string> Names { get; set; }
       }
 
       public string getTaskId(string parentId, string subformName)
