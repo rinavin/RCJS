@@ -188,8 +188,10 @@ namespace CefSharp.MinimalExample.WinForms
       public void Start()
       {
          string[] args = Environment.GetCommandLineArgs();
-       //  if (args != null && args.Length > 1)
-       //     args = new string[] { args[1]};
+         if (args.Length == 1)
+            args = new string[] { };
+         // if (args != null && args.Length > 1)
+         //     args = new string[] { args[1]};
 
          ClientManagerProxy.Start(args);
       }
