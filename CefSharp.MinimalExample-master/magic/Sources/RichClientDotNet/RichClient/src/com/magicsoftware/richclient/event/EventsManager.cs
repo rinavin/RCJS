@@ -491,7 +491,8 @@ namespace com.magicsoftware.richclient.events
                task.setDirection(oldDirection);
             }
          }
-
+         ((MgForm)task.getForm()).RefreshUI();
+         ((MgForm)task.getForm()).RefreshTableUI();
          // update the display
          GUIManager.Instance.execGuiCommandQueue();
       }

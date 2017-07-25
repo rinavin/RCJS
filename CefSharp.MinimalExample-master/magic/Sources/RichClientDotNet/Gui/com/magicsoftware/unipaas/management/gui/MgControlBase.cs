@@ -3195,13 +3195,13 @@ namespace com.magicsoftware.unipaas.management.gui
          }
          finally
          {
-            if (valueChanged)
+            if (valueChanged && !String.IsNullOrEmpty(Name)) //perfromace improvement
             {
                if (Type == MgControlType.CTRL_TYPE_IMAGE) //TODO: general handling of logical names
 
                   GetControlsData(line).ControlsValues[UniqueWebId] = Events.TranslateLogicalName(Value); 
                else
-               GetControlsData(line).ControlsValues[UniqueWebId] = Value;
+                 GetControlsData(line).ControlsValues[UniqueWebId] = Value;
             }
          }
       }
