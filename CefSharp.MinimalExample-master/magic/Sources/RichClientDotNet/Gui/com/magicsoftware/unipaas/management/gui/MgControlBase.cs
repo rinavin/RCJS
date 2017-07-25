@@ -3197,6 +3197,10 @@ namespace com.magicsoftware.unipaas.management.gui
          {
             if (valueChanged)
             {
+               if (Type == MgControlType.CTRL_TYPE_IMAGE) //TODO: general handling of logical names
+
+                  GetControlsData(line).ControlsValues[UniqueWebId] = Events.TranslateLogicalName(Value); 
+               else
                GetControlsData(line).ControlsValues[UniqueWebId] = Value;
             }
          }
