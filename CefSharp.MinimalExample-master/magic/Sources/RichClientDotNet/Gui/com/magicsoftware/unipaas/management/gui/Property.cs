@@ -1649,6 +1649,7 @@ namespace com.magicsoftware.unipaas.management.gui
                   case PropInterface.PROP_TYPE_TEXT:
                   case PropInterface.PROP_TYPE_VISIBLE:
                   case PropInterface.PROP_TYPE_ENABLED:
+                  case PropInterface.PROP_TYPE_FORMAT:
                      ctrl = _parentObj as MgControlBase;
                      ControlsData controlsData = ctrl.GetControlsData(line);
 
