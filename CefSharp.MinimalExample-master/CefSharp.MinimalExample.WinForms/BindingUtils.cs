@@ -49,12 +49,7 @@ namespace CefSharp.MinimalExample.WinForms
          get { return getValueCallback; }
          set { getValueCallback = value; }
       }
-      IJavascriptCallback showMessageBoxCallback;
-      internal IJavascriptCallback ShowMessageBoxCallback
-      {
-         get { return showMessageBoxCallback; }
-         set { showMessageBoxCallback = value; }
-      }
+     
 
       IJavascriptCallback refreshTableDataCallback;
       internal IJavascriptCallback RefreshTableDataCallback
@@ -90,6 +85,12 @@ namespace CefSharp.MinimalExample.WinForms
       //IJavascriptCallback getValueCallback;
       //IJavascriptCallback showMessageBoxCallback;
       IJavascriptCallback openFormCallback;
+      IJavascriptCallback showMessageBoxCallback;
+      internal IJavascriptCallback ShowMessageBoxCallback
+      {
+         get { return showMessageBoxCallback; }
+         set { showMessageBoxCallback = value; }
+      }
 
       private Control controlToInvoke;
       public Control ControlToInvoke
@@ -142,10 +143,10 @@ namespace CefSharp.MinimalExample.WinForms
       /// register callback for showing message box
       /// </summary>
       /// <param name="javascriptsCallback"></param>
-      public void registerShowMessageBox(string taskId, IJavascriptCallback javascriptsCallback)
+      public void registerShowMessageBox(IJavascriptCallback javascriptsCallback)
       {
 
-         getTaskCallbacks(taskId).ShowMessageBoxCallback = javascriptsCallback;
+         ShowMessageBoxCallback = javascriptsCallback;
       }
 
       /// <summary>
@@ -189,17 +190,23 @@ namespace CefSharp.MinimalExample.WinForms
       /// Execute Show MessageBox
       /// </summary>
       /// <param name="msg"></param>
-      private void ShowMessageBox(string taskId, string msg)
+      private void ShowMessageBox( string msg)
       {
          SyncExecutor syncExecutor = new SyncExecutor();
-         TaskCallbacks callbacks = getTaskCallbacks(taskId);
-         if (callbacks != null && callbacks.ShowMessageBoxCallback != null)
-            syncExecutor.ExecuteSync(ControlToInvoke, callbacks.ShowMessageBoxCallback, msg);
+        
+         if (ShowMessageBoxCallback != null)
+            syncExecutor.ExecuteSync(ControlToInvoke, ShowMessageBoxCallback, msg);
       }
 
       public void Start()
       {
-         ClientManagerProxy.Start();
+         string[] args = Environment.GetCommandLineArgs();
+         if (args.Length == 1)
+            args = new string[] { };
+         // if (args != null && args.Length > 1)
+         //     args = new string[] { args[1]};
+
+         ClientManagerProxy.Start(args);
       }
 
       public string getTaskId(string parentId, string subformName)

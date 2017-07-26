@@ -36,7 +36,7 @@ namespace com.magicsoftware.unipaas
       /// <returns></returns>
       public static int messageBox(GuiMgForm topMostForm, String title, String msg, int style)
       {
-         JSBridge.Instance.ShowMessageBox(((MgFormBase)topMostForm).getTask().getTaskTag(), msg);
+         JSBridge.Instance.ShowMessageBox( msg);
          return 1;
       }
 
