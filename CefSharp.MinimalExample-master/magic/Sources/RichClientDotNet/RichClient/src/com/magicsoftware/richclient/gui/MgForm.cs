@@ -2661,7 +2661,8 @@ namespace com.magicsoftware.richclient.gui
       {
          if (!getTask().isMainProg() /*&& InitializationFinished*/)
          {
-            JSBridge.Instance.RefreshUI(getTask().getTaskTag(), SerializeControls());
+            if (!ScreenControlsData.IsEmpty())
+               JSBridge.Instance.RefreshUI(getTask().getTaskTag(), SerializeControls());
 
 
          }

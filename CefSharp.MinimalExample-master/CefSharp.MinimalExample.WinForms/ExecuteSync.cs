@@ -39,5 +39,18 @@ namespace CefSharp.MinimalExample.WinForms
 
 			return result;
 		}
+
+      public void ExecuteInUI(Control controlToInvoke, IJavascriptCallback callback, params object[] param)
+      {
+         //AutoResetEvent JSSyncAutoResetEvent = new AutoResetEvent(false);
+         controlToInvoke.InvokeOnUiThreadIfRequired(() =>
+         {
+            var task = callback.ExecuteAsync(param);
+           
+         });
+         
+
+        
+      }
    }
 }

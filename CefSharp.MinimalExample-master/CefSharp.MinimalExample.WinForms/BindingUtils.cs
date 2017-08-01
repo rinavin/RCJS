@@ -243,7 +243,7 @@ namespace CefSharp.MinimalExample.WinForms
       {
          SyncExecutor syncExecutor = new SyncExecutor();
          if (openFormCallback != null)
-            syncExecutor.ExecuteSync(ControlToInvoke, openFormCallback, formName);
+            syncExecutor.ExecuteInUI(ControlToInvoke, openFormCallback, formName);
          //openFormCallback.ExecuteAsync(formName);
       }
 
@@ -255,7 +255,7 @@ namespace CefSharp.MinimalExample.WinForms
          SyncExecutor syncExecutor = new SyncExecutor();
          TaskCallbacks callbacks = getTaskCallbacks(parenttaskId);
          if (callbacks != null && callbacks.OpenSubformCallback != null)
-            syncExecutor.ExecuteSync(ControlToInvoke, callbacks.OpenSubformCallback, subformName, formName, taskId, taskDescription);
+            syncExecutor.ExecuteInUI(ControlToInvoke, callbacks.OpenSubformCallback, subformName, formName, taskId, taskDescription);
       }
 
       private void SetFocus(string taskId, string controlId)

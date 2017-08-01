@@ -1643,22 +1643,25 @@ namespace com.magicsoftware.unipaas.management.gui
                if (IsGeneric && _dataType == StorageAttribute.DOTNET)
                   _prevDotNetValue = newDotNetObj;
                //if (_expId != 0) //properties without expression should be generated in the studio and not updated
-
-               switch (_id)
+               if (valChanged && ! String.IsNullOrEmpty(ctrl.Name)) // if no name - no need to update
                {
-                  case PropInterface.PROP_TYPE_TEXT:
-                  case PropInterface.PROP_TYPE_VISIBLE:
-                  case PropInterface.PROP_TYPE_ENABLED:
-                     ctrl = _parentObj as MgControlBase;
-                     ControlsData controlsData = ctrl.GetControlsData(line);
+                  switch (_id)
+                  {
+                     case PropInterface.PROP_TYPE_TEXT:
+                     case PropInterface.PROP_TYPE_VISIBLE:
+                     case PropInterface.PROP_TYPE_ENABLED:
+                     case PropInterface.PROP_TYPE_FORMAT:
+                        ctrl = _parentObj as MgControlBase;
+                        ControlsData controlsData = ctrl.GetControlsData(line);
 
-                     if (!controlsData.ControlsMetaData.ContainsKey(ctrl.UniqueWebId))
-                        controlsData.ControlsMetaData[ctrl.UniqueWebId] = new ControlMetaData();
-                     controlsData.ControlsMetaData[ctrl.UniqueWebId].Properties[_id.ToString()] = _val;
-                     //TODO : move to builder
-                     controlsData.ControlsMetaData[ctrl.UniqueWebId].Type = ((char)ctrl.Type).ToString();
-                     break;
+                        if (!controlsData.ControlsMetaData.ContainsKey(ctrl.UniqueWebId))
+                           controlsData.ControlsMetaData[ctrl.UniqueWebId] = new ControlMetaData();
+                        controlsData.ControlsMetaData[ctrl.UniqueWebId].Properties[_id.ToString()] = _val;
+                        //TODO : move to builder
+                        //controlsData.ControlsMetaData[ctrl.UniqueWebId].Type = ((char)ctrl.Type).ToString();
+                        break;
 
+                  }
                }
               
 

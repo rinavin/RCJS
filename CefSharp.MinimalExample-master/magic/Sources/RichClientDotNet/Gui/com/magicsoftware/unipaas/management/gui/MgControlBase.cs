@@ -3127,7 +3127,7 @@ namespace com.magicsoftware.unipaas.management.gui
                         }
 
                         Commands.addAsync(CommandType.PROP_SET_SELECTION, this, line, Value,
-                                          prevDisplayValue, InSetToDefaultValue);
+                                                          prevDisplayValue, InSetToDefaultValue);
                      }
                      break;
 
@@ -3195,8 +3195,12 @@ namespace com.magicsoftware.unipaas.management.gui
          }
          finally
          {
-            if (valueChanged)
+            if (valueChanged && !String.IsNullOrEmpty(Name)) //perfromace improvement
             {
+               if (Type == MgControlType.CTRL_TYPE_IMAGE) //TODO: general handling of logical names
+
+                  GetControlsData(line).ControlsValues[UniqueWebId] = Events.TranslateLogicalName(Value); 
+               else
                GetControlsData(line).ControlsValues[UniqueWebId] = Value;
             }
          }
