@@ -463,6 +463,7 @@ namespace com.magicsoftware.unipaas
                   MenuManager.WindowList.Remove(form);
             }
 #endif
+            JSBridge.Instance.CloseForm(form.getTask().getTaskTag());
             Commands.addAsync(CommandType.CLOSE_FORM, form);
 
             // QCR# 307199/302197: When a task closes, its form is closed, where it activates topmost form of

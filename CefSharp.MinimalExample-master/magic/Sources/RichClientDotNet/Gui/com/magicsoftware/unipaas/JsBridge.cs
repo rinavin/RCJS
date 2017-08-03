@@ -19,7 +19,8 @@ namespace com.magicsoftware.unipaas
         public delegate void RefreshUIDelegate(string taskId, string UIDesctiption);
         public delegate string GetControlValueDelegate(string taskId, string controlName);
         public delegate void ShowMessageBoxDelegate(string msg);
-        public delegate void OpenFormDelegate(string formName);
+        public delegate void OpenFormDelegate(string formName, string taskId, string taskDesciption, bool isModal);
+        public delegate void CloseFormDelegate(string taskId);
         public delegate void OpenSubformDelegate(string subformName, string parenttaskId, string formName, string taskId, string taskDesciption);
         public delegate void SetFocusDelegate(string taskId, string controlId);
 
@@ -29,6 +30,7 @@ namespace com.magicsoftware.unipaas
         public GetControlValueDelegate getControlValueDelegate;
         public ShowMessageBoxDelegate showMessageBoxDelegate;
         public OpenFormDelegate openFormDelegate;
+        public CloseFormDelegate closeFormDelegate;
         public OpenSubformDelegate openSubformDelegate;
         public SetFocusDelegate setFocusDelegate;
 
@@ -57,10 +59,16 @@ namespace com.magicsoftware.unipaas
             showMessageBoxDelegate(msg);
       }
 
-      public void OpenForm(string name)
+      public void OpenForm(string name, string taskId, string taskDesciption, bool isModal)
       {
          if (openFormDelegate != null)
-            openFormDelegate(name); //"Demo2"
+            openFormDelegate(name, taskId, taskDesciption, isModal); //"Demo2"
+      }
+
+      public void CloseForm(string taskId)
+      {
+         if (closeFormDelegate != null)
+            closeFormDelegate(taskId);
       }
 
       public void OpenSubForm(string subformName, string parenttaskId, string formName, string taskId, string taskDesciption)

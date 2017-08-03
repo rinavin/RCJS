@@ -434,7 +434,7 @@ namespace com.magicsoftware.unipaas
       /// <param name="form"></param>
       /// <returns>true if event is CLR handled(closing of the form will be the responsibility of the CLR and no commands will be put 
       /// in to close the form) else false.</returns>
-      internal static bool OnFormClose(GuiMgForm form)
+      public static bool OnFormClose(GuiMgForm form)
       {
          Debug.Assert(Misc.IsGuiThread());
          Debug.Assert(CloseFormEvent != null);

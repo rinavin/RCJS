@@ -127,6 +127,9 @@ namespace com.magicsoftware.richclient
                case "focus":
                   Events.OnFocus(control, lineIdx, true, false);
                   break;
+               case "close":
+                  Events.OnFormClose(task.getForm());
+                  break;
             }
          }
       }

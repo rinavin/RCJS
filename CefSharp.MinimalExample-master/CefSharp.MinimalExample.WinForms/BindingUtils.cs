@@ -65,6 +65,13 @@ namespace CefSharp.MinimalExample.WinForms
          set { openSubformCallback = value; }
       }
 
+      IJavascriptCallback closeFormCallback;
+      internal IJavascriptCallback CloseFormCallback
+      {
+         get { return closeFormCallback; }
+         set { closeFormCallback = value; }
+      }
+
       IJavascriptCallback setFocusCallback;
       internal IJavascriptCallback SetFocusCallback
       {
@@ -105,6 +112,7 @@ namespace CefSharp.MinimalExample.WinForms
          JSBridge.Instance.showMessageBoxDelegate = ShowMessageBox;
          JSBridge.Instance.refreshTableUIDelegate = RefreshTableDisplay;
          JSBridge.Instance.openFormDelegate = OpenForm;
+         JSBridge.Instance.closeFormDelegate = CloseForm;
          JSBridge.Instance.openSubformDelegate = OpenSubform;
          JSBridge.Instance.setFocusDelegate = SetFocus;
       }
@@ -157,6 +165,16 @@ namespace CefSharp.MinimalExample.WinForms
       {
 
          getTaskCallbacks(taskId).OpenSubformCallback = javascriptsCallback;
+      }
+
+      /// <summary>
+      /// register callback for close form
+      /// </summary>
+      /// <param name="javascriptsCallback"></param>
+      public void registerCloseFormCallback(string taskId, IJavascriptCallback javascriptsCallback)
+      {
+
+         getTaskCallbacks(taskId).CloseFormCallback = javascriptsCallback;
       }
 
       TaskCallbacks getTaskCallbacks(string taskId)
@@ -239,12 +257,20 @@ namespace CefSharp.MinimalExample.WinForms
       /// Execute open Form
       /// </summary>
       /// <param name="msg"></param>
-      private void OpenForm(string formName)
+      private void OpenForm(string formName, string taskId, string taskDesciption, bool isModal)
       {
          SyncExecutor syncExecutor = new SyncExecutor();
          if (openFormCallback != null)
-            syncExecutor.ExecuteInUI(ControlToInvoke, openFormCallback, formName);
+            syncExecutor.ExecuteSync(ControlToInvoke, openFormCallback, formName, taskId, taskDesciption, isModal);
          //openFormCallback.ExecuteAsync(formName);
+      }
+
+      private void CloseForm(string taskId)
+      {
+         SyncExecutor syncExecutor = new SyncExecutor();
+         TaskCallbacks callbacks = getTaskCallbacks(taskId);
+         if (callbacks != null && callbacks.CloseFormCallback != null)
+            syncExecutor.ExecuteInUI(ControlToInvoke, callbacks.CloseFormCallback);
       }
 
       /// <summary>
