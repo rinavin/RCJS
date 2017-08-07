@@ -860,6 +860,7 @@ namespace com.magicsoftware.richclient
 
                // set the "end of work" flag only for the main window
                EventsManager.setEndOfWork(true);
+               Application.Exit();
             }
          }
          catch (ApplicationException e)
