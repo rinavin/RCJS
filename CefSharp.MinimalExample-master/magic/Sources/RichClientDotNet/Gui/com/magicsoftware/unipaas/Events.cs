@@ -436,7 +436,7 @@ namespace com.magicsoftware.unipaas
       /// in to close the form) else false.</returns>
       public static bool OnFormClose(GuiMgForm form)
       {
-         Debug.Assert(Misc.IsGuiThread());
+        // Debug.Assert(Misc.IsGuiThread());
          Debug.Assert(CloseFormEvent != null);
          return CloseFormEvent(form);
       }
