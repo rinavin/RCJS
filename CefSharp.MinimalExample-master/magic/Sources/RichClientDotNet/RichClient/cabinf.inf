@@ -1,0 +1,81 @@
+;leave Unchanged
+[version]
+signature="$CHICAGO$"
+AdvancedINF=2.0
+
+;leave Unchanged
+[Setup Hooks]
+install=install
+RegisterClient=RegisterClient
+
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+;leave Unchanged
+[install]
+InfSection=installDLL
+
+[installDLL]
+CopyFiles=MgRegAsmEXE, ClientDLL
+
+;Specify destination dirs for the files to be copied
+;1) MgRegAsm2.exe will be extracted to the %WINDOWS%\MgxpaBCAssemblies directory
+;2) The ClientDll will be copied to the proper subdirectory in the %WINDOWS% directory
+[DestinationDirs]
+MgRegAsmEXE = 10,MgxpaRIAAssemblies
+ClientDLL = 10,MgxpaRIAAssemblies\033\00\000
+
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+;Details of the files to install... 
+; 1)MgRegAsm2.exe
+; 2)MgRegAsm2.exe.config
+; 3)MgxpaBC.dll
+; Additionally each [filename.ext] should have a separate section of its own
+
+[MgRegAsmEXE]
+MgRegAsm2.exe=MgRegAsm2.exe
+MgRegAsm2.exe.config=MgRegAsm2.exe.config
+
+[ClientDLL]
+MgxpaRIA.dll=MgxpaRIA.dll
+MgHttpClient.dll=MgHttpClient.dll
+MgGui.dll=MgGui.dll
+MgRuntimeDesigner.dll=MgRuntimeDesigner.dll
+MgRIAGatewayTypes.dll=MgRIAGatewayTypes.dll
+MgControls.dll=MgControls.dll
+MgUtils.dll=MgUtils.dll
+MgNative.dll=MgNative.dll
+
+
+[MgxpaRIA.dll]
+file=thiscab
+;replace clsid to be the clsid of the new dll
+clsid={AD191333-0033-0000-0000-F5962F9A5893}
+FileVersion = 1,0,0,0
+
+[MgHttpClient.dll]
+file=thiscab
+[MgGui.dll]
+file=thiscab
+[MgRuntimeDesigner.dll]
+file=thiscab
+[MgRIAGatewayTypes.dll]
+file=thiscab
+[MgControls.dll]
+file=thiscab
+[MgUtils.dll]
+file=thiscab
+[MgNative.dll]
+file=thiscab
+
+[MgRegAsm2.exe]
+file=thiscab
+
+[MgRegAsm2.exe.config]
+file=thiscab
+
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+; Register the dll.
+[RegisterClient]
+run=%10%\MgxpaRIAAssemblies\MgRegAsm2.exe %10%\MgxpaRIAAssemblies\033\00\000\MgxpaRIA.dll /codebase /tlb /silent
