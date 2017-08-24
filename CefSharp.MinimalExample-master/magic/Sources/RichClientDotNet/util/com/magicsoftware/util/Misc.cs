@@ -336,7 +336,7 @@ namespace com.magicsoftware.util
 
       public static bool IsWorkThread()
       {
-         return (Thread.CurrentThread.Name != null && Thread.CurrentThread.Name == Constants.MG_WORK_THREAD);
+         return true;  //(Thread.CurrentThread.Name != null && Thread.CurrentThread.Name == Constants.MG_WORK_THREAD);
       }
 
       /// <returns>true if the calling thread is activated by a timer</returns>

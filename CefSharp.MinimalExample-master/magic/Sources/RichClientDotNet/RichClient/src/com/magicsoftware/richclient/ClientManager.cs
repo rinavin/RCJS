@@ -131,6 +131,8 @@ namespace com.magicsoftware.richclient
                   Events.OnFormClose(task.getForm());
                   break;
             }
+
+            EventsManager.handleEvents(task.getMGData(), 0);
          }
       }
       public class TaskDescription
@@ -791,7 +793,7 @@ namespace com.magicsoftware.richclient
       /// </summary>
       internal void WorkThreadExecution()
       {
-         Misc.MarkWorkThread();
+         //Misc.MarkWorkThread();
 
          Debug.Assert(_executionProps.Count > 0);
 
@@ -837,29 +839,29 @@ namespace com.magicsoftware.richclient
 
                ApplicationExecutionStage = ApplicationExecutionStage.Executing;
 
-               do
-               {
+               //do
+               //{
                   Task nonInteractiveTask = null;
                   if (!startupMgData.IsAborting)
                      nonInteractiveTask = StartProgram(false, false, server.BuildArgList(), null , InitializationMonitor);
 
-                  if (nonInteractiveTask == null)
-                  {
-                     // the recent network statistics are displayed in the status bar of the topmost form.
-                     // the method 'UpdateRecentNetworkActivitiesTooltip' depends on the topmost form being already opened and focused.
-                     // therefore, it's called initially here (as well as later after each subsequent request).
-                     if (server is RemoteCommandsProcessor)
-                        ((RemoteCommandsProcessor)server).UpdateRecentNetworkActivitiesTooltip();
+               //if (nonInteractiveTask == null)
+               //{
+               //   // the recent network statistics are displayed in the status bar of the topmost form.
+               //   // the method 'UpdateRecentNetworkActivitiesTooltip' depends on the topmost form being already opened and focused.
+               //   // therefore, it's called initially here (as well as later after each subsequent request).
+               //   if (server is RemoteCommandsProcessor)
+               //      ((RemoteCommandsProcessor)server).UpdateRecentNetworkActivitiesTooltip();
 
-                     
 
-                     EventsManager.EventsLoop(startupMgData);
-                  }
-                  else
-                     EventsManager.NonInteractiveEventsLoop(startupMgData, nonInteractiveTask);
-               }
-               // in 'regular' exit, not from menu, the startup will be aborting.
-               while (!startupMgData.IsAborting);
+               EventsManager.handleEvents(startupMgData, 0);
+                  //   EventsManager.EventsLoop(startupMgData);
+                  //}
+                  //else
+                  //   EventsManager.NonInteractiveEventsLoop(startupMgData, nonInteractiveTask);
+                  //}
+                  //// in 'regular' exit, not from menu, the startup will be aborting.
+                  //while (!startupMgData.IsAborting);
 
                // set the "end of work" flag only for the main window
                EventsManager.setEndOfWork(true);
@@ -883,6 +885,10 @@ namespace com.magicsoftware.richclient
             if (!(e.InnerException is HttpClient.CancelledAuthenticationException || isNoResultError))
                ProcessAbortingError(e);
             EventsManager.setEndOfWork(true);
+         }
+         catch (Exception ex)
+         {
+            Logger.Instance.WriteWarningToLog(ex);
          }
          finally
          {
@@ -1717,7 +1723,8 @@ namespace com.magicsoftware.richclient
             MGData mgd = new MGData(0, null, false);
             MGDataCollection.Instance.addMGData(mgd, 0, true);
 
-            ClientManager.Instance.StartWorkThread();
+            //ClientManager.Instance.StartWorkThread();
+            ClientManager.Instance.WorkThreadExecution();
 
             GUIManager.Instance.messageLoop();
                   

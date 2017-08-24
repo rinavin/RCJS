@@ -1889,7 +1889,7 @@ namespace com.magicsoftware.richclient.gui
       /// </summary>
       internal void transferDataToGui()
       {
-         Debug.Assert(!Misc.IsGuiThread());
+         //Debug.Assert(!Misc.IsGuiThread());
 
          int saveRowIdx = GetDataview().getCurrRecIdx();
          long maxTime = Misc.getSystemMilliseconds() + 500;// TIME_LIMIT;
