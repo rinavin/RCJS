@@ -111,6 +111,7 @@
     <PlatformTarget>x86</PlatformTarget>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="Microsoft.CSharp" />
     <Reference Include="mscorlib">
       <Name>mscorlib</Name>
     </Reference>
@@ -138,6 +139,7 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>Resources.resx</DependentUpon>
     </Compile>
+    <Compile Include="src\com\magicsoftware\richclient\BindingUtils.cs" />
     <Compile Include="src\com\magicsoftware\richclient\ClientManager.cs" />
     <Compile Include="src\com\magicsoftware\richclient\commands\ClientToServer\AbortNonOfflineTasksCommand.cs" />
     <Compile Include="src\com\magicsoftware\richclient\commands\ClientToServer\AddUserLocateDataViewCommand.cs" />
@@ -215,6 +217,7 @@
     <Compile Include="src\com\magicsoftware\richclient\gui\FormsTable.cs" />
     <Compile Include="src\com\magicsoftware\richclient\communications\IConnectionStateManager.cs" />
     <Compile Include="src\com\magicsoftware\richclient\http\Statistics.cs" />
+    <Compile Include="src\com\magicsoftware\richclient\IObjectWithSite.cs" />
     <Compile Include="src\com\magicsoftware\richclient\local\application\DataSources\Converter\commands\DeleteCommand.cs" />
     <Compile Include="src\com\magicsoftware\richclient\local\application\DataSources\Converter\commands\IConvertCommand.cs" />
     <Compile Include="src\com\magicsoftware\richclient\local\application\DataSources\Converter\commands\RenameCommand.cs" />
@@ -607,7 +610,6 @@
   <PropertyGroup>
     <PreBuildEvent>
     </PreBuildEvent>
-    <PostBuildEvent>
-    </PostBuildEvent>
+    <PostBuildEvent>buildcab 033 00 000</PostBuildEvent>
   </PropertyGroup>
 </Project>

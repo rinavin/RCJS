@@ -2192,7 +2192,7 @@ namespace com.magicsoftware.unipaas.gui.low
          // GuiInteractive  that depends on the earlier commands. In such cases, GuiInteractive will not process 
          // commands between SHOW_FORM and interactive command because GuiThreadIsAvailableToProcessCommands
          // was set to false before opening the dialog.
-         if (!Misc.IsGuiThread() &&
+         if (/*!Misc.IsGuiThread() &&*/
             ((_commandsQueue.Size() > QUEUE_SIZE_THRESHOLD && GuiThreadIsAvailableToProcessCommands) || _modalShowFormCommandPresentInQueue))
          {
             int sleepDuration = MAX_SLEEP_DURATION;

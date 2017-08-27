@@ -2241,7 +2241,7 @@ namespace com.magicsoftware.unipaas.management.gui
             _expAlreadyComputedOnce = true;
 
             // Should not reach here from Gui thread
-            Debug.Assert(!Misc.IsGuiThread());
+            //Debug.Assert(!Misc.IsGuiThread());
 
             // for following control properties always evaluate expressions
             bool alwaysEvaluate = false;
