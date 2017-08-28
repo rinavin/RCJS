@@ -290,3 +290,4 @@ __pycache__/
 #dlls
 *.dll
 /magic1/
+/CefSharp.MinimalExample-master/magic/Sources/RichClientDotNet/RichClient/MGRIA033_00_000CS.cab
