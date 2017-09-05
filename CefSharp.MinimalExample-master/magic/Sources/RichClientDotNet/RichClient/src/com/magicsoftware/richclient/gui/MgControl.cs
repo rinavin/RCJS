@@ -1007,7 +1007,7 @@ namespace com.magicsoftware.richclient.gui
             else
                Commands.addAsync(commandType, this, getDisplayLine(false), val);
          }
-         updateChildrenPropValue(propId, commandType, val);
+        
       }
 
       /// <summary>

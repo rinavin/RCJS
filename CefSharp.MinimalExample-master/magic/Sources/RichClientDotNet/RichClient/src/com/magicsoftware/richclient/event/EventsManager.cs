@@ -1400,8 +1400,8 @@ namespace com.magicsoftware.richclient.events
                var form = (MgForm)currTask.getForm();
                if (form != null && form.Opened)
                {
-                  if (!form.isSubForm() && !form.IsMDIFrame)
-                     Commands.addAsync(CommandType.REFRESH_TMP_EDITOR, form);
+                  //if (!form.isSubForm() && !form.IsMDIFrame)
+                  //   Commands.addAsync(CommandType.REFRESH_TMP_EDITOR, form);
                   var table = (MgControl)form.getTableCtrl();
                   if (table != null)
                   {

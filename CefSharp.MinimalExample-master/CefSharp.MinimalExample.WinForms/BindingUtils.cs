@@ -79,6 +79,12 @@ namespace CefSharp.MinimalExample.WinForms
       //IJavascriptCallback showMessageBoxCallback;
       IJavascriptCallback openFormCallback;
       IJavascriptCallback showMessageBoxCallback;
+      IJavascriptCallback executeCommandsCallback;
+      internal IJavascriptCallback ExecuteCommandsCallback
+      {
+         get {return executeCommandsCallback; }
+         set { executeCommandsCallback = value; }
+      }
       internal IJavascriptCallback ShowMessageBoxCallback
       {
          get { return showMessageBoxCallback; }
@@ -98,6 +104,7 @@ namespace CefSharp.MinimalExample.WinForms
          JSBridge.Instance.showMessageBoxDelegate = ShowMessageBox;
          JSBridge.Instance.refreshTableUIDelegate = RefreshTableDisplay;
          JSBridge.Instance.openFormDelegate = OpenForm;
+         JSBridge.Instance.executeCommandsDelegate = ExecuteCommands;
          JSBridge.Instance.openSubformDelegate = OpenSubform;
       }
 
@@ -185,8 +192,9 @@ namespace CefSharp.MinimalExample.WinForms
             syncExecutor.ExecuteSync(ControlToInvoke, ShowMessageBoxCallback, msg);
       }
 
-      public void Start()
+      public void Start(IJavascriptCallback javascriptCallback)
       {
+         executeCommandsCallback = javascriptCallback;
          string[] args = Environment.GetCommandLineArgs();
          if (args.Length == 1)
             args = new string[] { };
@@ -209,17 +217,24 @@ namespace CefSharp.MinimalExample.WinForms
 
       private void RefreshDisplay(string taskId, string UIDesctiption)
       {
-         TaskCallbacks callbacks = getTaskCallbacks(taskId);
-         if (callbacks != null && callbacks.RefreshDataCallback != null)
-            callbacks.RefreshDataCallback.ExecuteAsync(UIDesctiption);
+         //TaskCallbacks callbacks = getTaskCallbacks(taskId);
+         //if (callbacks != null && callbacks.RefreshDataCallback != null)
+         //   callbacks.RefreshDataCallback.ExecuteAsync(UIDesctiption);
       }
-
+      
 
       private void RefreshTableDisplay(string taskId, string UIDesctiption)
       {
-         TaskCallbacks callbacks = getTaskCallbacks(taskId);
-         if (callbacks != null && callbacks.RefreshDataCallback != null)
-            callbacks.RefreshTableDataCallback.ExecuteAsync(UIDesctiption);
+         //TaskCallbacks callbacks = getTaskCallbacks(taskId);
+         //if (callbacks != null && callbacks.RefreshDataCallback != null)
+         //   callbacks.RefreshTableDataCallback.ExecuteAsync(UIDesctiption);
+      }
+
+      private void ExecuteCommands(string commands)
+      {
+         if (commands != null)
+            this.ExecuteCommandsCallback.ExecuteAsync(commands);
+        
       }
 
       /// <summary>

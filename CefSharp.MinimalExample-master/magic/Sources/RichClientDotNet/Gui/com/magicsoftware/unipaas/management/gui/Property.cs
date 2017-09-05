@@ -1559,6 +1559,8 @@ namespace com.magicsoftware.unipaas.management.gui
          String prevValue;
          bool valChanged = true;
 
+         if (_expId == 0)
+            return;
          if (_val == null && _expId == 0)
          {
             if (!IsGeneric && _dataType != StorageAttribute.DOTNET)
@@ -1626,8 +1628,7 @@ namespace com.magicsoftware.unipaas.management.gui
                    && ((Object)_val == (Object)prevValue || _val != null && _val.Equals(prevValue))
                    && _id != PropInterface.PROP_TYPE_MODIFIABLE
                    && _id != PropInterface.PROP_TYPE_ALLOW_PARKING
-                   && _id != PropInterface.PROP_TYPE_VISIBLE
-                   && _id != PropInterface.PROP_TYPE_ENABLED)
+                   )
                   return;
 
                //to prevent recursion while updating column visibility
@@ -2987,10 +2988,10 @@ namespace com.magicsoftware.unipaas.management.gui
             // The control is still is  visible. The reason is : The logical control is hidden , but the text control attached to it is at same position 
             // & is not hidden. So, control remains visible (in defect scenario it is orphan form). So to fix this problem,
             // add command REFRESH_TMP_EDITOR to refresh it.
-            if (_val != null && _val.Equals("0") && valChanged && ctrl.isTextControl())
-            {
-               Commands.addAsync(CommandType.REFRESH_TMP_EDITOR, (object)ctrl.getForm(), true);
-            }
+            //if (_val != null && _val.Equals("0") && valChanged && ctrl.isTextControl())
+            //{
+            //   Commands.addAsync(CommandType.REFRESH_TMP_EDITOR, (object)ctrl.getForm(), true);
+            //}
 
          }
       }
@@ -3091,8 +3092,11 @@ namespace com.magicsoftware.unipaas.management.gui
             if (_parentType == GuiConstants.PARENT_TYPE_FORM && mlsTransValue.Equals(String.Empty))
                mlsTransValue = " ";
          }
-
-         Commands.addAsync(CommandType.PROP_SET_TEXT, _parentObj, line, mlsTransValue, 0);
+         if (_parentObj is MgControlBase && ((MgControlBase)_parentObj).isTextControl())
+            Commands.addAsync(CommandType.SET_VALUE ,_parentObj, line, "", mlsTransValue);
+         else
+            Commands.addAsync(CommandType.SET_PROPERTY, _parentObj, line, "innerHTML", mlsTransValue);
+      
       }
 
       /// <summary>
@@ -3153,7 +3157,8 @@ namespace com.magicsoftware.unipaas.management.gui
                      }
                   }
 
-                  Commands.addAsync(CommandType.PROP_SET_READ_ONLY, getObjectByParentObj(), getLine(), readOnlyValue);
+                  //Commands.addAsync(CommandType.PROP_SET_READ_ONLY, getObjectByParentObj(), getLine(), readOnlyValue);
+                  Commands.addAsync(CommandType.SET_ATTRIBUTE, getObjectByParentObj(), getLine(), readOnlyValue.ToString());
                }
             }
          }

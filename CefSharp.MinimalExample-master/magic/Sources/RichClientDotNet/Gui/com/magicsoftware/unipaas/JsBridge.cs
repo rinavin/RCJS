@@ -19,6 +19,7 @@ namespace com.magicsoftware.unipaas
         public delegate void RefreshUIDelegate(string taskId, string UIDesctiption);
         public delegate string GetControlValueDelegate(string taskId, string controlName);
         public delegate void ShowMessageBoxDelegate(string msg);
+        public delegate void ExecuteCommandsDelegate(string commands);
         public delegate void OpenFormDelegate(string formName);
         public delegate void OpenSubformDelegate(string subformName, string parenttaskId, string formName, string taskId, string taskDesciption);
 
@@ -29,8 +30,15 @@ namespace com.magicsoftware.unipaas
         public ShowMessageBoxDelegate showMessageBoxDelegate;
         public OpenFormDelegate openFormDelegate;
         public OpenSubformDelegate openSubformDelegate;
+        public ExecuteCommandsDelegate executeCommandsDelegate;
 
-        public void RefreshUI(string taskId, string UIDesctiption)
+
+      public void executeCommands(string commands)
+      {
+         if (executeCommandsDelegate != null)
+            executeCommandsDelegate(commands);
+      }
+      public void RefreshUI(string taskId, string UIDesctiption)
         {
             if (refreshUIDelegate != null)
                 refreshUIDelegate(taskId, UIDesctiption);

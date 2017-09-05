@@ -6,7 +6,7 @@ namespace com.magicsoftware.util
    /// <summary> implementation of a general queue</summary>
    public class Queue<T>
    {
-      private readonly List<T> _queueVec; // Can't use List<T> - may use ActivityItem or GuiCommand
+      public readonly List<T> _queueVec; // Can't use List<T> - may use ActivityItem or GuiCommand
 
       /// <summary> Create a new queue with the specified maximum size</summary>
       /// <param name="size">the queue maximum size - 0 or negative means no limit</param>

@@ -50,7 +50,7 @@
 
    public enum CommandType
    {
-      CREATE_FORM,
+      CREATE_FORM = 1,
       INITIAL_FORM_LAYOUT,
       SHOW_FORM,
       CREATE_PLACEMENT_LAYOUT,
@@ -316,7 +316,11 @@
       SET_LAST_IN_CONTEXT,
       PROP_SET_BORDER_COLOR,
       SET_CARET,
-      SET_RECORDS_BEFORE_CURRENT_VIEW
+      SET_RECORDS_BEFORE_CURRENT_VIEW,
+      SET_VALUE,
+      SET_ATTRIBUTE,
+      SET_PROPERTY
+
    }
 
    public enum MenuStyle

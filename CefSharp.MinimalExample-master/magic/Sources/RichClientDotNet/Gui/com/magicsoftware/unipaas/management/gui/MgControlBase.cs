@@ -1630,8 +1630,11 @@ namespace com.magicsoftware.unipaas.management.gui
             String mlsTranslatedValue = Value;
             if (isButton())
                mlsTranslatedValue = Events.Translate(Value);
+            if (isTextControl())
+               Commands.addAsync(CommandType.SET_VALUE , this, line, "", mlsTranslatedValue);
+            else
+               Commands.addAsync(CommandType.SET_PROPERTY, this, line, "innerHTML", mlsTranslatedValue);
 
-            Commands.addAsync(CommandType.PROP_SET_TEXT, this, line, mlsTranslatedValue, 0);
          }
       }
 
@@ -1908,11 +1911,11 @@ namespace com.magicsoftware.unipaas.management.gui
       /// <param name = "updateThis"></param>
       public virtual void updatePropertyLogicNesting(int propId, CommandType commandType, bool val, bool updateThis)
       {
-         if (val && haveToCheckParentValue())
-            val = isParentPropValue(propId);
+         //if (val && haveToCheckParentValue())
+         //   val = isParentPropValue(propId);
          if (updateThis)
             Commands.addAsync(commandType, this, getDisplayLine(false), val, !IsFirstRefreshOfProps());
-         updateChildrenPropValue(propId, commandType, val);
+         //updateChildrenPropValue(propId, commandType, val);
       }
 
 

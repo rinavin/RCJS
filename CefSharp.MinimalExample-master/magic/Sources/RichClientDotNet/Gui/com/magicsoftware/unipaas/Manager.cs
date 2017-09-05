@@ -595,7 +595,8 @@ namespace com.magicsoftware.unipaas
                if (ctrl.getForm().getTask().checkProp(PropInterface.PROP_TYPE_ALLOW_LOCATE_IN_QUERY, false))
                   return;
             }
-            Commands.addAsync(CommandType.PROP_SET_READ_ONLY, ctrl, ctrl.getDisplayLine(false), isReadOnly);
+            
+            Commands.addAsync(CommandType.SET_ATTRIBUTE, ctrl, ctrl.getDisplayLine(false), "readOnly", isReadOnly.ToString());
             Commands.beginInvoke();
          }
       }

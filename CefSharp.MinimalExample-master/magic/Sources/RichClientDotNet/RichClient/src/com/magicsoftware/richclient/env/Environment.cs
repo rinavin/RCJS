@@ -315,20 +315,20 @@ namespace com.magicsoftware.richclient.env
          hashKey = env.CompIdx;
          _environments[hashKey] = env;
 
-         if (_accessTest)
-            Commands.addAsync(CommandType.SET_ENV_ACCESS_TEST, null, 0, _accessTest);
+         //if (_accessTest)
+         //   Commands.addAsync(CommandType.SET_ENV_ACCESS_TEST, null, 0, _accessTest);
 
-         if (_toolitipTimeout > 0)
-            Commands.addAsync(CommandType.SET_ENV_TOOLTIP_TIMEOUT, (object)null, (object)_toolitipTimeout);
+         //if (_toolitipTimeout > 0)
+         //   Commands.addAsync(CommandType.SET_ENV_TOOLTIP_TIMEOUT, (object)null, (object)_toolitipTimeout);
 
-         if (_specialTextSizeFactoring)
-            Commands.addAsync(CommandType.SET_ENV_SPECIAL_TEXT_SIZE_FACTORING, null, 0, _specialTextSizeFactoring);
+         //if (_specialTextSizeFactoring)
+         //   Commands.addAsync(CommandType.SET_ENV_SPECIAL_TEXT_SIZE_FACTORING, null, 0, _specialTextSizeFactoring);
 
-         if (_specialFlatEditOnClassicTheme)
-            Commands.addAsync(CommandType.SET_ENV_SPECIAL_FLAT_EDIT_ON_CLASSIC_THEME, null, 0, _specialFlatEditOnClassicTheme);
+         //if (_specialFlatEditOnClassicTheme)
+         //   Commands.addAsync(CommandType.SET_ENV_SPECIAL_FLAT_EDIT_ON_CLASSIC_THEME, null, 0, _specialFlatEditOnClassicTheme);
 
-         if (_language != ' ')
-            Commands.addAsync(CommandType.SET_ENV_LAMGUAGE, null, 0, (int)_language);
+         //if (_language != ' ')
+         //   Commands.addAsync(CommandType.SET_ENV_LAMGUAGE, null, 0, (int)_language);
       }
 
       /// <summary>

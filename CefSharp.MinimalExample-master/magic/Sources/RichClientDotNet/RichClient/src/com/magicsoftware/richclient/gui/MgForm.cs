@@ -2661,22 +2661,28 @@ namespace com.magicsoftware.richclient.gui
       {
          if (!getTask().isMainProg() /*&& InitializationFinished*/)
          {
-            if (!ScreenControlsData.IsEmpty())
-               JSBridge.Instance.RefreshUI(getTask().getTaskTag(), SerializeControls());
+           // if (!ScreenControlsData.IsEmpty())
+            //string result = SerializeControls();
+            //if (result!=null)
+            //   JSBridge.Instance.RefreshUI(getTask().getTaskTag(), result);
 
 
          }
       }
-
+    
+        
 
 
       public String SerializeControls()
       {
          JavaScriptSerializer serializer = new JavaScriptSerializer();
-         ScreenControlsData.ClearForSerialization();
-         string result = serializer.Serialize(ScreenControlsData);
-         ScreenControlsData = new ControlsData();
-         return result;
+         string result1 = Commands.GetCommands();
+
+
+         //ScreenControlsData.ClearForSerialization();
+         //string result = serializer.Serialize(ScreenControlsData);
+         //ScreenControlsData = new ControlsData();
+         return result1;
       }
 
       public class TableUpdate
