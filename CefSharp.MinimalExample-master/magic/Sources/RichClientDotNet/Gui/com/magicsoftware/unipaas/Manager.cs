@@ -596,7 +596,7 @@ namespace com.magicsoftware.unipaas
                   return;
             }
             
-            Commands.addAsync(CommandType.SET_ATTRIBUTE, ctrl, ctrl.getDisplayLine(false), "readOnly", isReadOnly.ToString());
+            Commands.addAsync(CommandType.SET_ATTRIBUTE, ctrl, ctrl.getDisplayLine(false), "readOnly", isReadOnly.ToString().ToLower());
             Commands.beginInvoke();
          }
       }

@@ -1326,12 +1326,17 @@ namespace com.magicsoftware.unipaas
         {
             GuiCommandQueue.getInstance().add(commandType, obj, line, str, userDropFormat, style);
         }
+       public static void addAsync(CommandType commandType, Object obj, String calledTaskTag, String subformControlName, string formName, string inputControls)
+       {
+          GuiCommandQueue.getInstance().add(commandType, obj, calledTaskTag, subformControlName, formName,
+             inputControls);
+       }
 
-        /// <summary>
-        ///   PROP_SET_IMAGE_DATA
-        /// </summary>
-        /// <param name = "line">TODO </param>
-        public static void addAsync(CommandType commandType, Object obj, int line, byte[] byteArray, int style)
+      /// <summary>
+      ///   PROP_SET_IMAGE_DATA
+      /// </summary>
+      /// <param name = "line">TODO </param>
+      public static void addAsync(CommandType commandType, Object obj, int line, byte[] byteArray, int style)
         {
             GuiCommandQueue.getInstance().add(commandType, obj, line, byteArray, style);
         }

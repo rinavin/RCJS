@@ -2951,12 +2951,23 @@ namespace com.magicsoftware.unipaas.gui.low
 
             put(guiCommand);
         }
+  
+      internal void add(CommandType commandType, Object obj, String calledTaskTag, String subformControlName, string formName, string inputControls)
+      {
+         GuiCommand guiCommand = new GuiCommand(obj, commandType);       
+         guiCommand.str = calledTaskTag;
+         guiCommand.obj1 = subformControlName;
+         guiCommand.userDropFormat = formName;
+         guiCommand.fileName = inputControls;
 
-        /// <summary>
-        ///   PROP_SET_IMAGE_DATA
-        /// </summary>
-        /// <param name = "line">TODO</param>
-        internal void add(CommandType commandType, Object obj, int line, byte[] byteArray, int style)
+         put(guiCommand);
+      }
+
+      /// <summary>
+      ///   PROP_SET_IMAGE_DATA
+      /// </summary>
+      /// <param name = "line">TODO</param>
+      internal void add(CommandType commandType, Object obj, int line, byte[] byteArray, int style)
         {
             checkObject(obj);
 
