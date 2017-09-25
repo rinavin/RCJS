@@ -2661,10 +2661,14 @@ namespace com.magicsoftware.richclient.gui
       {
          if (!getTask().isMainProg() /*&& InitializationFinished*/)
          {
-           // if (!ScreenControlsData.IsEmpty())
-            //string result = SerializeControls();
-            //if (result!=null)
-            //   JSBridge.Instance.RefreshUI(getTask().getTaskTag(), result);
+            if (!ScreenControlsData.IsEmpty())
+            {
+               JavaScriptSerializer serializer = new JavaScriptSerializer();
+               ScreenControlsData.ClearForSerialization();
+               string result = serializer.Serialize(ScreenControlsData);
+               ScreenControlsData = new ControlsData();                            
+              Commands.addAsync(CommandType.REFRESH_TASK, getForm(), 0, result, 0);
+            }
 
 
          }
@@ -2673,17 +2677,17 @@ namespace com.magicsoftware.richclient.gui
         
 
 
-      public String SerializeControls()
-      {
-         JavaScriptSerializer serializer = new JavaScriptSerializer();
-         string result1 = Commands.GetCommands();
+      //public String SerializeControls()
+      //{
+      //   JavaScriptSerializer serializer = new JavaScriptSerializer();
+      //   string result1 = Commands.GetCommands();
 
 
-         //ScreenControlsData.ClearForSerialization();
-         //string result = serializer.Serialize(ScreenControlsData);
-         //ScreenControlsData = new ControlsData();
-         return result1;
-      }
+      //   //ScreenControlsData.ClearForSerialization();
+      //   //string result = serializer.Serialize(ScreenControlsData);
+      //   //ScreenControlsData = new ControlsData();
+      //   return result1;
+      //}
 
       public class TableUpdate
       {
