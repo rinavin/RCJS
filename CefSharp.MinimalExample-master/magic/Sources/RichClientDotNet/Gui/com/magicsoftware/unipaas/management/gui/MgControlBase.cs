@@ -16,6 +16,7 @@ using util.com.magicsoftware.util;
 using Gui.com.magicsoftware.unipaas.management.gui;
 using System.Drawing;
 using com.magicsoftware.win32;
+using System.Web.Script.Serialization;
 
 #if PocketPC
 using com.magicsoftware.richclient.mobile.util;
@@ -3419,7 +3420,13 @@ namespace com.magicsoftware.unipaas.management.gui
          String[] optionsStrings = refreshDispRange(execComputeChoice);
 
          if (isSelectionCtrl() || isTabControl())
+         {
+            JavaScriptSerializer serializer = new JavaScriptSerializer();
+            
+            string result = serializer.Serialize(optionsStrings);
+            Commands.addAsync(CommandType.SET_PROPERTY, this, line, "itemslist",result);
             Commands.addAsync(CommandType.PROP_SET_ITEMS_LIST, this, line, optionsStrings, InSetToDefaultValue);
+         }
          else if (isRadio())
             refreshAndSetItemsListForRadioButton(line, execComputeChoice);
          else if (IsDotNetChoiceControl())
