@@ -2697,34 +2697,34 @@ namespace com.magicsoftware.richclient.gui
 
       public override void RefreshTableUI()
       {
-         string result = "";
-         TableUpdate tableUpdate = new TableUpdate();
-         if (HasTable())// && InitializationFinished)
-         {
-            JavaScriptSerializer serializer = new JavaScriptSerializer();
+         //string result = "";
+         //TableUpdate tableUpdate = new TableUpdate();
+         //if (HasTable())// && InitializationFinished)
+         //{
+         //   JavaScriptSerializer serializer = new JavaScriptSerializer();
            
-            for (int i = 0; i < Rows.Count; i++)
-            {
-               Row row = (Row)Rows[i];
-               if (row != null && row.ControlsData != null && !row.ControlsData.IsEmpty())
-               {
-                  row.ControlsData.ClearForSerialization();
-                  tableUpdate.rows[i.ToString()] = row.ControlsData;
-               }
-            }
-            tableUpdate.fullRefresh = rowsWereChanged;
-            rowsWereChanged = false;
-            if (tableUpdate.rows.Count > 0)
-            {
-               result = serializer.Serialize(tableUpdate);
-               JSBridge.Instance.RefreshTableUI(getTask().getTaskTag(), result);
-               foreach (Row item in Rows)
-               {
-                  if (item != null)
-                     item.ControlsData = new ControlsData();
-               }
-            }
-         }
+         //   for (int i = 0; i < Rows.Count; i++)
+         //   {
+         //      Row row = (Row)Rows[i];
+         //      if (row != null && row.ControlsData != null && !row.ControlsData.IsEmpty())
+         //      {
+         //         row.ControlsData.ClearForSerialization();
+         //         tableUpdate.rows[i.ToString()] = row.ControlsData;
+         //      }
+         //   }
+         //   tableUpdate.fullRefresh = rowsWereChanged;
+         //   rowsWereChanged = false;
+         //   if (tableUpdate.rows.Count > 0)
+         //   {
+         //      result = serializer.Serialize(tableUpdate);
+         //      JSBridge.Instance.RefreshTableUI(getTask().getTaskTag(), result);
+         //      foreach (Row item in Rows)
+         //      {
+         //         if (item != null)
+         //            item.ControlsData = new ControlsData();
+         //      }
+         //   }
+         //}
       }
 
       /// <summary>
@@ -3207,7 +3207,7 @@ namespace com.magicsoftware.richclient.gui
          SetTableTopIndex();
       }
 
-      bool rowsWereChanged;
+      //bool rowsWereChanged;
       /// <summary>
       /// inits table control's rows to 'size' count
       /// </summary>
@@ -3221,7 +3221,7 @@ namespace com.magicsoftware.richclient.gui
             {
                Commands.addAsync(CommandType.SET_TABLE_INCLUDES_FIRST, _tableMgControl, 0, true);
                Commands.addAsync(CommandType.SET_TABLE_INCLUDES_LAST, _tableMgControl, 0, true);
-               rowsWereChanged = true;
+              // rowsWereChanged = true;
             }
             else
             {
@@ -3583,4 +3583,29 @@ namespace com.magicsoftware.richclient.gui
          }
       }
    }
+   class Test
+   {
+      char testfiled;
+      public char Testfiled
+      {
+         get { return testfiled; }
+         set { testfiled = value; }
+      }
+      void method1(char a)
+      {
+         char b;
+         b = a;
+      }
+
+      char method2()
+      {
+         char c = 'c';
+         method1(c);
+         method1('c');
+         return 'a';
+      }
+
+   }
 }
+
+

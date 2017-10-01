@@ -1535,6 +1535,43 @@ namespace com.magicsoftware.unipaas.management.gui
          RefreshDisplay(forceRefresh, currLine, true);
       }
 
+      //private void BuildProperties(MgControlBase ctrl, int line)
+      //{
+      //   string name;
+      //   string value;
+      //   Dictionary<string, string> updatedProperties = new Dictionary<string, string>();
+      //   switch (_id)
+      //   {
+      //      case PropInterface.PROP_TYPE_TEXT:
+
+      //      case PropInterface.PROP_TYPE_VISIBLE:
+      //         name = "visibility";
+      //         value = getValueBoolean() ? "visible" : "hidden";
+      //         break;
+      //      case PropInterface.PROP_TYPE_ENABLED:
+      //      case PropInterface.PROP_TYPE_FORMAT:
+      //         ctrl = _parentObj as MgControlBase;
+      //         ControlsData controlsData = ctrl.GetControlsData(line);
+
+      //         if (!controlsData.ControlsMetaData.ContainsKey(ctrl.UniqueWebId))
+      //            controlsData.ControlsMetaData[ctrl.UniqueWebId] = new ControlMetaData();
+      //         controlsData.ControlsMetaData[ctrl.UniqueWebId].Properties[_id.ToString()] = _val;
+      //         //TODO : move to builder
+      //         //controlsData.ControlsMetaData[ctrl.UniqueWebId].Type = ((char)ctrl.Type).ToString();
+      //         break;
+
+      //   }
+      //}
+      //static Dictionary<int, string> TSprops =
+      //{
+
+      //}
+
+      //String GetTSPropertyName()
+      //{
+
+      //}
+
       /// <summary>
       /// Reevaluate the property value (if it has an expression) and
       /// refresh the display for control properties and form properties only
@@ -3095,9 +3132,10 @@ namespace com.magicsoftware.unipaas.management.gui
          if (_parentObj is MgControlBase && ((MgControlBase)_parentObj).isTextControl())
             Commands.addAsync(CommandType.SET_VALUE ,_parentObj, line, "", mlsTransValue);
          else
-            Commands.addAsync(CommandType.SET_PROPERTY, _parentObj, line, "innerHTML", mlsTransValue);
+            Commands.addAsync(CommandType.SET_PROPERTY, _parentObj, line, "text", mlsTransValue);
       
       }
+      
 
       /// <summary>
       /// </summary>

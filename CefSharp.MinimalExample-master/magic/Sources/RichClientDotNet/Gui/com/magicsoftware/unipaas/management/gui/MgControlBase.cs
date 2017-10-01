@@ -702,8 +702,8 @@ namespace com.magicsoftware.unipaas.management.gui
       /// </summary>
       public String getName()
       {
-         if (isRepeatableOrTree())
-            return getName(Form.DisplayLine);
+         //if (isRepeatableOrTree())
+         //   return getName(Form.DisplayLine);
 
          return Name;
       }
@@ -1914,14 +1914,18 @@ namespace com.magicsoftware.unipaas.management.gui
          //if (val && haveToCheckParentValue())
          //   val = isParentPropValue(propId);
          if (updateThis)
-            Commands.addAsync(commandType, this, getDisplayLine(false), val, !IsFirstRefreshOfProps());
+         {
+            Commands.addAsync(CommandType.SET_PROPERTY, this, getDisplayLine(false), commandType == CommandType.PROP_SET_VISIBLE? "visible" : "enabled", val ? "1" : "0");
+           // Commands.addAsync(commandType, this, getDisplayLine(false), val, !IsFirstRefreshOfProps());
+         }
          //updateChildrenPropValue(propId, commandType, val);
       }
 
 
       internal void SetEnabled(bool val)
       {
-         Commands.addAsync(CommandType.PROP_SET_ENABLE, this, getDisplayLine(false), val, !IsFirstRefreshOfProps());
+         Commands.addAsync(CommandType.SET_PROPERTY, this, getDisplayLine(false), "enabled", val ? "1" : "0");
+         
       }
       /// <summary>
       ///   Updates visibility of controls linked to the control
