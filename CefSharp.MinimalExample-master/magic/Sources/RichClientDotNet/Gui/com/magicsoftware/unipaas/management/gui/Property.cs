@@ -2569,13 +2569,21 @@ namespace com.magicsoftware.unipaas.management.gui
          // table items (rows)
 
          // set the background color
-         if (_parentType == GuiConstants.PARENT_TYPE_FORM || _parentType == GuiConstants.PARENT_TYPE_CONTROL)
-            if (!IsDesignerInfoFlagSet(DesignerInfoFlags.IsBackColor))
-               onBGColor();
-         // set the foreground color
-         if (_parentType == GuiConstants.PARENT_TYPE_CONTROL)
-            if (!IsDesignerInfoFlagSet(DesignerInfoFlags.IsForeColor))
-               onFGColor();
+         //if (_parentType == GuiConstants.PARENT_TYPE_FORM || _parentType == GuiConstants.PARENT_TYPE_CONTROL)
+         //   if (!IsDesignerInfoFlagSet(DesignerInfoFlags.IsBackColor))
+         //      onBGColor();
+         //// set the foreground color
+         //if (_parentType == GuiConstants.PARENT_TYPE_CONTROL)
+         //   if (!IsDesignerInfoFlagSet(DesignerInfoFlags.IsForeColor))
+         //      onFGColor();
+         int colorIndex = getValueInt();        
+         if (colorIndex > 0)
+         {
+            Commands.addAsync(CommandType.SET_CLASS, getObjectByParentObj(), getLine(), "color", "mgcolor" + colorIndex);
+         }
+         
+
+
       }
 
       /// <summary>
@@ -2800,14 +2808,13 @@ namespace com.magicsoftware.unipaas.management.gui
       /// </summary>
       private void onFont()
       {
-         if (IsDesignerInfoFlagSet(DesignerInfoFlags.IsDesignerValue))
-            return;
+        
 
          if (_parentType == GuiConstants.PARENT_TYPE_FORM || _parentType == GuiConstants.PARENT_TYPE_CONTROL)
          {
             int fontIndex = getValueInt();
-            MgFont mgFont = Manager.GetFontsTable().getFont(fontIndex);
-            Commands.addAsync(CommandType.PROP_SET_FONT, getObjectByParentObj(), getLine(), mgFont, fontIndex);
+            Commands.addAsync(CommandType.SET_CLASS, getObjectByParentObj(), getLine(), "font", "mgfont" + fontIndex);
+
          }
          else
             throw new ApplicationException("in Property.onFont()");

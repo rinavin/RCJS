@@ -320,6 +320,7 @@
       SET_VALUE,
       SET_ATTRIBUTE,
       SET_PROPERTY,
+      SET_CLASS,
       REFRESH_TASK
 
    }
