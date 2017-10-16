@@ -661,7 +661,7 @@ namespace com.magicsoftware.unipaas.management.gui
          // the local path (after getting the file on the client-side.
          // For image control, PROP_TYPE_LOAD_IMAGE_FROM decides whether the file is from server or not.
          if (loadImageFrom == null || loadImageFrom.getValueInt() == (int)ExecOn.Server)
-            fileName = Events.GetLocalFileName(fileName, Form.getTask()); // load image through cache mechanism.
+         { }// fileName = Events.GetLocalFileName(fileName, Form.getTask()); // load image through cache mechanism.
          else if (this.isImageControl() && !fileName.StartsWith("@"))
             // Otherwise (i.e. 'Load Image From' <> 'Server'): #713012: ==> handle as a client/local file:
             // If the given filename has no explicit protocol (i.e. not already "http://", "https://" or "file://"),
@@ -675,7 +675,8 @@ namespace com.magicsoftware.unipaas.management.gui
 
          Property imageStyleProp = getProp(PropInterface.PROP_TYPE_IMAGE_STYLE);
          Commands.addAsync(CommandType.PROP_SET_IMAGE_FILE_NAME, this, getDisplayLine(false), fileName, imageStyleProp.getValueInt());
-
+        
+         Commands.addAsync(CommandType.SET_PROPERTY, this, getDisplayLine(false), "image", fileName);
          //We need to execute the layout only if the radio is not on table. for table, it is done 
          //from LgRadioContainer.setSpecificControlProperties().
          if (this.isRadio() && !IsRepeatable)
@@ -1634,7 +1635,7 @@ namespace com.magicsoftware.unipaas.management.gui
             if (isTextControl())
                Commands.addAsync(CommandType.SET_VALUE , this, line, "", mlsTranslatedValue);
             else
-               Commands.addAsync(CommandType.SET_PROPERTY, this, line, "innerHTML", mlsTranslatedValue);
+               Commands.addAsync(CommandType.SET_PROPERTY, this, line, /*"innerHTML"*/ "text", mlsTranslatedValue);
 
          }
       }
@@ -3205,11 +3206,8 @@ namespace com.magicsoftware.unipaas.management.gui
          {
             if (valueChanged && !String.IsNullOrEmpty(Name)) //perfromace improvement
             {
-               if (Type == MgControlType.CTRL_TYPE_IMAGE) //TODO: general handling of logical names
-
-                  GetControlsData(line).ControlsValues[UniqueWebId] = Events.TranslateLogicalName(Value); 
-               else
-                 GetControlsData(line).ControlsValues[UniqueWebId] = Value;
+               string result = Type == MgControlType.CTRL_TYPE_IMAGE?  Events.TranslateLogicalName(Value): Value;
+               Commands.addAsync(CommandType.SET_VALUE, this, line, "", result);
             }
          }
       }
