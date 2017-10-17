@@ -35,7 +35,7 @@ namespace com.magicsoftware.unipaas
 
       public void executeCommands(string commands)
       {
-         if (executeCommandsDelegate != null)
+         if (executeCommandsDelegate != null && commands != null)
             executeCommandsDelegate(commands);
       }
       public void RefreshUI(string taskId, string UIDesctiption)

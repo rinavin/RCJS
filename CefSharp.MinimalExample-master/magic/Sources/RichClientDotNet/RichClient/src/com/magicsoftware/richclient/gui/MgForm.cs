@@ -2824,6 +2824,8 @@ namespace com.magicsoftware.richclient.gui
          Logger.Instance.WriteGuiToLog("End form.refreshTable()");
          //???!!!
          RefreshTableUI ();
+         Commands.addAsync(CommandType.REFRESH_TASK, getForm(), 0, "", 0);
+
 
       }
 
