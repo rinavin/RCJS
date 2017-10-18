@@ -170,13 +170,13 @@ namespace CefSharp.MinimalExample.WinForms
          getTaskCallbacks(taskId).RefreshTableDataCallback = javascriptCallback;
       }
 
-      public String GetValue(string taskId, string controlName)
+      public String GetValue(string taskId, string rowId, string controlName)
       {
          SyncExecutor syncExecutor = new SyncExecutor();
          TaskCallbacks callbacks = getTaskCallbacks(taskId);
          object result = "";
          if (callbacks != null && callbacks.GetValueCallback != null)
-            result = syncExecutor.ExecuteSync(ControlToInvoke, callbacks.GetValueCallback, controlName);
+            result = syncExecutor.ExecuteSync(ControlToInvoke, callbacks.GetValueCallback, rowId, controlName);
          return result.ToString();
       }
 

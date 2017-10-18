@@ -224,7 +224,7 @@ namespace com.magicsoftware.unipaas
         public static String getValue(Object obj, int line)
         {
             MgControlBase control = ((MgControlBase)obj);
-            return JSBridge.Instance.GetControlValue(control.getForm().getTask().getTaskTag(), control.Name);
+            return JSBridge.Instance.GetControlValue(control.getForm().getTask().getTaskTag(), line.ToString(), control.Name);
 
         }
 

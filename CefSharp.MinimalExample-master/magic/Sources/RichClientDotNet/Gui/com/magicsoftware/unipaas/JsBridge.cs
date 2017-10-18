@@ -17,7 +17,7 @@ namespace com.magicsoftware.unipaas
 
         }
         public delegate void RefreshUIDelegate(string taskId, string UIDesctiption);
-        public delegate string GetControlValueDelegate(string taskId, string controlName);
+        public delegate string GetControlValueDelegate(string taskId, string rowId, string controlName);
         public delegate void ShowMessageBoxDelegate(string msg);
         public delegate void ExecuteCommandsDelegate(string commands);
         public delegate void OpenFormDelegate(string formName);
@@ -50,10 +50,10 @@ namespace com.magicsoftware.unipaas
             refreshTableUIDelegate(taskId, UIDesctiption);
       }
 
-      public string GetControlValue(string taskId, string controlName)
+      public string GetControlValue(string taskId, string rowId, string controlName)
         {
             if (getControlValueDelegate != null)
-                return getControlValueDelegate(taskId, controlName);
+                return getControlValueDelegate(taskId, rowId, controlName);
             return "";
         }
 
