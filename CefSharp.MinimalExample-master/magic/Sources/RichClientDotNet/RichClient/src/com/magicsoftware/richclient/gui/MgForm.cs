@@ -2661,14 +2661,18 @@ namespace com.magicsoftware.richclient.gui
       {
          if (!getTask().isMainProg() /*&& InitializationFinished*/)
          {
-            if (!ScreenControlsData.IsEmpty())
-            {
-               JavaScriptSerializer serializer = new JavaScriptSerializer();
-               ScreenControlsData.ClearForSerialization();
-               string result = serializer.Serialize(ScreenControlsData);
-               ScreenControlsData = new ControlsData();                            
-              Commands.addAsync(CommandType.REFRESH_TASK, getForm(), 0, result, 0);
-            }
+            //if (!ScreenControlsData.IsEmpty())
+            //{
+            //   JavaScriptSerializer serializer = new JavaScriptSerializer();
+            //   ScreenControlsData.ClearForSerialization();
+            //   string result = serializer.Serialize(ScreenControlsData);
+            //   ScreenControlsData = new ControlsData();                            
+            //  Commands.addAsync(CommandType.REFRESH_TASK, getForm(), 0, result, 0);
+            //}
+
+
+            //check if anything was changed
+            Commands.addAsync(CommandType.REFRESH_TASK, getForm(), 0, "", 0);
 
 
          }
