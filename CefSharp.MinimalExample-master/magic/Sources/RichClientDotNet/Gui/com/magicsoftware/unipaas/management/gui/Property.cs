@@ -3228,6 +3228,7 @@ namespace com.magicsoftware.unipaas.management.gui
 
             // #929889: Remove extra white spaces at the end of tooltip text.
             toolTip = StrUtil.rtrim(toolTip);
+            Commands.addAsync(CommandType.SET_PROPERTY, mgControl, getLine(), "tooltip", toolTip);
             Commands.addAsync(CommandType.PROP_SET_TOOLTIP, mgControl, getLine(), toolTip, 0);
          }
          else
