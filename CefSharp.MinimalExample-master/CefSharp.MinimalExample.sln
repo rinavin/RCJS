@@ -26,9 +26,6 @@ EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "_RC GatewayTypes 2015", "magic\Sources\RichClientDotNet\MgRIAGatewayTypes\_RC GatewayTypes 2015.csproj", "{204B0A93-35AF-40DC-8000-43973186DBCA}"
 EndProject
 Global
-	GlobalSection(Performance) = preSolution
-		HasPerformanceSessions = true
-	EndGlobalSection
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
 		Debug|x64 = Debug|x64

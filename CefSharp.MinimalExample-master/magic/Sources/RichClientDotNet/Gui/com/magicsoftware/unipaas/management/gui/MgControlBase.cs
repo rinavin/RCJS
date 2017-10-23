@@ -116,7 +116,7 @@ namespace com.magicsoftware.unipaas.management.gui
       private bool valueFromDesigner = false;
       protected int parent;
       protected int veeIndx;
-      
+
 
       /// <summary>
       ///   CTOR
@@ -182,7 +182,7 @@ namespace com.magicsoftware.unipaas.management.gui
       public bool InControl { get; set; }
       public string PromptHelp { get; private set; } //the prompt help text assigned to control
       #region PropParentInterface Members
-     
+
 
 
       /// <summary>
@@ -203,10 +203,10 @@ namespace com.magicsoftware.unipaas.management.gui
       }
 
 
-/// <summary>
-/// return true if this subform is under frame form
-/// </summary>
-/// <returns></returns>
+      /// <summary>
+      /// return true if this subform is under frame form
+      /// </summary>
+      /// <returns></returns>
       public bool IsSubformUnderFrameForm()
       {
          bool isSubFrmUnderFrameForm = false;
@@ -414,7 +414,7 @@ namespace com.magicsoftware.unipaas.management.gui
       /// <param name="refreshPrompt"></param>
       /// <param name="activateForm">whether to activate a form after setfocus or not</param>
       public void SetFocus(MgControlBase ctrl, int line, bool refreshPrompt, bool activateForm)
-      {         
+      {
          EvaluatePromptHelp();
 
          if (refreshPrompt)
@@ -675,7 +675,7 @@ namespace com.magicsoftware.unipaas.management.gui
 
          Property imageStyleProp = getProp(PropInterface.PROP_TYPE_IMAGE_STYLE);
          Commands.addAsync(CommandType.PROP_SET_IMAGE_FILE_NAME, this, getDisplayLine(false), fileName, imageStyleProp.getValueInt());
-        
+
          Commands.addAsync(CommandType.SET_PROPERTY, this, getDisplayLine(false), "image", fileName);
          //We need to execute the layout only if the radio is not on table. for table, it is done 
          //from LgRadioContainer.setSpecificControlProperties().
@@ -1918,7 +1918,7 @@ namespace com.magicsoftware.unipaas.management.gui
          if (updateThis)
          {
             Commands.addAsync(CommandType.SET_PROPERTY, this, getDisplayLine(false), commandType == CommandType.PROP_SET_VISIBLE? "visible" : "enabled", val ? "1" : "0");
-           // Commands.addAsync(commandType, this, getDisplayLine(false), val, !IsFirstRefreshOfProps());
+            // Commands.addAsync(commandType, this, getDisplayLine(false), val, !IsFirstRefreshOfProps());
          }
          //updateChildrenPropValue(propId, commandType, val);
       }
@@ -1927,7 +1927,7 @@ namespace com.magicsoftware.unipaas.management.gui
       internal void SetEnabled(bool val)
       {
          Commands.addAsync(CommandType.SET_PROPERTY, this, getDisplayLine(false), "enabled", val ? "1" : "0");
-         
+
       }
       /// <summary>
       ///   Updates visibility of controls linked to the control
@@ -3134,9 +3134,11 @@ namespace com.magicsoftware.unipaas.management.gui
                               }
                            }
                         }
+                        int[] indice = Misc.GetIntArray(Value);
+                        Commands.addAsync(CommandType.SET_PROPERTY, this, line, "selectedvalue", indice[0]);
 
                         Commands.addAsync(CommandType.PROP_SET_SELECTION, this, line, Value,
-                                                          prevDisplayValue, InSetToDefaultValue);
+                                                  prevDisplayValue, InSetToDefaultValue);
                      }
                      break;
 
@@ -3194,9 +3196,9 @@ namespace com.magicsoftware.unipaas.management.gui
                                                      checkProp(PropInterface.PROP_TYPE_VISIBLE, true), false);
 
                }
-              
+
             }
-            
+
             catch (Exception)
             {
                Events.WriteExceptionToLog(string.Format("in Control.RefreshDisplayValue() for control: {0}", Name));
@@ -3231,7 +3233,7 @@ namespace com.magicsoftware.unipaas.management.gui
                return _controlIsn.ToString();
             else
                return Name;
-               }
+         }
       }
 
       /// <summary></summary>
@@ -3420,7 +3422,7 @@ namespace com.magicsoftware.unipaas.management.gui
          if (isSelectionCtrl() || isTabControl())
          {
             JavaScriptSerializer serializer = new JavaScriptSerializer();
-            
+
             string result = serializer.Serialize(optionsStrings);
             Commands.addAsync(CommandType.SET_PROPERTY, this, line, "itemslist",result);
             Commands.addAsync(CommandType.PROP_SET_ITEMS_LIST, this, line, optionsStrings, InSetToDefaultValue);
@@ -3573,7 +3575,7 @@ namespace com.magicsoftware.unipaas.management.gui
       {
          return refreshItmRange(false);
       }
-      
+
       /// <summary>
       /// Get the display values from data source & display list property.
       /// </summary>
@@ -3704,7 +3706,7 @@ namespace com.magicsoftware.unipaas.management.gui
             if (containsWidth)
                runtimeDesignerXDiff = 0;
             if (containsHeight)
-               runtimeDesignerYDiff = 0; 
+               runtimeDesignerYDiff = 0;
 
             // get coordinates that were defined on the controls originally,
             // i.e. before expression executed
@@ -4674,59 +4676,59 @@ namespace com.magicsoftware.unipaas.management.gui
          return allBlanks;
       }
 
-        protected ImeParam imeParam0; // WM_IME_COMPOSITION
-        protected ImeParam imeParam1; // WM_IME_START/END_COMPOSITION
-        protected ImeParam imeParam2; // WM_KEYDOWN
-        protected ImeParam imeParam3; // WM_CHAR
+      protected ImeParam imeParam0; // WM_IME_COMPOSITION
+      protected ImeParam imeParam1; // WM_IME_START/END_COMPOSITION
+      protected ImeParam imeParam2; // WM_KEYDOWN
+      protected ImeParam imeParam3; // WM_CHAR
 
-        public void SaveImeParam(ImeParam im)
-        {
-            switch (im.Msg)
-            {
-                case NativeWindowCommon.WM_IME_STARTCOMPOSITION:
-                case NativeWindowCommon.WM_IME_ENDCOMPOSITION:
-                    imeParam0 = im;
-                    break;
+      public void SaveImeParam(ImeParam im)
+      {
+         switch (im.Msg)
+         {
+            case NativeWindowCommon.WM_IME_STARTCOMPOSITION:
+            case NativeWindowCommon.WM_IME_ENDCOMPOSITION:
+               imeParam0 = im;
+               break;
 
-                case NativeWindowCommon.WM_IME_COMPOSITION:
-                    imeParam1 = im;
-                    break;
+            case NativeWindowCommon.WM_IME_COMPOSITION:
+               imeParam1 = im;
+               break;
 
-                case NativeWindowCommon.WM_KEYDOWN:
-                    imeParam2 = im;
-                    break;
-                case NativeWindowCommon.WM_CHAR:
-                    imeParam3 = im;
-                    break;
-            }
-        }
+            case NativeWindowCommon.WM_KEYDOWN:
+               imeParam2 = im;
+               break;
+            case NativeWindowCommon.WM_CHAR:
+               imeParam3 = im;
+               break;
+         }
+      }
 
-        public ImeParam GetImeParam(int msg)
-        {
-            ImeParam im = null;
-            switch (msg)
-            {
-                case NativeWindowCommon.WM_IME_STARTCOMPOSITION:
-                case NativeWindowCommon.WM_IME_ENDCOMPOSITION:
-                    im = imeParam0;
-                    imeParam0 = null;
-                    break;
+      public ImeParam GetImeParam(int msg)
+      {
+         ImeParam im = null;
+         switch (msg)
+         {
+            case NativeWindowCommon.WM_IME_STARTCOMPOSITION:
+            case NativeWindowCommon.WM_IME_ENDCOMPOSITION:
+               im = imeParam0;
+               imeParam0 = null;
+               break;
 
-                case NativeWindowCommon.WM_IME_COMPOSITION:
-                    im = imeParam1;
-                    imeParam1 = null;
-                    break;
+            case NativeWindowCommon.WM_IME_COMPOSITION:
+               im = imeParam1;
+               imeParam1 = null;
+               break;
 
-                case NativeWindowCommon.WM_KEYDOWN:
-                    im = imeParam2;
-                    imeParam2 = null;
-                    break;
-                case NativeWindowCommon.WM_CHAR:
-                    im = imeParam3;
-                    imeParam3 = null;
-                    break;
-            }
-            return im;
-        }
-    }
+            case NativeWindowCommon.WM_KEYDOWN:
+               im = imeParam2;
+               imeParam2 = null;
+               break;
+            case NativeWindowCommon.WM_CHAR:
+               im = imeParam3;
+               imeParam3 = null;
+               break;
+         }
+         return im;
+      }
+   }
 }

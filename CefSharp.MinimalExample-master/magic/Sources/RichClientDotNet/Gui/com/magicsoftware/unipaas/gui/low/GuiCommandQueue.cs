@@ -2925,6 +2925,11 @@ namespace com.magicsoftware.unipaas.gui.low
                     guiCommand.style = style;
                     break;
 
+                case CommandType.SET_PROPERTY:
+                    guiCommand.Operation = str;
+                    guiCommand.number = style;
+                    break;
+
                 default:
                     guiCommand.str = str;
                     break;
