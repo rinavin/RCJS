@@ -2774,6 +2774,11 @@ namespace com.magicsoftware.unipaas.gui.low
                     guiCommand.number = (int)objectValue2;
                     break;
 
+                case CommandType.SET_CLASS:
+                    guiCommand.Operation = (string)objectValue1;
+                    guiCommand.Bool1 = (bool)objectValue2;
+                    break;
+
                 default:
                     throw new ApplicationException("in GuiCommandQueue.add(): command type not handled: " + commandType);
             }

@@ -4264,7 +4264,7 @@ namespace com.magicsoftware.unipaas.management.gui
               
                case MgControlType.CTRL_TYPE_RICH_TEXT:
                case MgControlType.CTRL_TYPE_SB_LABEL:
-                  Commands.addAsync(CommandType.PROP_SET_BORDER, getObjectByParentObj(), ctrl.getDisplayLine(false), getValueBoolean());
+                  Commands.addAsync(CommandType.SET_CLASS, getObjectByParentObj(), ctrl.getDisplayLine(false), "showborder", getValueBoolean() ? "has_border" : "hidden_border");
                   break;
 
                default:
