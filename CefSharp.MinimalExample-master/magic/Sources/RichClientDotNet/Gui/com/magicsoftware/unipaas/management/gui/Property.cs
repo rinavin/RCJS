@@ -2876,7 +2876,7 @@ namespace com.magicsoftware.unipaas.management.gui
                   mgFGColor = Manager.GetColorsTable().getFGColor(colorIndex);
                   mgBGColor = Manager.GetColorsTable().getBGColor(colorIndex);
                }
-               Commands.addAsync(CommandType.PROP_SET_FOCUS_COLOR, getObjectByParentObj(), getLine(), mgFGColor, mgBGColor, colorIndex);
+                    Commands.addAsync(CommandType.SET_CLASS, getObjectByParentObj(), getLine(), "focuscolor", "mgFocusColor" + colorIndex);
             }
          }
       }
