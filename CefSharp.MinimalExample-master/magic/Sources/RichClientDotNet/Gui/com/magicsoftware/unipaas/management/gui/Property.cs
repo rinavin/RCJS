@@ -2860,8 +2860,6 @@ namespace com.magicsoftware.unipaas.management.gui
             if (ctrl.isTextControl())
             {
                int colorIndex = getValueInt();
-               MgColor mgFGColor = null;
-               MgColor mgBGColor = null;
 
                //Task # 129468 : If property value of Focus color is 0 or invalid then get the value of Default Focus Color property defined in the Environment settings.
                if (colorIndex == 0 || colorIndex >= Manager.GetColorsTable().Count)
@@ -2872,10 +2870,6 @@ namespace com.magicsoftware.unipaas.management.gui
                      colorIndex = 0;
                }
                if (colorIndex > 0)
-               {
-                  mgFGColor = Manager.GetColorsTable().getFGColor(colorIndex);
-                  mgBGColor = Manager.GetColorsTable().getBGColor(colorIndex);
-               }
                     Commands.addAsync(CommandType.SET_CLASS, getObjectByParentObj(), getLine(), "focuscolor", "mgFocusColor" + colorIndex);
             }
          }
@@ -3094,12 +3088,8 @@ namespace com.magicsoftware.unipaas.management.gui
             if (!control.IsDateTimePicture() && !control.IsTableChild)
             {
                int colorIndex = getValueInt();
-               MgColor mgColor = null;
-
-               if (colorIndex > 0 && colorIndex < Manager.GetColorsTable().Count)
-                  mgColor = Manager.GetColorsTable().getFGColor(getValueInt());
-
-               Commands.addAsync(CommandType.PROP_SET_EDIT_HINT_COLOR, getObjectByParentObj(), getLine(), mgColor);
+                if (colorIndex > 0 && colorIndex < Manager.GetColorsTable().Count)
+                    Commands.addAsync(CommandType.SET_CLASS, getObjectByParentObj(), getLine(), "hintcolor","mgHintColor" + colorIndex);
             }
          }
          else
