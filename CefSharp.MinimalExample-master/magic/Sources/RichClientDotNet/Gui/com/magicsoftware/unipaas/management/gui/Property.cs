@@ -3080,8 +3080,8 @@ namespace com.magicsoftware.unipaas.management.gui
             MgControlBase control = (MgControlBase)getObjectByParentObj();
             string translatedString = Events.Translate(getValue());
             if (!control.IsDateTimePicture() && (!control.IsTableChild || control.IsTableHeaderChild))
-               Commands.addAsync(CommandType.PROP_SET_EDIT_HINT, getObjectByParentObj(), getLine(), translatedString);
-         }
+               Commands.addAsync(CommandType.SET_PROPERTY, getObjectByParentObj(), getLine(), "placeholder", translatedString);
+            }
          else
             throw new ApplicationException("inProperty.onHint()");
       }
