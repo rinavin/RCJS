@@ -2775,6 +2775,7 @@ namespace com.magicsoftware.unipaas.gui.low
                     break;
 
                 case CommandType.SET_CLASS:
+                case CommandType.SET_PROPERTY:
                     guiCommand.Operation = (string)objectValue1;
                     guiCommand.Bool1 = (bool)objectValue2;
                     break;

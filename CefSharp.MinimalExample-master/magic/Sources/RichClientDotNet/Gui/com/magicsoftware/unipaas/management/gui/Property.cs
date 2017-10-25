@@ -4133,7 +4133,7 @@ namespace com.magicsoftware.unipaas.management.gui
       private void onPassword()
       {
          if (_parentType == GuiConstants.PARENT_TYPE_CONTROL)
-            Commands.addAsync(CommandType.PROP_SET_PASSWORD_EDIT, getObjectByParentObj(), getLine(), getValueBoolean());
+            Commands.addAsync(CommandType.SET_PROPERTY, getObjectByParentObj(), getLine(), "password", getValueBoolean());
          else
             throw new ApplicationException("in Property.onPassword()");
       }
