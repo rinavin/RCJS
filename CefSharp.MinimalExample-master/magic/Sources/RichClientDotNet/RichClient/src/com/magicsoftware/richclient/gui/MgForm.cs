@@ -1342,6 +1342,12 @@ namespace com.magicsoftware.richclient.gui
                }
             }
 
+            MgControl runner = _ctrlOrderHead;
+            for (i = 0; runner != null; i++, runner = runner.getNextCtrl())
+            {
+               Commands.addAsync(CommandType.SET_PROPERTY, runner, runner.getDisplayLine(false), "tabindex", (i+1).ToString());
+            }
+
             // If this is the first combine, check if there is any dynamic element in it, and mark it on the
             // the form. This way, the recompute tabbing order will be skipped for tasks in which it is static
             if (parentSubformCtrl == null && _recomputeTabOrder == (char)0)

@@ -3135,7 +3135,7 @@ namespace com.magicsoftware.unipaas.management.gui
                            }
                         }
                         int[] indice = Misc.GetIntArray(Value);
-                        Commands.addAsync(CommandType.SET_PROPERTY, this, line, "selectedvalue", indice[0]);
+                        Commands.addAsync(CommandType.SET_PROPERTY, this, line, "selectedvalue", indice[0].ToString());
 
                         Commands.addAsync(CommandType.PROP_SET_SELECTION, this, line, Value,
                                                   prevDisplayValue, InSetToDefaultValue);
@@ -3274,6 +3274,9 @@ namespace com.magicsoftware.unipaas.management.gui
             SetCurrReadOnly(isReadOnly);
             Manager.SetReadOnlyControl(this, isReadOnly);
          }
+
+         if (!GetComputedBooleanProperty(PropInterface.PROP_TYPE_TAB_IN, true))
+            Commands.addAsync(CommandType.SET_PROPERTY, this, getDisplayLine(false), "tabindex", -1);
       }
 
       /// <summary>
