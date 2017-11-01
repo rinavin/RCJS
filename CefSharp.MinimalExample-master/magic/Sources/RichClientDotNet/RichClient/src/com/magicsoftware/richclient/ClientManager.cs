@@ -120,12 +120,30 @@ namespace com.magicsoftware.richclient
                          control.Type == MgControlType.CTRL_TYPE_IMAGE)
                         Events.OnFocus(control, lineIdx, true, false);
 
-                     Events.OnMouseDown(control.getForm(), control, null, true, lineIdx, false, true);
+                     bool produceClick = control.isButton() || control.isTextControl() || control.isLabel() || 
+                        control.isTabControl() || control.isTableControl() || control.isComboBox();
 
+                     Events.OnMouseDown(control.getForm(), control, null, true, lineIdx, false, produceClick); 
                   }
                   break;
                case "focus":
                   Events.OnFocus(control, lineIdx, true, false);
+                  break;
+               case "mouseenter":
+                  Events.OnMouseOver(control);
+                  break;
+               case "mouseleave":
+                  Events.OnMouseOut(control);
+                  break;
+               case "dblclick":
+                  Events.OnDblClick(control, lineIdx);
+                  break;
+
+               case "selectionchanged":
+                  Events.OnSelection(line, control, 0, true);
+                  break;
+               default:
+                  Debug.Assert(false, "unhandled event: \"" + eventName + "\"");
                   break;
             }
          }

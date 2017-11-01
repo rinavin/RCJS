@@ -72,7 +72,7 @@ namespace com.magicsoftware.unipaas
 
       /// <summary> invokes the MouseOver Event</summary>
       /// <param name="ctrl"></param>
-      internal static void OnMouseOver(GuiMgControl ctrl)
+      public static void OnMouseOver(GuiMgControl ctrl)
       {
          Debug.Assert(MouseOverEvent != null);
          MouseOverEvent(ctrl);
@@ -198,9 +198,9 @@ namespace com.magicsoftware.unipaas
 
       /// <summary> invokes the MouseOut Event</summary>
       /// <param name="ctrl"></param>
-      internal static void OnMouseOut(GuiMgControl ctrl)
+      public static void OnMouseOut(GuiMgControl ctrl)
       {
-         Debug.Assert(Misc.IsGuiThread());
+         //Debug.Assert(Misc.IsGuiThread());
          Debug.Assert(MouseOutEvent != null);
          MouseOutEvent(ctrl);
       }
@@ -312,9 +312,9 @@ namespace com.magicsoftware.unipaas
       /// <summary> invokes the DblClick Event</summary>
       /// <param name="ctrl"></param>
       /// <param name="line"></param>
-      internal static void OnDblClick(GuiMgControl ctrl, int line)
+      public static void OnDblClick(GuiMgControl ctrl, int line)
       {
-         Debug.Assert(Misc.IsGuiThread());
+         //Debug.Assert(Misc.IsGuiThread());
          Debug.Assert(DblClickEvent != null);
          DblClickEvent(ctrl, line);
       }
