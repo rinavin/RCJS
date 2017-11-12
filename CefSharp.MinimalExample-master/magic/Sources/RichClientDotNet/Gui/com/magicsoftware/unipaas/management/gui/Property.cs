@@ -1596,8 +1596,15 @@ namespace com.magicsoftware.unipaas.management.gui
          String prevValue;
          bool valChanged = true;
 
-         if (_expId == 0)
+         bool skipWhenNoExpression = true;
+         ctrl = _parentObj as MgControlBase;
+         if ((ctrl != null && ctrl.IsButtonPushButton() && _id == PropInterface.PROP_TYPE_FORMAT) ||
+            (_id != PropInterface.PROP_TYPE_TEXT))
+            skipWhenNoExpression = false;
+
+         if (_expId == 0 && skipWhenNoExpression) 
             return;
+
          if (_val == null && _expId == 0)
          {
             if (!IsGeneric && _dataType != StorageAttribute.DOTNET)
@@ -2599,7 +2606,7 @@ namespace com.magicsoftware.unipaas.management.gui
             if (colorIndex > 0)
                borderColor = Manager.GetColorsTable().getFGColor((colorIndex));
 
-            Commands.addAsync(CommandType.PROP_SET_BORDER_COLOR, getObjectByParentObj(), getLine(), borderColor);
+            Commands.addAsync(CommandType.SET_CLASS, getObjectByParentObj(), getLine(), "borderColor", "mgBorderColor" + colorIndex);
          }
          else
             throw new ApplicationException("in Property.onBorderColor()");
@@ -3126,7 +3133,7 @@ namespace com.magicsoftware.unipaas.management.gui
             if (_parentType == GuiConstants.PARENT_TYPE_FORM && mlsTransValue.Equals(String.Empty))
                mlsTransValue = " ";
          }
-         if (_parentObj is MgControlBase && ((MgControlBase)_parentObj).isTextControl())
+         if (_parentObj is MgControlBase && (((MgControlBase)_parentObj).isTextControl() || (((MgControlBase)_parentObj).IsButtonPushButton())))
             Commands.addAsync(CommandType.SET_VALUE ,_parentObj, line, "", mlsTransValue);
          else
             Commands.addAsync(CommandType.SET_PROPERTY, _parentObj, line, "text", mlsTransValue);
