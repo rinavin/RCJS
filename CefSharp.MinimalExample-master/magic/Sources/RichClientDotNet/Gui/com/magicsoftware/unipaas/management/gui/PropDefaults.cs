@@ -338,6 +338,9 @@ namespace com.magicsoftware.unipaas.management.gui
             case PropInterface.PROP_TYPE_PERSISTENT_FORM_STATE_VERSION:
                val = getNumericMgValue(propParent, "0");
                break;
+            case PropInterface.PROP_TYPE_BUTTON_STYLE:
+               val = val = getNumericMgValue(propParent, "1"); // CtrlButtonTypeGui.Push;
+               break;
 
             default:
 #if DEBUG
