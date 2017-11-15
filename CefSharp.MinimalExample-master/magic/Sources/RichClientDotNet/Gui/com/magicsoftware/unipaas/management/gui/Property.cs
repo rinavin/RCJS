@@ -1599,7 +1599,7 @@ namespace com.magicsoftware.unipaas.management.gui
          bool skipWhenNoExpression = true;
          ctrl = _parentObj as MgControlBase;
          if ((ctrl != null && ctrl.IsButtonPushButton() && _id == PropInterface.PROP_TYPE_FORMAT) ||
-            (_id != PropInterface.PROP_TYPE_TEXT))
+            (_id == PropInterface.PROP_TYPE_TEXT))
             skipWhenNoExpression = false;
 
          if (_expId == 0 && skipWhenNoExpression) 
