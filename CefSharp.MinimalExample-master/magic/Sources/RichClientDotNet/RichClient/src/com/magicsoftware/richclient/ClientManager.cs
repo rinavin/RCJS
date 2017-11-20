@@ -162,14 +162,27 @@ namespace com.magicsoftware.richclient
          //TODO: not always 0
          MGData mgd = mgDataTab.getMGData(0);
          Task foundtask = null;
-         string result = "notfound";
-         if ( String.IsNullOrEmpty(parentId))
+         string result = "notfound"; //getTaskId
+         if (String.IsNullOrEmpty(parentId))
          {
-            foundtask = mgd.getFirstTask();//.getTaskTag();
+
+            mgDataTab.startTasksIteration();
+            Task task;
+            while ((task = mgDataTab.getNextTask()) != null)
+            {
+               if (!task.isMainProg() && task.IsInteractive)
+               {
+                  foundtask = task;
+                  break;
+               }
+
+
+            }
+            
          }
          else
          {
-            Task task = mgd.getTask(parentId);
+            Task task = (Task)mgDataTab.GetTaskByID(parentId);
             for (int i = 0; i < task.SubTasks.getSize(); i++)
             {
                Task subTask = task.SubTasks.getTask(i);
