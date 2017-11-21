@@ -2934,9 +2934,11 @@ namespace com.magicsoftware.unipaas.management.gui
             String wallpaperTrans = Events.TranslateLogicalName(wallpaper);
             TaskBase task = GetTaskByParentObject();
             String localFileName = Events.GetLocalFileName(wallpaperTrans, task);
-
-            Commands.addAsync(CommandType.PROP_SET_WALLPAPER, getObjectByParentObj(), 0, localFileName,
-                              wallpapaerStyleProp.getValueInt());
+           
+            Commands.addAsync(CommandType.SET_STYLE, getObjectByParentObj(), getLine(), "background", wallpaper);
+                  
+           // Commands.addAsync(CommandType.PROP_SET_WALLPAPER, getObjectByParentObj(), 0, localFileName,
+           //                   wallpapaerStyleProp.getValueInt());
          }
          else
             throw new ApplicationException("in Property.onWallpaper()");
