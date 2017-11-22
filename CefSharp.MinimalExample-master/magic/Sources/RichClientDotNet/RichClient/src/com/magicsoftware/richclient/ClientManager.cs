@@ -108,43 +108,46 @@ namespace com.magicsoftware.richclient
          {
             //TODO : use dictionary and real Id to return controls
             MgControlBase control = task.getForm().GetCtrl(controlName);
-            switch (eventName)
+            if (control != null) //it can be form
             {
-               case "click":
-                  if (control.isButton())
-                     Events.OnSelection("", control, lineIdx, true);
-                  else
-                  {
-                     //for text - temporary 
-                     if (control.Type == MgControlType.CTRL_TYPE_TEXT ||    control.Type == MgControlType.CTRL_TYPE_LABEL ||
-                         control.Type == MgControlType.CTRL_TYPE_IMAGE)
-                        Events.OnFocus(control, lineIdx, true, false);
+               switch (eventName)
+               {
+                  case "click":
+                     if (control.isButton())
+                        Events.OnSelection("", control, lineIdx, true);
+                     else
+                     {
+                        //for text - temporary 
+                        if (control.Type == MgControlType.CTRL_TYPE_TEXT || control.Type == MgControlType.CTRL_TYPE_LABEL ||
+                            control.Type == MgControlType.CTRL_TYPE_IMAGE)
+                           Events.OnFocus(control, lineIdx, true, false);
 
-                     bool produceClick = control.isButton() || control.isTextControl() || control.isLabel() || 
-                        control.isTabControl() || control.isTableControl() || control.isComboBox();
+                        bool produceClick = control.isButton() || control.isTextControl() || control.isLabel() ||
+                           control.isTabControl() || control.isTableControl() || control.isComboBox();
 
-                     Events.OnMouseDown(control.getForm(), control, null, true, lineIdx, false, produceClick); 
-                  }
-                  break;
-               case "focus":
-                  Events.OnFocus(control, lineIdx, true, false);
-                  break;
-               case "mouseenter":
-                  Events.OnMouseOver(control);
-                  break;
-               case "mouseleave":
-                  Events.OnMouseOut(control);
-                  break;
-               case "dblclick":
-                  Events.OnDblClick(control, lineIdx);
-                  break;
+                        Events.OnMouseDown(control.getForm(), control, null, true, lineIdx, false, produceClick);
+                     }
+                     break;
+                  case "focus":
+                     Events.OnFocus(control, lineIdx, true, false);
+                     break;
+                  case "mouseenter":
+                     Events.OnMouseOver(control);
+                     break;
+                  case "mouseleave":
+                     Events.OnMouseOut(control);
+                     break;
+                  case "dblclick":
+                     Events.OnDblClick(control, lineIdx);
+                     break;
 
-               case "selectionchanged":
-                  Events.OnSelection(line, control, 0, true);
-                  break;
-               default:
-                  Debug.Assert(false, "unhandled event: \"" + eventName + "\"");
-                  break;
+                  case "selectionchanged":
+                     Events.OnSelection(line, control, 0, true);
+                     break;
+                  default:
+                     Debug.Assert(false, "unhandled event: \"" + eventName + "\"");
+                     break;
+               }
             }
          }
       }
