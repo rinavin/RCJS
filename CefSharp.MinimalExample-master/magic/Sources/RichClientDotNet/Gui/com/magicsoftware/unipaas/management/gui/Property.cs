@@ -1598,7 +1598,7 @@ namespace com.magicsoftware.unipaas.management.gui
 
          bool skipWhenNoExpression = true;
          ctrl = _parentObj as MgControlBase;
-         if ((ctrl != null && ctrl.IsButtonPushButton() && _id == PropInterface.PROP_TYPE_FORMAT) ||
+         if ((ctrl != null && ctrl.isButton() && _id == PropInterface.PROP_TYPE_FORMAT) ||
              (ctrl != null && ctrl.isComboBox() && _id == PropInterface.PROP_TYPE_LABEL) ||
              (_id == PropInterface.PROP_TYPE_DISPLAY_LIST) ||
             (_id == PropInterface.PROP_TYPE_TEXT))
@@ -3137,7 +3137,7 @@ namespace com.magicsoftware.unipaas.management.gui
             if (_parentType == GuiConstants.PARENT_TYPE_FORM && mlsTransValue.Equals(String.Empty))
                mlsTransValue = " ";
          }
-         if (_parentObj is MgControlBase && (((MgControlBase)_parentObj).isTextControl() || (((MgControlBase)_parentObj).IsButtonPushButton())))
+         if (_parentObj is MgControlBase && (((MgControlBase)_parentObj).isTextControl() || (((MgControlBase)_parentObj).isButton())))
             Commands.addAsync(CommandType.SET_VALUE ,_parentObj, line, "", mlsTransValue);
          else
             Commands.addAsync(CommandType.SET_PROPERTY, _parentObj, line, "text", mlsTransValue);
