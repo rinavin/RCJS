@@ -3412,6 +3412,12 @@ namespace com.magicsoftware.unipaas.management.gui
          }
       }
 
+      class StringIndex
+      {
+         public string index;
+         public string realString;
+      }
+
       /// <summary>
       ///   refresh the item list and set it into the gui control if it is combo box , refresh also the visible
       ///   lines
@@ -3424,9 +3430,13 @@ namespace com.magicsoftware.unipaas.management.gui
 
          if (isSelectionCtrl() || isTabControl())
          {
+            StringIndex[] withIndex = new StringIndex[optionsStrings.Length];
+            for(int i=0;i< optionsStrings.Length;i++)
+               withIndex[i] = new StringIndex() { index = i.ToString(), realString = optionsStrings[i] };
+
             JavaScriptSerializer serializer = new JavaScriptSerializer();
 
-            string result = serializer.Serialize(optionsStrings);
+            string result = serializer.Serialize(withIndex);
             Commands.addAsync(CommandType.SET_PROPERTY, this, line, "itemslist",result);
             Commands.addAsync(CommandType.PROP_SET_ITEMS_LIST, this, line, optionsStrings, InSetToDefaultValue);
          }
