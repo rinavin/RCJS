@@ -2040,7 +2040,21 @@ namespace com.magicsoftware.unipaas.gui.low
 
           public String CtrlName
           {
-             get { return obj is MgControlBase ? ((MgControlBase) obj).getName() : null; }
+             get
+            {
+               if (obj is MgControlBase)
+                  return ((MgControlBase)obj).getName();
+               else if (obj is MgFormBase)
+               {
+                  if (((MgFormBase)obj).getProp(PropInterface.PROP_TYPE_FORM_NAME) != null)
+                     return ((MgFormBase)obj).getProp(PropInterface.PROP_TYPE_FORM_NAME).getValue();
+
+               }
+                 
+               //temporary - we do not have the form's name
+               // ((MgFormBase)obj).Name;
+               return null;
+            }
           }
 
           internal Object obj;

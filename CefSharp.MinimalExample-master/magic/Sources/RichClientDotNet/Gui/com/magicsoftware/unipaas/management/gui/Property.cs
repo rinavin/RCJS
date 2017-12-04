@@ -1598,7 +1598,7 @@ namespace com.magicsoftware.unipaas.management.gui
 
          bool skipWhenNoExpression = true;
          ctrl = _parentObj as MgControlBase;
-         if ((ctrl != null && ctrl.IsButtonPushButton() && _id == PropInterface.PROP_TYPE_FORMAT) ||
+         if ((ctrl != null && ctrl.isButton() && _id == PropInterface.PROP_TYPE_FORMAT) ||
              (ctrl != null && ctrl.isComboBox() && _id == PropInterface.PROP_TYPE_LABEL) ||
              (ctrl != null && ctrl.isCheckBox() && _id == PropInterface.PROP_TYPE_LABEL) ||
              (_id == PropInterface.PROP_TYPE_DISPLAY_LIST) ||
@@ -2935,9 +2935,11 @@ namespace com.magicsoftware.unipaas.management.gui
             String wallpaperTrans = Events.TranslateLogicalName(wallpaper);
             TaskBase task = GetTaskByParentObject();
             String localFileName = Events.GetLocalFileName(wallpaperTrans, task);
-
-            Commands.addAsync(CommandType.PROP_SET_WALLPAPER, getObjectByParentObj(), 0, localFileName,
-                              wallpapaerStyleProp.getValueInt());
+           
+            Commands.addAsync(CommandType.SET_STYLE, getObjectByParentObj(), getLine(), "background", wallpaper);
+                  
+           // Commands.addAsync(CommandType.PROP_SET_WALLPAPER, getObjectByParentObj(), 0, localFileName,
+           //                   wallpapaerStyleProp.getValueInt());
          }
          else
             throw new ApplicationException("in Property.onWallpaper()");
@@ -3136,7 +3138,7 @@ namespace com.magicsoftware.unipaas.management.gui
             if (_parentType == GuiConstants.PARENT_TYPE_FORM && mlsTransValue.Equals(String.Empty))
                mlsTransValue = " ";
          }
-         if (_parentObj is MgControlBase && (((MgControlBase)_parentObj).isTextControl() || (((MgControlBase)_parentObj).IsButtonPushButton())))
+         if (_parentObj is MgControlBase && (((MgControlBase)_parentObj).isTextControl() || (((MgControlBase)_parentObj).isButton())))
             Commands.addAsync(CommandType.SET_VALUE ,_parentObj, line, "", mlsTransValue);
          else
             Commands.addAsync(CommandType.SET_PROPERTY, _parentObj, line, "text", mlsTransValue);

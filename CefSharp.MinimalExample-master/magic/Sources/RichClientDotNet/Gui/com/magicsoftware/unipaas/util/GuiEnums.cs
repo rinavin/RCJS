@@ -321,6 +321,7 @@
       SET_ATTRIBUTE,
       SET_PROPERTY,
       SET_CLASS,
+      SET_STYLE,
       REFRESH_TASK
 
    }

@@ -127,6 +127,18 @@ namespace CefSharp.MinimalExample.WinForms
 
       }
 
+      public void saveData (string data)
+      {
+         try
+         {
+            System.IO.File.WriteAllText(@"d:\data.ts", data);
+         }
+         catch (Exception e)
+         {
+            MessageBox.Show(e.Message);
+         }
+      }
+
       /// <summary>
       /// register callback for refreshing UI
       /// </summary>
