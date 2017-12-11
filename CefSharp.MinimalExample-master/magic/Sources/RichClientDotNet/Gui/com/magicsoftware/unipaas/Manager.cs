@@ -576,7 +576,10 @@ namespace com.magicsoftware.unipaas
       {
          // QCR #745117: Make sure that if the contents of a control were changed
          // then the changes are applied before examining its value.
-         return Commands.getValue(ctrl, ctrl.getDisplayLine(true));
+         String val = Commands.getValue(ctrl, ctrl.getDisplayLine(true));
+         if (ctrl.isSelectionCtrl() && String.IsNullOrEmpty(val))
+            val = "0";
+         return val;
       }
 
       /// <summary>
