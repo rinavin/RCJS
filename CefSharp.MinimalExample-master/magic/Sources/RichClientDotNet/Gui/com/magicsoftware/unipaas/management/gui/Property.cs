@@ -3205,7 +3205,7 @@ namespace com.magicsoftware.unipaas.management.gui
                   }
 
                   //Commands.addAsync(CommandType.PROP_SET_READ_ONLY, getObjectByParentObj(), getLine(), readOnlyValue);
-                  Commands.addAsync(CommandType.SET_ATTRIBUTE, getObjectByParentObj(), getLine(), readOnlyValue.ToString());
+                  Commands.addAsync(CommandType.SET_ATTRIBUTE, getObjectByParentObj(), getLine(), "readOnly", readOnlyValue.ToString().ToLower());
                }
             }
          }
