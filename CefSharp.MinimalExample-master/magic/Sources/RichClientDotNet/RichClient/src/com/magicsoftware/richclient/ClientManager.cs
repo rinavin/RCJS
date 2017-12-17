@@ -123,7 +123,7 @@ namespace com.magicsoftware.richclient
                            Events.OnFocus(control, lineIdx, true, false);
 
                         bool produceClick = control.isButton() || control.isTextControl() || control.isLabel() ||
-                           control.isTabControl() || control.isTableControl() || control.isComboBox();
+                           control.isTabControl() || control.isTableControl() || control.isComboBox() || control.isImageControl();
 
                         Events.OnMouseDown(control.getForm(), control, null, true, lineIdx, false, produceClick);
                      }
