@@ -2590,7 +2590,7 @@ namespace com.magicsoftware.unipaas.management.gui
          int colorIndex = getValueInt();        
          if (colorIndex > 0)
          {
-            Commands.addAsync(CommandType.SET_CLASS, getObjectByParentObj(), getLine(), "color", "mgcolor" + colorIndex);
+            Commands.addAsync(CommandType.SET_CLASS, getObjectByParentObj(), getLine(), "color", "mgColor" + colorIndex);
          }
          
 

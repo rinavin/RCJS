@@ -1917,7 +1917,7 @@ namespace com.magicsoftware.unipaas.management.gui
          //   val = isParentPropValue(propId);
          if (updateThis)
          {
-            Commands.addAsync(CommandType.SET_PROPERTY, this, getDisplayLine(false), commandType == CommandType.PROP_SET_VISIBLE? "visible" : "enabled", val ? "1" : "0");
+            Commands.addAsync(CommandType.SET_PROPERTY, this, getDisplayLine(false), commandType == CommandType.PROP_SET_VISIBLE? "visible" : "enabled", val.ToString().ToLower());
             // Commands.addAsync(commandType, this, getDisplayLine(false), val, !IsFirstRefreshOfProps());
          }
          //updateChildrenPropValue(propId, commandType, val);
@@ -1926,7 +1926,7 @@ namespace com.magicsoftware.unipaas.management.gui
 
       internal void SetEnabled(bool val)
       {
-         Commands.addAsync(CommandType.SET_PROPERTY, this, getDisplayLine(false), "enabled", val ? "1" : "0");
+         Commands.addAsync(CommandType.SET_PROPERTY, this, getDisplayLine(false), "enabled", val.ToString().ToLower());
 
       }
       /// <summary>

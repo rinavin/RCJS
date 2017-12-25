@@ -1002,16 +1002,16 @@ namespace com.magicsoftware.richclient.gui
                val = false;
          if (updateThis)
          {
-            Commands.addAsync(CommandType.SET_PROPERTY, this, getDisplayLine(false), commandType == CommandType.PROP_SET_VISIBLE ? "visible" : "enabled", val?"1":"0");
+            Commands.addAsync(CommandType.SET_PROPERTY, this, getDisplayLine(false), commandType == CommandType.PROP_SET_VISIBLE ? "visible" : "enabled", val.ToString().ToLower());
 
-          
+
             //if (commandType == CommandType.PROP_SET_VISIBLE)
             //   Commands.addAsync(commandType, this, getDisplayLine(false), val, !IsFirstRefreshOfProps());
             //else
             //   Commands.addAsync(commandType, this, getDisplayLine(false), val);
 
          }
-        
+
       }
 
       /// <summary>
