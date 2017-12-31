@@ -3394,6 +3394,14 @@ namespace com.magicsoftware.unipaas.management.gui
          String[] displayVals = refreshDispRange(execComputeChoice);
 
          // creates new radio buttons from display list.
+         StringIndex[] withIndex = new StringIndex[displayVals.Length];
+         for (int i = 0; i < displayVals.Length; i++)
+            withIndex[i] = new StringIndex() { index = i.ToString(), realString = displayVals[i] };
+
+         JavaScriptSerializer serializer = new JavaScriptSerializer();
+
+         string result = serializer.Serialize(withIndex);
+         Commands.addAsync(CommandType.SET_PROPERTY, this, line, "itemslist", result);
          Commands.addAsync(CommandType.PROP_SET_ITEMS_LIST, this, line, displayVals, InSetToDefaultValue);
 
          // Optimization : We need to set properties only for screen mode program.

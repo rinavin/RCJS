@@ -1602,6 +1602,7 @@ namespace com.magicsoftware.unipaas.management.gui
              (ctrl != null && ctrl.isComboBox() && _id == PropInterface.PROP_TYPE_LABEL) ||
              (ctrl != null && ctrl.isListBox() && _id == PropInterface.PROP_TYPE_LABEL) ||
              (ctrl != null && ctrl.isCheckBox() && _id == PropInterface.PROP_TYPE_LABEL) ||
+             (ctrl != null && ctrl.isRadio() && _id == PropInterface.PROP_TYPE_LABEL) ||
              (_id == PropInterface.PROP_TYPE_DISPLAY_LIST) ||
             (_id == PropInterface.PROP_TYPE_TEXT))
             skipWhenNoExpression = false;
